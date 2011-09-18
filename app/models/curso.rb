@@ -1,5 +1,4 @@
 class Curso < ActiveRecord::Base
-  has_one :campus
-  has_many :profesores
+  belongs_to :campus
   has_and_belongs_to_many :profesores
 end

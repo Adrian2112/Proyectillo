@@ -1,4 +1,5 @@
 class Campus < ActiveRecord::Base
-  has_one :universidad
-  has_many :cursoss
+  belongs_to :universidad
+  has_many :cursos
+  has_many :profesores
 end

@@ -1,3 +1,3 @@
 class Calificacion < ActiveRecord::Base
-  has_one :profesor
+  belongs_to :profesor
 end

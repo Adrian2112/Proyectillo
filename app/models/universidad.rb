@@ -1,3 +1,3 @@
 class Universidad < ActiveRecord::Base
-  has_many :universidades
+  has_many :campus
 end
