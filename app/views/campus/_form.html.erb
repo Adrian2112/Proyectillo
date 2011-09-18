@@ -1,0 +1,33 @@
+<%= form_for(@campu) do |f| %>
+  <% if @campu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campu.errors.count, "error") %> prohibited this campu from being saved:</h2>
+
+      <ul>
+      <% @campu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br />
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :universidad_id %><br />
+    <%= f.text_field :universidad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
