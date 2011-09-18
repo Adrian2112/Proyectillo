@@ -1,9 +1,9 @@
 Calmecac::Application.routes.draw do
 
+  resources :campus
   resources :calificaciones
   resources :profesores
   resources :cursos
-  resources :campus
   resources :universidades
 
 

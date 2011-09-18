@@ -11,19 +11,19 @@
     <th></th>
   </tr>
 
-<% @campus.each do |campu| %>
+<% @campus.each do |campus| %>
   <tr>
-    <td><%= campu.nombre %></td>
-    <td><%= campu.ciudad %></td>
-    <td><%= campu.estado %></td>
-    <td><%= campu.universidad_id %></td>
-    <td><%= link_to 'Show', campu %></td>
-    <td><%= link_to 'Edit', edit_campu_path(campu) %></td>
-    <td><%= link_to 'Destroy', campu, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= campus.nombre %></td>
+    <td><%= campus.ciudad %></td>
+    <td><%= campus.estado %></td>
+    <td><%= campus.universidad_id %></td>
+    <td><%= link_to 'Show', campus %></td>
+    <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
+    <td><%= link_to 'Destroy', campus, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Campu', new_campu_path %>
+<%= link_to 'New Campus', new_campus_path %>
