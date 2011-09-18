@@ -9,6 +9,7 @@ gem 'jquery-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '0.2.6'
+gem "paperclip", "~> 2.4"
 
 # Use unicorn as the web server
 # gem 'unicorn'
