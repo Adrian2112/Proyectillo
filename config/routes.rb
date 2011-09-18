@@ -1,5 +1,7 @@
 Calmecac::Application.routes.draw do
 
+  resources :cursos_profesores
+
   resources :calificaciones
   resources :profesores
   resources :cursos
