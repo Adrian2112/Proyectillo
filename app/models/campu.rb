@@ -1,2 +1,2 @@
-class Campu < ActiveRecord::Base
+class Campus < ActiveRecord::Base
 end
