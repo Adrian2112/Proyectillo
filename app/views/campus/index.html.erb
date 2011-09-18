@@ -1,0 +1,29 @@
+<h1>Listing campus</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Ciudad</th>
+    <th>Estado</th>
+    <th>Universidad</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campus.each do |campu| %>
+  <tr>
+    <td><%= campu.nombre %></td>
+    <td><%= campu.ciudad %></td>
+    <td><%= campu.estado %></td>
+    <td><%= campu.universidad_id %></td>
+    <td><%= link_to 'Show', campu %></td>
+    <td><%= link_to 'Edit', edit_campu_path(campu) %></td>
+    <td><%= link_to 'Destroy', campu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campu', new_campu_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  ciudad: MyString
+  estado: MyString
+  universidad_id: 1
+
+two:
+  nombre: MyString
+  ciudad: MyString
+  estado: MyString
+  universidad_id: 1
