@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CampusControllerTest < ActionController::TestCase
   setup do
-    @campu = campus(:one)
+    @campus = campus(:one)
   end
 
   test "should get index" do
@@ -16,34 +16,34 @@ class CampusControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create campu" do
-    assert_difference('Campu.count') do
-      post :create, :campu => @campu.attributes
+  test "should create campus" do
+    assert_difference('Campus.count') do
+      post :create, :campus => @campus.attributes
     end
 
-    assert_redirected_to campu_path(assigns(:campu))
+    assert_redirected_to campus_path(assigns(:campus))
   end
 
-  test "should show campu" do
-    get :show, :id => @campu.to_param
+  test "should show campus" do
+    get :show, :id => @campus.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @campu.to_param
+    get :edit, :id => @campus.to_param
     assert_response :success
   end
 
-  test "should update campu" do
-    put :update, :id => @campu.to_param, :campu => @campu.attributes
-    assert_redirected_to campu_path(assigns(:campu))
+  test "should update campus" do
+    put :update, :id => @campus.to_param, :campus => @campus.attributes
+    assert_redirected_to campus_path(assigns(:campus))
   end
 
-  test "should destroy campu" do
-    assert_difference('Campu.count', -1) do
-      delete :destroy, :id => @campu.to_param
+  test "should destroy campus" do
+    assert_difference('Campus.count', -1) do
+      delete :destroy, :id => @campus.to_param
     end
 
-    assert_redirected_to campus_path
+    assert_redirected_to campus_index_path
   end
 end

@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20110918120105) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "cursos_profesores", :id => false, :force => true do |t|
     t.integer  "curso_id"
     t.integer  "profesor_id"
@@ -50,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20110918120105) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> 4eafeb6dcc73f7eda4e9b65380fa784e72efe73b
   create_table "profesores", :force => true do |t|
     t.string   "nombre"
     t.string   "apellido_materno"
@@ -57,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20110918120105) do
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+=======
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
+>>>>>>> 4eafeb6dcc73f7eda4e9b65380fa784e72efe73b
   end
 
   create_table "universidades", :force => true do |t|

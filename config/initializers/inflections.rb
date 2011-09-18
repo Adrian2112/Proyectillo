@@ -11,5 +11,6 @@ inflect.irregular 'user', 'users'
 inflect.irregular 'account', 'accounts'
 inflect.irregular 'password', 'passwords'
 inflect.irregular 'session', 'sessions'
+inflect.irregular 'campus', 'campus'
 
 end
