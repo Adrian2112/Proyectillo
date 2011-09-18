@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  puntualidad: 1
+  amigable: 1
+  conocimiento: 1
+  claridad: 1
+  flexibilidad: 1
+  promedio: 1.5
+  comentarios: MyString
+  profesor_id: 1
+  facilidad: 1
+  calificacion_obtenida: 1.5
+
+two:
+  puntualidad: 1
+  amigable: 1
+  conocimiento: 1
+  claridad: 1
+  flexibilidad: 1
+  promedio: 1.5
+  comentarios: MyString
+  profesor_id: 1
+  facilidad: 1
+  calificacion_obtenida: 1.5

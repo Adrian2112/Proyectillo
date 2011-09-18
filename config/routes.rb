@@ -1,4 +1,8 @@
 Calmecac::Application.routes.draw do
+  resources :calificaciones
+
+  resources :profesores
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,57 @@
+<%= form_for(@calificacion) do |f| %>
+  <% if @calificacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
+
+      <ul>
+      <% @calificacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :puntualidad %><br />
+    <%= f.text_field :puntualidad %>
+  </div>
+  <div class="field">
+    <%= f.label :amigable %><br />
+    <%= f.text_field :amigable %>
+  </div>
+  <div class="field">
+    <%= f.label :conocimiento %><br />
+    <%= f.text_field :conocimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :claridad %><br />
+    <%= f.text_field :claridad %>
+  </div>
+  <div class="field">
+    <%= f.label :flexibilidad %><br />
+    <%= f.text_field :flexibilidad %>
+  </div>
+  <div class="field">
+    <%= f.label :promedio %><br />
+    <%= f.text_field :promedio %>
+  </div>
+  <div class="field">
+    <%= f.label :comentarios %><br />
+    <%= f.text_field :comentarios %>
+  </div>
+  <div class="field">
+    <%= f.label :profesor_id %><br />
+    <%= f.text_field :profesor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :facilidad %><br />
+    <%= f.text_field :facilidad %>
+  </div>
+  <div class="field">
+    <%= f.label :calificacion_obtenida %><br />
+    <%= f.text_field :calificacion_obtenida %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  apellido_materno: MyString
+  apellido_paterno: MyString
+  campus_id: 1
+
+two:
+  nombre: MyString
+  apellido_materno: MyString
+  apellido_paterno: MyString
+  campus_id: 1
