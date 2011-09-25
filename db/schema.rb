@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110918120107) do
+ActiveRecord::Schema.define(:version => 20110925163747) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20110918120107) do
 
   create_table "universidades", :force => true do |t|
     t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "rol",           :default => "Usuario"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
