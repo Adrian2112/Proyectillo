@@ -1,6 +1,18 @@
 Calmecac::Application.routes.draw do
 
 
+  match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
+
+  match 'signup' => 'usuarios#new', :as => :signup
+
+  match 'logout' => 'sessions#destroy', :as => :logout
+
+  match 'login' => 'sessions#new', :as => :login
+
+  resources :sessions
+
+  resources :usuarios
+
   resources :cursos_profesores
   resources :campus
   resources :calificaciones
@@ -58,7 +70,7 @@ Calmecac::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "sessions#new"
 
   # See how all your routes lay out with "rake routes"
 
