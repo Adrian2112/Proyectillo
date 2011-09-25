@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'mysql2', '0.2.6'
 gem "paperclip", "~> 2.4"
 gem "nifty-generators", :group => :development
+gem "annotate", '2.4.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
