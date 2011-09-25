@@ -2,17 +2,12 @@ Calmecac::Application.routes.draw do
 
 
   match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
-
-  match 'signup' => 'usuarios#new', :as => :signup
-
+  match 'registrate' => 'usuarios#new', :as => :signup
   match 'logout' => 'sessions#destroy', :as => :logout
-
-  match 'login' => 'sessions#new', :as => :login
+  match 'inicia_sesion' => 'sessions#new', :as => :login
 
   resources :sessions
-
   resources :usuarios
-
   resources :cursos_profesores
   resources :campus
   resources :calificaciones
