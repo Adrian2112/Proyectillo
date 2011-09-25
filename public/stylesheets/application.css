@@ -97,12 +97,13 @@ div#header {
 	border-bottom:1px solid white;
 }
 
-div#header_derecha {
-    
+div#sessions {
+	text-align:right;
+	margin-right:15px;
 }
 
-div#header_izquierda {
-    
+div#menu_container {
+	margin-left:15px;
 }
 
 /*Header*/
@@ -117,5 +118,5 @@ div#footer {
 	border-top:1px solid white;
 	margin-top:-50px;
 }
-/*Footer*/
+g/*Footer*/
 
