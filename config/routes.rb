@@ -1,12 +1,13 @@
 Calmecac::Application.routes.draw do
 
-
+  match 'contacto' => 'pages#contact', :as => :contact
+  match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
+  match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
+  match 'privacidad' => 'pages#privacy', :as => :privacy
+  match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
   match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
-
   match 'signup' => 'usuarios#new', :as => :signup
-
   match 'logout' => 'sessions#destroy', :as => :logout
-
   match 'login' => 'sessions#new', :as => :login
 
   resources :sessions
