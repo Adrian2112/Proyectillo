@@ -111,20 +111,22 @@ div#header_izquierda {
 /*Footer*/
 
 div#footer {
+	position:absolute;
+	top:100%;
 	width:100%;
 	border-top:1px solid white;
-	border-bottom:1px solid white;
+	margin-top:-50px;
 }
 
-.wrapper {
+/*.wrapper {
 	min-height:100%;
 	height:auto !important;
 	height:100%;
 	margin:0px auto -100px;
-}
+}*/
 
-div#footer, .push {
+/*div#footer, .push {
 	height:100px;
-}
+}*/
 
 /*Footer*/
