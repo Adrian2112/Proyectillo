@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
-    </div>
+	<div id="header">
+		<%= render 'layouts/header' %>
+	</div>
+	<div class="wrapper">
+		<div id="container">
+	      <% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <% end %>
+	      <%= content_tag :h1, yield(:title) if show_title? %>
+	      <%= yield %>
+	    </div>
+		<div class="push"></div>
+	</div>
+	<br />
+	<div id="footer">
+		<%= render 'layouts/footer' %>
+	</div>
   </body>
 </html>
