@@ -2,10 +2,11 @@ class UniversidadesController < ApplicationController
   # GET /universidades
   # GET /universidades.xml
   def index
-    @universidades = Universidad.all
+    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js 
       format.xml  { render :xml => @universidades }
     end
   end
