@@ -10,8 +10,16 @@ gem 'jquery-rails'
 
 gem 'mysql2', '0.2.6'
 gem "paperclip", "~> 2.4"
-gem "nifty-generators", :group => :development
 gem "annotate", '2.4.0'
+
+group :development do
+  gem "nifty-generators"
+  gem "faker"
+end
+
+group :test do 
+  gem "mocha"
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -36,4 +44,3 @@ gem "annotate", '2.4.0'
 #   gem 'webrat'
 # end
 gem "bcrypt-ruby", :require => "bcrypt"
-gem "mocha", :group => :test

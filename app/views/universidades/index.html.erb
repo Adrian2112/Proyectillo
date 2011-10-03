@@ -1,5 +1,7 @@
-<%= text_field_tag :q %>
-
+<% form_tag(universidades_path, :method => :get, :autocomplete => "off") do  %>
+	<%= text_field_tag :q %>
+	<%= submit_tag "Enviar", :name => nil %>
+<% end %>
 
 <h1>Listing universidades</h1>
 
