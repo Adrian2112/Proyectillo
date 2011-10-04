@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: usuarios
+#
+#  id            :integer(4)      not null, primary key
+#  username      :string(255)
+#  email         :string(255)
+#  password_hash :string(255)
+#  password_salt :string(255)
+#  rol           :string(255)     default("Usuario")
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
 class Usuario < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation
