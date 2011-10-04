@@ -6,9 +6,11 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-10.times do |n|
-  Universidad.create!(:nombre => "Universidad- #{n}")
+
+["UDEM", "ITESM", "UANL", "ITAM", "UNAM", "Colegio de Mexico", "Politecnico", "Universidad del Valle de Mexico"].each do |universidad|
+  Universidad.create!(:nombre => universidad)
 end
+
 
 Usuario.create!(:username => "kurenn",
                 :email => "abraham.kuri@gmail.com",

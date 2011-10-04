@@ -1,7 +1,4 @@
-<% form_tag(universidades_path, :method => :get, :autocomplete => "off") do  %>
-	<%= text_field_tag :q %>
-	<%= submit_tag "Enviar", :name => nil %>
-<% end %>
+<%= render 'shared/search_form', :url => '/universidades' %>
 
 <h1>Listing universidades</h1>
 
@@ -13,9 +10,7 @@
 <%= link_to 'Nueva Universidad', new_universidad_path %>
 
 <script>
-	
 	$("#q").bind("textchange", function(){
 		$.get("/universidades.js", {q: $("#q").val()});
 	});
-	
 </script>
