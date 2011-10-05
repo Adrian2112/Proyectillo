@@ -12,5 +12,6 @@ class Universidad < ActiveRecord::Base
 
   has_many :campus, :dependent => :destroy
   has_many :usuarios
+  has_many :profesores, :through => :campus
 
 end
