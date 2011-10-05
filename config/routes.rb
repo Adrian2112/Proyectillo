@@ -19,7 +19,7 @@ Calmecac::Application.routes.draw do
   resources :calificaciones  
   resources :comentarios
   
-  resources :universidades do
+  resources :universidades, :shallow => true do
     resources :campus
   end
   
