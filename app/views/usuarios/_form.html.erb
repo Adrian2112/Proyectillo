@@ -9,15 +9,20 @@
     <%= f.text_field :email %>
   </p>
 
-	<p>
+	
+	<div>
 		<%= f.label :universidad_id, "Universidad" %><br />
 	    <%= f.text_field :universidad_id %>
-	</p>
+	</div>
+	<div id="nueva_universidad_link" style="display:none">
+		 No encontraste tu universidad da clic <%= link_to "aqui", new_universidad_path %>
+	</div>
 	
-	<p>
+	<br />
+	<div id="campus" style="display:none">
 		<%= f.label :campus_id, "Campus" %><br />
 	    <%= f.text_field :campus_id %>
-	</p>
+	</div>
 
   <p>
     <%= f.label :password, 'Contraseña' %><br />
@@ -29,3 +34,4 @@
   </p>
   <p><%= f.submit (@usuario.new_record? ? "Registrate" : "Actualiza tu información") %></p>
 <% end %>
+

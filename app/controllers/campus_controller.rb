@@ -7,7 +7,7 @@ class CampusController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @campus.map(&:attributes) }
+      format.json { render :json => @universidad.campus.map(&:attributes) }
       format.xml  { render :xml => @campus }
     end
   end
