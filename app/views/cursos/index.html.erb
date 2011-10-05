@@ -1,25 +1,17 @@
+<%= render 'shared/search_form', :url => '/cursos' %>
+
+
 <h1>Listing cursos</h1>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Campus</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cursos.each do |curso| %>
-  <tr>
-    <td><%= curso.nombre %></td>
-    <td><%= curso.campus_id %></td>
-    <td><%= link_to 'Show', curso %></td>
-    <td><%= link_to 'Edit', edit_curso_path(curso) %></td>
-    <td><%= link_to 'Destroy', curso, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<div id="listado">
+	<%= render @cursos %>
+</div>
 <br />
 
 <%= link_to 'New Curso', new_curso_path %>
+
+<script>
+	$("#q").bind("textchange", function(){
+		$.get("/cursos.js", {q: $("#q").val()});
+	});
+</script>
