@@ -12,5 +12,5 @@
 class CursoProfesor < ActiveRecord::Base
   belongs_to :curso
   belongs_to :profesor
-  has_many :calificaciones
+  has_many :calificaciones, :dependent => :destroy
 end

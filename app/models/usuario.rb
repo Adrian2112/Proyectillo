@@ -15,8 +15,8 @@
 class Usuario < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   
-  has_many :comentarios
-  has_many :calificaciones
+  has_many :comentarios, :dependent => :nullify
+  has_many :calificaciones, :dependent => :nullify
   
   ROLES = ["Usuario", "Administrador"]
   

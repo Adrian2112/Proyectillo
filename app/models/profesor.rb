@@ -21,7 +21,7 @@ class Profesor < ActiveRecord::Base
 
   belongs_to :campus
   
-  has_many :curso_profesor
+  has_many :curso_profesor, :dependent => :destroy
   has_many :calificaciones, :through => :curso_profesor
   has_many :cursos, :through => :curso_profesor
 

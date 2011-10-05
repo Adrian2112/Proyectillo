@@ -14,6 +14,6 @@
 class Campus < ActiveRecord::Base
   belongs_to :universidad
   
-  has_many :cursos
-  has_many :profesores
+  has_many :cursos, :dependent => :destroy
+  has_many :profesores, :dependent => :destroy
 end

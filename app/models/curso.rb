@@ -12,6 +12,6 @@
 class Curso < ActiveRecord::Base
   belongs_to :campus
   
-  has_many :curso_profesor
+  has_many :curso_profesor, :dependent => :destroy
   has_many :profesores, :through => :curso_profesor
 end

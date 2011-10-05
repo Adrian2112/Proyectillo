@@ -19,7 +19,7 @@
 #
 
 class Calificacion < ActiveRecord::Base  
-  has_many :comentarios
+  has_many :comentarios, :dependent => :destroy
   belongs_to :usuario
   
   belongs_to :curso_profesor
