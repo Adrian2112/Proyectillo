@@ -9,6 +9,7 @@ Calmecac::Application.routes.draw do
   match 'registrate' => 'usuarios#new', :as => :signup
   match 'logout' => 'sessions#destroy', :as => :logout
   match 'inicia_sesion' => 'sessions#new', :as => :login
+  match 'campus_universidades/:id' => 'campus#campus_for_university'
 
   resources :sessions
   resources :usuarios
