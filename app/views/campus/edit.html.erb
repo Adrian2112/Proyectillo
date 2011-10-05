@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @campus %> |
-<%= link_to 'Back', campus_index_path %>
+<%= link_to 'Show', [@universidad,@campus] %> |
+<%= link_to 'Back', universidad_campus_index_path(@universidad) %>

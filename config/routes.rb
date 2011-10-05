@@ -15,11 +15,15 @@ Calmecac::Application.routes.draw do
   resources :sessions
   resources :usuarios
   resources :cursos_profesores
-  resources :campus
-  resources :calificaciones
-  resources :profesores
   resources :cursos
-  resources :universidades
+  resources :profesores
+  resources :calificaciones  
+  
+  resources :universidades do
+    resources :campus
+  end
+  
+  
 
 
   # The priority is based upon order of creation:

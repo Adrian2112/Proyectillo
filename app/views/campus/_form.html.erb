@@ -1,4 +1,4 @@
-<%= form_for(@campus) do |f| %>
+<%= form_for [@universidad,@campus] do |f| %>
   <% if @campus.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@campus.errors.count, "error") %> prohibited this campus from being saved:</h2>

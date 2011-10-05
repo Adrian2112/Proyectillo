@@ -2,7 +2,8 @@ class CampusController < ApplicationController
   # GET /campus
   # GET /campus.xml
   def index
-    @campus = Campus.all
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class CampusController < ApplicationController
   # GET /campus/1
   # GET /campus/1.xml
   def show
-    @campus = Campus.find(params[:id])
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class CampusController < ApplicationController
   # GET /campus/new
   # GET /campus/new.xml
   def new
-    @campus = Campus.new
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +37,19 @@ class CampusController < ApplicationController
 
   # GET /campus/1/edit
   def edit
-    @campus = Campus.find(params[:id])
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.find(params[:id])
   end
 
   # POST /campus
   # POST /campus.xml
   def create
-    @campus = Campus.new(params[:campus])
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.build(params[:campus])
 
     respond_to do |format|
       if @campus.save
-        format.html { redirect_to(@campus, :notice => 'Campus was successfully created.') }
+        format.html { redirect_to([@universidad, @campus], :notice => 'Campus was successfully created.') }
         format.xml  { render :xml => @campus, :status => :created, :location => @campus }
       else
         format.html { render :action => "new" }
@@ -56,11 +61,12 @@ class CampusController < ApplicationController
   # PUT /campus/1
   # PUT /campus/1.xml
   def update
-    @campus = Campus.find(params[:id])
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.find(params[:id])
 
     respond_to do |format|
       if @campus.update_attributes(params[:campus])
-        format.html { redirect_to(@campus, :notice => 'Campus was successfully updated.') }
+        format.html { redirect_to([@universidad, @campus], :notice => 'Campus was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,11 +78,12 @@ class CampusController < ApplicationController
   # DELETE /campus/1
   # DELETE /campus/1.xml
   def destroy
-    @campus = Campus.find(params[:id])
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.find(params[:id])
     @campus.destroy
 
     respond_to do |format|
-      format.html { redirect_to(campus_index_url) }
+      format.html { redirect_to(universidad_campus_index_url) }
       format.xml  { head :ok }
     end
   end
