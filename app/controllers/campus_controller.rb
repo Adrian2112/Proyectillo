@@ -3,13 +3,21 @@ class CampusController < ApplicationController
   # GET /campus.xml
   def index
     @universidad = Universidad.find(params[:universidad_id])
-    @campus = @universidad.campus
-
+    @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:q]}%")
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render :json => @campus.map(&:attributes) }
       format.xml  { render :xml => @campus }
     end
   end
+  
+  def campus_for_university
+    @universidad = Universidad.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => @universidad.campus.map(&:attributes) }
+    end
+  end
+
 
   # GET /campus/1
   # GET /campus/1.xml

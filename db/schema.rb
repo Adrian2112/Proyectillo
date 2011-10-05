@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005001246) do
+ActiveRecord::Schema.define(:version => 20111005004150) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -84,9 +84,11 @@ ActiveRecord::Schema.define(:version => 20111005001246) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "rol",           :default => "Usuario"
+    t.string   "rol",            :default => "Usuario"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "campus_id"
+    t.integer  "universidad_id"
   end
 
 end

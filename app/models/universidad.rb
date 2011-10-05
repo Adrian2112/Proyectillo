@@ -9,5 +9,8 @@
 #
 
 class Universidad < ActiveRecord::Base
+
   has_many :campus, :dependent => :destroy
+  has_many :usuarios
+
 end

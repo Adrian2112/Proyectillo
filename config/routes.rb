@@ -1,7 +1,5 @@
 Calmecac::Application.routes.draw do
 
-  resources :comentarios
-
   match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
@@ -11,6 +9,7 @@ Calmecac::Application.routes.draw do
   match 'registrate' => 'usuarios#new', :as => :signup
   match 'logout' => 'sessions#destroy', :as => :logout
   match 'inicia_sesion' => 'sessions#new', :as => :login
+  match 'campus_universidades/:id' => 'campus#campus_for_university'
 
   resources :sessions
   resources :usuarios
@@ -18,6 +17,7 @@ Calmecac::Application.routes.draw do
   resources :cursos
   resources :profesores
   resources :calificaciones  
+  resources :comentarios
   
   resources :universidades do
     resources :campus
