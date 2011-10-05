@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925163747) do
+ActiveRecord::Schema.define(:version => 20111005001246) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -20,9 +21,10 @@ ActiveRecord::Schema.define(:version => 20110925163747) do
     t.integer  "flexibilidad"
     t.float    "promedio"
     t.string   "comentarios"
-    t.integer  "profesor_id"
     t.integer  "facilidad"
     t.float    "calificacion_obtenida"
+    t.integer  "usuario_id"
+    t.integer  "curso_profesor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20110925163747) do
     t.datetime "updated_at"
   end
 
+  create_table "comentarios", :force => true do |t|
+    t.text     "comentario"
+    t.integer  "usuario_id"
+    t.integer  "calificacion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cursos", :force => true do |t|
     t.string   "nombre"
     t.integer  "campus_id"
@@ -43,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20110925163747) do
     t.datetime "updated_at"
   end
 
-  create_table "cursos_profesores", :id => false, :force => true do |t|
+  create_table "cursos_profesores", :force => true do |t|
     t.integer  "curso_id"
     t.integer  "profesor_id"
     t.datetime "created_at"

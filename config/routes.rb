@@ -1,5 +1,7 @@
 Calmecac::Application.routes.draw do
 
+  resources :comentarios
+
   match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use

@@ -1,0 +1,21 @@
+<% title "Comentarios" %>
+
+<table>
+  <tr>
+    <th>Comentario</th>
+    <th>Usuario</th>
+    <th>Calificacion</th>
+  </tr>
+  <% for comentario in @comentarios %>
+    <tr>
+      <td><%= comentario.comentario %></td>
+      <td><%= comentario.usuario_id %></td>
+      <td><%= comentario.calificacion_id %></td>
+      <td><%= link_to "Show", comentario %></td>
+      <td><%= link_to "Edit", edit_comentario_path(comentario) %></td>
+      <td><%= link_to "Destroy", comentario, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Comentario", new_comentario_path %></p>

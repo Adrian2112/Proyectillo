@@ -1,0 +1,20 @@
+<% title "Comentario" %>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @comentario.comentario %>
+</p>
+<p>
+  <strong>Usuario:</strong>
+  <%= @comentario.usuario_id %>
+</p>
+<p>
+  <strong>Calificacion:</strong>
+  <%= @comentario.calificacion_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_comentario_path(@comentario) %> |
+  <%= link_to "Destroy", @comentario, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", comentarios_path %>
+</p>

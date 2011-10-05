@@ -8,10 +8,10 @@ class CreateCalificaciones < ActiveRecord::Migration
       t.integer :flexibilidad
       t.float :promedio
       t.string :comentarios
-      t.integer :profesor_id
       t.integer :facilidad
       t.float :calificacion_obtenida
-
+      t.integer :usuario_id
+      t.integer :curso_profesor_id
       t.timestamps
     end
   end

@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: comentarios
+#
+#  id              :integer(4)      not null, primary key
+#  comentario      :text
+#  usuario_id      :integer(4)
+#  calificacion_id :integer(4)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+one:
+  comentario: MyText
+  usuario_id: 1
+  calificacion_id: 1
+
+two:
+  comentario: MyText
+  usuario_id: 1
+  calificacion_id: 1

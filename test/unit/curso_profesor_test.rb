@@ -2,6 +2,7 @@
 #
 # Table name: cursos_profesores
 #
+#  id          :integer(4)      not null, primary key
 #  curso_id    :integer(4)
 #  profesor_id :integer(4)
 #  created_at  :datetime

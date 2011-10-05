@@ -10,9 +10,10 @@
 #  flexibilidad          :integer(4)
 #  promedio              :float
 #  comentarios           :string(255)
-#  profesor_id           :integer(4)
 #  facilidad             :integer(4)
 #  calificacion_obtenida :float
+#  usuario_id            :integer(4)
+#  curso_profesor_id     :integer(4)
 #  created_at            :datetime
 #  updated_at            :datetime
 #
