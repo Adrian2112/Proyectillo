@@ -4,6 +4,7 @@ class CampusController < ApplicationController
   def index
     @universidad = Universidad.find(params[:universidad_id])
     @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:q]}%")
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @campus.map(&:attributes) }
