@@ -2,10 +2,11 @@ class CursosController < ApplicationController
   # GET /cursos
   # GET /cursos.xml
   def index
-    @cursos = Curso.all
+    @cursos = Curso.where("nombre LIKE ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @cursos }
     end
   end

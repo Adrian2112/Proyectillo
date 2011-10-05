@@ -20,6 +20,7 @@ class Profesor < ActiveRecord::Base
   has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   belongs_to :campus
+  delegate :universidad, :to => :campus
   
   has_many :curso_profesor, :dependent => :destroy
   has_many :calificaciones, :through => :curso_profesor

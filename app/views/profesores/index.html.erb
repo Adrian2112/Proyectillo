@@ -2,30 +2,15 @@
 
 <h1>Listing profesores</h1>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido materno</th>
-    <th>Apellido paterno</th>
-    <th>Campus</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @profesores.each do |profesor| %>
-  <tr>
-    <td><%= profesor.nombre %></td>
-    <td><%= profesor.apellido_materno %></td>
-    <td><%= profesor.apellido_paterno %></td>
-    <td><%= profesor.campus_id %></td>
-    <td><%= link_to 'Show', profesor %></td>
-    <td><%= link_to 'Edit', edit_profesor_path(profesor) %></td>
-    <td><%= link_to 'Destroy', profesor, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<div id="listado">
+	<%= render @profesores %>
+</div>
 <br />
 
 <%= link_to 'New Profesor', new_profesor_path %>
+
+<script>
+	$("#q").bind("textchange", function(){
+		$.get("/profesores.js", {q: $("#q").val()});
+	});
+</script>
