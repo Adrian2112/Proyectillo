@@ -50,7 +50,40 @@ $(function(){
 
 	});
 
-	
+		$("#universidad_id").tokenInput("/universidades.json", {
+		propertyToSearch: "nombre",
+		tokenLimit: 1,
+		theme: 'facebook',
+		preventDuplicates: true,
+		onAdd: function(){
+			$("div#campus").slideDown(function(){
+				if (was_created == false){
+					$("#campus_id").tokenInput("/universidades/" + $("#universidad_id").val() + "/campus.json", {
+						propertyToSearch: "nombre",
+						tokenLimit: 1,
+						theme: 'facebook',
+						preventDuplicates: true, 
+                        onAdd: function(){
+                            $("#curso").slideDown();
+                        }
+					});
+					was_created = true;
+				}
+			});
+		},
+		onDelete: function(){
+			$("#campus_id").tokenInput("clear");
+			$("#token-input-universidad_id").focus();
+			return false;
+			//$("div#campus").slideUp(function(){
+			//				$("div#campus").html(
+			//					"<label for=\"usuario_campus_id\">Campus</label><br />"+
+			//					"<input type=\"text\" size=\"30\" name=\"usuario[campus_id]\" id=\"usuario_campus_id\">");
+			//				was_created = false;
+			//			});
+			
+		}
+	});
 	
 
 });
