@@ -16,9 +16,14 @@
 	</div>
 
 	<br />
-	<div id="curso" style="display:none">
-		<%= label_tag :curso_id, "Curso" %><br />
-	    <%= text_field_tag :curso_id %>
+	<div id="curso" style="">
+		<%= label_tag :curso_nombre, "Curso" %><br />
+	    <%= text_field_tag :curso_nombre %>
+	</div>
+	
+	<div id="profesor" style="">
+		<%= label_tag :profesor_nombre, "Profesor" %><br />
+	    <%= text_field_tag :profesor_nombre %>
 	</div>
 
   <br />
@@ -30,10 +35,15 @@
 </div>
 
 <script>
-	$("#curso_id").bind("textchange", function(){
+	$(function(){
+		campus_universidades_autoomplete("#universidad_id","campus_id", "campus_id");
+	});
+
+	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
 		$.get("/.js", {
-                                nombre_curso: $("#curso_id").val(),
-                                campus_id: $("#campus_id").val()
+                                curso_nombre: $("#curso_nombre").val(),
+                                campus_id: $("#campus_id").val(),
+								profesor_nombre: $("#profesor_nombre").val()
       });
 	});
 </script>
