@@ -1,5 +1,28 @@
 class PagesController < ApplicationController
   
+  def index
+    @resultados = []    
+    campus = Campus.find(params[:campus_id]) if params[:campus_id]
+    
+    if !params[:campus_id].nil? 
+      if !params[:curso_nombre].nil? and params[:profesor_nombre].blank?
+        @resultados = campus.cursos.where("nombre LIKE ?", "%#{params[:curso_nombre]}%")
+      elsif !params[:profesor_nombre].nil? and params[:curso_nombre].blank?
+        @resultados = campus.profesores.where("nombre LIKE ?", "%#{params[:profesor_nombre]}%")
+      else
+        @resultados = CursoProfesor.joins(:profesor, :curso).where(
+                      "profesores.nombre LIKE ? AND cursos.nombre LIKE ?",
+                      "%#{params[:profesor_nombre]}%", "%#{params[:curso_nombre]}%")
+      end
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js  
+    end
+
+  end
+
   def about_us
   end
 

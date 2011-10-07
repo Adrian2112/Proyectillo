@@ -4,3 +4,9 @@
 
 <%= text_field_tag :universidad_id_hidden %>
 <%= render 'form' %>
+
+<script>
+	$(function(){
+		campus_universidades_autoomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
+	})
+</script>

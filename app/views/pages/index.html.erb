@@ -1,0 +1,50 @@
+<% title "Bienvenido" %>
+
+<%= form_tag root_path, :method => :get do |f| %>
+	<div>
+		<%= label_tag :universidad_id, "Universidad" %><br />
+	    <%= text_field_tag :universidad_id %>
+	</div>
+	<div id="nueva_universidad_link" style="display:none">
+		 No encontraste tu universidad da clic <%= link_to "aqui", new_universidad_path %>
+	</div>
+	
+	<br />
+	<div id="campus" style="display:none">
+		<%= label_tag :campus_id, "Campus" %><br />
+	    <%= text_field_tag :campus_id %>
+	</div>
+
+	<br />
+	<div id="curso" style="">
+		<%= label_tag :curso_nombre, "Curso" %><br />
+	    <%= text_field_tag :curso_nombre %>
+	</div>
+	
+	<div id="profesor" style="">
+		<%= label_tag :profesor_nombre, "Profesor" %><br />
+	    <%= text_field_tag :profesor_nombre %>
+	</div>
+
+  <br />
+  <%= submit_tag 'Buscar', :name => nil %>
+<% end %>
+
+<div id="resultados_index">
+  <%= render @resultados %>
+</div>
+
+<script>
+	$(function(){
+		campus_universidades_autoomplete("#universidad_id","campus_id", "campus_id");
+	});
+
+	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
+		$.get("/.js", {
+                                curso_nombre: $("#curso_nombre").val(),
+                                campus_id: $("#campus_id").val(),
+								profesor_nombre: $("#profesor_nombre").val()
+      });
+	});
+</script>
+
