@@ -5,6 +5,6 @@
   <%= @universidad.nombre %>
 </p>
 
-
+<%= link_to 'Cursos', universidad_campus_index_path(@universidad) %> |
 <%= link_to 'Edit', edit_universidad_path(@universidad) %> |
 <%= link_to 'Back', universidades_path %>

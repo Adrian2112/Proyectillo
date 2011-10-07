@@ -2,7 +2,8 @@ class CursosController < ApplicationController
   # GET /cursos
   # GET /cursos.xml
   def index
-    @cursos = Curso.where("nombre LIKE ?", "%#{params[:q]}%")
+    @campus = Campus.find(params[:campus_id])
+    @cursos = @campus.cursos.where("nombre LIKE ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +26,8 @@ class CursosController < ApplicationController
   # GET /cursos/new
   # GET /cursos/new.xml
   def new
-    @curso = Curso.new
+    @campus = Campus.find(params[:campus_id])
+    @curso = @campus.cursos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +43,8 @@ class CursosController < ApplicationController
   # POST /cursos
   # POST /cursos.xml
   def create
-    @curso = Curso.new(params[:curso])
+    @campus = Campus.find(params[:campus_id])
+    @curso = @campus.cursos.build(params[:curso])
 
     respond_to do |format|
       if @curso.save
@@ -77,7 +80,7 @@ class CursosController < ApplicationController
     @curso.destroy
 
     respond_to do |format|
-      format.html { redirect_to(cursos_url) }
+      format.html { redirect_to(campus_cursos_url(@curso.campus)) }
       format.xml  { head :ok }
     end
   end

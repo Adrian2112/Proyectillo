@@ -12,14 +12,11 @@ Calmecac::Application.routes.draw do
 
   resources :sessions
   resources :usuarios
-  resources :cursos_profesores
-  resources :cursos
-  resources :profesores
-  resources :calificaciones  
-  resources :comentarios
   
   resources :universidades, :shallow => true do
-    resources :campus
+    resources :campus, :shallow => true do
+      resources :cursos
+    end
   end
   
   

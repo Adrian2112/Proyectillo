@@ -20,6 +20,6 @@
   <%= @campus.universidad_id %>
 </p>
 
-
+<%= link_to 'Cursos', campus_cursos_path(@campus) %> |
 <%= link_to 'Edit', edit_campus_path(@campus) %> |
 <%= link_to 'Back', universidad_campus_index_path(@campus.universidad) %>
