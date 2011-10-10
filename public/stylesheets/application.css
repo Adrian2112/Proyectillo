@@ -34,12 +34,15 @@ a {
 }
 
 #container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+}
+
+#content {
+	width: 75%;
+	margin: 0 auto;
+	background-color: #FFF;
+	padding: 10px 10px 10px 100px;
+	border: solid 1px black;
+	margin-top: 20px;
 }
 
 #flash_notice, #flash_error, #flash_alert {
@@ -130,13 +133,9 @@ div#menu_container {
 
 /*Footer*/
 
-div#footer {
-	position:absolute;
-	top:100%;
-	width:100%;
-	border-top:1px solid white;
-	margin-top:-50px;
-	background-color: #4B7399;
+
+#footer {
+    
 }
 
 div#footer_menu_container {

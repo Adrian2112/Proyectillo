@@ -12,15 +12,18 @@
 		<%= render 'layouts/header' %>
 	</div>
 		<div id="container">
-	      <% flash.each do |name, msg| %>
-	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-	      <% end %>
-	      <%= content_tag :h1, yield(:title) if show_title? %>
-	      <%= yield %>
+			<div id="content">
+			  <% flash.each do |name, msg| %>
+		        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+		      <% end %>
+		      
+		      <%= content_tag :h1, yield(:title) if show_title? %>
+		      <%= yield %>
+			</div>
 	    </div>
 	<br />
 	<div id="footer">
-		<%#= render 'layouts/footer' %>
+		<%= render 'layouts/footer' %>
 	</div>
   </body>
 </html>
