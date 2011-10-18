@@ -8,7 +8,8 @@ Calmecac::Application.routes.draw do
   match 'privacidad' => 'pages#privacy', :as => :privacy
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
   match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
-  #match 'registrate' => 'usuarios#new', :as => :signup  match 'inicia_sesion' => 'sessions#new', :as => :login
+  match 'registrate' => 'usuarios#sign_up', :as => :signup
+  match 'inicia_sesion' => 'sessions#sign_in', :as => :login
   resources :usuarios
   
   resources :universidades, :shallow => true do

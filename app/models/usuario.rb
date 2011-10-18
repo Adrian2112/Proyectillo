@@ -19,9 +19,8 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-
-  attr_accessible :username, :email, :password, :password_confirmation, :campus_id, :universidad_id
+  # Atributos de devise con los que habian sido generados anteriormente
+  attr_accessible :username, :email, :password, :password_confirmation, :campus_id, :universidad_id, :remember_me
   
   has_many :comentarios, :dependent => :nullify
   has_many :calificaciones, :dependent => :nullify

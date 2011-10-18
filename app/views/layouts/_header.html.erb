@@ -7,12 +7,12 @@
 	
 	<div class="column">
 		<div id="sessions">
-		<% if logged_in? %>
+		<% if usuario_signed_in? %>
 		  <%= link_to "#{current_usuario.username}", "#" %> |
-		  <%= link_to "Cerrar sesión", logout_path %>
+		  <%= link_to "Cerrar sesión", destroy_usuario_session_path %>
 		<% else %>
-			<%= link_to 'Iniciar Sesion', login_path %> |
-			<%= link_to 'Registrate', signup_path %>
+			<%= link_to 'Iniciar Sesion', new_usuario_session_path %> |
+			<%= link_to 'Registrate', new_usuario_registration_path %>
 		<% end %>
 		</div>
 	</div>

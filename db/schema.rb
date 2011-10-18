@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010035213) do
+ActiveRecord::Schema.define(:version => 20111018194753) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(:version => 20111010035213) do
     t.integer  "flexibilidad"
     t.float    "promedio"
     t.string   "comentarios"
-    t.integer  "profesor_id"
     t.integer  "facilidad"
     t.float    "calificacion_obtenida"
+    t.integer  "usuario_id"
+    t.integer  "curso_profesor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
