@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'mysql2', '0.2.6'
 gem "paperclip", "~> 2.4"
 gem "annotate", '2.4.0'
+gem 'devise'
 
 group :development do
   gem "nifty-generators"

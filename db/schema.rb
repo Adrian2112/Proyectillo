@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005004150) do
+ActiveRecord::Schema.define(:version => 20111010035213) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(:version => 20111005004150) do
     t.integer  "flexibilidad"
     t.float    "promedio"
     t.string   "comentarios"
+    t.integer  "profesor_id"
     t.integer  "facilidad"
     t.float    "calificacion_obtenida"
-    t.integer  "usuario_id"
-    t.integer  "curso_profesor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,14 +80,26 @@ ActiveRecord::Schema.define(:version => 20111005004150) do
 
   create_table "usuarios", :force => true do |t|
     t.string   "username"
-    t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "rol",            :default => "Usuario"
+    t.string   "rol",                                   :default => "Usuario"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "campus_id"
     t.integer  "universidad_id"
+    t.string   "email",                                 :default => "",        :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",        :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
+  add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
 
 end
