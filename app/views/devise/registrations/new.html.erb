@@ -1,18 +1,49 @@
-<h2>Sign up</h2>
+<% title "Registrate" %>
+
+<p>¿Ya estas registrado? <%= link_to "Inicia Sesión", new_usuario_session_path %>.</p>
+
+<%= text_field_tag :universidad_id_hidden %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  <p>
+    <%= f.label :username, 'Nombre de usuario' %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email %>
+  </p>
+	
+	<div>
+		<%= f.label :universidad_id, "Universidad" %><br />
+	    <%= f.text_field :universidad_id %>
+	</div>
+	<div id="nueva_universidad_link" style="display:none">
+		 No encontraste tu universidad da clic <%= link_to "aqui", new_universidad_path %>
+	</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+	<br />
+	<div id="campus" style="display:none">
+		<%= f.label :campus_id, "Campus" %><br />
+	    <%= f.text_field :campus_id %>
+	</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  <p>
+    <%= f.label :password, 'Contraseña' %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "Confirma tu contraseña" %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p><%= f.submit "Registrate" %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+
+<script>
+	$(function(){
+		campus_universidades_autoomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
+	})
+</script>

@@ -1,7 +1,7 @@
 <div>
 	<%= profesor.nombre %>
     <%= link_to 'Show', profesor %>
-    <% if logged_in? %>
+    <% if usuario_signed_in? %>
 		<%= link_to 'Edit', edit_profesor_path(profesor) %>
 	    <%= link_to 'Destroy', profesor, :confirm => 'Are you sure?', :method => :delete %>
 	<% end %>

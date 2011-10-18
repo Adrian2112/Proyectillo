@@ -1,8 +1,11 @@
-<h2>Sign in</h2>
+<% title "Inicia Sesión" %>
+
+<p><%= link_to "Registrate",  new_usuario_registration_path %></p>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+
+  <div><%= label_tag :login, "Nombre de usuario o Email" %><br />
+    <%= text_field_tag :login, params[:login] %></div>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
@@ -11,7 +14,7 @@
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= f.submit "Inicia sesión" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
