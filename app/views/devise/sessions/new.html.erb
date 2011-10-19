@@ -4,8 +4,8 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <div><%= label_tag :login, "Nombre de usuario o Email" %><br />
-    <%= text_field_tag :login, params[:login] %></div>
+  <div><%= f.label :login, "Nombre de usuario o Email" %><br />
+    <%= f.text_field :login %></div>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
