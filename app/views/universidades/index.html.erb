@@ -9,6 +9,8 @@
 
 <%= link_to 'Nueva Universidad', new_universidad_path %>
 
+<%= paginate @universidades %>
+
 <script>
 	$("#q").bind("textchange", function(){
 		$.get("/universidades.js", {q: $("#q").val()});
