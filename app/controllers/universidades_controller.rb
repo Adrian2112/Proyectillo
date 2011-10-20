@@ -13,6 +13,11 @@ class UniversidadesController < ApplicationController
     end
   end
 
+  def mas_universidades
+    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10)
+    render :layout => false
+  end
+
   # GET /universidades/1
   # GET /universidades/1.xml
   def show

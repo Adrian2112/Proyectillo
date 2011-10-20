@@ -12,14 +12,15 @@ Calmecac::Application.routes.draw do
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
   resources :usuarios
   
+  # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
+  get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
+
   resources :universidades, :shallow => true do
     resources :campus, :shallow => true do
       resources :cursos
     end
   end
   
-  
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

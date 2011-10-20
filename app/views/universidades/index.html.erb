@@ -7,12 +7,32 @@
 </div>
 <br />
 
-<%= link_to 'Nueva Universidad', new_universidad_path %>
-
-<%= paginate @universidades %>
+<div id="next_link">
+  <% if !@universidades.last_page? %>
+    <br/>
+    <center>
+      <%= link_to "Mas Resultados", '#', :controller => "universidades", :action => "mas_universidades", :class => "mas" %>
+    </center>
+  <% end %>
+</div>
 
 <script>
 	$("#q").bind("textchange", function(){
 		$.get("/universidades.js", {q: $("#q").val()});
 	});
+
+  function loadMore(pageNo) {
+    var url = '/universidades/page/';
+    $.get(url + pageNo, function(response) {
+      $("#listado").append(response);
+    });
+  }
+
+  $(document).ready(function() {
+    var currPage = 1;
+    $("a.mas").click(function() {
+      loadMore(++currPage);
+    });
+  });
+
 </script>
