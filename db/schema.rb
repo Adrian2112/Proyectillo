@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018194753) do
+ActiveRecord::Schema.define(:version => 20111020224459) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -67,10 +67,7 @@ ActiveRecord::Schema.define(:version => 20111018194753) do
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "imagen_file_name"
-    t.string   "imagen_content_type"
-    t.integer  "imagen_file_size"
-    t.datetime "imagen_updated_at"
+    t.string   "avatar"
   end
 
   create_table "universidades", :force => true do |t|

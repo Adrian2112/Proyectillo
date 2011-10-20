@@ -1,6 +1,15 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+function campus_autocomplete(universidad_id){
+	$("#profesor_campus_id").tokenInput("/universidades/" + universidad_id + "/campus.json", {
+		propertyToSearch: "nombre",
+		tokenLimit: 1,
+		theme: 'facebook',
+		preventDuplicates: true
+	});
+}
+
 function campus_universidades_autoomplete(universidad_id, campus_input_name, campus_input_id){
 
 	$("#usuario_universidad_id, #universidad_id").tokenInput("/universidades.json", {

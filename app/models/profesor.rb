@@ -16,14 +16,19 @@
 #
 
 class Profesor < ActiveRecord::Base
-
-  has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-
+  
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar
+  
   belongs_to :campus
   delegate :universidad, :to => :campus
+  
+  validates :nombre, :presence => true
+  validates :apellido_paterno, :presence => true
+  validates :apellido_materno, :presence => true
   
   has_many :curso_profesor, :dependent => :destroy
   has_many :calificaciones, :through => :curso_profesor
   has_many :cursos, :through => :curso_profesor
-
+  
+  mount_uploader :avatar, AvatarUploader
 end

@@ -41,8 +41,7 @@ class ProfesoresController < ApplicationController
   # POST /profesores
   # POST /profesores.xml
   def create
-    @profesor = Profesor.new(params[:profesor])
-
+    @profesor = current_usuario.campus.profesores.build(params[:profesor])
     respond_to do |format|
       if @profesor.save
         format.html { redirect_to(@profesor, :notice => 'Profesor was successfully created.') }

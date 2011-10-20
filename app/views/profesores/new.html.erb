@@ -2,4 +2,10 @@
 
 <%= render 'form' %>
 
+<script>
+	$(function(){
+		campus_autocomplete(<%= current_usuario.universidad_id %>);
+	})
+</script>
+
 <%= link_to 'Back', profesores_path %>
