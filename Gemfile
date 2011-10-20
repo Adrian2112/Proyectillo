@@ -13,6 +13,7 @@ gem "paperclip", "~> 2.4"
 gem "annotate", '2.4.0'
 gem 'devise'
 gem 'kaminari'
+gem 'omniauth'
 
 group :development do
   gem "nifty-generators"
