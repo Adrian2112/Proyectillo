@@ -9,12 +9,12 @@ gem 'jquery-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '0.2.6'
-gem "paperclip", "~> 2.4"
-gem "rmagick"
 gem "annotate", '2.4.0'
 gem 'devise'
 gem "mini_magick"
 gem 'carrierwave'
+gem 'kaminari'
+
 
 group :development do
   gem "nifty-generators"
