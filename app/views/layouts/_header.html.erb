@@ -9,7 +9,7 @@
 	<div class="column">
 		<div id="sessions">
 		<% if usuario_signed_in? %>
-		  <%= link_to "#{current_usuario.username}", "#" %> |
+		  <%= link_to "#{current_usuario.username}", edit_usuario_registration_path %> |
 		  <%= link_to "Cerrar sesión", destroy_usuario_session_path, :method => :delete %>
 		<% else %>
 			<%= link_to 'Iniciar Sesion', new_usuario_session_path %> |

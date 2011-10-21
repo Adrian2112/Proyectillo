@@ -10,7 +10,7 @@ function campus_autocomplete(universidad_id){
 	});
 }
 
-function campus_universidades_autoomplete(universidad_id, campus_input_name, campus_input_id){
+function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id){
 
 	$("#usuario_universidad_id, #universidad_id").tokenInput("/universidades.json", {
 		propertyToSearch: "nombre",
