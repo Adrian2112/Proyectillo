@@ -11,6 +11,7 @@
   <% if !@universidades.last_page? %>
     <br/>
     <center>
+      <div id="loadingDiv"><%= image_tag 'ajax-loader.gif' %></div>
       <%= link_to "Mas Resultados", '#', :controller => "universidades", :action => "mas_universidades", :class => "mas" %>
     </center>
   <% end %>
@@ -21,12 +22,22 @@
 		$.get("/universidades.js", {q: $("#q").val()});
 	});
 
+  $('#loadingDiv')
+     .hide()  // hide it initially
+     .ajaxStart(function() {
+         $(this).show();
+     })
+     .ajaxStop(function() {
+         $(this).hide();
+     });
+
   function loadMore(pageNo) {
     var url = '/universidades/page/';
     $.get(url + pageNo, function(response) {
       $("#listado").append(response);
     });
   }
+
 
   $(document).ready(function() {
     var currPage = 1;
