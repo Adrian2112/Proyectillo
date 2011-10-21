@@ -1,1 +1,6 @@
 $("#listado").html("<%= escape_javascript(render @universidades)%>");
+<% if @universidades.count < 10 %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>

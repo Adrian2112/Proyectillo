@@ -2,7 +2,7 @@ class UniversidadesController < ApplicationController
   # GET /universidades
   # GET /universidades.xml
   def index
-    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%")
+    @universidades = Universidad.page(params[:page]).per(10).where("nombre LIKE ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,6 +10,11 @@ class UniversidadesController < ApplicationController
       format.json { render :json => @universidades.map(&:attributes) }
       format.xml  { render :xml => @universidades }
     end
+  end
+
+  def mas_universidades
+    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10)
+    render :layout => false
   end
 
   # GET /universidades/1
