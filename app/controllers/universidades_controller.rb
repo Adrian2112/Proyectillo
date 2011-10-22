@@ -1,4 +1,6 @@
 class UniversidadesController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /universidades
   # GET /universidades.xml
   def index

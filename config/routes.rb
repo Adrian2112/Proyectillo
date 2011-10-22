@@ -10,7 +10,8 @@ Calmecac::Application.routes.draw do
   match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
-  resources :usuarios
+  
+  resources :usuarios, :except => [:delete, :edit, :destroy]
   
   # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
   get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
