@@ -1,4 +1,6 @@
 class ProfesoresController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /profesores
   # GET /profesores.xml
   def index

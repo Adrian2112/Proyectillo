@@ -1,4 +1,6 @@
 class UsuariosController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :login_required, :except => [:new, :create]
 
   def new

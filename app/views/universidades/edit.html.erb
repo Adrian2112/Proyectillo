@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @universidad %> |
+<%= link_to 'Show', @universidad if can? :read, @universidad %>
 <%= link_to 'Back', universidades_path %>
