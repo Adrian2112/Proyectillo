@@ -2,6 +2,6 @@
 	<%= universidad.nombre %>
 
     <%= link_to 'Show', universidad if can? :read, universidad %>
-	<%= link_to 'Edit', edit_universidad_path(universidad) if can? :edit, universidad %>
+	  <%= link_to 'Edit', edit_universidad_path(universidad) if can? :edit, universidad %>
     <%= link_to 'Destroy', universidad, :confirm => 'Are you sure?', :method => :delete if can? :destroy, universidad %>
 </div>
