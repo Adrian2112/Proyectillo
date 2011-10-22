@@ -1,4 +1,5 @@
 class ProfesoresController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @profesores = Profesor.where("nombre LIKE ?", "%#{params[:profesor_q]}%")

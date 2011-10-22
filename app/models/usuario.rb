@@ -44,7 +44,14 @@ class Usuario < ActiveRecord::Base
   validates_inclusion_of :rol, :in => ROLES
   validates :campus_id, :presence => true
   validates :universidad_id, :presence => true
-
+  
+  def admin?
+    self.rol == ROLES[1]
+  end
+  
+  def usuario?
+    self.rol == ROLES[0]
+  end
 
   def self.find_for_authentication(conditions)
     login = conditions.delete(:login)

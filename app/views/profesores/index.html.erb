@@ -10,4 +10,5 @@
 </div>
 <br />
 
-<%= link_to 'New Profesor', new_profesor_path %>
+<%= link_to 'New Profesor', new_profesor_path if can? :create, Profesor  %>
+

@@ -1,5 +1,6 @@
 class UniversidadesController < ApplicationController
-
+  load_and_authorize_resource
+  
   def index
     @universidades = Universidad.page(params[:page]).per(10).where("nombre LIKE ?", "%#{params[:universidad_q]}%")
 

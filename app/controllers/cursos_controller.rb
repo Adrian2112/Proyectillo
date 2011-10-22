@@ -1,5 +1,6 @@
 class CursosController < ApplicationController
-
+  load_and_authorize_resource
+  
   def index
     @campus = Campus.find(params[:campus_id])
     @cursos = @campus.cursos.where("nombre LIKE ?", "%#{params[:q]}%")

@@ -1,4 +1,5 @@
 class CampusController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @universidad = Universidad.find(params[:universidad_id])

@@ -1,7 +1,7 @@
 <div>
 	<%= curso.nombre %>
-  <%= link_to 'Show', curso %>
-  <%= link_to 'Edit', edit_curso_path(curso) %>
-  <%= link_to 'Destroy', curso, :confirm => 'Are you sure?', :method => :delete %>
-  
+
+  <%= link_to 'Show', curso if can? :read, curso %>
+  <%= link_to 'Edit', edit_curso_path(curso) if can? :edit, curso %>
+  <%= link_to 'Destroy', curso, :confirm => 'Are you sure?', :method => :delete if can? :destroy, curso %>
 </div>

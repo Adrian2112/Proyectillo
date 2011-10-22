@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @calificacion %> |
+<%= link_to 'Show', @calificacion if can? :read, @calificacion %>
 <%= link_to 'Back', calificaciones_path %>

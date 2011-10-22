@@ -15,6 +15,7 @@ gem "mini_magick"
 gem 'carrierwave'
 gem 'kaminari'
 gem 'omniauth'
+gem "cancan"
 
 group :development do
   gem "nifty-generators"

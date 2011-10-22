@@ -25,5 +25,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_profesor_path(@profesor) %> |
+<%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
 <%= link_to 'Back', profesores_path %>

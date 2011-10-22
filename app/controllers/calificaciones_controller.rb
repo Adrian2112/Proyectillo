@@ -1,5 +1,7 @@
 class CalificacionesController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
     @calificaciones = Calificacion.all
   end

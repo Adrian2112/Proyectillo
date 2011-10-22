@@ -5,5 +5,5 @@
 </div>
 <br />
 
-<%= link_to 'New Curso', new_campus_curso_path(@campus) %>
+<%= link_to 'New Curso', new_campus_curso_path(@campus) if can? :create, Curso %>
 
