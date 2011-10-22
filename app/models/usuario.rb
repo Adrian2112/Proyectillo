@@ -2,14 +2,23 @@
 #
 # Table name: usuarios
 #
-#  id            :integer(4)      not null, primary key
-#  username      :string(255)
-#  email         :string(255)
-#  password_hash :string(255)
-#  password_salt :string(255)
-#  rol           :string(255)     default("Usuario")
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id                     :integer(4)      not null, primary key
+#  username               :string(255)
+#  rol                    :string(255)     default("Usuario")
+#  created_at             :datetime
+#  updated_at             :datetime
+#  campus_id              :integer(4)
+#  universidad_id         :integer(4)
+#  email                  :string(255)     default(""), not null
+#  encrypted_password     :string(128)     default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer(4)      default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
 #
 
 class Usuario < ActiveRecord::Base
@@ -21,7 +30,7 @@ class Usuario < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # Atributos de devise con los que habian sido generados anteriormente
   attr_accessible :username, :email, :password, :password_confirmation,
-                  :campus_id, :universidad_id, :remember_me, :login
+                  :campus, :campus_id, :universidad, :universidad_id, :remember_me, :login
 
   attr_accessor :login
   
