@@ -48,6 +48,11 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 			});
 }
 
+function load_more(pageNo, param_q, busca) {
+	pageNo = parseInt(pageNo);
+  var url = '/universidades/page/';
+  $.get(url + pageNo + "?" + param_q + "=" + busca );
+}
 
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
@@ -79,19 +84,6 @@ $(function(){
 	   .ajaxStop(function() {
 	       $(this).hide();
 	   });
-
-	function loadMore(pageNo) {
-	  var url = '/universidades/page/';
-	  $.get(url + pageNo, function(response) {
-	    $("#listado").append(response);
-	  });
-	}
-
-  	var currPage = 1;
-	  $("a#mas").click(function(e) {
-	    loadMore(++currPage);
-			e.preventDefault();
-	  });
 
 
 //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)

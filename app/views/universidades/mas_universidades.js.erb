@@ -1,5 +1,4 @@
-$("#listado").html("<%= escape_javascript(render @universidades)%>");
-$("#next_link").html("<%= escape_javascript(render 'next_link') %>");
+$("#listado").append("<%= escape_javascript(render @universidades) %>");
 $("#page").val(<%= @universidades.current_page + 1 %>);
 
 <% if @universidades.current_page >= @universidades.num_pages %>

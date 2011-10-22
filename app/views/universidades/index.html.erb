@@ -11,12 +11,7 @@
 <br />
 <%= link_to "Nueva Universidad", new_universidad_path if can? :create, Universidad %>
 <div id="next_link">
-	
-  <% if !@universidades.last_page? %>
-    <br/>
-    <center>
-      <div id="loadingDiv"><%= image_tag 'ajax-loader.gif' %></div>
-      <%= link_to "Mas Resultados", '#', :controller => "universidades", :action => "mas_universidades", :id => "mas" %>
-    </center>
-  <% end %>
+  <%= render 'next_link' %>
 </div>
+
+

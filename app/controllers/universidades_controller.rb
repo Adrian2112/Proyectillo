@@ -1,9 +1,10 @@
 class UniversidadesController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :mas_universidades
   
   def index
-    @universidades = Universidad.page(params[:page]).per(10).where("nombre LIKE ?", "%#{params[:universidad_q]}%")
-
+    cargar_universidades
+    
     respond_to do |format|
       format.html
       format.js 
@@ -12,7 +13,8 @@ class UniversidadesController < ApplicationController
   end
 
   def mas_universidades
-    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10)
+    authorize! :read, Universidad
+    cargar_universidades
     render :layout => false
   end
 
@@ -52,6 +54,12 @@ class UniversidadesController < ApplicationController
     @universidad = Universidad.find(params[:id])
     @universidad.destroy
     redirect_to(universidades_url)
+  end
+  
+  private
+  
+  def cargar_universidades
+    @universidades = Universidad.where("nombre LIKE ?", "%#{params[:universidad_q]}%").page(params[:page]).per(10)
   end
   
 end
