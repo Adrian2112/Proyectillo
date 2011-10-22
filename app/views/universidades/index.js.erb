@@ -1,5 +1,6 @@
 $("#listado").html("<%= escape_javascript(render @universidades)%>");
-$("#next_link").html("<%= escape_javascript(render 'next_link') %>");
+$("#next_link").html("<%= escape_javascript(render :partial => 'shared/next_link',
+													:object => @universidades, :locals => { :url => '/universidades/page/', :q => 'universidad_q' } ) %>");
 $("#page").val(<%= @universidades.current_page + 1 %>);
 
 <% if @universidades.current_page >= @universidades.num_pages %>

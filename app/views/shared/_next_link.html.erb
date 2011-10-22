@@ -3,7 +3,7 @@
   <center>
     <div id="loading" style="display:none;"><%= image_tag 'ajax-loader.gif' %></div>
     <%= link_to_function "Mas Resultados", "load_more($('#page').val(),"+
-                          "'universidad_q', $('#universidad_q').val(), '#{url}');", :id => "mas" %>
+                          "'#{q}', $('##{q}').val(), '#{url}');", :id => "mas" %>
   </center>
 <% end %>
 
