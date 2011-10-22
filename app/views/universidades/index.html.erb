@@ -6,7 +6,7 @@
 	<%= render @universidades %>
 </div>
 <br />
-<%= link_to "Nueva Universidad", new_universidad_path %>
+<%= link_to "Nueva Universidad", new_universidad_path if can? :create, Universidad %>
 <div id="next_link">
   <% if !@universidades.last_page? %>
     <br/>

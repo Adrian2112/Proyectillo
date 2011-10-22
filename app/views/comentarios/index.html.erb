@@ -11,9 +11,9 @@
       <td><%= comentario.comentario %></td>
       <td><%= comentario.usuario_id %></td>
       <td><%= comentario.calificacion_id %></td>
-      <td><%= link_to "Show", comentario %></td>
-      <td><%= link_to "Edit", edit_comentario_path(comentario) %></td>
-      <td><%= link_to "Destroy", comentario, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Show", comentario if can? :read, comentario %></td>
+      <td><%= link_to "Edit", edit_comentario_path(comentario) if can? :edit, comentario %></td>
+      <td><%= link_to "Destroy", comentario, :confirm => 'Are you sure?', :method => :delete if can? :destroy, comentario %></td>
     </tr>
   <% end %>
 </table>

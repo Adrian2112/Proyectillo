@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @comentario %> |
+  <%= link_to "Show", @comentario if can? :read, @comentario %> |
   <%= link_to "View All", comentarios_path %>
 </p>

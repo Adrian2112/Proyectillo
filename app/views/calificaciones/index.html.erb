@@ -29,9 +29,9 @@
     <td><%= calificacion.profesor_id %></td>
     <td><%= calificacion.facilidad %></td>
     <td><%= calificacion.calificacion_obtenida %></td>
-    <td><%= link_to 'Show', calificacion %></td>
-    <td><%= link_to 'Edit', edit_calificacion_path(calificacion) %></td>
-    <td><%= link_to 'Destroy', calificacion, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', calificacion if can? :read, calificacion %></td>
+    <td><%= link_to 'Edit', edit_calificacion_path(calificacion) if can? :edit, calificacion %></td>
+    <td><%= link_to 'Destroy', calificacion, :confirm => 'Are you sure?', :method => :delete if can? :destroy, calificacion %></td>
   </tr>
 <% end %>
 </table>

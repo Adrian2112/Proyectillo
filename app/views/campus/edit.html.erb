@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @campus %> |
+<%= link_to 'Show', @campus if can? :read, @campus %>
 <%= link_to 'Back', universidad_campus_index_path(@campus.universidad) %>

@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_comentario_path(@comentario) %> |
-  <%= link_to "Destroy", @comentario, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Edit", edit_comentario_path(@comentario) if can? :edit, @comentario %>
+  <%= link_to "Destroy", @comentario, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @comentario %>
   <%= link_to "View All", comentarios_path %>
 </p>
