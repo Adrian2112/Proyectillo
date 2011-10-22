@@ -59,4 +59,14 @@ class Usuario < ActiveRecord::Base
     where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
   end
 
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    self.username = omniauth['user_info']['nickname'] if username.blank?
+    autenticaciones.build(:provedor => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
+  def password_required?
+    (autenticaciones.empty? || !password.blank? ) && super
+  end
+
 end

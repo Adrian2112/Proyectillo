@@ -2,7 +2,7 @@ Calmecac::Application.routes.draw do
 
   resources :autenticaciones
 
-  devise_for :usuarios
+  devise_for :usuarios, :controllers => {:registrations => 'registrations'}
   
   # Match con la response de los provedores de redes sociales
   match '/auth/:provider/callback' => 'autenticaciones#create'
