@@ -1,6 +1,11 @@
 Calmecac::Application.routes.draw do
 
+  resources :autenticaciones
+
   devise_for :usuarios
+  
+  # Match con la response de los provedores de redes sociales
+  match '/auth/:provider/callback' => 'autenticaciones#create'
 
   match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us

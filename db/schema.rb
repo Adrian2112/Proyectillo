@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020224459) do
+ActiveRecord::Schema.define(:version => 20111022164233) do
+
+  create_table "autenticaciones", :force => true do |t|
+    t.integer  "usuario_id"
+    t.string   "provedor"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"

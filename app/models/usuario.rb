@@ -34,6 +34,7 @@ class Usuario < ActiveRecord::Base
 
   attr_accessor :login
   
+  has_many :autenticaciones
   has_many :comentarios, :dependent => :nullify
   has_many :calificaciones, :dependent => :nullify
   belongs_to :universidad
