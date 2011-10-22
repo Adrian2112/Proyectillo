@@ -2,22 +2,19 @@
 #
 # Table name: profesores
 #
-#  id                  :integer(4)      not null, primary key
-#  nombre              :string(255)
-#  apellido_materno    :string(255)
-#  apellido_paterno    :string(255)
-#  campus_id           :integer(4)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  imagen_file_name    :string(255)
-#  imagen_content_type :string(255)
-#  imagen_file_size    :integer(4)
-#  imagen_updated_at   :datetime
+#  id               :integer(4)      not null, primary key
+#  nombre           :string(255)
+#  apellido_materno :string(255)
+#  apellido_paterno :string(255)
+#  campus_id        :integer(4)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  avatar           :string(255)
 #
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus
   
   belongs_to :campus
   delegate :universidad, :to => :campus
