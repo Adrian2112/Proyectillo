@@ -1,11 +1,7 @@
 class CursosController < ApplicationController
   load_and_authorize_resource
   
-<<<<<<< HEAD
-=======
-  # GET /cursos
-  # GET /cursos.xml
->>>>>>> fd554eb23ef6d3f56706f75ef5334ff750551106
+
   def index
     @campus = Campus.find(params[:campus_id])
     @cursos = @campus.cursos.where("nombre LIKE ?", "%#{params[:q]}%")
