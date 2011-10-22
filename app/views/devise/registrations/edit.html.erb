@@ -42,9 +42,3 @@
 <p>Unhappy? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "Seguro que deseas cancelar?", :method => :delete %>.</p>
 
 <%= link_to "Regresar", :back %>
-
-<script>
-	$(function(){
-		campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
-	})
-</script>

@@ -29,10 +29,10 @@
   </div>
 	<br />
  	Universidad: <br />
-	<%= current_usuario.universidad.nombre %>
+	<%= current_usuario.universidad.nombre if current_usuario %>
 	<br /><br />
   	Campus: <br />
-	<%= current_usuario.campus.nombre %>
+	<%= current_usuario.campus.nombre if current_usuario %>
 <br />
   <div class="actions">
     <%= f.submit %>

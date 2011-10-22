@@ -33,18 +33,3 @@
 <div id="resultados_index">
   <%= render @resultados %>
 </div>
-
-<script>
-	$(function(){
-		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
-	});
-
-	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
-		$.get("/.js", {
-                                curso_nombre: $("#curso_nombre").val(),
-                                campus_id: $("#campus_id").val(),
-								profesor_nombre: $("#profesor_nombre").val()
-      });
-	});
-</script>
-

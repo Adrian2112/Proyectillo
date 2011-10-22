@@ -1,5 +1,3 @@
-<%= render 'shared/search_form', :url => '/cursos' %>
-
 <h1>Listing cursos</h1>
 
 <div id="listado">
@@ -9,8 +7,3 @@
 
 <%= link_to 'New Curso', new_campus_curso_path(@campus) %>
 
-<script>
-	$("#q").bind("textchange", function(){
-		$.get("/cursos.js", {q: $("#q").val()});
-	});
-</script>
