@@ -48,10 +48,13 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 			});
 }
 
-function load_more(pageNo, param_q, busca) {
+function load_more(pageNo, param_q, busca, url) {
+	$("#loading").show();
 	pageNo = parseInt(pageNo);
-  var url = '/universidades/page/';
-  $.get(url + pageNo + "?" + param_q + "=" + busca );
+  $.get(url + pageNo + "?" + param_q + "=" + busca, function(){
+		$("#loading").hide()
+		}
+	);
 }
 
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
@@ -68,22 +71,20 @@ $(function(){
 
 //Filtro en tiempo real de profesores (http://localhost:3000/profesores)
 	$("#profesor_q").bind("textchange", function(){
-		$.get("/profesores.js", {profesor_q: $("#profesor_q").val()});
+		$("#loading").show();
+		$.get("/profesores.js", { profesor_q: $("#profesor_q").val() }, function(){
+			$("#loading").hide();
+		});
 	});
 
 
 //Filtro en tiempo real de universidades e implementacion "endless page" (http://localhost:3000/universidades)	
 	$("#universidad_q").bind("textchange", function(){
-		$.get("/universidades.js", {universidad_q: $("#universidad_q").val()});
+		$("#loading").show();
+		$.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
+			$("#loading").hide();
+		});
 	});
-
-	$('#loadingDiv').hide()  // hide it initially
-	   .ajaxStart(function() {
-	       $(this).show();
-	   })
-	   .ajaxStop(function() {
-	       $(this).hide();
-	   });
 
 
 //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)
