@@ -1,7 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
+  
+  def new
+    super
+    session[:omniauth] = nil
+  end
+  
   def create
     super
-    
     session[:omniauth] = nil unless @usuario.new_record?
   end
   
