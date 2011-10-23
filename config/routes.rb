@@ -9,7 +9,9 @@ Calmecac::Application.routes.draw do
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
-
+  
+  get 'pages/mas_resultados'
+  
   resources :universidades, :shallow => true do
     
     collection do
