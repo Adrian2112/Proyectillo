@@ -8,7 +8,10 @@ class UniversidadesController < ApplicationController
     respond_to do |format|
       format.html
       format.js 
-      format.json { render :json => @universidades.map(&:attributes) }
+      format.json {
+        @universidades = Universidad.where("nombre LIKE ?", "%#{params[:q]}%")
+        render :json => @universidades.map(&:attributes)
+      }
     end
   end
 

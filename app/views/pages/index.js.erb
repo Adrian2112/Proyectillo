@@ -1,1 +1,3 @@
 $("#resultados_index").html("<%= escape_javascript(render @resultados)%>");
+$("#next_link").html("<%= escape_javascript(render(:partial => 'shared/show_more', :object => @resultados,
+            :locals => { :url => 'pages/mas_resultados.js', :parametros => { :curso_nombre => :curso_nombre, :campus_id => :campus_id, :profesor_nombre => :profesor_nombre, :page => :page } }) ) %>");

@@ -10,8 +10,10 @@
 </div>
 <br />
 <%= link_to "Nueva Universidad", new_universidad_path if can? :create, Universidad %>
+
 <div id="next_link">
-  <%= render 'next_link' %>
+  <%= render :partial => 'shared/show_more', :object => @universidades,
+              :locals => { :url => mas_universidades_universidades_path(:js), :parametros => { :universidad_q => 'universidad_q', :page => "page" } } %>
 </div>
 
 

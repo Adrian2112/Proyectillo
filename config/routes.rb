@@ -2,7 +2,7 @@ Calmecac::Application.routes.draw do
   
   get 'curso_profesor/:profesor_id/:curso_id', :controller => :curso_profesor, :action => 'curso_profesor'
 
-  devise_for :usuarios
+  devise_for :usuarios, :controllers => { :registrations => "registrations"}
 
   #match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
@@ -15,10 +15,14 @@ Calmecac::Application.routes.draw do
   match 'contacto' => 'contact#new', :as => 'contact', :via => :get
   match 'contacto' => 'contact#create', :as => 'contact', :via => :post
   
-  # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
-  get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
-
+  get 'pages/mas_resultados'
+  
   resources :universidades, :shallow => true do
+    
+    collection do
+      get "mas_universidades"
+    end
+    
     resources :campus, :shallow => true do
       resources :cursos
     end
@@ -26,6 +30,7 @@ Calmecac::Application.routes.draw do
 
   resources :calificaciones
   resources :profesores
+  resources :comentarios
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

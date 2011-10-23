@@ -7,7 +7,7 @@ class CampusController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @universidad.campus.map(&:attributes) }
+      format.json { render :json => @campus.map(&:attributes) }
     end
   end
 
