@@ -36,12 +36,8 @@
     <%= f.text_field :promedio %>
   </div>
   <div class="field">
-    <%= f.label :comentarios %><br />
-    <%= f.text_field :comentarios %>
-  </div>
-  <div class="field">
-    <%= f.label :profesor_id %><br />
-    <%= f.text_field :profesor_id %>
+    <%= f.label :critica %><br />
+    <%= f.text_area :critica %>
   </div>
   <div class="field">
     <%= f.label :facilidad %><br />
@@ -50,6 +46,14 @@
   <div class="field">
     <%= f.label :calificacion_obtenida %><br />
     <%= f.text_field :calificacion_obtenida %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br />
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :curso_profesor_id %><br />
+    <%= f.text_field :curso_profesor_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

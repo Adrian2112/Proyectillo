@@ -21,6 +21,7 @@ Calmecac::Application.routes.draw do
     end
   end
 
+  resources :calificaciones
   resources :profesores
 
   # The priority is based upon order of creation:

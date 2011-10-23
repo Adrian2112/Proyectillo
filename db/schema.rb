@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020224459) do
+ActiveRecord::Schema.define(:version => 20111022215057) do
 
   create_table "calificaciones", :force => true do |t|
     t.integer  "puntualidad"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20111020224459) do
     t.integer  "claridad"
     t.integer  "flexibilidad"
     t.float    "promedio"
-    t.string   "comentarios"
+    t.text     "critica"
     t.integer  "facilidad"
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
