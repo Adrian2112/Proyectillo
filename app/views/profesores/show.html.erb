@@ -26,6 +26,7 @@
 <br />
 <% if @profesor.cursos.empty? %>
 	<h3>No hay cursos de este profesor</h3>
+	<%= link_to "Asignar a un curso" %>
 <% else %>
 	<ul id="cursos">
 	<% @profesor.cursos.each do |curso| %>

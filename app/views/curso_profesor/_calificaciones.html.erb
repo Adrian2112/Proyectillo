@@ -9,8 +9,23 @@
 </div>
 
 <% if usuario_signed_in? %>
+	<% curso_profesor.calificaciones.each do |calificacion| %>
+		<div class="calificaciones_comentarios">
+			<h5>Comentarios <%= calificacion.comentarios.size %></h5>
+			<%= calificacion.critica  %><br />
+			<% unless calificacion.comentarios.empty? %>
+				<div class="comments">
+					<%= render calificacion.comentarios %>
+				</div>
+			<% end %>
+			<br />
+			<%= render :partial => 'comentarios/form', :locals => {:comentario => Comentario.new, 
+																   :calificacion_id => calificacion.id } %>
+		</div>
+	<% end %>
+
 	<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
-														  :curso_profesor_id => curso_profesor.id} %>
+														  	  :curso_profesor_id => curso_profesor.id} %>
 <% else %>
 	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
 <% end %>

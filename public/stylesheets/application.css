@@ -172,3 +172,27 @@ div.test {
 	left:50%;
 	
 }
+
+div.calificaciones_comentarios {
+	border:1px solid #ccc;
+	margin-bottom:10px;
+	padding:10px;
+}
+
+div.comment {
+	margin-left:20px;
+	border-top:1px dashed #ccc;
+	padding:5px;
+}
+
+div.comment span {
+	float:right;
+	font-size:10px;
+	font-style:italic;
+}
+
+div.comments {
+	background:#eee;
+	border:1px solid #ccc;
+	margin:10px;
+}

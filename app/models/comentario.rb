@@ -11,8 +11,11 @@
 #
 
 class Comentario < ActiveRecord::Base
-  attr_accessible :comentario, :usuario_id, :calificacion_id
+  attr_accessible :comentario, :calificacion_id
   
   belongs_to :usuario
   belongs_to :calificacion
+  
+  default_scope order('created_at DESC')
+  
 end

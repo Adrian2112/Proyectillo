@@ -23,6 +23,7 @@ Calmecac::Application.routes.draw do
 
   resources :calificaciones
   resources :profesores
+  resources :comentarios
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
