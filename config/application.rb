@@ -41,12 +41,12 @@ module Calmecac
   
   
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => "gmail.com",
-    :user_name            => "elopez.deleon@gmail.com",
-    :password             => "emll230189",
-    :authentication       => :plain,
+    :domain          => "aktestcontact@gmail.com", 
+    :address         => 'smtp.gmail.com',          
+    :port            => 587,                                           
+    :authentication  => :plain,                    
+    :user_name       => 'aktestcontact@gmail.com', 
+    :password        => 'cwiolcpd',            
     :enable_starttls_auto => true
   }
 
