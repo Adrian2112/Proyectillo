@@ -1,9 +1,0 @@
-<% if !@universidades.last_page? %>
-  <br/>
-  <center>
-    <div id="loadingDiv"><%= image_tag 'ajax-loader.gif' %></div>
-    <%= link_to_function "Mas Resultados", "load_more($('#page').val(), 'universidad_q', $('#universidad_q').val());", :id => "mas" %>
-  </center>
-<% end %>
-
-<%= hidden_field_tag 'page', params[:page] || 2 %>

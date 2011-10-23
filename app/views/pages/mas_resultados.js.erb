@@ -1,0 +1,8 @@
+$("#resultados_index").append("<%= escape_javascript(render @resultados)%>");
+$("#page").val(<%= @resultados.current_page + 1 %>);
+
+<% if @resultados.current_page >= @resultados.num_pages %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>
