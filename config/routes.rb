@@ -1,6 +1,6 @@
 Calmecac::Application.routes.draw do
 
-  devise_for :usuarios
+  devise_for :usuarios, :controllers => { :registrations => "registrations"}
 
   match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
