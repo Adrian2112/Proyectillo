@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(:version => 20111022215057) do
 
   create_table "calificaciones", :force => true do |t|
-    t.integer  "puntualidad"
-    t.integer  "amigable"
-    t.integer  "conocimiento"
-    t.integer  "claridad"
-    t.integer  "flexibilidad"
+    t.float    "puntualidad",           :default => 0.0
+    t.float    "amigable",              :default => 0.0
+    t.float    "conocimiento",          :default => 0.0
+    t.float    "claridad",              :default => 0.0
+    t.float    "flexibilidad",          :default => 0.0
     t.float    "promedio"
     t.text     "critica"
-    t.integer  "facilidad"
+    t.float    "facilidad",             :default => 0.0
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
     t.integer  "curso_profesor_id"

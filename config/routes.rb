@@ -1,4 +1,6 @@
 Calmecac::Application.routes.draw do
+  
+  get 'curso_profesor/:profesor_id/:curso_id', :controller => :curso_profesor, :action => 'curso_profesor'
 
   devise_for :usuarios, :controllers => { :registrations => "registrations"}
 

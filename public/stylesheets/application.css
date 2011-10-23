@@ -145,3 +145,30 @@ div#footer_menu_container {
 }
 /*Footer*/
 
+ul#cursos {
+	list-style:none;
+}
+
+ul#cursos li {
+	display:inline;
+	padding:10px;
+}
+
+div#calificaciones {
+	width:90%;
+	margin:10px auto;
+	border:1px solid #ccc;
+}
+
+div#curso_profesor {
+	width:90%;
+}
+
+div.test {
+	position:absolute;
+	top:50%;
+	bottom:50%;
+	right:50%;
+	left:50%;
+	
+}

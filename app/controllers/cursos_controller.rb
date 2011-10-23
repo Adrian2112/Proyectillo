@@ -51,4 +51,5 @@ class CursosController < ApplicationController
     @curso.destroy
     redirect_to(campus_cursos_url(@curso.campus), :notice => "El curso se elimino")
   end
+  
 end

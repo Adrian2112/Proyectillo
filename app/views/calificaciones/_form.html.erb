@@ -1,10 +1,10 @@
-<%= form_for(@calificacion) do |f| %>
-  <% if @calificacion.errors.any? %>
+<%= form_for(calificacion) do |f| %>
+  <% if calificacion.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
+      <h2><%= pluralize(calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
 
       <ul>
-      <% @calificacion.errors.full_messages.each do |msg| %>
+      <% calificacion.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -32,10 +32,6 @@
     <%= f.text_field :flexibilidad %>
   </div>
   <div class="field">
-    <%= f.label :promedio %><br />
-    <%= f.text_field :promedio %>
-  </div>
-  <div class="field">
     <%= f.label :critica %><br />
     <%= f.text_area :critica %>
   </div>
@@ -47,14 +43,8 @@
     <%= f.label :calificacion_obtenida %><br />
     <%= f.text_field :calificacion_obtenida %>
   </div>
-  <div class="field">
-    <%= f.label :usuario_id %><br />
-    <%= f.text_field :usuario_id %>
-  </div>
-  <div class="field">
-    <%= f.label :curso_profesor_id %><br />
-    <%= f.text_field :curso_profesor_id %>
-  </div>
+    
+    <%= f.hidden_field :curso_profesor_id, :value => curso_profesor_id %>
   <div class="actions">
     <%= f.submit %>
   </div>
