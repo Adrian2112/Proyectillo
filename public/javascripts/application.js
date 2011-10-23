@@ -64,8 +64,10 @@ function load_more(page_num, params, url) {
 
 function cargar_curso_profesor(profesor_id, curso_id){
 	var url = '/curso_profesor/' + profesor_id + "/" + curso_id + ".js";
+	$("#loading").show();
 	$.get(url).complete(function(){
 		$("#curso_profesor").slideDown("slow");
+		$("#loading").hide();
 	});
 }
 
