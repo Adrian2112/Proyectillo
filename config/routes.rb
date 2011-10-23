@@ -9,11 +9,13 @@ Calmecac::Application.routes.draw do
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
-  
-  # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
-  get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
 
   resources :universidades, :shallow => true do
+    
+    collection do
+      get "mas_universidades"
+    end
+    
     resources :campus, :shallow => true do
       resources :cursos
     end

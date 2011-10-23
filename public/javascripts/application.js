@@ -48,11 +48,23 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 			});
 }
 
-function load_more(pageNo, param_q, busca, url) {
+/*
+	page_num = numero de la pagina que se mostrara
+	params = hashmap del tipo { parametro que lee servidor : id html para sacar la informacion }
+	url = la url a donde se mandara hara el request
+*/
+function load_more(page_num, params, url) {
 	$("#loading").show();
-	pageNo = parseInt(pageNo);
-  $.get(url + pageNo + "?" + param_q + "=" + busca, function(){
-		$("#loading").hide()
+	pageNo = parseInt(page_num);
+	var params_enviar = new Object();
+	
+	// crea un los parametros con la informacion de los ids de html
+	$.each( params, function(k, v){
+	   params_enviar[k] = $("#"+v).val();
+	 });
+	
+  $.get(url, params_enviar, function(){
+		$("#loading").hide();
 		}
 	);
 }
