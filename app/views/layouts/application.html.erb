@@ -3,7 +3,6 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag :all %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
@@ -26,4 +25,5 @@
 		<%= render 'layouts/footer' %>
 	</div>
   </body>
+  <%= javascript_include_tag :all %>
 </html>
