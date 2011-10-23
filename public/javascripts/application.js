@@ -71,6 +71,10 @@ function cargar_curso_profesor(profesor_id, curso_id){
 	});
 }
 
+function hide_flash_messages() {
+   $('div#flash_notice, div#flash_error').fadeOut();
+}
+
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
 	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
@@ -106,6 +110,12 @@ $(function(){
 
 //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)
 	campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
+
+
+//Hide flash messages
+if($("div#flash_notice") && $("div#flash_error")) {
+	setTimeout(hide_flash_messages, 3000); 
+}
 
 });
 

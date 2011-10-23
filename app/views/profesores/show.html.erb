@@ -1,5 +1,5 @@
 <div id="promedio" style="float:right"><h3>Promedio: <%= @profesor.promedio %></h3></div>
-
+<% store_requested_url unless current_usuario %>
 <p>
 	<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
 </p>
