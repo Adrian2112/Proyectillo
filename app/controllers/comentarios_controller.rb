@@ -15,9 +15,10 @@ class ComentariosController < ApplicationController
 
   def create
     @comentario = Comentario.new(params[:comentario])
+    @comentario.usuario_id = current_usuario.id
     if @comentario.save
       flash[:notice] = "Successfully created comentario."
-      redirect_to @comentario
+      redirect_to :back
     else
       render :action => 'new'
     end

@@ -1,0 +1,27 @@
+<h1>Contáctanos</h1>
+<br/>
+
+<%= form_for @message, :url => '/contacto' do |form| %>
+    <div>
+      <%= form.label :name, 'Nombre' %> <br />
+      <%= form.text_field :name %>
+    </div>
+    <br />
+    <div>
+      <%= form.label :email, 'Correo electrónico' %> <br/>
+      <%= form.text_field :email %>
+    </div>
+    <br />
+    <div>
+      <%= form.label :subject, 'Tipo de comentario' %> <br/>
+      <%= form.select :subject, options_for_select(['Idea', 'Duda', 'Error']) %>
+    </div>
+     <br />
+    <div>
+      <%= form.label :message, 'Detalles' %> <br/>
+      <%= form.text_area :body %>
+    </div>
+    <div> <br/>
+    <%= form.submit "Enviar" %>
+    </div>
+<% end %>

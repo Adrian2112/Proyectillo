@@ -1,29 +1,29 @@
 <% title "Bienvenido" %>
 
-<%= form_tag root_path, :method => :get do |f| %>
+<%= form_tag root_path, :method => :get, :id => "busqueda_general" do |f| %>
 	<div>
 		<%= label_tag :universidad_id, "Universidad" %><br />
-	    <%= text_field_tag :universidad_id %>
+	    <%= text_field_tag :universidad_id, "", "data-pre" => @universidad_data %>
 	</div>
 	<div id="nueva_universidad_link" style="display:none">
 		 No encontraste tu universidad da clic <%= link_to "aqui", new_universidad_path %>
 	</div>
-	
-	<br />
-	<div id="campus" style="display:none">
+	<br />	
+	<div id="campus">
 		<%= label_tag :campus_id, "Campus" %><br />
-	    <%= text_field_tag :campus_id %>
+	  <%= text_field_tag :campus_id, "", :class => "token_field",
+	                      "data-url" => @campus_url, "data-pre" => @campus_data %>
 	</div>
 
 	<br />
 	<div id="curso" style="">
 		<%= label_tag :curso_nombre, "Curso" %><br />
-	    <%= text_field_tag :curso_nombre %>
+	    <%= text_field_tag :curso_nombre, params[:curso_nombre] %>
 	</div>
 	
 	<div id="profesor" style="">
 		<%= label_tag :profesor_nombre, "Profesor" %><br />
-	    <%= text_field_tag :profesor_nombre %>
+	    <%= text_field_tag :profesor_nombre, params[:profesor_nombre] %>
 	</div>
 
   <br />
@@ -34,17 +34,7 @@
   <%= render @resultados %>
 </div>
 
-<script>
-	$(function(){
-		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
-	});
-
-	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
-		$.get("/.js", {
-                                curso_nombre: $("#curso_nombre").val(),
-                                campus_id: $("#campus_id").val(),
-								profesor_nombre: $("#profesor_nombre").val()
-      });
-	});
-</script>
-
+<div id="next_link">
+  <%= render :partial => 'shared/show_more', :object => @resultados,
+              :locals => { :url => "/pages/mas_resultados.js", :parametros => { :curso_nombre => :curso_nombre, :campus_id => :campus_id, :profesor_nombre => :profesor_nombre, :page => :page } } %>
+</div>

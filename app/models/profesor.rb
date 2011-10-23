@@ -28,4 +28,14 @@ class Profesor < ActiveRecord::Base
   has_many :cursos, :through => :curso_profesor
   
   mount_uploader :avatar, AvatarUploader
+  
+  def promedio
+    if calificaciones.size <= 0
+      0.0
+    else
+    prom = calificaciones.map{|califa| califa.promedio}.inject(:+) / calificaciones.size
+    prom.nan? ? 0.0 : '%.1f' % prom
+  end
+  end
+  
 end

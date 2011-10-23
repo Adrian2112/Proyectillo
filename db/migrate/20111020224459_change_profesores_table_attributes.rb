@@ -10,10 +10,10 @@ class ChangeProfesoresTableAttributes < ActiveRecord::Migration
   end
 
   def self.down
-    add_column :profesores, :imagen_file_name   
-    add_column :profesores, :imagen_content_type
-    add_column :profesores, :imagen_file_size   
-    add_column :profesores, :imagen_updated_at
+    add_column :profesores, :imagen_file_name, :string   
+    add_column :profesores, :imagen_content_type, :string
+    add_column :profesores, :imagen_file_size, :string   
+    add_column :profesores, :imagen_updated_at, :string
     
     remove_column :profesores, :avatar
   end

@@ -1,4 +1,6 @@
 Calmecac::Application.routes.draw do
+  
+  get 'curso_profesor/:profesor_id/:curso_id', :controller => :curso_profesor, :action => 'curso_profesor'
 
   resources :autenticaciones
 
@@ -7,27 +9,33 @@ Calmecac::Application.routes.draw do
   # Match con la response de los provedores de redes sociales
   match '/auth/:provider/callback' => 'autenticaciones#create'
 
-  match 'contacto' => 'pages#contact', :as => :contact
+  #match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
   match 'privacidad' => 'pages#privacy', :as => :privacy
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
-  match 'usuario/edit' => 'usuarios#edit', :as => :edit_current_usuario
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
-  
-  resources :usuarios, :except => [:delete, :edit, :destroy]
-  
-  # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
-  get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
 
+  match 'contacto' => 'contact#new', :as => 'contact', :via => :get
+  match 'contacto' => 'contact#create', :as => 'contact', :via => :post
+  
+  get 'pages/mas_resultados'
+  
   resources :universidades, :shallow => true do
+    
+    collection do
+      get "mas_universidades"
+    end
+    
     resources :campus, :shallow => true do
       resources :cursos
     end
   end
 
+  resources :calificaciones
   resources :profesores
+  resources :comentarios
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

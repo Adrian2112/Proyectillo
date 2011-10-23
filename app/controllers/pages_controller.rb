@@ -1,26 +1,22 @@
 class PagesController < ApplicationController
   
   def index
-    @resultados = []    
-    campus = Campus.find(params[:campus_id]) if params[:campus_id]
     
-    if !params[:campus_id].nil? 
-      if !params[:curso_nombre].nil? and params[:profesor_nombre].blank?
-        @resultados = campus.cursos.where("nombre LIKE ?", "%#{params[:curso_nombre]}%")
-      elsif !params[:profesor_nombre].nil? and params[:curso_nombre].blank?
-        @resultados = campus.profesores.where("nombre LIKE ?", "%#{params[:profesor_nombre]}%")
-      else
-        @resultados = CursoProfesor.joins(:profesor, :curso).where(
-                      "profesores.nombre LIKE ? AND cursos.nombre LIKE ?",
-                      "%#{params[:profesor_nombre]}%", "%#{params[:curso_nombre]}%")
-      end
-    end
-    
+    resultados
+        
     respond_to do |format|
       format.html
       format.js  
     end
 
+  end
+  
+  def mas_resultados
+    resultados
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   def about_us
@@ -36,6 +32,34 @@ class PagesController < ApplicationController
   end
 
   def legal_advisor
+  end
+  
+  private
+  
+  def resultados
+    @resultados = []
+    @universidad = Universidad.where(:id => params[:universidad_id]).first
+    @universidad_data = @universidad.nil? ? "" : [{:id => @universidad.id, :nombre => @universidad.nombre}].to_json
+    @campus_url = @universidad ? "/universidades/#{@universidad.id}/campus" : ""
+    
+    @campus = Campus.where(:id => params[:campus_id]).first
+    @campus_data = @campus.nil? ? "" : [{:id => @campus.id, :nombre => @campus.nombre }].to_json
+    
+    campus = Campus.find(params[:campus_id]) unless params[:campus_id].blank?
+    
+    if !params[:campus_id].blank? 
+      if !params[:curso_nombre].blank? and params[:profesor_nombre].blank?
+        @resultados = campus.cursos.where("nombre LIKE ?", "%#{params[:curso_nombre]}%")
+      elsif !params[:profesor_nombre].blank? and params[:curso_nombre].blank?
+        @resultados = campus.profesores.where("nombre LIKE ?", "%#{params[:profesor_nombre]}%")
+      else
+        @resultados = CursoProfesor.joins(:profesor, :curso).where(
+                      "profesores.nombre LIKE ? AND cursos.nombre LIKE ?",
+                      "%#{params[:profesor_nombre]}%", "%#{params[:curso_nombre]}%")
+      end
+      
+      @resultados = @resultados.page(params[:page]).per(10)
+    end    
   end
 
 end

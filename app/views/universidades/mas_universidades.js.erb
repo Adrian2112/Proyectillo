@@ -1,0 +1,8 @@
+$("#listado").append("<%= escape_javascript(render @universidades) %>");
+$("#page").val(<%= @universidades.current_page + 1 %>);
+
+<% if @universidades.current_page >= @universidades.num_pages %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>

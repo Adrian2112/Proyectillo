@@ -13,16 +13,14 @@
 
 	<div>
 		<%= f.label :universidad_id, "Universidad" %><br />
-	    <%= f.text_field :universidad_id %>
-	</div>
-	<div id="nueva_universidad_link" style="display:none">
-		 No encontraste tu universidad da clic <%= link_to "aqui", new_universidad_path %>
+	  <%= f.text_field :universidad_id, "data-pre" => @universidad_data %>
 	</div>
 
 	<br />
-	<div id="campus" style="display:none">
+	<div id="campus">
 		<%= f.label :campus_id, "Campus" %><br />
-	    <%= f.text_field :campus_id %>
+	  <%= f.text_field :campus_id, :class => "token_field",
+  	                      "data-url" => @campus_url, "data-pre" => @campus_data %>
 	</div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -42,9 +40,3 @@
 <p>Unhappy? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "Seguro que deseas cancelar?", :method => :delete %>.</p>
 
 <%= link_to "Regresar", :back %>
-
-<script>
-	$(function(){
-		campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
-	})
-</script>

@@ -18,10 +18,18 @@
 #  updated_at            :datetime
 #
 
-class Calificacion < ActiveRecord::Base  
+class Calificacion < ActiveRecord::Base
+  attr_protected :usuario_id, :promedio
   has_many :comentarios, :dependent => :destroy
   belongs_to :usuario
   
   belongs_to :curso_profesor
   delegate :profesor, :curso, :to => :curso_profesor
+  
+  before_save :calcula_promedio
+  
+  def calcula_promedio
+    self.promedio = (self.puntualidad + self.amigable + self.conocimiento + self.claridad + self.flexibilidad) / 5
+  end
+
 end

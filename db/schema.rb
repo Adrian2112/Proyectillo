@@ -11,8 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111022164233) do
-
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"
     t.string   "provedor"
@@ -22,14 +20,14 @@ ActiveRecord::Schema.define(:version => 20111022164233) do
   end
 
   create_table "calificaciones", :force => true do |t|
-    t.integer  "puntualidad"
-    t.integer  "amigable"
-    t.integer  "conocimiento"
-    t.integer  "claridad"
-    t.integer  "flexibilidad"
+    t.float    "puntualidad",           :default => 0.0
+    t.float    "amigable",              :default => 0.0
+    t.float    "conocimiento",          :default => 0.0
+    t.float    "claridad",              :default => 0.0
+    t.float    "flexibilidad",          :default => 0.0
     t.float    "promedio"
-    t.string   "comentarios"
-    t.integer  "facilidad"
+    t.text     "critica"
+    t.float    "facilidad",             :default => 0.0
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
     t.integer  "curso_profesor_id"

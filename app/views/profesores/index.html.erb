@@ -1,4 +1,7 @@
-<%= render 'shared/search_form', :url => '/profesores' %>
+<% form_tag(profesores_path, :method => :get, :autocomplete => "off") do  %>
+	<%= text_field_tag :profesor_q %>
+	<%= submit_tag "Enviar", :name => nil %>
+<% end %>
 
 <h1>Listing profesores</h1>
 
@@ -9,8 +12,3 @@
 
 <%= link_to 'New Profesor', new_profesor_path if can? :create, Profesor  %>
 
-<script>
-	$("#q").bind("textchange", function(){
-		$.get("/profesores.js", {q: $("#q").val()});
-	});
-</script>

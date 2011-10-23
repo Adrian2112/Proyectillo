@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div id="promedio" style="float:right"><h3>Promedio: <%= @profesor.promedio %></h3></div>
 
 <p>
 	<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
@@ -23,7 +23,23 @@
   <b>Campus:</b>
   <%= @profesor.campus.nombre %>
 </p>
+<br />
+<% if @profesor.cursos.empty? %>
+	<h3>No hay cursos de este profesor</h3>
+	<%= link_to "Asignar a un curso" %>
+<% else %>
+	<ul id="cursos">
+	<% @profesor.cursos.each do |curso| %>
+		<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})" %></li>
+	<% end %>
+	</ul>
+<% end %>
+<br />
 
+<div id="loading" class="test" style="display:none">
+	<%= image_tag 'ajax-loader.gif' %>
+</div>
+<div id="curso_profesor" style="display:none;"></div>
 
 <%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
 <%= link_to 'Back', profesores_path %>
