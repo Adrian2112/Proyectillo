@@ -21,9 +21,9 @@ class CalificacionesController < ApplicationController
 
   def create
     @calificacion = Calificacion.new(params[:calificacion])
-
+    @calificacion.usuario_id = current_usuario.id
     if @calificacion.save
-      redirect_to(@calificacion, :notice => 'Calificacion was successfully created.')
+      redirect_to(:back, :notice => 'Calificacion was successfully created.')
     else
       render :action => "new" 
     end
@@ -44,5 +44,6 @@ class CalificacionesController < ApplicationController
     @calificacion.destroy
     redirect_to(calificaciones_url)
   end
+
   
 end

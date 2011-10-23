@@ -24,6 +24,20 @@
   <%= @profesor.campus.nombre %>
 </p>
 
+<ul id="cursos">
+<% @profesor.cursos.each do |curso| %>
+	<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})" %></li>
+<% end %>
+</ul>
+
+<div id="loadingDiv" class="test">
+	<%= image_tag 'ajax-loader.gif' %>
+</div>
+<div id="curso_profesor" style="display:none;">
+	
+</div>
+<%#= render :partial => 'calificaciones/form', :locals => {:calificacion => @calificacion} %>
+
 
 <%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
 <%= link_to 'Back', profesores_path %>

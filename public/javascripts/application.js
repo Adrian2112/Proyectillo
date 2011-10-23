@@ -54,6 +54,13 @@ function load_more(pageNo, param_q, busca) {
   $.get(url + pageNo + "?" + param_q + "=" + busca );
 }
 
+function cargar_curso_profesor(profesor_id, curso_id){
+	var url = '/curso_profesor/' + profesor_id + "/" + curso_id + ".js";
+	$.get(url).complete(function(){
+		$("#curso_profesor").slideDown("slow");
+	});
+}
+
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
 	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
