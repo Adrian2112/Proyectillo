@@ -4,13 +4,16 @@ Calmecac::Application.routes.draw do
 
   devise_for :usuarios
 
-  match 'contacto' => 'pages#contact', :as => :contact
+  #match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
   match 'privacidad' => 'pages#privacy', :as => :privacy
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
+
+  match 'contacto' => 'contact#new', :as => 'contact', :via => :get
+  match 'contacto' => 'contact#create', :as => 'contact', :via => :post
   
   # Obliga a usar esta url para cargar mas registros con .js en 'Show More'
   get 'universidades/page/:page', :controller => :universidades, :action => "mas_universidades"
