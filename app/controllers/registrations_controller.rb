@@ -13,7 +13,6 @@ class RegistrationsController < Devise::RegistrationsController
       @usuario.valid?
     end
   end
-end
   
   def edit
     @universidad = @usuario.universidad
