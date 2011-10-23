@@ -3,13 +3,6 @@ class AutenticacionesController < ApplicationController
     @autenticaciones = current_usuario.autenticaciones if current_usuario
   end
 
-  #def create
-  #  auth = request.env["omniauth.auth"]
-  #  current_usuario.autenticaciones.find_or_create_by_provedor_and_uid(auth['provider'], auth['uid'])
-  #  flash[:notice] = "Autenticacion hecha."
-  #  redirect_to autenticaciones_url
-  #end
-
   def create
     omniauth = request.env["omniauth.auth"]
     autenticacion = Autenticacion.find_by_provedor_and_uid(omniauth['provider'], omniauth['uid'])

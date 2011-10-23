@@ -7,9 +7,8 @@ Calmecac::Application.routes.draw do
   devise_for :usuarios, :controllers => {:registrations => 'registrations'}
   
   # Match con la response de los provedores de redes sociales
-  match '/auth/:provider/callback' => 'autenticaciones#create'
+  match '/auth/:provider/callback' => 'autenticaciones#create's
 
-  #match 'contacto' => 'pages#contact', :as => :contact
   match 'sobre_nosotros' => 'pages#about_us', :as => :about_us
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
   match 'privacidad' => 'pages#privacy', :as => :privacy
