@@ -2,16 +2,14 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id){
-
+	
 	$(universidad_id).tokenInput("/universidades.json", {
 		propertyToSearch: "nombre",
 		tokenLimit: 1,
 		theme: 'facebook',
 		preventDuplicates: true,
-		onAdd: function(){
-			
-			$("#campus").slideDown();
-			
+		prePopulate: $(universidad_id).data("pre"),
+		onAdd: function(){			
 			$("#" + campus_input_id).tokenInput("/universidades/" + $(universidad_id).val() + "/campus.json", {
 				propertyToSearch: "nombre",
 				tokenLimit: 1,
@@ -29,23 +27,18 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 					"<input type=\"text\" size=\"30\" name=\""+ campus_input_name +"\" id=\""+ campus_input_id +"\" class=\"token_field\"/>");
 
 					return false;
-				},
-
-				onResult: function(results){
-					if (results.length <= 0){
-						$("#nueva_universidad_link").show("slow",function(){
-							//$(this).css("float", "right");
-						});
-					}else{
-						$("#nueva_universidad_link").slideUp(function(){
-
-						});
-						return results;
-					}
-
 				}
-
 			});
+			
+			if($("#"+campus_input_id).data("url") != ""){
+				$("#"+campus_input_id).tokenInput($("#"+campus_input_id).data("url"), {
+					propertyToSearch: "nombre",
+					tokenLimit: 1,
+					theme: 'facebook',
+					preventDuplicates: true,
+					prePopulate: $("#"+campus_input_id).data("pre")
+				});
+			}
 }
 
 /*
@@ -72,7 +65,10 @@ function load_more(page_num, params, url) {
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
 	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
+	
 	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
+		history.replaceState(null, document.title,
+										$("#busqueda_general").attr("action") + "?" + $("#busqueda_general").serialize());
 		$.get("/.js", {
 	                            curso_nombre: $("#curso_nombre").val(),
 	                            campus_id: $("#campus_id").val(),
