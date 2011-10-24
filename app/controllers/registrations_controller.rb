@@ -4,6 +4,12 @@ class RegistrationsController < Devise::RegistrationsController
     super
     session[:omniauth] = nil unless @usuario.new_record?
   end
+
+  def create
+    super
+    # Manda mail con cualquier usuario que se genera en nuestra BD
+    Notifications.welcome_message(@usuario).deliver
+  end
   
   def edit
     @universidad = @usuario.universidad
