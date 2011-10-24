@@ -11,9 +11,147 @@ html {
 	padding:0px;
 }
 
+/*
+ Main classes
+*/
+.main-container
+{
+  width: 752px;
+  margin: 0 auto;
+}
+.content
+{
+  background-color: #e3e3e3;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+.content .unit
+{
+  padding: 20px;
+}
+
+/*
+ Profesor en listado
+*/
+.profesor-entry .wrapper
+{
+  background: url('../images/profesor-entry-bg.gif');
+  border: 1px solid #e7e7e7;
+}
+.profesor-entry .image img
+{
+  display: block;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border: 1px solid #ffffff;
+}
+.profesor-entry
+{
+  background: url('../images/profesor-entry-shadow.png') no-repeat center bottom;
+  padding-bottom:20px;
+}
+.profesor-entry .column .container
+{
+  padding: 20px;
+}
+.profesor-entry .info .container
+{
+  padding-left: 0;
+  text-shadow: 1px 1px 0px #ffffff;
+}
+.profesor-entry h3
+{
+  font-size:32px;
+  line-height:32px;
+  color: #2a2a2a;
+}
+.profesor-entry .universidades a
+{
+  background-color: #cccccc;
+  padding: 7px 10px;
+  text-decoration: none;
+  color: #666666;
+}
+.profesor-entry .universidades
+{
+  color: #666666;
+  font-weight: bold;
+  height: 30px;
+  margin-top: 30px;
+}
+.profesor-entry .cursos
+{
+  font-style: italic;
+  color: #999999;
+  margin-top: 20px;
+}
+.profesor-entry .cursos a
+{
+  color: #999999;
+}
+
+
+/*
+ Forma de busqueda
+*/
+.search-form input
+{
+  background-color: #CCCCCC;
+  border: medium none;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 1px 1px 2px #999999 inset;
+  color: #333333;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 10px;
+  text-shadow: 1px 1px 0 #dddddd;
+  width: 135px;
+}
+input
+{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/*
+ Contador de resultados
+*/
+.unit.result-count
+{
+  padding: 0;
+  padding-bottom: 20px;
+  background: url('../images/results-shadow.png') no-repeat center bottom;
+}
+.result-count .container
+{
+  border: 1px solid #cccccc;
+  border-left: none;
+  border-right: none;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+/*
+ Ver mas resultados
+*/
+.more-results
+{
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  text-shadow: 1px 1px 0 #dddddd;
+}
+.more-results a
+{
+  color: #666666;
+  text-decoration: none;
+}
+
+
+/*
+ Previous
+*/
 body {
- 	 background-color: #4B7399;
-	 font-family: Verdana, Helvetica, Arial;
+ 	 background-color: #372c24;
+	 font-family: Helvetica, Arial, sans-serif;
 	 font-size: 14px;
 	 padding:0px;
 	 margin:0px;
