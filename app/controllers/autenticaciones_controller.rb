@@ -8,7 +8,7 @@ class AutenticacionesController < ApplicationController
     autenticacion = Autenticacion.find_by_provedor_and_uid(omniauth['provider'], omniauth['uid'])
     # Si el usuario tiene un registro en la tabla de autenticaciones
     if autenticacion
-      flash[:notice] = "Signed in successfully."
+      flash[:notice] = "Has iniciado sesion."
       sign_in_and_redirect(:usuario, autenticacion.usuario)
     # Si el usuario tiene una sesion iniciada
     elsif current_usuario
