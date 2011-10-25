@@ -11,22 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido_materno %><br />
-    <%= f.text_field :apellido_materno %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido_paterno %><br />
-    <%= f.text_field :apellido_paterno %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %><br />
-	  <%= f.file_field :avatar %>
-  </div>
+	<p>
+		<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
+	</p>
+  <h5><%= @profesor.nombre_completo %></h5>
+
 	<br />
  	Universidad: <br />
 	<%= current_usuario.universidad.nombre if current_usuario %>

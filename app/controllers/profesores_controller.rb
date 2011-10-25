@@ -24,7 +24,8 @@ class ProfesoresController < ApplicationController
 
   def create
     @profesor = current_usuario.campus.profesores.build(params[:profesor])
-    
+    #@curso = Curso.find(params[:profesor_curso_id])
+    #@profesor.cursos << @curso
     if @profesor.save
       redirect_to(@profesor, :notice => 'Profesor was successfully created.') 
     else

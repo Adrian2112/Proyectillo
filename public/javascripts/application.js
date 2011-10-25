@@ -113,9 +113,16 @@ $(function(){
 
 
 //Hide flash messages
-if($("div#flash_notice") && $("div#flash_error")) {
-	setTimeout(hide_flash_messages, 3000); 
-}
+	if($("div#flash_notice") && $("div#flash_error")) {
+		setTimeout(hide_flash_messages, 3000); 
+	}
 
+//Autcomplete para cursos
+	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
+		propertyToSearch: "nombre",
+		theme: 'facebook',
+		preventDuplicates: true,
+		prePopulate: $("#profesor_cursos_tokens").data("pre")
+	});
+	
 });
-
