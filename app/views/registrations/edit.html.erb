@@ -7,7 +7,7 @@
     <%= f.text_field :username %>
   </div>
   <div>
-    <%= f.label :email, "Email" %><br />
+    <%= f.label :email, 'Correo electrónico' %><br />
     <%= f.text_field :email %>
   </div>
 
@@ -16,13 +16,13 @@
 	</div>
 
   <% if !current_usuario.has_no_password? %>
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <div><%= f.label :password, 'Contraseña'%> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password %></div>
 
-    <div><%= f.label :password_confirmation %><br />
+    <div><%= f.label :password_confirmation, 'Confirma tu contraseña' %><br />
     <%= f.password_field :password_confirmation %></div>
 
-    <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <div><%= f.label :current_password, 'Contraseña actual' %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password %></div>
   <% end %>
 
@@ -30,8 +30,9 @@
   
 <% end %>
 
-<h3>Cancel my account</h3>
+<br/>
+<h3>¿Insatisfecho?</h3>
 
-<p>Unhappy? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "Seguro que deseas cancelar?", :method => :delete %>.</p>
-
+<p><%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "¿Seguro que deseas cancelar?", :method => :delete %></p>
+<br/>
 <%= link_to "Regresar", :back %>

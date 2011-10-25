@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def new
     super
+    # Mantiene los datos de omniauth activos en caso de que el usuario cometa errores
     session[:omniauth] = nil unless @usuario.new_record?
   end
 
