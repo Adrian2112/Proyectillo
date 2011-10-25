@@ -1,4 +1,8 @@
 <div id="promedio" style="float:right"><h3>Promedio: <%= @profesor.promedio %></h3></div>
+<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank">Tweet This!</a>
+
+	<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+
 <% store_requested_url unless current_usuario %>
 <p>
 	<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
@@ -26,7 +30,7 @@
 <br />
 <% if @profesor.cursos.empty? %>
 	<h3>No hay cursos de este profesor</h3>
-	<%= link_to "Asignar a un curso" %>
+	<%= link_to "Asignar a un curso", edit_profesor_path %>
 <% else %>
 	<ul id="cursos">
 	<% @profesor.cursos.each do |curso| %>
