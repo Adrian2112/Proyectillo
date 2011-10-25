@@ -10,14 +10,14 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 	$(universidad_id).tokenInput("/universidades.json", {
 		propertyToSearch: "nombre",
 		tokenLimit: 1,
-		theme: 'facebook',
+		//theme: 'facebook',
 		preventDuplicates: true,
 		prePopulate: $(universidad_id).data("pre"),
 		onAdd: function(){			
 			$("#" + campus_input_id).tokenInput("/universidades/" + $(universidad_id).val() + "/campus.json", {
 				propertyToSearch: "nombre",
 				tokenLimit: 1,
-				theme: 'facebook',
+				//theme: 'facebook',
 				preventDuplicates: true
 			});
 
@@ -38,7 +38,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 				$("#"+campus_input_id).tokenInput($("#"+campus_input_id).data("url"), {
 					propertyToSearch: "nombre",
 					tokenLimit: 1,
-					theme: 'facebook',
+					//theme: 'facebook',
 					preventDuplicates: true,
 					prePopulate: $("#"+campus_input_id).data("pre")
 				});
