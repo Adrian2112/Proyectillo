@@ -1,4 +1,4 @@
-class CursoProfesorController < ApplicationController
+class CursosProfesoresController < ApplicationController
   
   def curso_profesor
     profesor = Profesor.find(params[:profesor_id])

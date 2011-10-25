@@ -1,6 +1,10 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+jQuery.fn.reset = function () {
+  $(this).each (function() { this.reset(); });
+}
+
 function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id){
 	
 	$(universidad_id).tokenInput("/universidades.json", {
@@ -66,7 +70,7 @@ function cargar_curso_profesor(profesor_id, curso_id){
 	var url = '/curso_profesor/' + profesor_id + "/" + curso_id + ".js";
 	$("#loading").show();
 	$.get(url).complete(function(){
-		$("#curso_profesor").slideDown("slow");
+		$("#curso_profesor").fadeIn("slow");
 		$("#loading").hide();
 	});
 }
