@@ -16,6 +16,9 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'omniauth'
 gem "cancan"
+gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
+gem 'contacts', git: 'https://github.com/agentrock/contacts.git'
+gem 'hpricot'
 
 group :development do
   gem "nifty-generators"

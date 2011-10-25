@@ -16,7 +16,7 @@ class Notifications < ActionMailer::Base
 
   def invitation_message(usuario, contacts)
     @usuario = usuario
-    mail(:to => contacts.all.map(&:email),
+    mail(:to => contacts.map {|name, mail| "#{mail}"},
          :subject => "Ping")
-
+  end
 end
