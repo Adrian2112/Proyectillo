@@ -69,4 +69,18 @@ class Usuario < ActiveRecord::Base
     (autenticaciones.empty? || !password.blank? ) && super
   end
 
+  def update_with_password(params={})
+    if self.has_no_password?
+      params.delete(:current_password)
+      self.update_without_password(params)
+    else
+      super
+    end    
+  end
+
+  def has_no_password?
+    self.encrypted_password.blank?
+  end
+
+
 end

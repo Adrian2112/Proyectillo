@@ -18,12 +18,10 @@ Puedes registrarte con <br/>
   </p>
   <% end %>
 
-  <% if @usuario.email == nil %>
   <p>
     <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
   </p>
-  <% end %>
 	
 	<%= render 'universidad_campus_fields', :f => f %>
 
