@@ -14,7 +14,7 @@
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :cursos_tokens
   
   belongs_to :campus
   delegate :universidad, :to => :campus
@@ -29,13 +29,25 @@ class Profesor < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
+  attr_reader :cursos_tokens
+  
   def promedio
     if calificaciones.size <= 0
       0.0
     else
-    prom = calificaciones.map{|califa| califa.promedio}.inject(:+) / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
+      prom = calificaciones.map{|califa| califa.promedio}.inject(:+) / calificaciones.size
+      prom.nan? ? 0.0 : '%.1f' % prom
+    end
   end
+  
+  def cursos_tokens=(ids)
+    self.curso_ids = ids.split(",")
   end
+  
+  def nombre_completo
+    "#{self.nombre.capitalize} #{self.apellido_paterno.capitalize} #{self.apellido_materno}"
+  end
+  
+  
   
 end

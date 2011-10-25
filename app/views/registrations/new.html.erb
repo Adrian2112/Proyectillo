@@ -6,7 +6,7 @@ Puedes registrarte con <br/>
 <%= link_to 'Facebook', "/auth/facebook", :id => "facebook_login"%> <br/>
 </p><br/>
 
-<p>¿Ya estas registrado? <%= link_to "Inicia Sesión", new_usuario_session_path %>.</p><br/>
+<p>¿Ya estas registrado? <%= link_to "Inicia Sesión", new_usuario_session_path %></p><br/>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -18,12 +18,10 @@ Puedes registrarte con <br/>
   </p>
   <% end %>
 
-  <% if @usuario.email == nil %>
   <p>
-    <%= f.label :email, "Email" %><br />
+    <%= f.label :email, 'Correo Electrónico' %><br />
     <%= f.text_field :email %>
   </p>
-  <% end %>
 	
 	<%= render 'universidad_campus_fields', :f => f %>
 
@@ -39,7 +37,7 @@ Puedes registrarte con <br/>
 <% end %>
 
 
-  <p><%= f.submit "Registrate" %></p>
+  <p><%= f.submit "Regístrate" %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
