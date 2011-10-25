@@ -24,10 +24,18 @@ html {
   background-color: #e3e3e3;
   border-radius: 10px;
   border: 1px solid #ffffff;
+  padding-top: 20px;
+  box-shadow: 3px 3px 7px #333;
 }
 .content .unit
 {
   padding: 20px;
+}
+#main-content
+{
+  margin-top: -92px;
+  z-index: 1;
+  position: relative;
 }
 
 /*
@@ -89,7 +97,43 @@ html {
 {
   color: #999999;
 }
-
+.profesor-entry .rating .calif
+{
+  background: url('../images/rating-bg.png') no-repeat center top;
+  height: 72px;
+}
+.profesor-entry .rating .calif.resen
+{
+  background: url('../images/resen-bg.png') no-repeat center top;
+}
+.profesor-entry .amount
+{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  font-size: 16px;
+  top: 37px;
+}
+.profesor-entry .rating .container
+{
+  padding-bottom: 0;
+  padding-top: 13px;
+}
+.profesor-entry .calif
+{
+  position:relative;
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #2B3F13;
+}
+.profesor-entry .rating .label
+{
+  position:absolute;
+  top: 15px;
+  text-align: center;
+  width:100%;
+}
 
 /*
  Forma de busqueda
@@ -145,6 +189,115 @@ input
   text-decoration: none;
 }
 
+
+/*
+ Footer
+*/
+#footer
+{
+  background-color: #5E852C;
+  padding-top: 50px;
+  border-top: 1px solid #79A83A;
+  margin-top: -65px;
+}
+#footer .wrapper
+{
+  background-color: #1B1713;
+  border-top: 1px solid #514439;
+  color: #666666;
+  padding-bottom: 100px;
+}
+#footer h2
+{
+  background: url("../images/footer-header.png") no-repeat scroll 0 0 transparent;
+  height: 107px;
+  margin-left: -15px;
+  overflow: hidden;
+  position: relative;
+  text-indent: -99em;
+  width: 757px;
+  z-index: 99;
+}
+#footer ul
+{
+  padding: 0;
+  padding-left: 20px;
+}
+#footer li
+{
+  list-style-type: none;
+  border-bottom: 1px dotted #ffffff;
+  width: 200px;
+  padding: 5px;
+}
+#footer a
+{
+  text-decoration: none;
+  color: #666666;
+  font-size: 13px;
+}
+
+/*
+ Header
+*/
+#header
+{
+  background-color: #1B1713;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #514439;
+  padding-top: 37px;
+}
+#header .wrapper
+{
+  background-color: #5E852C;
+  height: 197px;
+  border-bottom: 1px solid #79A83A;
+}
+#logo
+{
+  background: url("../images/calmecac.png") no-repeat scroll 0 0 transparent;
+  display: block;
+  float: left;
+  height: 49px;
+  margin-left: 20px;
+  margin-top: 67px;
+  overflow: hidden;
+  text-indent: -99em;
+  width: 277px;
+}
+#logo-image
+{
+  float: left;
+  margin-top: 15px;
+  position: relative;
+  z-index: 10;
+}
+
+/*
+ Navigation
+*/
+#navigation
+{
+  background: url("../images/top-bg.png") repeat-x scroll 0 0 transparent;
+  height: 36px;
+  border-bottom: 1px solid #79A83A;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+#navigation a
+{
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #4E7123;
+  font-weight: bold;
+  font-size: 13px;
+  margin-right: 20px;
+}
+#navigation .main-container
+{
+  padding: 10px;
+}
 
 /*
  Previous
@@ -250,12 +403,6 @@ input.token_field {
 }
 
 /*Header*/
-
-div#header {
-	width:100%;
-	min-height:30px;
-	border-bottom:1px solid white;
-}
 
 div#sessions {
 	text-align:right;
