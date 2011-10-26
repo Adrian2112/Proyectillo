@@ -21,6 +21,7 @@
 class Calificacion < ActiveRecord::Base
   attr_protected :usuario_id, :promedio
   has_many :comentarios, :dependent => :destroy
+  has_many :likes
   belongs_to :usuario
   
   belongs_to :curso_profesor

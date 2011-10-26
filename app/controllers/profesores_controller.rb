@@ -12,6 +12,7 @@ class ProfesoresController < ApplicationController
 
   def show
     @profesor = Profesor.find(params[:id])
+    @cursos = @profesor.cursos
   end
 
   def new

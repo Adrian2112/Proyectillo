@@ -10,11 +10,17 @@
 
 
 
-<% if usuario_signed_in? %>
+<% if can? :create, Comentario %>
 	<% curso_profesor.calificaciones.each do |calificacion| %>
 		<div class="calificaciones_comentarios">
 			<h5>Comentarios <span id="comentarios_count_<%= calificacion.id %>"><%= calificacion.comentarios.size %></span></h5>
 			<%= calificacion.critica  %><br />
+			<% if current_usuario.likes.where(:calificacion_id => calificacion.id).first %>
+				 <p><%= link_to "Unlike", like_calificacion_path(calificacion), :method => :post, :id => "like_link_#{calificacion.id}" %></p>
+			<% else %>
+				<p><%= link_to "Like", like_calificacion_path(calificacion), :remote => true, :method => :post, :id => "like_link_#{calificacion.id}" %></p>
+			<% end %>
+			<span><%= pluralize(calificacion.likes.size, 'like') %></span>
 			<div class="comments" id="comentarios_<%= calificacion.id %>">
 			<% unless calificacion.comentarios.empty? %>
 						<%= render calificacion.comentarios %>

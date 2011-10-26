@@ -1,6 +1,5 @@
 <div class="comment">
-	<span><%= distance_of_time_in_words(Time.now, comentario.created_at) %></span>
+	<span><%= despliega_fecha(comentario.created_at) %></span>
 	<h6><%= comentario.usuario.username %></h6>
 	<p><%= comentario.comentario %></p>
-	
 </div>

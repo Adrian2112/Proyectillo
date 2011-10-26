@@ -1,0 +1,5 @@
+<% if @like.nil? %>
+	$("a#like_link_<%= @calificacion.id %>").html("Unlike");
+<% else %>
+	$("a#like_link_<%= @calificacion.id %>").html("Like");
+<% end %>

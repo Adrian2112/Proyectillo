@@ -32,7 +32,11 @@ Calmecac::Application.routes.draw do
     end
   end
 
-  resources :calificaciones
+  resources :calificaciones do
+    member do
+      post 'like'
+    end
+  end
   resources :profesores
   resources :comentarios
 

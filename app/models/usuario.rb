@@ -36,6 +36,7 @@ class Usuario < ActiveRecord::Base
   
   has_many :autenticaciones
   has_many :comentarios, :dependent => :nullify
+  has_many :likes
   has_many :calificaciones, :dependent => :nullify
   belongs_to :universidad
   belongs_to :campus
