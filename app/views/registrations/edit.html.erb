@@ -16,13 +16,13 @@
 	</div>
 
   <% if !current_usuario.has_no_password? %>
-    <div><%= f.label :password, 'Contraseña'%> <i>(leave blank if you don't want to change it)</i><br />
+    <div><%= f.label :password, 'Contraseña'%> <i>(Deja el campo en blanco si no quieres cambiarla)</i><br />
     <%= f.password_field :password %></div>
 
     <div><%= f.label :password_confirmation, 'Confirma tu contraseña' %><br />
     <%= f.password_field :password_confirmation %></div>
 
-    <div><%= f.label :current_password, 'Contraseña actual' %> <i>(we need your current password to confirm your changes)</i><br />
+    <div><%= f.label :current_password, 'Contraseña actual' %> <i>(Necesitamos tu contraseña actual para guardar tus cambios)</i><br />
     <%= f.password_field :current_password %></div>
   <% end %>
 

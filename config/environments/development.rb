@@ -25,5 +25,8 @@ Calmecac::Application.configure do
 
   # For devise usage - Change the url for the host on deploy
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Sending email
+  config.action_mailer.delivery_method = :smtp
 end
 

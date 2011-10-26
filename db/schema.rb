@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026005744) do
 ActiveRecord::Schema.define(:version => 20111026031837) do
 
   create_table "autenticaciones", :force => true do |t|
@@ -34,8 +33,6 @@ ActiveRecord::Schema.define(:version => 20111026031837) do
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
     t.integer  "curso_profesor_id"
-    t.integer  "likes_count",           :default => 0
-    t.integer  "flags_count",           :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,13 +68,6 @@ ActiveRecord::Schema.define(:version => 20111026031837) do
     t.datetime "updated_at"
   end
 
-  create_table "flags", :force => true do |t|
-    t.integer  "usuario_id"
-    t.integer  "calificacion_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
@@ -91,14 +81,21 @@ ActiveRecord::Schema.define(:version => 20111026031837) do
     t.datetime "updated_at"
   end
 
-  create_table "likes", :force => true do |t|
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "flags", :force => true do |t|
     t.integer  "usuario_id"
     t.integer  "calificacion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+  create_table "likes", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "calificacion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profesores", :force => true do |t|
     t.string   "nombre"

@@ -7,7 +7,6 @@ class Invitation
   attr_accessor :account, :email, :password
 
   validates :account, :email, :password, :presence => true
-  validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
   
   def initialize(attributes = {})
     attributes.each do |name, value|
