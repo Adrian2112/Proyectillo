@@ -35,6 +35,7 @@ Calmecac::Application.routes.draw do
   resources :calificaciones do
     member do
       post 'like'
+      post 'flag'
     end
   end
   resources :profesores

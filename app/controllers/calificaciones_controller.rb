@@ -60,4 +60,18 @@ class CalificacionesController < ApplicationController
     end
   end
   
+  def flag
+    @calificacion = Calificacion.find(params[:id])
+    @flag = current_usuario.flags.where(:calificacion_id => @calificacion.id).first
+    if @flag.nil? 
+       current_usuario.flags.build(:calificacion_id => @calificacion.id).save
+    else
+      @flag.destroy
+    end
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
+  end
+  
 end
