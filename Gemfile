@@ -16,9 +16,14 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'omniauth'
 gem "cancan"
+#Gemas para invitaciones de contactos
 gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
 gem 'contacts', git: 'https://github.com/agentrock/contacts.git'
 gem 'hpricot'
+#Gemas para hacer trabajos despues
+gem 'delayed_job'
+
+
 
 group :development do
   gem "nifty-generators"
