@@ -1,5 +1,7 @@
 <% if @like.nil? %>
 	$("a#like_link_<%= @calificacion.id %>").html("Unlike");
+	$("span#contador_likes_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.likes.size + 1).to_s)%>");
 <% else %>
 	$("a#like_link_<%= @calificacion.id %>").html("Like");
+	$("span#contador_likes_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.likes.size - 1).to_s)%>");
 <% end %>

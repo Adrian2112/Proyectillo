@@ -20,7 +20,7 @@
 			<% else %>
 				<p><%= link_to "Like", like_calificacion_path(calificacion), :remote => true, :method => :post, :id => "like_link_#{calificacion.id}" %></p>
 			<% end %>
-			<span><%= pluralize(calificacion.likes.size, 'like') %></span>
+			<span id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
 			<div class="comments" id="comentarios_<%= calificacion.id %>">
 			<% unless calificacion.comentarios.empty? %>
 						<%= render calificacion.comentarios %>
