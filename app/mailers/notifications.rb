@@ -14,8 +14,8 @@ class Notifications < ActionMailer::Base
          :subject => "Bienvenido a Calmecac")
   end
 
-  def invitation_message(usuario, mail)
-    @usuario = usuario
+  def invitation_message(invitation, mail)
+    @invitation = invitation
     mail(:to => mail,
          :subject => "Ping")
   end
