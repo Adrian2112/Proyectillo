@@ -21,7 +21,7 @@ html {
 }
 .content
 {
-  background-color: #e3e3e3;
+  background: url('../images/content-bg.gif') repeat scroll center top #e3e3e3;
   border-radius: 10px;
   border: 1px solid #ffffff;
   padding-top: 20px;
@@ -251,7 +251,7 @@ input
 }
 #header .wrapper
 {
-  background-color: #5E852C;
+  background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
   height: 197px;
   border-bottom: 1px solid #79A83A;
 }
