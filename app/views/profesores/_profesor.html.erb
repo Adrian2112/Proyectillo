@@ -2,6 +2,7 @@
   <div class="container wrapper">
     <div class="column fixed image" style="width: 172px">
       <div class="container">
+        <%= link_to (image_tag profesor.avatar_url(:thumb).to_s), profesor_path(profesor) %>
         <img src="../../../public/images/profesor.jpg" width="108" height="108"/>
       </div>
     </div>
