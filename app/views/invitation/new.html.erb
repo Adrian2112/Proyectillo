@@ -1,0 +1,26 @@
+<%#contacts = Contacts.new(:gmail, 'elopez.deleon', '230189emll').contacts %>
+
+<h1>Invita a tus amigos</h1>
+<br/>
+
+<%# form_tag :action => ‘import’, :id => @user do %>
+<%= form_for @invitation, :url => '/invitar' do |form| %>
+    <div>
+      <%= form.label :account, 'Servicio de correo' %> <br/>
+      <%= form.select :account, options_for_select(['gmail', 'hotmail', 'yahoo']) %>
+    </div>
+    <br />
+    <div>
+      <%= form.label :email, 'Correo electrónico' %> <br/>
+      <%= form.text_field :email %>
+    </div>
+    <br />
+    <div>
+      <%= form.label :password, 'Contraseña' %><br />
+      <%= form.password_field :password %>
+    </div>
+     <br />
+    <div> <br/>
+    <%= form.submit "Invitar!" %>
+    </div>
+<% end %>

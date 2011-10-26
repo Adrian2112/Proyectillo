@@ -10,8 +10,13 @@ class Notifications < ActionMailer::Base
 
   def welcome_message(usuario)
     @usuario = usuario
-    mail(:to => @usuario.email, #Admin.all.map(&:email),
+    mail(:to => @usuario.email,
          :subject => "Bienvenido a Calmecac")
   end
 
+  def invitation_message(usuario, mail)
+    @usuario = usuario
+    mail(:to => mail,
+         :subject => "Ping")
+  end
 end
