@@ -1,7 +1,34 @@
-<div>
-	<%= profesor.nombre %>
-
-    <%= link_to 'Show', profesor if can? :read, profesor %>
-	 <%= link_to 'Edit', edit_profesor_path(profesor) if can? :edit, profesor %>
-    <%= link_to 'Destroy', profesor, :confirm => 'Are you sure?', :method => :delete if can? :destroy, profesor  %>
+<div class="columns on-3 profesor-entry">
+  <div class="container wrapper">
+    <div class="column fixed image" style="width: 172px">
+      <div class="container">
+        <img src="../../../public/images/profesor.jpg" width="108" height="108"/>
+      </div>
+    </div>
+    <div class="column fixed info" style="width: 415px">
+      <div class="container">
+        <h3><%= link_to profesor.nombre , profesor if can? :read, profesor %></h3>
+        <%= link_to 'Edit', edit_profesor_path(profesor) if can? :edit, profesor %>
+        <div class="universidades">
+          <%= link_to profesor.universidad.nombre, universidad_path(profesor.universidad) %> &gt; 
+          <%= link_to profesor.universidad.campus, campus_path(profesor.campus) %>
+        </div>
+        <div class="cursos">
+          <%= render profesor.cursos %>
+        </div>
+      </div>
+    </div>
+    <div class="column fixed rating" style="width: 121px">
+      <div class="container">
+        <div class="calif">
+          <div class="label">Calificaci&oacute;n</div>
+          <div class="amount"><%= profesor.promedio %></div>
+        </div>
+        <div class="calif resen">
+          <div class="label">Rese&ntilde;as</div>
+          <div class="amount">66</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
