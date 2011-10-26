@@ -13,8 +13,10 @@ class InvitationController < ApplicationController
       render :new
     else
       if @invitation.valid?
-        Notifications.delay.invitation_message(@invitation, @contacts)
-        redirect_to('/invitar', :notice => "Tu invitacion ha sido enviada! Gracias por tu apoyo.")
+        @contacts.map {|name, mail| "#{mail}"}.each do |c|
+          Notifications.delay.invitation_message(@invitation, c)
+        end
+      redirect_to('/invitar', :notice => "Tu invitacion ha sido enviada! Gracias por tu apoyo.")
       else
         flash.now.alert = "Por favor revisa tu correo o password"
         render :new

@@ -14,9 +14,9 @@ class Notifications < ActionMailer::Base
          :subject => "Bienvenido a Calmecac")
   end
 
-  def invitation_message(usuario, contacts)
+  def invitation_message(usuario, mail)
     @usuario = usuario
-    mail(:bcc => contacts.map {|name, mail| "#{mail}"},
+    mail(:to => mail,
          :subject => "Ping")
   end
 end
