@@ -24,7 +24,7 @@ class Profesor < ActiveRecord::Base
   validates :apellido_materno, :presence => true
   
   has_many :curso_profesor, :dependent => :destroy
-  has_many :calificaciones, :conditions => "flags_count < 0", :through => :curso_profesor
+  has_many :calificaciones, :conditions => "flags_count < 3", :through => :curso_profesor
   has_many :cursos, :through => :curso_profesor
   
   mount_uploader :avatar, AvatarUploader

@@ -1,7 +1,7 @@
 <h1>Contáctanos</h1>
 <br/>
 
-<%= form_for @message, :url => '/contacto' do |form| %>
+<%= form_for @message, :url => '/contacto', :html => {:class => "generic-form"} do |form| %>
     <div>
       <%= form.label :name, 'Nombre' %> <br />
       <%= form.text_field :name %>

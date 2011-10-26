@@ -137,6 +137,24 @@ html {
   width:100%;
 }
 
+
+/*
+Estilo de forma
+*/
+
+.generic-form input[type=text] {
+	background-color: #CCCCCC;
+  	border: medium none;
+  	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 2px #999999 inset;
+ 	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 7px 10px;
+	text-shadow: 1px 1px 0 #dddddd;
+	width: 200px;
+}
+
 /*
  Forma de busqueda
 */
