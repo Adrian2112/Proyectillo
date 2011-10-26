@@ -305,7 +305,7 @@ input
  Previous
 */
 body {
- 	 background-color: #372c24;
+ 	 background: url("../images/body-bg.jpg") repeat scroll center top #372c24;
 	 font-family: Helvetica, Arial, sans-serif;
 	 font-size: 14px;
 	 padding:0px;
