@@ -12,7 +12,7 @@
 class CursoProfesor < ActiveRecord::Base
   belongs_to :curso
   belongs_to :profesor
-  has_many :calificaciones, :dependent => :destroy
+  has_many :calificaciones, :dependent => :destroy, :conditions => "flags_count < 3"
   
   
   def promedio_puntualidad
