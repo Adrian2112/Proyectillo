@@ -1,29 +1,95 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
-    <%= stylesheet_link_tag :all %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-	<div id="header">
-		<%= render 'layouts/header' %>
-	</div>
-		<div id="container">
-			<div id="content">
-			  <% flash.each do |name, msg| %>
-		        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-		      <% end %>
-		      
-		      <%= content_tag :h1, yield(:title) if show_title? %>
-		      <%= yield %>
-			</div>
-	    </div>
-	<br />
-	<div id="footer">
-		<%= render 'layouts/footer' %>
-	</div>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+  <%= stylesheet_link_tag :all %>
+</head>
+<body class="">
+  
+  <!-- Navigation -->
+  <div id="navigation">
+    <div class="wrapper">
+      
+      <div class="main-container">
+        <%= render 'layouts/header' %>
+      </div>
+      
+    </div>
+  </div>
+  <!-- END: Navigation -->
+  
+  <!-- Header -->
+  <div id="header">
+    <div class="wrapper">
+      
+      <div class="main-container">
+        <a id="logo-image" href="#"><img src="../../../public/images/logo.png"/></a>
+        <h1><a id="logo" href="#">Calmecac</a></h1>
+      </div>
+      
+    </div>
+  </div>
+  <!-- END: Header -->
+  
+  <div id="main-content" class="main-container">
+    
+  <div class="unit content">
+      
+    <!-- Forma de busqueda -->
+    <div class="unit search-form">
+      <form name="search-form" class="columns on-4 busqueda">
+        <div class="column"><input type="text" value="Universidad"/></div>
+        <div class="column"><input type="text" value="Campus"/></div>
+        <div class="column"><input type="text" value="Curso"/></div>
+        <div class="column"><input type="text" value="Profesor"/></div>
+      </form>
+    </div>
+    <!-- END: Forma de busqueda -->
+    
+    <!-- Cuenta de resultados -->
+    <div class="unit result-count">
+      <div class="container">
+        Mostrando 1 de 50 resultados
+      </div>
+    </div>
+    <!-- END: Cuenta de resultados -->
+      
+    <!-- Contenido principal -->
+    <div class="unit">
+      
+      <% flash.each do |name, msg| %>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      <% end %>
+      
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+      
+    </div>
+    <!-- END: Contenido principal -->
+    
+    <!-- Ver mas resultados -->
+    <div class="unit more-results">
+    <a href="#">ver m&aacute;s resultados</a>
+    </div>
+    <!-- END: Ver mas resultados -->
+    
+  </div>
+  
+  </div>
+  
+  <!-- Footer -->
+  <div id="footer">
+    <div class="wrapper">
+      
+      <%= render 'layouts/footer' %>
+      
+    </div>
+  </div>
+  <!-- END: Footer -->
   <%= javascript_include_tag :all %>
+</body>
 </html>
