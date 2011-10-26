@@ -1,6 +1,6 @@
 Calmecac::Application.routes.draw do
   
-  get 'curso_profesor/:profesor_id/:curso_id', :controller => :curso_profesor, :action => 'curso_profesor'
+  get 'curso_profesor/:profesor_id/:curso_id', :controller => :cursos_profesores, :action => 'curso_profesor'
 
   resources :autenticaciones
 
@@ -32,7 +32,12 @@ Calmecac::Application.routes.draw do
     end
   end
 
-  resources :calificaciones
+  resources :calificaciones do
+    member do
+      post 'like'
+      post 'flag'
+    end
+  end
   resources :profesores
   resources :comentarios
 

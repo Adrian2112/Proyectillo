@@ -8,10 +8,8 @@
 	<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
 </p>
 
-<p>
-  <b>Nombre:</b>
-  <%= @profesor.nombre %>
-</p>
+<b>Nombre:</b>
+<%= @profesor.nombre %>
 
 <p>
   <b>Apellido materno:</b>
@@ -33,7 +31,7 @@
 	<%= link_to "Asignar a un curso", edit_profesor_path %>
 <% else %>
 	<ul id="cursos">
-	<% @profesor.cursos.each do |curso| %>
+	<% @cursos.each do |curso| %>
 		<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})" %></li>
 	<% end %>
 	</ul>

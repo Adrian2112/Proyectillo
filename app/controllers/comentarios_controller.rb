@@ -18,10 +18,14 @@ class ComentariosController < ApplicationController
     @comentario.usuario_id = current_usuario.id
     if @comentario.save
       flash[:notice] = "Successfully created comentario."
-      redirect_to :back
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js
+      end
     else
       render :action => 'new'
     end
+
   end
 
   def edit

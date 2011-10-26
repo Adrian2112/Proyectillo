@@ -39,7 +39,6 @@ module Calmecac
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
   
-  
   config.action_mailer.smtp_settings = {
     :domain          => "aktestcontact@gmail.com", 
     :address         => 'smtp.gmail.com',          

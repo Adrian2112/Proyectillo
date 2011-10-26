@@ -44,6 +44,7 @@ es:
       fecha: "%Y-%m-%d"
       default: "%H:%M"
       long: "%A %d de %B de %Y a las %I:%M %p"
+      mes_dia_ano: "%B %d, %Y"
     am: "am"
     pm: "pm"
  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111022215057) do
+ActiveRecord::Schema.define(:version => 20111026005744) do
 
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20111022215057) do
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
     t.integer  "curso_profesor_id"
+    t.integer  "likes_count",           :default => 0
+    t.integer  "flags_count",           :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +66,20 @@ ActiveRecord::Schema.define(:version => 20111022215057) do
   create_table "cursos_profesores", :force => true do |t|
     t.integer  "curso_id"
     t.integer  "profesor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "calificacion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "calificacion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

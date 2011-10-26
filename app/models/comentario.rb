@@ -16,6 +16,6 @@ class Comentario < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :calificacion
   
-  default_scope order('created_at DESC')
+  default_scope order('created_at ASC')
   
 end

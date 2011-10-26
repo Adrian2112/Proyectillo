@@ -1,0 +1,47 @@
+<div id="calificaciones">
+	<p>Cantidad de reviews: <%= curso_profesor.calificaciones.size %></p>
+	<p>Promedio general: <%= curso_profesor.promedio_general %></p>
+	<p>Promedio puntualidad: <%= curso_profesor.promedio_puntualidad %></p>
+	<p>Promedio amigable: <%= curso_profesor.promedio_amigable %></p>
+	<p>Promedio conocimiento: <%= curso_profesor.promedio_conocimiento %></p>
+	<p>Promedio claridad: <%= curso_profesor.promedio_claridad %></p>
+	<p>Promedio flexibilidad: <%= curso_profesor.promedio_flexibilidad %></p>
+</div>
+
+
+
+<% if can? :create, Comentario %>
+	<% curso_profesor.calificaciones.each do |calificacion| %>
+		<div class="calificaciones_comentarios">
+			<h5>Comentarios <span id="comentarios_count_<%= calificacion.id %>"><%= calificacion.comentarios.size %></span></h5>
+			<%= calificacion.critica  %><br />
+			<% if current_usuario.likes.where(:calificacion_id => calificacion.id).first %>
+				 <p><%= link_to "Unlike", like_calificacion_path(calificacion), :remote => true, :method => :post, :id => "like_link_#{calificacion.id}" %></p>
+			<% else %>
+				<p><%= link_to "Like", like_calificacion_path(calificacion), :remote => true, :method => :post, :id => "like_link_#{calificacion.id}" %></p>
+			<% end %>
+			
+			<% if current_usuario.flags.where(:calificacion_id => calificacion.id).first %>
+				 <p><%= link_to "Unflag", flag_calificacion_path(calificacion), :remote => true, :method => :post, :id => "flag_link_#{calificacion.id}" %></p>
+			<% else %>
+				<p><%= link_to "Flag", flag_calificacion_path(calificacion), :remote => true, :method => :post, :id => "flag_link_#{calificacion.id}" %></p>
+			<% end %>
+			
+			<span id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
+			<span id="contador_flags_<%= calificacion.id %>"><%= calificacion.flags.size %></span>
+			<div class="comments" id="comentarios_<%= calificacion.id %>">
+			<% unless calificacion.comentarios.empty? %>
+						<%= render calificacion.comentarios %>
+			<% end %>
+			</div>
+			<br />
+			<%= render :partial => 'comentarios/form', :locals => {:comentario => Comentario.new, 
+																   :calificacion_id => calificacion.id } %>
+		</div>
+	<% end %>
+
+	<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
+														  	  :curso_profesor_id => curso_profesor.id} %>
+<% else %>
+	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
+<% end %>

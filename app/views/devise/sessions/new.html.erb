@@ -1,4 +1,9 @@
 <% title "Inicia Sesión" %>
+<p/>
+Puedes registrarte con <br/>
+<%= link_to 'Twitter', "/auth/twitter", :id => "twitter_login"%> |
+<%= link_to 'Facebook', "/auth/facebook", :id => "facebook_login"%> <br/>
+</p><br/>
 
 <p><%= link_to "Regístrate",  new_usuario_registration_path %></p>
 

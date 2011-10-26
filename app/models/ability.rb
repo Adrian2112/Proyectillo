@@ -26,7 +26,7 @@ class Ability
       can [:read, :create], Comentario
       
       # calificaciones
-      can [:read, :create], Calificacion
+      can [:read, :create, :like, :flag], Calificacion
       
       can [:edit_current_usuario], Usuario
       

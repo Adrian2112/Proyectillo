@@ -12,6 +12,8 @@ class CreateCalificaciones < ActiveRecord::Migration
       t.float :calificacion_obtenida
       t.integer :usuario_id
       t.integer :curso_profesor_id
+      t.integer :likes_count, :default => 0
+      t.integer :flags_count, :default => 0
       t.timestamps
     end
   end

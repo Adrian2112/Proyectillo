@@ -34,8 +34,10 @@ class Usuario < ActiveRecord::Base
 
   attr_accessor :login
   
-  has_many :autenticaciones
+  has_many :autenticaciones, :dependent => :destroy
   has_many :comentarios, :dependent => :nullify
+  has_many :likes, :dependent => :destroy
+  has_many :flags, :dependent => :destroy
   has_many :calificaciones, :dependent => :nullify
   belongs_to :universidad
   belongs_to :campus
