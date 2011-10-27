@@ -12,3 +12,8 @@
 
 <%= link_to 'New Profesor', new_profesor_path if can? :create, Profesor  %>
 
+<div id="next_link">
+  <%= render :partial => 'shared/show_more', :object => @profesores,
+              :locals => { :url => "/profesores/mas_resultados.js", :parametros => { :profesor_q => :profesor_q, :page => :page } } %>
+</div>
+

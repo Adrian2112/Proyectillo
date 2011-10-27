@@ -1,13 +1,19 @@
 class ProfesoresController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :mas_resultados
 
   def index
-    @profesores = Profesor.where("nombre LIKE ?", "%#{params[:profesor_q]}%")
-
+    load_profesores
+    
     respond_to do |format|
       format.html
       format.js   
     end
+  end
+  
+  def mas_resultados
+    authorize! :read, Profesor
+    load_profesores
   end
 
   def show
@@ -48,6 +54,13 @@ class ProfesoresController < ApplicationController
     @profesor = Profesor.find(params[:id])
     @profesor.destroy
     redirect_to(profesores_path) 
+  end
+  
+  private
+  
+  def load_profesores
+    @profesores = Profesor.where("nombre LIKE ?", "%#{params[:profesor_q]}%").page(params[:page]).per(10) 
+    @profesores = @profesores.scoped(:include => [:cursos, { :campus => :universidad }])   
   end
   
 end
