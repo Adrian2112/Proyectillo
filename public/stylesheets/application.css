@@ -139,11 +139,11 @@ html {
 
 
 /*
-Estilo de forma
+Estilo de forma generica
 */
 
-.generic-form input[type=text] {
-	background-color: #CCCCCC;
+.generic-form input[type=text], textarea {
+	background-color: #CCC;
   	border: medium none;
   	border-radius: 5px 5px 5px 5px;
 	box-shadow: 1px 1px 2px #999999 inset;
@@ -152,7 +152,36 @@ Estilo de forma
 	font-weight: bold;
 	padding: 7px 10px;
 	text-shadow: 1px 1px 0 #dddddd;
+	
+}
+
+.generic-form input[type=text] {
 	width: 200px;
+}
+
+.contact-form input[type=submit] {
+	background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
+	border: 1px solid #79A83A; /*medium none;*/
+  	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 2px #999999 inset;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 7px 10px;
+	text-shadow: 1px 1px 0 #dddddd;
+	width: 120px;
+	color:#333;
+}
+
+.generic-form input[type=submit] {
+	background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
+	border: 1px solid #79A83A; /*medium none;*/
+  	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 2px #999999 inset;
+	font-size: 13px;
+	padding: 5px 10px;
+	font-size: 13px;
+	font-weight: bold;
+	color:#333;
 }
 
 /*

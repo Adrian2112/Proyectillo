@@ -1,25 +1,27 @@
-<h1>Contáctanos</h1>
-<br/>
+<% content_for :header do %>
+	<h1>Nos encantaría escucharte...</h1>
+<% end %>
 
-<%= form_for @message, :url => '/contacto', :html => {:class => "generic-form"} do |form| %>
-    <div>
-      <%= form.label :name, 'Nombre' %> <br />
-      <%= form.text_field :name %>
-    </div>
-    <br />
-    <div>
-      <%= form.label :email, 'Correo electrónico' %> <br/>
-      <%= form.text_field :email %>
-    </div>
-    <br />
-    <div>
-      <%= form.label :subject, 'Tipo de comentario' %> <br/>
-      <%= form.select :subject, options_for_select(['Idea', 'Duda', 'Error']) %>
-    </div>
+<%= form_for @message, :url => '/contacto', :html => {:class => "generic-form contact-form"} do |form| %>
+
+    <div class="on-3 columns">
+    	<div class="column">
+    		<%= form.label :name, 'Nombre' %> <br />
+	      <%= form.text_field :name %>
+    	</div>
+			<div class="column">
+				<%= form.label :email, 'Correo electrónico' %> <br/>
+	      <%= form.text_field :email %>
+			</div>
+			<div class="column">
+				<%= form.label :subject, 'Tipo de comentario' %> <br/>
+	      <%= form.select :subject, options_for_select(['Idea', 'Duda', 'Error']) %>
+			</div>
+		</div>
      <br />
     <div>
       <%= form.label :message, 'Detalles' %> <br/>
-      <%= form.text_area :body %>
+      <%= form.text_area :body, :cols => "65", :rows => "10" %>
     </div>
     <div> <br/>
     <%= form.submit "Enviar" %>

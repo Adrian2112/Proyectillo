@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
+	<link href="/favicon.png" rel="SHORTCUT ICON" />
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <%= stylesheet_link_tag :all %>
@@ -58,7 +59,7 @@
     <!-- Cuenta de resultados -->
     <div class="unit result-count">
       <div class="container">
-        Mostrando 1 de 50 resultados
+        <%= yield(:header) %>
       </div>
     </div>
     <!-- END: Cuenta de resultados -->

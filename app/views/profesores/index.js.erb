@@ -12,3 +12,4 @@ $("#listado").html("<%= escape_javascript(render @profesores)%>");
 %>
 
 $("#next_link").html("<%= show_more %>");
+$("#resultados_profesor").html("<%= @profesores.total_count %>");

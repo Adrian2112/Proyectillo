@@ -1,9 +1,12 @@
-<% form_tag(profesores_path, :method => :get, :autocomplete => "off") do  %>
+<% content_for :header do %>
+	<h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
+<% end %>
+
+<% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
 	<%= text_field_tag :profesor_q %>
 	<%= submit_tag "Enviar", :name => nil %>
 <% end %>
-
-<h1>Listing profesores</h1>
+<br />
 
 <div id="listado">
 	<%= render @profesores %>
