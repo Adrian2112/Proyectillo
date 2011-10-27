@@ -1,25 +1,40 @@
-<% title "Inicia Sesión" %>
-<p/>
-Puedes registrarte con <br/>
-<%= link_to 'Twitter', "/auth/twitter", :id => "twitter_login"%> |
-<%= link_to 'Facebook', "/auth/facebook", :id => "facebook_login"%> <br/>
-</p><br/>
+<% content_for :header do %>
 
-<p><%= link_to "Regístrate",  new_usuario_registration_path %></p>
+	<h3 class="sign_up_header">Iniciar sesión</h3> o <h3 class="sign_up_header"><%= link_to "Regístrate",  new_usuario_registration_path %></h3>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-
-  <div><%= f.label :login, "Nombre de usuario o Email" %><br />
-    <%= f.text_field :login %></div>
-
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me, 'Recuérdame'%></div>
-  <% end -%>
-
-  <div><%= f.submit "Inicia sesión" %></div>
 <% end %>
+
+<div class="on-3 columns">
+	<div class="fixed column" style="width:300px;padding-left:20px">
+		<%= link_to (image_tag "twitter.png"), "/auth/twitter", :id => "twitter_login", :class => "social-login" %>
+		<%= link_to (image_tag "facebook_connect.png"), "/auth/facebook", :id => "facebook_login", :class => "social-login" %>
+	</div>
+	<div class="fixed column" id="vertical-line" style="width:2px;">
+
+	</div>
+	<div class="fixed column" style="width:323px;margin-left:60px">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "generic-form"}) do |f| %>
+		<div>
+			<%= f.label :login, "Nombre de usuario o email" %><br />
+			<%= f.text_field :login %>
+		</div>
+		<br />
+		<div>
+			<%= f.label :password %><br />
+			<%= f.password_field :password %><br />
+			<%= link_to "¿Olvidaste tu contraseña?", new_password_path(resource_name), :id => "forgot_password" %>
+		</div>
+
+		<% if devise_mapping.rememberable? -%>
+			<br />
+			<div><%= f.check_box :remember_me %> <%= f.label :remember_me, 'Recuérdame'%></div>
+		<% end -%>
+			<br />
+		  <div><%= f.submit "Inicia sesión" %></div>
+		<% end %>
+	</div>
+</div>
+	
+
 
 <%= render :partial => "devise/shared/links" %>

@@ -142,7 +142,7 @@ html {
 Estilo de forma generica
 */
 
-.generic-form input[type=text], textarea {
+.generic-form input[type=text], textarea, input[type=password] {
 	background-color: #CCC;
   	border: medium none;
   	border-radius: 5px 5px 5px 5px;
@@ -155,7 +155,7 @@ Estilo de forma generica
 	
 }
 
-.generic-form input[type=text] {
+.generic-form input[type=text], input[type=password] {
 	width: 200px;
 }
 
@@ -182,6 +182,49 @@ Estilo de forma generica
 	font-size: 13px;
 	font-weight: bold;
 	color:#333;
+}
+
+a.social-login img {
+	width:70%;
+	height:70%;
+}
+
+a.social-login {
+	display:block;
+	margin-bottom:3px;
+}
+
+div#vertical-line {
+	border-right:1px solid #ccc;
+	min-height:175px;
+}
+
+a#forgot_password {
+	display:block;
+	margin-top:5px;
+	color:#79A83A;
+	text-decoration: none;
+	font-weight:bold;
+	font-size:12px;
+}
+
+a#forgot_password:hover {
+	text-decoration:underline;
+}
+
+.sign_up_header {
+	display:inline;
+	margin:0px 5px;
+}
+
+.sign_up_header a {
+	color:#79A83A;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+.sign_up_header a:hover {
+	text-decoration: underline;	
 }
 
 /*
