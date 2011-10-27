@@ -83,7 +83,7 @@ function hide_flash_messages() {
 $(function(){
 	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
 	
-	$("#curso_nombre, #profesor_nombre").bind("textchange", function(){
+	$("#curso_nombre, #profesor_nombre").observe_field(0.5, function(){
 		history.replaceState(null, document.title,
 										$("#busqueda_general").attr("action") + "?" + $("#busqueda_general").serialize());
 		$.get("/.js", {
@@ -95,7 +95,7 @@ $(function(){
 
 
 //Filtro en tiempo real de profesores (http://localhost:3000/profesores)
-	$("#profesor_q").bind("textchange", function(){
+	$("#profesor_q").observe_field(0.5, function(){
 		$("#loading").show();
 		$.get("/profesores.js", { profesor_q: $("#profesor_q").val() }, function(){
 			$("#loading").hide();
@@ -104,7 +104,7 @@ $(function(){
 
 
 //Filtro en tiempo real de universidades e implementacion "endless page" (http://localhost:3000/universidades)	
-	$("#universidad_q").bind("textchange", function(){
+	$("#universidad_q").observe_field(0.5, function(){
 		$("#loading").show();
 		$.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
 			$("#loading").hide();
