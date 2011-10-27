@@ -2,7 +2,10 @@ class ProfesoresController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @profesores = Profesor.where("nombre LIKE ?", "%#{params[:profesor_q]}%")
+    @profesores = Profesor.where("nombre LIKE ? OR 
+                                  apellido_materno LIKE ? OR 
+                                  apellido_paterno LIKE ?", 
+                                  "%#{params[:profesor_q]}%","%#{params[:profesor_q]}%", "%#{params[:profesor_q]}%" )
 
     respond_to do |format|
       format.html
