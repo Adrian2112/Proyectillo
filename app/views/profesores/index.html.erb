@@ -1,5 +1,5 @@
 <% content_for :header do %>
-	<h3>Mostrando <span id="resultados_profesor"><%= @profesores.size %></span> resultados</h3>
+	<h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
 <% end %>
 
 <% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
@@ -14,4 +14,9 @@
 <br />
 
 <%= link_to 'New Profesor', new_profesor_path if can? :create, Profesor  %>
+
+<div id="next_link">
+  <%= render :partial => 'shared/show_more', :object => @profesores,
+              :locals => { :url => "/profesores/mas_resultados.js", :parametros => { :profesor_q => :profesor_q, :page => :page } } %>
+</div>
 

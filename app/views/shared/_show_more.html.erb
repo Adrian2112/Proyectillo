@@ -1,7 +1,7 @@
 <% if !show_more.empty? and !show_more.last_page? %>
 	<div class="unit more-results">
-		<div id="loading" style="display:none;"><%= image_tag 'ajax-loader.gif' %></div>
 		<%= link_to_function "Ver mas resultados", "load_more($('#page').val(), #{hasht_to_js_hash(parametros)}, '#{url}');", :id => "mas" %>
+    <%= image_tag 'ajax-loader.gif', :id => "loading", :style => "display:none;" %>
 	</div>
 <% end %>
 

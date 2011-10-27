@@ -8,6 +8,11 @@
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script src="http://ui.jquery.com/latest/ui/effects.core.js"></script>
+	<script src="http://ui.jquery.com/latest/ui/effects.highlight.js"></script>
+	<script src="http://ui.jquery.com/latest/ui/effects.drop.js"></script>
 </head>
 <body class="">
   
@@ -85,10 +90,5 @@
     </div>
   </div>
   <!-- END: Footer -->
-  <%= javascript_include_tag :all %>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  <script src="http://ui.jquery.com/latest/ui/effects.core.js"></script>
-	<script src="http://ui.jquery.com/latest/ui/effects.highlight.js"></script>
-	<script src="http://ui.jquery.com/latest/ui/effects.drop.js"></script>
 </body>
 </html>

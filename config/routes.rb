@@ -42,7 +42,11 @@ Calmecac::Application.routes.draw do
       post 'flag'
     end
   end
-  resources :profesores
+  resources :profesores do
+    collection do
+      get "mas_resultados"
+    end
+  end
   resources :comentarios
 
   # The priority is based upon order of creation:
