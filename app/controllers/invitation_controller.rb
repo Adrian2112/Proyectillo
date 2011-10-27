@@ -1,3 +1,4 @@
+require 'mail_job'
 class InvitationController < ApplicationController
 
   def new
@@ -5,6 +6,8 @@ class InvitationController < ApplicationController
   end
 
   def create
+    today = Time.now
+    delay = 86400
     @invitation = Invitation.new(params[:invitation])
     begin
       @contacts = Contacts.new(params[:invitation][:account], @invitation.email.to_s, @invitation.password.to_s).contacts
@@ -14,7 +17,9 @@ class InvitationController < ApplicationController
     else
       if @invitation.valid?
         @contacts.map {|name, mail| "#{mail}"}.each do |c|
-          Notifications.delay.invitation_message(@invitation, c)
+          #if index == 100 #each_with_index
+          Notifications.delay({:run_at => today + delay}).invitation_message(@invitation, c)
+          #Delayed::Job.enqueue(MailJob.new(@invitation,c), 0, today)
         end
       redirect_to('/invitar', :notice => "Tu invitacion ha sido enviada! Gracias por tu apoyo.")
       else
