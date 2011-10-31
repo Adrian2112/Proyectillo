@@ -172,7 +172,7 @@ Estilo de forma generica
 	color:#333;
 }
 
-.generic-form input[type=submit] {
+.generic-form input[type=submit], .comentario_form input[type=submit] {
 	background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
 	border: 1px solid #79A83A; /*medium none;*/
   	border-radius: 5px 5px 5px 5px;
@@ -523,14 +523,7 @@ div#footer_menu_container {
 }
 /*Footer*/
 
-ul#cursos {
-	list-style:none;
-}
 
-ul#cursos li {
-	display:inline;
-	padding:10px;
-}
 
 div#calificaciones {
 	width:90%;
@@ -560,9 +553,10 @@ div.calificaciones_comentarios {
 }
 
 div.comment {
-	margin-left:20px;
-	border-top:1px dashed #ccc;
+	margin-left:10px;
+	margin-right:10px;
 	padding:5px;
+	border-bottom:1px dashed #ccc;
 }
 
 div.comment span {
@@ -573,7 +567,65 @@ div.comment span {
 
 div.comments {
 	background:#eee;
-	border:1px solid #ccc;
-	margin:10px;
+	margin-bottom:8px;
 }
 
+div#profesor_image {
+	padding:6px;
+	border:1px solid #ccc;
+	width:180px;
+	height:180px;
+}
+
+div#promedio {
+	text-align:center;
+}
+
+div#caracteristicas_profesor {
+	margin-top:20px;
+}
+
+.profesor-universidad {
+	margin-top:10px;
+	font-style: italic;
+	font-weight:bold;
+}
+
+.profesor-universidad a {
+	text-decoration:none;
+	color:#999;
+}
+
+.profesor-universidad a:hover {
+	text-decoration:underline;
+}
+
+.link-tab {
+	cursor:pointer;
+}
+
+div.comentarios_content {
+	border:1px solid #ccc;
+	margin-top:10px;
+	background-color: #eee;
+}
+
+form.comentario_form textarea {
+	background-color: #CCC;
+  	border: medium none;
+  	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 2px #999999 inset;
+ 	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 7px 10px;
+	text-shadow: 1px 1px 0 #dddddd;
+	width:94%;
+	margin:0px 8px;
+	overflow:hidden;
+}
+
+form.comentario_form .actions {
+	text-align:right;
+	margin:4px 9px 4px 0px;
+}

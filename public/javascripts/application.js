@@ -70,7 +70,7 @@ function cargar_curso_profesor(profesor_id, curso_id){
 	var url = '/curso_profesor/' + profesor_id + "/" + curso_id + ".js";
 	$("#loading").show();
 	$.get(url).complete(function(){
-		$("#curso_profesor").fadeIn("slow");
+		$("#curso_profesor_" + curso_id + "_" + profesor_id).fadeIn("slow");
 		$("#loading").hide();
 	});
 }
@@ -96,9 +96,9 @@ $(function(){
 
 //Filtro en tiempo real de profesores (http://localhost:3000/profesores)
 	$("#profesor_q").observe_field(0.5, function(){
-		$("#loading").show();
+		$("#loading, .loading").show();
 		$.get("/profesores.js", { profesor_q: $("#profesor_q").val() }, function(){
-			$("#loading").hide();
+			$("#loading, .loading").hide();
 		});
 	});
 

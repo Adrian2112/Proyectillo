@@ -45,7 +45,7 @@ class Profesor < ActiveRecord::Base
   end
   
   def nombre_completo
-    "#{self.nombre.capitalize} #{self.apellido_paterno.capitalize} #{self.apellido_materno}"
+    "#{self.nombre} #{self.apellido_paterno} #{self.apellido_materno}".titleize
   end
   
   

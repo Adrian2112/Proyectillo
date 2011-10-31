@@ -5,6 +5,7 @@
 <% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
 	<%= text_field_tag :profesor_q %>
 	<%= submit_tag "Enviar", :name => nil %>
+	<%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
 <% end %>
 <br />
 

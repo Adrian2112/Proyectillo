@@ -8,7 +8,7 @@ Puedes registrarte con <br/>
 
 <p>¿Ya estas registrado? <%= link_to "Inicia Sesión", new_usuario_session_path %></p><br/>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "generic-form"}) do |f| %>
   <%= devise_error_messages! %>
   
   <% if @usuario.username == nil %>

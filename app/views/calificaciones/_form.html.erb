@@ -1,4 +1,4 @@
-<%= form_for(calificacion) do |f| %>
+<%= form_for(calificacion, :html => {:class => "generic-form"}) do |f| %>
   <% if calificacion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
@@ -46,6 +46,6 @@
     
     <%= f.hidden_field :curso_profesor_id, :value => curso_profesor_id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Calificar" %>
   </div>
 <% end %>

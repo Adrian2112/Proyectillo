@@ -1,9 +1,12 @@
-<%= form_for comentario, :remote => true, :html => {:id => "forma_#{calificacion_id}"} do |f| %>
+<%= form_for comentario, :remote => true, :html => {:id => "forma_#{calificacion_id}", :class => "comentario_form"} do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.text_area :comentario %>
-	<%= f.submit %>
+    <%= f.text_area :comentario, :rows => 5 %>
   </p>
+
+<div class="actions">
+	<%= f.submit "Postear"%>
+</div>
     <%= f.hidden_field :calificacion_id, :value => calificacion_id %>
   
 <% end %>

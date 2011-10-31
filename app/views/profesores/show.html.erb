@@ -1,46 +1,70 @@
-<div id="promedio" style="float:right"><h3>Promedio: <%= @profesor.promedio %></h3></div>
+<% content_for :header do %>
+	<h2 class="sign_up_header"><%= link_to "< Regresar a resultados", profesores_path %></h2>
+<% end %>
+
 <a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank">Tweet This!</a>
 
 	<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
 
 <% store_requested_url unless current_usuario %>
-<p>
-	<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
-</p>
+<br /><br />
 
-<b>Nombre:</b>
-<%= @profesor.nombre %>
-
-<p>
-  <b>Apellido materno:</b>
-  <%= @profesor.apellido_materno %>
-</p>
-
-<p>
-  <b>Apellido paterno:</b>
-  <%= @profesor.apellido_paterno %>
-</p>
-
-<p>
-  <b>Campus:</b>
-  <%= @profesor.campus.nombre %>
-</p>
+<div class="unit">
+	<div class="on-2 columns">
+		<div class="fixed column" style="width:200px;">
+			<div id="profesor_image">
+				AQUI VA EL PROFE
+			</div>
+			<br />
+			<div id="promedio">
+				<p>Calificación promedio</p>
+				<h2><%= @profesor.promedio %></h2>
+			</div>
+		</div>
+		<div class="fixed column" style="width:470px">
+			<h2><%= @profesor.nombre_completo %></h2>
+			<div class="profesor-universidad">
+        <%= link_to @profesor.universidad.nombre, universidad_path(@profesor.universidad) %> &gt; 
+        <%= link_to @profesor.campus.nombre, campus_path(@profesor.campus) %>
+      </div>
+			<div id="caracteristicas_profesor">
+				<p>Reseñas: <%= @profesor.calificaciones.size %></p>
+			</div>
+		</div>
+	</div>
+</div>
 <br />
-<% if @profesor.cursos.empty? %>
-	<h3>No hay cursos de este profesor</h3>
-	<%= link_to "Asignar a un curso", edit_profesor_path %>
-<% else %>
-	<ul id="cursos">
-	<% @cursos.each do |curso| %>
-		<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})" %></li>
+<div id="profesor_cursos">
+	<% if @profesor.cursos.empty? %>
+		<h3>No hay cursos de este profesor</h3>
+		<%= link_to "Asignar a un curso", edit_profesor_path %>
+	<% else %>
+	<div id="tabs">
+		<ul>
+		<% @cursos.each do |curso| %>
+			<!-- <li><%#= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
+			<li><%= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
+		<% end %>
+		</ul>
+		<% @cursos.each do |curso| %>
+		<% curso_profesor = @profesor.curso_profesor.find_by_curso_id(curso.id,
+		                  :include => { :calificaciones => [ {:comentarios => :usuario}, :likes, :usuario]})  %>
+			<div id="curso_profesor_<%= curso.id %>_<%= @profesor.id %>" class="curso_profesor">
+				<%= render(:partial => 'cursos_profesores/calificaciones', :locals => {:curso_profesor => curso_profesor}) %>
+				
+			</div>
+		<% end %>
+	</div>
+
 	<% end %>
-	</ul>
-<% end %>
-<br />
-
+</div>
 <div id="loading" class="test" style="display:none">
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
+
+<script>
+	var $tabs = $('#tabs').tabs();
+</script>
 <div id="curso_profesor" style="display:none;"></div>
 
 <%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
