@@ -94,7 +94,7 @@ function cargar_curso_profesor(profesor_id, curso_id){
 }
 
 function hide_flash_messages() {
-   $('div#flash_notice, div#flash_error').fadeOut();
+   $('div#flash_notice, div#flash_error, div#flash_alert').fadeOut();
 }
 
 function display_comments(id){
@@ -146,7 +146,7 @@ $(function(){
 
 
 //Hide flash messages
-	if($("div#flash_notice") && $("div#flash_error")) {
+	if($("div#flash_notice") || $("div#flash_error") || $("div#flash_alert")) {
 		setTimeout(hide_flash_messages, 3000); 
 	}
 
