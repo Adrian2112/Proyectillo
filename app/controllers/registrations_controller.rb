@@ -23,15 +23,14 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super
-    
-    @universidad = @usuario.universidad
+    @universidad = Universidad.find(params[:usuario][:universidad_id]) unless params[:usuario][:universidad_id].blank?
     @universidad_data = @universidad.nil? ? "" : [{:id => @universidad.id, :nombre => @universidad.nombre}].to_json
     @campus_url = @universidad ? "/universidades/#{@universidad.id}/campus" : ""
     
-    @campus = @usuario.campus
-    @campus_data = @campus.nil? ? "" : [{:id => @campus.id, :nombre => @campus.nombre }].to_json 
-    debugger 
+    @campus = Campus.find(params[:usuario][:campus_id]) unless params[:usuario][:campus_id].blank?
+    @campus_data = @campus.nil? ? "" : [{:id => @campus.id, :nombre => @campus.nombre }].to_json    
+    super
+    
   end
   
   private
