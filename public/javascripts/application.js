@@ -25,7 +25,10 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
                 hintText: 'Teclea el nombre',
                 searchingText: 'Buscando...',
 				theme: tema,
-				preventDuplicates: true
+				preventDuplicates: true,
+				onAdd: function(){
+				    $("#curso_nombre").focus();
+				}
 			});
 
 			$("#token-input-"+ campus_input_id).focus();
