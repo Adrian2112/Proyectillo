@@ -19,4 +19,9 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def root
+    params[:controller] == 'pages' and params[:action] == 'index'
+  end
+
 end
