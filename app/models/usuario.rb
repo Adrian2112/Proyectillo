@@ -68,7 +68,11 @@ class Usuario < ActiveRecord::Base
   end
 
   def password_required?
-    (autenticaciones.empty? || !password.blank? ) && super
+    if !autenticaciones.empty?
+      false
+    else
+      super
+    end
   end
 
   def update_with_password(params={})

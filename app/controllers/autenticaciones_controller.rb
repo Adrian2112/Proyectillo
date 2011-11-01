@@ -19,13 +19,9 @@ class AutenticacionesController < ApplicationController
     else
       usuario = Usuario.new
       usuario.apply_omniauth(omniauth)
-      if usuario.save
-        flash[:notice] = "Iniciada sesion."
-        sign_in_and_redirect(:usuario, usuario)
-      else
-        session[:omniauth] = omniauth.except('extra')
-        redirect_to new_usuario_registration_url
-      end
+
+      session[:omniauth] = omniauth.except('extra')
+      redirect_to new_usuario_registration_url
     end
   end
 
