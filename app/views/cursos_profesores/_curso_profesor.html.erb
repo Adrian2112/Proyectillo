@@ -23,8 +23,8 @@
         </h4>
         <%= link_to 'Edit', edit_profesor_path(curso_profesor.profesor) if can? :edit, curso_profesor.profesor %>
         <div class="universidades">
-          <%= render 'shared/universidad_campus', :universidad => curso_profesor.profesor.universidad,
-                                                  :campus => curso_profesor.profesor.campus %>
+          <%= render 'shared/universidad_campus', :universidad => curso_profesor.curso.universidad,
+                                                  :campus => curso_profesor.curso.campus %>
         </div>
       </div>
     </div>

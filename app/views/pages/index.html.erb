@@ -22,12 +22,12 @@
 	<br />
 	<div id="curso" style="">
 		<%= label_tag :curso_nombre, "Curso" %><br />
-	    <%= text_field_tag :curso_nombre, params[:curso_nombre] %>
+	    <%= text_field_tag :curso_nombre, params[:curso_nombre], "data-ajax" => true %>
 	</div>
 	<br />
 	<div id="profesor" style="">
 		<%= label_tag :profesor_nombre, "Profesor" %><br />
-	    <%= text_field_tag :profesor_nombre, params[:profesor_nombre] %>
+	    <%= text_field_tag :profesor_nombre, params[:profesor_nombre], "data-ajax" => true %>
 	</div>
 
   <br />

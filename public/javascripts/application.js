@@ -110,7 +110,7 @@ $(function(){
 	}
 	
 	
-	$("#curso_nombre, #profesor_nombre").observe_field(0.5, function(){
+	$("#curso_nombre[data-ajax=true], #profesor_nombre[data-ajax=true]").observe_field(0.5, function(){
 		history.replaceState(null, document.title,
 										$("#busqueda_general").attr("action") + "?" + $("#busqueda_general").serialize());
 		$.get("/.js", {
