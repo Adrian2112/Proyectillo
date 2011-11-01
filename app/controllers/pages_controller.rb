@@ -54,13 +54,15 @@ class PagesController < ApplicationController
         
       # busca solamente profesor
       elsif !params[:profesor_nombre].blank? and params[:curso_nombre].blank?
-        @resultados = campus.profesores.where("nombre LIKE ?", "%#{params[:profesor_nombre]}%").scoped(:include => :cursos)
+        @resultados = campus.profesores.where("nombre LIKE ?", "%#{params[:profesor_nombre]}%")
+        @resultados = @resultados.scoped(:include => [:cursos, :calificaciones])
         
       # busca curso y profesor
       else
-        @resultados = CursoProfesor.joins(:profesor, :curso).where(
-                      "profesores.nombre LIKE ? AND cursos.nombre LIKE ?",
-                      "%#{params[:profesor_nombre]}%", "%#{params[:curso_nombre]}%").scoped(:include => [:profesor, :curso])
+        @resultados = CursoProfesor.joins(:profesor, { :curso => :campus }).where(
+                      "profesores.nombre LIKE ? AND cursos.nombre LIKE ? AND campus.id = ?",
+                      "%#{params[:profesor_nombre]}%", "%#{params[:curso_nombre]}%", params[:campus_id])
+        @resultados = @resultados.scoped(:include => [:profesor, :curso, :calificaciones])
       end
       
       @resultados = @resultados.page(params[:page]).per(10)
