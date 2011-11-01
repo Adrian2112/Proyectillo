@@ -472,18 +472,14 @@ a {
 }
 
 #flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
-}
-
-#flash_notice,#flash_error {
 position:absolute;
 right:1%;
 top:-155px;
 width:400px;
 text-align:center;
 z-index:1;
-margin:10px 0;
+padding: 5px 8px;
+margin: 10px 0;
 }
 
 #flash_notice {
