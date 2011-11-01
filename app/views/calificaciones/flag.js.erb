@@ -1,7 +1,7 @@
 <% if @flag.nil? %>
-	$("a#flag_link_<%= @calificacion.id %>").html("Unflag");
+	$("a#flag_link_<%= @calificacion.id %>").css("backgroundPosition", '0px -16px');
 	$("span#contador_flags_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.flags.size + 1).to_s)%>");
 <% else %>
-	$("a#flag_link_<%= @calificacion.id %>").html("Flag");
+	$("a#flag_link_<%= @calificacion.id %>").css("backgroundPosition", '0px 2px');
 	$("span#contador_flags_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.flags.size - 1).to_s)%>");
 <% end %>

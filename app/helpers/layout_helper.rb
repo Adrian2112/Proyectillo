@@ -27,7 +27,8 @@ module LayoutHelper
   def signing
     params[:controller] == 'registrations' or 
     params[:controller] == 'usuarios' or 
-    params[:controller] == 'sessions'
+    params[:controller] == 'sessions' or
+    params[:controller] == 'contact'
   end
 
 end

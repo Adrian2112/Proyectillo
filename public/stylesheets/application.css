@@ -556,9 +556,8 @@ div.test {
 
 
 div.calificaciones_comentarios {
-	border:1px solid #ccc;
 	margin-bottom:10px;
-	padding:10px;
+	padding:0px 10px 0px 10px;
 }
 
 div.comment {
@@ -637,6 +636,126 @@ form.comentario_form textarea {
 form.comentario_form .actions {
 	text-align:right;
 	margin:4px 9px 4px 0px;
+}
+
+div.calificacion_actions {
+	text-align:center;
+	width:70px;
+	padding:4px;
+	border: medium none;
+	border:1px solid #ccc;
+	border-radius: 20px;
+	min-height:20px;
+	float:right;
+}
+
+div.calificacion_actions:hover {
+	background-color:#EFEFEF;
+}
+
+div.calificacion_actions a.like {
+	min-width:13px;
+	background-image:url(/images/like_flag.png);
+	min-height:16px;
+	background-position:0px 0px;
+	display:inline-block;
+	white-space:nowrap;
+	background-repeat:no-repeat;
+	margin-right:5px;
+}
+
+
+div.calificacion_actions a.unlike {
+	min-width:13px;
+	background-image:url(/images/like_flag.png);
+	min-height:16px;
+	background-position:0px -17px;
+	display:inline-block;
+	white-space:nowrap;
+	background-repeat:no-repeat;
+	margin-right:10px;
+}
+
+
+div.calificacion_actions a.flag {
+	min-width:13px;
+	background-image:url(/images/flag.png);
+	min-height:18px;
+	background-position:0px 2px;
+	display:inline-block;
+	white-space:nowrap;
+	background-repeat:no-repeat;
+}
+
+div.calificacion_actions a.unflag {
+	min-width:13px;
+	background-image:url(/images/flag.png);
+	min-height:18px;
+	background-position:0px -16px;
+	display:inline-block;
+	white-space:nowrap;
+	background-repeat:no-repeat;
+}
+
+div.calificacion_actions a.like:hover {
+	background-position:0px -17px;
+}
+
+div.calificacion_actions a.flag:hover {
+	background-position:0px -16px;
+}
+
+div.comments_count_container {
+	font-size:18px;
+	display:inline;
+}
+
+
+span.califa_actions_counter {
+	font-size:8px;
+	margin-right:2px;
+}
+
+div.critica {
+	margin-top:10px;
+	padding:10px;
+
+}
+
+span.username {
+	color:#327E04;
+	margin-right:5px;
+}
+
+span.crititca_created_at {
+	font-size:10px;
+	font-style:italic;
+}
+
+div.critica_text {
+	margin-top:5px;
+}
+
+div.actions_calificar {
+	text-align:right;
+}
+
+span.profesor_detail {
+	font-size:16px;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+tr.even {
+	background-color:#FFF;
+}
+
+tr.odd td ,tr.even td {
+	padding:5px;
+}
+
+div.social-links {
+	float:right;
 }
 
 .underline{

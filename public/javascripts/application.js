@@ -82,6 +82,10 @@ function hide_flash_messages() {
    $('div#flash_notice, div#flash_error').fadeOut();
 }
 
+function display_comments(id){
+	$(".calificaciones_comentarios_" + id).slideToggle("slow");
+}
+
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
 	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
@@ -132,4 +136,9 @@ $(function(){
 		prePopulate: $("#profesor_cursos_tokens").data("pre")
 	});
 	
+
+//Cargar tabs de cursos en la vista del profesor
+$('#tabs').tabs();
+
 });
+

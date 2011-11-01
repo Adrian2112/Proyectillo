@@ -2,9 +2,12 @@
 	<h2 class="sign_up_header"><%= link_to "< Regresar a resultados", profesores_path %></h2>
 <% end %>
 
-<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank">Tweet This!</a>
+<div class="social-links">
+	<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
+<br />
+		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+</div>
 
-	<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
 
 <% store_requested_url unless current_usuario %>
 <br /><br />
@@ -28,7 +31,7 @@
         <%= link_to @profesor.campus.nombre, campus_path(@profesor.campus) %>
       </div>
 			<div id="caracteristicas_profesor">
-				<p>Reseñas: <%= @profesor.calificaciones.size %></p>
+				<%= render :partial => 'cursos_profesores/profesor_detalles', :locals => {:profesor => @profesor, :curso_profesor => @curso_profesor} %>
 			</div>
 		</div>
 	</div>
@@ -42,18 +45,11 @@
 	<div id="tabs">
 		<ul>
 		<% @cursos.each do |curso| %>
-			<!-- <li><%#= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
-			<li><%= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
+			<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
+			<!-- <li><%#= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
 		<% end %>
 		</ul>
-		<% @cursos.each do |curso| %>
-		<% curso_profesor = @profesor.curso_profesor.find_by_curso_id(curso.id,
-		                  :include => { :calificaciones => [ {:comentarios => :usuario}, :likes, :usuario]})  %>
-			<div id="curso_profesor_<%= curso.id %>_<%= @profesor.id %>" class="curso_profesor">
-				<%= render(:partial => 'cursos_profesores/calificaciones', :locals => {:curso_profesor => curso_profesor}) %>
-				
-			</div>
-		<% end %>
+		<%= display_calificaciones %>
 	</div>
 
 	<% end %>
@@ -62,10 +58,5 @@
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
 
-<script>
-	var $tabs = $('#tabs').tabs();
-</script>
-<div id="curso_profesor" style="display:none;"></div>
+<div id="curso_profesor" style=""></div>
 
-<%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
-<%= link_to 'Back', profesores_path %>
