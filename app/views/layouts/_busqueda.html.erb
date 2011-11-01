@@ -1,0 +1,26 @@
+<div class="unit search-form">
+    <%= form_tag root_path, :method => :get, :id => "busqueda_general" do |f| %>
+    <div class="columns on-4 busqueda">
+	    <div class="column">
+		    <%= label_tag :universidad_id, "Universidad" %><br />
+	        <%= text_field_tag :universidad_id, "", "data-pre" => @universidad_data %>
+	    </div>	
+	    <div class="column" id="campus">
+		    <%= label_tag :campus_id, "Campus" %><br />
+	      <%= text_field_tag :campus_id, "", :class => "token_field",
+	                          "data-url" => @campus_url, "data-pre" => @campus_data %>
+	    </div>
+	    <div class="column" id="curso">
+		    <%= label_tag :curso_nombre, "Curso" %><br />
+	        <%= text_field_tag :curso_nombre, params[:curso_nombre] %>
+	    </div>
+	
+	    <div class="column" id="profesor">
+		    <%= label_tag :profesor_nombre, "Profesor" %><br />
+	        <%= text_field_tag :profesor_nombre, params[:profesor_nombre] %>
+	    </div>
+      <br/>
+    </div>
+    <%= submit_tag 'Buscar', :name => nil %>
+    <% end %>
+</div>
