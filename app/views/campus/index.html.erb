@@ -1,29 +1,18 @@
-<h1>Listing campus</h1>
-
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Ciudad</th>
-    <th>Estado</th>
-    <th>Universidad</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @campus.each do |campus| %>
-  <tr>
-    <td><%= campus.nombre %></td>
-    <td><%= campus.ciudad %></td>
-    <td><%= campus.estado %></td>
-    <td><%= campus.universidad_id %></td>
-    <td><%= link_to 'Show', campus_cursos_path(campus) if can? :read, campus %></td>
-    <td><%= link_to 'Edit', edit_campus_path(campus) if can? :edit, campus %></td>
-    <td><%= link_to 'Destroy', campus, :confirm => 'Are you sure?', :method => :delete if can? :destroy, campus %></td>
-  </tr>
+<% content_for :header do %>
+  <h1>Campus</h1>
 <% end %>
-</table>
 
+<h3>Se encontraron <span id="resultados_campus"><%= @campus.size %></span> resultados</h3>
 <br />
 
-<%= link_to 'New Campus', new_universidad_campus_path(@universidad) if can? :create, Universidad %>
+<div id="listado">
+	<%= render @campus %>
+</div>
+<br />
+
+<%= link_to "Nuevo Campus", new_campus_path if can? :create, Campus %>
+
+<div id="next_link">
+</div>
+
+
