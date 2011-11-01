@@ -1,6 +1,10 @@
 <% content_for :header do %>
-  <h1>Cursos en <%= @campus.universidad.nombre %> <%= @campus.nombre %></h1>
+  <h1>Cursos en <%= @campus.universidad.nombre %></h1>
 <% end %>
+
+<p><i><%= @campus.nombre %></i></p>
+<p><i>Estado: <%= @campus.estado %></i></p>
+<p><i>Ciudad: <%= @campus.ciudad %></p></i><br/>
 
 <h3>Existen <span id="resultados_cursos"><%= @cursos.size %></span> cursos</h3>
 <br />
