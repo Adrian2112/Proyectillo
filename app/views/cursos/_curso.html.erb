@@ -9,15 +9,15 @@
       <div class="container">
         <h3>
           <% if can? :read, curso %>
-            <%= link_to truncate(curso.nombre, :length => 24), curso, :title => curso.nombre %>
+            <%= link_to truncate(curso.nombre, :length => 23), curso, :title => curso.nombre, :class => "tooltip" %>
           <% end %>
         </h3>
         <div class="universidades">
-          <%= link_to curso.universidad.nombre, universidad_path(curso.universidad) %> &gt; 
-          <%= link_to curso.campus.nombre, campus_path(curso.campus) %>
+          <%= render 'shared/universidad_campus', :universidad => curso.universidad,
+                                                  :campus => curso.campus %>
         </div>
         <div class="cursos">
-          <%= links_profesores curso.profesores %>
+          <%= links_coma curso.profesores %>
         </div>
       </div>
     </div>

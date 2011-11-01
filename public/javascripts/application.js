@@ -1,9 +1,11 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-jQuery.fn.reset = function () {
-  $(this).each (function() { this.reset(); });
-}
+$(function(){
+    $(".tooltip").live("mouseover", function(){
+        $(".tooltip").tipTip();
+    });
+});
 
 function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id){
 	

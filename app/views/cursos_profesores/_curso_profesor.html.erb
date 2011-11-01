@@ -9,16 +9,22 @@
       <div class="container">
         <h3>
           <% if can? :read, curso_profesor.profesor %>
-            <%= link_to curso_profesor.profesor.nombre , profesor_path(curso_profesor.profesor, :anchor => "curso_profesor_#{curso_profesor.curso.id}_#{curso_profesor.profesor.id}") %>
+            <%= link_to truncate(curso_profesor.profesor.nombre_completo, :length => 23 ),
+                        profesor_path(curso_profesor.profesor,
+                        :anchor => "curso_profesor_#{curso_profesor.curso.id}_#{curso_profesor.profesor.id}"),
+                        :title => curso_profesor.profesor.nombre_completo, :class => "tooltip" %>
           <% end %>
         </h3>
         <h4>
-          <%= link_to curso_profesor.curso, profesor_path(curso_profesor.profesor, :anchor => "curso_profesor_#{curso_profesor.curso.id}_#{curso_profesor.profesor.id}") %>
+          <%= link_to truncate(curso_profesor.curso.nombre, :length => 40),
+                      profesor_path(curso_profesor.profesor,
+                      :anchor => "curso_profesor_#{curso_profesor.curso.id}_#{curso_profesor.profesor.id}"),
+                      :title => curso_profesor.curso.nombre, :class => "tooltip" %>
         </h4>
         <%= link_to 'Edit', edit_profesor_path(curso_profesor.profesor) if can? :edit, curso_profesor.profesor %>
         <div class="universidades">
-          <%= link_to curso_profesor.profesor.universidad.nombre, universidad_path(curso_profesor.profesor.universidad) %> &gt; 
-          <%= link_to curso_profesor.profesor.campus.nombre, campus_path(curso_profesor.profesor.campus) %>
+          <%= render 'shared/universidad_campus', :universidad => curso_profesor.profesor.universidad,
+                                                  :campus => curso_profesor.profesor.campus %>
         </div>
       </div>
     </div>

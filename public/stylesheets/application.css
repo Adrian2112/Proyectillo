@@ -43,7 +43,7 @@ html {
 */
 .profesor-entry .wrapper
 {
-  background: url('../images/profesor-entry-bg.gif');
+  background: url('../images/profesor-entry-bg.gif') repeat-x #EFEFEF;
   border: 1px solid #e7e7e7;
 }
 .profesor-entry .image img
@@ -637,4 +637,8 @@ form.comentario_form textarea {
 form.comentario_form .actions {
 	text-align:right;
 	margin:4px 9px 4px 0px;
+}
+
+.underline{
+  text-decoration:underline;
 }
