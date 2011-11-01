@@ -147,7 +147,7 @@ $(function(){
 
 //Hide flash messages
 	if($("div#flash_notice") && $("div#flash_error")) {
-		//setTimeout(hide_flash_messages, 3000); 
+		setTimeout(hide_flash_messages, 3000); 
 	}
 
 //Autcomplete para cursos
