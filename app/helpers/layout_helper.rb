@@ -20,8 +20,14 @@ module LayoutHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
-  def root
-    params[:controller] == 'pages' and params[:action] == 'index'
+  def pages
+    params[:controller] == 'pages'
+  end
+
+  def signing
+    params[:controller] == 'registrations' or 
+    params[:controller] == 'usuarios' or 
+    params[:controller] == 'sessions'
   end
 
 end
