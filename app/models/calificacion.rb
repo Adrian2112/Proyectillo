@@ -29,6 +29,8 @@ class Calificacion < ActiveRecord::Base
   delegate :profesor, :curso, :to => :curso_profesor
   
   before_save :calcula_promedio
+
+  default_scope order('likes_count DESC')
   
   def calcula_promedio
     self.promedio = (self.puntualidad + self.amigable + self.conocimiento + self.claridad + self.flexibilidad) / 5
