@@ -6,7 +6,7 @@
 <p><i>Estado: <%= @campus.estado %></i></p>
 <p><i>Ciudad: <%= @campus.ciudad %></p></i><br/>
 
-<h3>Existen <span id="resultados_cursos"><%= @cursos.size %></span> cursos</h3>
+<h3>Mostrando <span id="resultados_cursos"><%= pluralize(@cursos.size, "curso") %></span></h3>
 <br />
 
 <div id="listado">
@@ -14,4 +14,4 @@
 </div>
 <br />
 
-<%= link_to 'Reigstra un curso', new_campus_curso_path(@campus) if can? :create, Curso %>
+<%= link_to 'Registra un curso', new_campus_curso_path(@campus) if can? :create, Curso %>
