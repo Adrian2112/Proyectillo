@@ -10,6 +10,11 @@
   <%= @curso.campus.nombre %>
 </p>
 
+<p>
+  <b>Profesores:</b>
+  <%= @curso.profesores[0] %>
+</p>
+
 
 <%= link_to 'Edit', edit_curso_path(@curso) if can? :edit, @curso %>
 <%= link_to 'Back', campus_cursos_path(@curso.campus) %>

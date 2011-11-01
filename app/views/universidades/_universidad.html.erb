@@ -1,19 +1,19 @@
-<div class="columns on-3 universidad-entry">
+<div class="columns on-3 profesor-entry">
   <div class="container wrapper">
-    <div class="column fixed image" style="width: 130px">
+    <div class="column fixed image" style="width: 50px">
       <div class="container">
       </div>
     </div>
-    <div class="column fixed info" style="width: 200px">
+    <div class="column fixed info" style="width: 400px">
       <div class="container">
         <h3>
           <% if can? :read, universidad %>
-            <%= link_to truncate(universidad.nombre, :length => 23), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip" %>
+            <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip" %>
           <% end %>
         </h3>
       </div>
     </div>
-    <div class="column fixed date" style= "width: 300px">
+    <div class="column fixed date" style= "width: 200px">
       <br/><h5>Calificándose desde</h5> 
       <h2><%=l universidad.created_at, :format => :mes_dia_ano %></h2>
     </div>
