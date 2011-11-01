@@ -1,51 +1,57 @@
 <%= form_for(calificacion, :html => {:class => "generic-form"}) do |f| %>
-  <% if calificacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(calificacion.errors.count, "error") %> prohibited this calificacion from being saved:</h2>
 
-      <ul>
-      <% calificacion.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :puntualidad %><br />
-    <%= f.text_field :puntualidad %>
-  </div>
-  <div class="field">
-    <%= f.label :amigable %><br />
-    <%= f.text_field :amigable %>
-  </div>
-  <div class="field">
-    <%= f.label :conocimiento %><br />
-    <%= f.text_field :conocimiento %>
-  </div>
-  <div class="field">
-    <%= f.label :claridad %><br />
-    <%= f.text_field :claridad %>
-  </div>
-  <div class="field">
-    <%= f.label :flexibilidad %><br />
-    <%= f.text_field :flexibilidad %>
-  </div>
-  <div class="field">
-    <%= f.label :critica %><br />
-    <%= f.text_area :critica %>
-  </div>
-  <div class="field">
-    <%= f.label :facilidad %><br />
-    <%= f.text_field :facilidad %>
-  </div>
-  <div class="field">
-    <%= f.label :calificacion_obtenida %><br />
-    <%= f.text_field :calificacion_obtenida %>
-  </div>
+	<div class="unit">
+		<div class="on-2 columns">
+			<div class="column">
+				<%= f.label :puntualidad %><br />
+		    <%= f.text_field :puntualidad %>
+			</div>
+			<div class="column">
+				<%= f.label :amigable %><br />
+		    <%= f.text_field :amigable %>
+			</div>
+		</div>
+		<br />
+		<div class="on-2 columns">
+			<div class="column">
+				<%= f.label :conocimiento %><br />
+		    <%= f.text_field :conocimiento %>
+			</div>
+			<div class="column">
+				<%= f.label :claridad %><br />
+		    <%= f.text_field :claridad %>
+			</div>
+		</div>
+		<br />
+		<div class="on-2 columns">
+			<div class="column">
+				<%= f.label :flexibilidad %><br />
+		    <%= f.text_field :flexibilidad %>
+			</div>
+			<div class="column">
+				<%= f.label :facilidad %><br />
+		    <%= f.text_field :facilidad %>
+			</div>
+		</div>
+		<br />
+		<div class="on-2 columns">
+			<div class="column">
+				
+			</div>
+			<div class="column">
+				<%= f.label :calificacion_obtenida, "¿Qué calificación obtuviste en la materia?" %><br />
+		    <%= f.text_field :calificacion_obtenida %>
+			</div>
+		</div>
+		<br />
+		<div id="name">
+			<%= f.label :critica %><br />
+	    <%= f.text_area :critica, :rows => 5 %>
+		</div>
+	</div>
     
     <%= f.hidden_field :curso_profesor_id, :value => curso_profesor_id %>
-  <div class="actions">
+  <div class="actions_calificar">
     <%= f.submit "Calificar" %>
   </div>
 <% end %>

@@ -129,4 +129,7 @@ $(function(){
 		prePopulate: $("#profesor_cursos_tokens").data("pre")
 	});
 	
+//Cargar tabs de cursos en la vista del profesor
+$('#tabs').tabs();
+
 });

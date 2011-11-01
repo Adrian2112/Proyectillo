@@ -42,18 +42,11 @@
 	<div id="tabs">
 		<ul>
 		<% @cursos.each do |curso| %>
-			<!-- <li><%#= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
-			<li><%= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
+			<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
+			<!-- <li><%#= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
 		<% end %>
 		</ul>
-		<% @cursos.each do |curso| %>
-		<% curso_profesor = @profesor.curso_profesor.find_by_curso_id(curso.id,
-		                  :include => { :calificaciones => [ {:comentarios => :usuario}, :likes, :usuario]})  %>
-			<div id="curso_profesor_<%= curso.id %>_<%= @profesor.id %>" class="curso_profesor">
-				<%= render(:partial => 'cursos_profesores/calificaciones', :locals => {:curso_profesor => curso_profesor}) %>
-				
-			</div>
-		<% end %>
+		<%= display_calificaciones %>
 	</div>
 
 	<% end %>
@@ -62,10 +55,5 @@
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
 
-<script>
-	var $tabs = $('#tabs').tabs();
-</script>
-<div id="curso_profesor" style="display:none;"></div>
+<div id="curso_profesor" style=""></div>
 
-<%= link_to 'Edit', edit_profesor_path(@profesor) if can? :edit, @profesor  %>
-<%= link_to 'Back', profesores_path %>
