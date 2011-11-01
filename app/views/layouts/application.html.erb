@@ -45,17 +45,10 @@
     
   <div class="unit content">
       
-    <!-- Forma de busqueda -->
-    <div class="unit search-form">
-      <form name="search-form" class="columns on-4 busqueda">
-        <div class="column"><input type="text" placeholder="Universidad"/></div>
-        <div class="column"><input type="text" placeholder="Campus"/></div>
-        <div class="column"><input type="text" placeholder="Curso"/></div>
-        <div class="column"><input type="text" placeholder="Profesor"/></div>
-      </form>
-    </div>
-    <!-- END: Forma de busqueda -->
-    
+    <% unless pages or signing %>
+      <%= render 'layouts/busqueda' %>
+    <% end %>
+
     <!-- Cuenta de resultados -->
     <div class="unit result-count">
       <div class="container">

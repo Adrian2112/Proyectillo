@@ -1,12 +1,15 @@
 <% content_for :header do %>
-	<h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
+  <h1>Profesores</h1>
 <% end %>
 
 <% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
 	<%= text_field_tag :profesor_q %>
-	<%= submit_tag "Enviar", :name => nil %>
+	<%= submit_tag "Buscar Profesor", :name => nil %>
 	<%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
 <% end %>
+<br />
+
+<h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
 <br />
 
 <div id="listado">

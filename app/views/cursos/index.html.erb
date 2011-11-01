@@ -1,9 +1,13 @@
-<h1>Listing cursos</h1>
+<% content_for :header do %>
+  <h1>Cursos en <%= current_usuario.universidad.nombre %></h1>
+<% end %>
+
+<h3>Existen <span id="resultados_cursos"><%= @cursos.size %></span> cursos</h3>
+<br />
 
 <div id="listado">
 	<%= render @cursos %>
 </div>
 <br />
 
-<%= link_to 'New Curso', new_campus_curso_path(@campus) if can? :create, Curso %>
-
+<%= link_to 'Reigstra un curso', new_campus_curso_path(@campus) if can? :create, Curso %>

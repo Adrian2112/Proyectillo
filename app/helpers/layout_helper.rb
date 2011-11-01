@@ -19,4 +19,16 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def pages
+    params[:controller] == 'pages'
+  end
+
+  def signing
+    params[:controller] == 'registrations' or 
+    params[:controller] == 'usuarios' or 
+    params[:controller] == 'sessions' or
+    params[:controller] == 'contact'
+  end
+
 end

@@ -64,7 +64,9 @@ class PagesController < ApplicationController
       end
       
       @resultados = @resultados.page(params[:page]).per(10)
-    end    
+
+    end
+    
   end
 
 end

@@ -8,8 +8,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    
     # Manda mail con cualquier usuario que se genera en nuestra BD
-    Notifications.welcome_message(@usuario).deliver
+    # Notifications.welcome_message(@usuario).deliver
   end
   
   def edit
@@ -39,7 +40,6 @@ class RegistrationsController < Devise::RegistrationsController
     super
     if session[:omniauth]
       @usuario.apply_omniauth(session[:omniauth])
-      @usuario.valid?
     end
   end
   

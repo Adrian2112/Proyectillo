@@ -14,6 +14,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 		preventDuplicates: true,
 		prePopulate: $(universidad_id).data("pre"),
 		onAdd: function(){			
+			$("#campus .token-input-list").remove();
 			$("#" + campus_input_id).tokenInput("/universidades/" + $(universidad_id).val() + "/campus.json", {
 				propertyToSearch: "nombre",
 				tokenLimit: 1,
@@ -129,7 +130,9 @@ $(function(){
 		prePopulate: $("#profesor_cursos_tokens").data("pre")
 	});
 	
+
 //Cargar tabs de cursos en la vista del profesor
 $('#tabs').tabs();
 
 });
+
