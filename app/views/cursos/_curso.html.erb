@@ -1,1 +1,37 @@
-<%= link_to curso.nombre , curso_path(curso) %>
+<div class="columns on-3 profesor-entry">
+  <div class="container wrapper">
+    <div class="column fixed image" style="width: 172px">
+      <div class="container">
+        <%# link_to (image_tag curso_profesor.profesor.avatar_url(:thumb).to_s), profesor_path(curso_profesor.profesor) %>
+      </div>
+    </div>
+    <div class="column fixed info" style="width: 415px">
+      <div class="container">
+        <h3>
+          <% if can? :read, curso %>
+            <%= link_to truncate(curso.nombre, :length => 24), curso, :title => curso.nombre %>
+          <% end %>
+        </h3>
+        <div class="universidades">
+          <%= link_to curso.universidad.nombre, universidad_path(curso.universidad) %> &gt; 
+          <%= link_to curso.campus.nombre, campus_path(curso.campus) %>
+        </div>
+        <div class="cursos">
+          <%= links_profesores curso.profesores %>
+        </div>
+      </div>
+    </div>
+    <div class="column fixed rating" style="width: 121px">
+      <div class="container">
+        <div class="calif">
+          <div class="label">Calificaci&oacute;n</div>
+          <div class="amount"><%# curso_profesor.promedio_general %></div>
+        </div>
+        <div class="calif resen">
+          <div class="label">Rese&ntilde;as</div>
+          <div class="amount"><%# curso_profesor.calificaciones.size %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

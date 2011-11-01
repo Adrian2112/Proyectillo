@@ -11,7 +11,12 @@
 
 class Curso < ActiveRecord::Base
   belongs_to :campus
+  delegate :universidad, :to => :campus
   
   has_many :curso_profesor, :dependent => :destroy
   has_many :profesores, :through => :curso_profesor
+  
+  def to_s
+    nombre
+  end
 end

@@ -17,4 +17,8 @@ class Campus < ActiveRecord::Base
   has_many :profesores, :dependent => :destroy
   has_many :usuarios
 
+  def to_s
+    nombre
+  end
+  
 end

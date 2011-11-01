@@ -31,6 +31,14 @@ class Profesor < ActiveRecord::Base
   
   attr_reader :cursos_tokens
   
+  def to_s
+    self.nombre_completo
+  end
+  
+  def nombre_completo
+    "#{nombre} #{apellido_paterno} #{apellido_materno}"
+  end
+  
   def promedio
     if calificaciones.size <= 0
       0.0
