@@ -2,9 +2,12 @@
 	<h2 class="sign_up_header"><%= link_to "< Regresar a resultados", profesores_path %></h2>
 <% end %>
 
-<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank">Tweet This!</a>
+<div class="social-links">
+	<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
+<br />
+		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+</div>
 
-	<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
 
 <% store_requested_url unless current_usuario %>
 <br /><br />
@@ -28,7 +31,7 @@
         <%= link_to @profesor.campus.nombre, campus_path(@profesor.campus) %>
       </div>
 			<div id="caracteristicas_profesor">
-				<p>Reseñas: <%= @profesor.calificaciones.size %></p>
+				<%= render :partial => 'cursos_profesores/profesor_detalles', :locals => {:profesor => @profesor, :curso_profesor => @curso_profesor} %>
 			</div>
 		</div>
 	</div>

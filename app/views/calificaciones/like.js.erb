@@ -1,5 +1,5 @@
 <% if @like.nil? %>
-	$("a#like_link_<%= @calificacion.id %>").css("backgroundPosition", '-17px -17px');
+	$("a#like_link_<%= @calificacion.id %>").css("backgroundPosition", '0px -17px');
 	$("span#contador_likes_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.likes.size + 1).to_s)%>");
 <% else %>
 	$("a#like_link_<%= @calificacion.id %>").css("backgroundPosition", '0px 0px');

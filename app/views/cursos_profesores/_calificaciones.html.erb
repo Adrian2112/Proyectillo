@@ -1,15 +1,3 @@
-<div id="calificaciones">
-	<p>Cantidad de reviews: <%= curso_profesor.calificaciones.size %></p>
-	<p>Promedio general: <%= curso_profesor.promedio_general %></p>
-	<p>Promedio puntualidad: <%= curso_profesor.promedio_puntualidad %></p>
-	<p>Promedio amigable: <%= curso_profesor.promedio_amigable %></p>
-	<p>Promedio conocimiento: <%= curso_profesor.promedio_conocimiento %></p>
-	<p>Promedio claridad: <%= curso_profesor.promedio_claridad %></p>
-	<p>Promedio flexibilidad: <%= curso_profesor.promedio_flexibilidad %></p>
-</div>
-
-
-
 <% if can? :create, Comentario %>
 	<% curso_profesor.calificaciones.each do |calificacion| %>
 	<div class="unit">
@@ -36,7 +24,8 @@
 	<div class="unit comments_count_container">
 		<div class="on-2 columns">
 			<div class="fixed column comments_count_container" style="width:105px;">
-				<h5><span id="comentarios_count_<%= calificacion.id %>"><%= pluralize(calificacion.comentarios.size, "comentario") %></span></h5>
+				<h5><span id="comentarios_count_<%= calificacion.id %>"><%= link_to pluralize(calificacion.comentarios.size, "comentario"), "javascript:display_comments(#{calificacion.id});" %></span></h5>
+				
 			</div>
 			<div class="fixed column" style="width:545px">
 				<hr style="margin-top:10px;background-color:#ccc;color:#ccc"/>
@@ -44,7 +33,7 @@
 		</div>
 	</div>
 	
-		<div class="calificaciones_comentarios">
+		<div class="calificaciones_comentarios_<%= calificacion.id %>" style="display:none">
 			<div class="comentarios_content">
 				<div class="comments" id="comentarios_<%= calificacion.id %>">
 				<% unless calificacion.comentarios.empty? %>
@@ -60,6 +49,11 @@
 			<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
 																  	  :curso_profesor_id => curso_profesor.id} %>
 	</div>
+	
+	<script>
+	
+	
+	</script>
 
 <% else %>
 	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>

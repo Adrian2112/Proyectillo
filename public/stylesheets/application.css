@@ -660,7 +660,7 @@ div.calificacion_actions a.unlike {
 	min-width:13px;
 	background-image:url(/images/like_flag.png);
 	min-height:16px;
-	background-position:-17px -17px;
+	background-position:0px -17px;
 	display:inline-block;
 	white-space:nowrap;
 	background-repeat:no-repeat;
@@ -701,6 +701,7 @@ div.comments_count_container {
 	display:inline;
 }
 
+
 span.califa_actions_counter {
 	font-size:8px;
 	margin-right:2px;
@@ -728,4 +729,22 @@ div.critica_text {
 
 div.actions_calificar {
 	text-align:right;
+}
+
+span.profesor_detail {
+	font-size:16px;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+tr.even {
+	background-color:#FFF;
+}
+
+tr.odd td ,tr.even td {
+	padding:5px;
+}
+
+div.social-links {
+	float:right;
 }
