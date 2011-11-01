@@ -7,7 +7,7 @@
 	    </div>	
 	    <div class="column" id="campus">
 		    <%= label_tag :campus_id, "Campus" %><br />
-	      <%= text_field_tag :campus_id, "", :class => "token_field",
+	      <%= text_field_tag :campus_id, "", :class => "token_field-calmecac",
 	                          "data-url" => @campus_url, "data-pre" => @campus_data %>
 	    </div>
 	    <div class="column" id="curso">
@@ -21,6 +21,9 @@
 	    </div>
       <br/>
     </div>
-    <%= submit_tag 'Buscar', :name => nil %>
+<div class="actions">
+	<%= submit_tag 'Buscar', :name => nil %>
+</div>
+    
     <% end %>
 </div>

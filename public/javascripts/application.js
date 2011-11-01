@@ -7,24 +7,24 @@ $(function(){
     });
 });
 
-function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id){
+function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id, tema){
 	
 	$(universidad_id).tokenInput("/universidades.json", {
 		propertyToSearch: "nombre",
 		tokenLimit: 1,
         hintText: 'Teclea el nombre',
         searchingText: 'Buscando...',
-		//theme: 'facebook',
+		theme: tema,
 		preventDuplicates: true,
 		prePopulate: $(universidad_id).data("pre"),
 		onAdd: function(){			
-			$("#campus .token-input-list").remove();
+			$("#campus .token-input-list-calmecac").remove();
 			$("#" + campus_input_id).tokenInput("/universidades/" + $(universidad_id).val() + "/campus.json", {
 				propertyToSearch: "nombre",
 				tokenLimit: 1,
                 hintText: 'Teclea el nombre',
                 searchingText: 'Buscando...',
-				//theme: 'facebook',
+				theme: tema,
 				preventDuplicates: true
 			});
 
@@ -32,10 +32,19 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 
 		},
 		onDelete: function(){
+			var label = "<label for=\"usuario_campus_id\">Campus</label><br />";
 			$("#campus .token-input-list-facebook").remove();
+			
+			if (window.location.pathname == "/") {
 				$("div#campus").html(
-					"<label for=\"usuario_campus_id\">Campus</label><br />"+
+					label +
 					"<input type=\"text\" size=\"30\" name=\""+ campus_input_name +"\" id=\""+ campus_input_id +"\" class=\"token_field\"/>");
+			} else {
+				$("div#campus").html(
+					label +
+					"<input type=\"text\" size=\"30\" name=\""+ campus_input_name +"\" id=\""+ campus_input_id +"\" class=\"token_field-calmecac\"/>");
+			}
+				
 
 					return false;
 				}
@@ -47,7 +56,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 					tokenLimit: 1,
                     hintText: 'Introduce una Uni',
                     searchingText: 'Introduce una Uni',
-					//theme: 'facebook',
+					theme: tema,
 					preventDuplicates: true,
 					prePopulate: $("#"+campus_input_id).data("pre")
 				});
@@ -94,7 +103,12 @@ function display_comments(id){
 
 //Filtro en tiempo real de la pagina root (http://localhost:3000/)
 $(function(){
-	campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id");
+	if(window.location.pathname == "/"){
+		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", '');
+	}else{
+		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", 'calmecac');
+	}
+	
 	
 	$("#curso_nombre, #profesor_nombre").observe_field(0.5, function(){
 		history.replaceState(null, document.title,
@@ -126,12 +140,14 @@ $(function(){
 
 
 //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)
-	campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id");
+	campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id", '');
+	
+	
 
 
 //Hide flash messages
 	if($("div#flash_notice") && $("div#flash_error")) {
-		setTimeout(hide_flash_messages, 3000); 
+		//setTimeout(hide_flash_messages, 3000); 
 	}
 
 //Autcomplete para cursos

@@ -24,7 +24,7 @@
 		<%= label_tag :curso_nombre, "Curso" %><br />
 	    <%= text_field_tag :curso_nombre, params[:curso_nombre] %>
 	</div>
-	
+	<br />
 	<div id="profesor" style="">
 		<%= label_tag :profesor_nombre, "Profesor" %><br />
 	    <%= text_field_tag :profesor_nombre, params[:profesor_nombre] %>
@@ -32,8 +32,9 @@
 
   <br />
   <%= submit_tag 'Buscar', :name => nil %>
-<% end %>
 
+<% end %>
+<br />
 <div id="resultados_index">
   <%= render @resultados %>
 </div>
