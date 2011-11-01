@@ -153,7 +153,7 @@ $(function(){
 //Autcomplete para cursos
 	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
 		propertyToSearch: "nombre",
-		theme: 'facebook',
+		theme: '',
 		preventDuplicates: true,
 		prePopulate: $("#profesor_cursos_tokens").data("pre")
 	});

@@ -23,7 +23,7 @@ class CalificacionesController < ApplicationController
     @calificacion = Calificacion.new(params[:calificacion])
     @calificacion.usuario_id = current_usuario.id
     if @calificacion.save
-      redirect_to(:back, :notice => 'Calificacion was successfully created.')
+      redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')
     else
       render :action => "new" 
     end
@@ -33,7 +33,7 @@ class CalificacionesController < ApplicationController
     @calificacion = Calificacion.find(params[:id])
 
       if @calificacion.update_attributes(params[:calificacion])
-        redirect_to(@calificacion, :notice => 'Calificacion was successfully updated.')
+        redirect_to(@calificacion, :notice => '')
       else
         render :action => "edit" 
       end

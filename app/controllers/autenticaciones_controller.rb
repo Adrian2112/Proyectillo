@@ -8,12 +8,12 @@ class AutenticacionesController < ApplicationController
     autenticacion = Autenticacion.find_by_provedor_and_uid(omniauth['provider'], omniauth['uid'])
     # Si el usuario tiene un registro en la tabla de autenticaciones
     if autenticacion
-      flash[:notice] = "Has iniciado sesion."
+      flash[:notice] = "Bienvenido..."
       sign_in_and_redirect(:usuario, autenticacion.usuario)
     # Si el usuario tiene una sesion iniciada
     elsif current_usuario
       current_usuario.autenticaciones.create!(:provedor => omniauth['provider'], :uid => omniauth['uid'])
-      flash[:notice] = "Autenticacion hecha."
+      flash[:notice] = "La autenticacion fue creada"
       redirect_to autenticaciones_url
     # Si no hay usuario en sesion y trata de dar login con un provedor
     else
@@ -28,6 +28,6 @@ class AutenticacionesController < ApplicationController
   def destroy
     @autenticacion = current_usuario.autenticaciones.find(params[:id])
     @autenticacion.destroy
-    redirect_to autenticaciones_url, :notice => "Successfully destroyed autenticacion."
+    redirect_to autenticaciones_url, :notice => "Has desconectado la autenticacion con #{@autenticacion.provedor.capitalize}"
   end
 end
