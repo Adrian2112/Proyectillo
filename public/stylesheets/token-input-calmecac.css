@@ -3,7 +3,7 @@ ul.token-input-list {
     overflow: hidden; 
     height: auto !important; 
     height: 1%;
-    width: 220px;
+    width: 150px;
     border: 1px solid #999;
     cursor: text;
     font-size: 12px;
@@ -32,7 +32,7 @@ ul.token-input-list li input {
     font-weight: bold;
     padding: 7px 10px;
     text-shadow: 1px 1px 0 #DDDDDD;
-    width: 218px;
+    width: 150px;
 }
 
 li.token-input-token {

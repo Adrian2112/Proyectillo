@@ -4,7 +4,7 @@
 <% end %>
 
 <h3>Empieza por aquí</h3> <br/>
-<%= form_tag root_path, :method => :get, :id => "busqueda_general" do |f| %>
+<%= form_tag root_path, :method => :get, :id => "busqueda_general", :class => "generic-form" do |f| %>
 	<div>
 		<%= label_tag :universidad_id, "Universidad" %><br />
 	    <%= text_field_tag :universidad_id, "", "data-pre" => @universidad_data %>

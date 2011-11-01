@@ -161,6 +161,7 @@ Estilo de forma generica
 	font-weight: bold;
 	padding: 7px 10px;
 	text-shadow: 1px 1px 0 #dddddd;
+    border:1px solid #999;
 	
 }
 
@@ -487,21 +488,17 @@ a {
 
 
 input.token_field {
-	overflow: hidden; 
-    height: auto !important; 
-    height: 1%;
-    width: 385px !important;
-    border: 1px solid #8496ba;
-    cursor: text;
-    font-size: 12px;
-    font-family: Verdana;
-    min-height: 1px;
-    z-index: 999;
-    margin: 2px 0px;
-    padding: 3px 8px;
-    background-color: #fff;
-    list-style-type: none;
-    clear: left;
+    background-color: #CCCCCC;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 2px #999999 inset;
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 7px 10px;
+    text-shadow: 1px 1px 0 #DDDDDD;
+    width: 232px;
+    border: 1px solid #999;
 }
 
 /*Header*/
