@@ -11,6 +11,7 @@
             <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip" %>
           <% end %>
         </h3>
+				<span><%= pluralize(universidad.campus.size, "Campus") %></span>
       </div>
     </div>
     <div class="column fixed date" style= "width: 200px">

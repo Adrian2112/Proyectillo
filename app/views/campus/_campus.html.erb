@@ -11,11 +11,13 @@
             <%= link_to truncate(campus.nombre, :length => 23), campus_cursos_path(campus), :title => campus.nombre, :class => "tooltip" %>
           <% end %>
         </h3>
+<br />
+				<p><span><%= pluralize(campus.cursos.size, "Curso") %></span> | <span><%= pluralize(campus.profesores.size, "Profesor") %></span></p>
       </div>
     </div>
-    <div class="column fixed place" style= "width: 100px">
+    <div class="column fixed place" style= "width: 200px">
       <div class="container">
-        <h2><%= campus.ciudad %>, <%= campus.estado %></h2>
+        <h4><%= campus.ciudad %>, <%= campus.estado %></h4>
       </div>
     </div>
   </div>
