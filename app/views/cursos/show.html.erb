@@ -1,15 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% content_for :header do %>
+	<h3><%= @curso.nombre %> en <%= @curso.campus.nombre %></h3> 
+<% end %>
 
-<p>
-  <b>Nombre:</b>
-  <%= @curso.nombre %>
-</p>
 
-<p>
-  <b>Campus:</b>
-  <%= @curso.campus.nombre %>
-</p>
+<%= render @curso.profesores %>
 
 
 <%= link_to 'Edit', edit_curso_path(@curso) if can? :edit, @curso %>
-<%= link_to 'Back', campus_cursos_path(@curso.campus) %>

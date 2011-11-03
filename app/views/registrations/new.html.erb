@@ -30,13 +30,13 @@
 		  </p>
 		  <% end %>
 		  <br />
-		  <% if @usuario.email == nil %>
+		  <% if @usuario.email.blank?%>
 		    <p>
 		      <%= f.label :email, 'Correo Electrónico' %><br />
 		      <%= f.text_field :email %>
 		    </p>
 		  <% end %>
-
+			<br />
 			<%= render 'universidad_campus_fields', :f => f %>
 
 		  <% if @usuario.password_required? %>

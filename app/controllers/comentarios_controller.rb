@@ -17,7 +17,6 @@ class ComentariosController < ApplicationController
     @comentario = Comentario.new(params[:comentario])
     @comentario.usuario_id = current_usuario.id
     if @comentario.save
-      flash[:notice] = "Successfully created comentario."
       respond_to do |format|
         format.html {redirect_to :back}
         format.js
@@ -35,7 +34,6 @@ class ComentariosController < ApplicationController
   def update
     @comentario = Comentario.find(params[:id])
     if @comentario.update_attributes(params[:comentario])
-      flash[:notice] = "Successfully updated comentario."
       redirect_to @comentario
     else
       render :action => 'edit'
@@ -45,7 +43,6 @@ class ComentariosController < ApplicationController
   def destroy
     @comentario = Comentario.find(params[:id])
     @comentario.destroy
-    flash[:notice] = "Successfully destroyed comentario."
     redirect_to comentarios_url
   end
 end

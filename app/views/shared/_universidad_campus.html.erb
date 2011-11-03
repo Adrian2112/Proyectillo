@@ -1,5 +1,5 @@
 <%= link_to truncate(universidad.nombre, :length => 20), universidad_campus_index_path(universidad),
             :title => universidad.nombre, :class => "tooltip" %>
 &gt; 
-<%= link_to truncate(campus.nombre, :length => 20), campus_path(campus),
+<%= link_to truncate(campus.nombre, :length => 20), campus_cursos_path(campus),
             :title => campus.nombre, :class => "tooltip" %>

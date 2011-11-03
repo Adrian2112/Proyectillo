@@ -27,8 +27,8 @@
 		<div class="fixed column" style="width:470px">
 			<h2><%= @profesor.nombre_completo %></h2>
 			<div class="profesor-universidad">
-        <%= link_to @profesor.universidad.nombre, universidad_path(@profesor.universidad) %> &gt; 
-        <%= link_to @profesor.campus.nombre, campus_path(@profesor.campus) %>
+        <%= link_to @profesor.universidad.nombre, universidad_campus_index_path(@profesor.universidad) %> &gt; 
+        <%= link_to @profesor.campus.nombre, campus_cursos_path(@profesor.campus) %>
       </div>
 			<div id="caracteristicas_profesor">
 				<%= render :partial => 'cursos_profesores/profesor_detalles', :locals => {:profesor => @profesor, :curso_profesor => @curso_profesor} %>
@@ -58,5 +58,5 @@
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
 
-<div id="curso_profesor" style=""></div>
+<!-- <div id="curso_profesor" style=""></div> -->
 

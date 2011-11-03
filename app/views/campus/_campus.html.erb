@@ -1,0 +1,24 @@
+<div class="columns on-3 profesor-entry">
+  <div class="container wrapper">
+    <div class="column fixed image" style="width: 30px">
+      <div class="container">
+      </div>
+    </div>
+    <div class="column fixed info" style="width: 400px">
+      <div class="container">
+        <h3>
+          <% if can? :read, campus %>
+            <%= link_to truncate(campus.nombre, :length => 23), campus_cursos_path(campus), :title => campus.nombre, :class => "tooltip" %>
+          <% end %>
+        </h3>
+<br />
+				<p><span><%= pluralize(campus.cursos.size, "Curso") %></span> | <span><%= pluralize(campus.profesores.size, "Profesor") %></span></p>
+      </div>
+    </div>
+    <div class="column fixed place" style= "width: 200px">
+      <div class="container">
+        <h4><%= campus.ciudad %>, <%= campus.estado %></h4>
+      </div>
+    </div>
+  </div>
+</div>

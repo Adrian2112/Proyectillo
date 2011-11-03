@@ -8,7 +8,7 @@ class ContactController < ApplicationController
     @message = Message.new(params[:message])
     if @message.valid?
       Notifications.new_message(@message).deliver
-      redirect_to(root_path, :notice => "Gracias por el mensaje.")
+      redirect_to(root_path, :notice => "Agradecemos tu retroalimentación")
     else
       flash.now.alert = "Por favor llena todos los campos."
       render :new
