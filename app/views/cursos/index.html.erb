@@ -15,3 +15,8 @@
 <br />
 
 <%= link_to 'Registra un curso', new_campus_curso_path(@campus) if can? :create, Curso %>
+
+<div id="next_link">
+  <%= render :partial => 'shared/show_more', :object => @cursos,
+              :locals => { :url => mas_resultados_campus_cursos_path(@campus, :js), :parametros => { :page => "page" } } %>
+</div>
