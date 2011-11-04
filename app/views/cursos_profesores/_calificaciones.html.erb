@@ -8,9 +8,9 @@
 				</div>
 				<div class="column">
 					<div class="calificacion_actions">
-						<%= display_like_link(calificacion) if current_usuario %>
+						<%= display_like_link(calificacion) %>
 						<span class="califa_actions_counter" id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
-						<%= display_flag_link(calificacion) if current_usuario %>
+						<%= display_flag_link(calificacion) %>
 						<span class="califa_actions_counter" id="contador_flags_<%= calificacion.id %>"><%= calificacion.flags.size %></span>
 					</div>
 				</div>

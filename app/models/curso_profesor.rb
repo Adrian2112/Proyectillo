@@ -14,40 +14,13 @@ class CursoProfesor < ActiveRecord::Base
   belongs_to :profesor
   has_many :calificaciones, :dependent => :destroy, :conditions => "flags_count < 3"
   
-  
-  def promedio_puntualidad
-    prom = calificaciones.map{|califa| califa.puntualidad}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_amigable
-    prom = calificaciones.map{|califa| califa.amigable}.inject(:+).to_f / calificaciones.size
-     prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_conocimiento
-    prom = calificaciones.map{|califa| califa.conocimiento}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_claridad
-    prom = calificaciones.map{|califa| califa.claridad}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_flexibilidad
-    prom = calificaciones.map{|califa| califa.flexibilidad}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_facilidad
-    prom = calificaciones.map{|califa| califa.facilidad}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
-  end
-  
-  def promedio_general
-    prom = calificaciones.map{|califa| califa.promedio}.inject(:+).to_f / calificaciones.size
-    prom.nan? ? 0.0 : '%.1f' % prom
+  def method_missing(method_sym, *arguments, &block)  
+    if method_sym.to_s =~ /^promedio_(.*)$/
+      promedio = self.calificaciones.average($1.to_sym)
+      promedio.nan? ? 0.0 : '%.1f' % promedio
+    else
+      super
+    end
   end
   
 end

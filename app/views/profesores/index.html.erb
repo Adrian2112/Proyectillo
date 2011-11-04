@@ -17,7 +17,7 @@
 </div>
 <br />
 
-<%= link_to 'New Profesor', new_profesor_path if can? :create, Profesor  %>
+<%= link_to 'Dar de alta profesor', new_profesor_path if can? :create, Profesor  %>
 
 <div id="next_link">
   <%= render :partial => 'shared/show_more', :object => @profesores,

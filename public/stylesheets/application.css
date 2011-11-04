@@ -692,7 +692,7 @@ div.calificacion_actions:hover {
 	background-color:#EFEFEF;
 }
 
-div.calificacion_actions a.like {
+div.calificacion_actions .like {
 	min-width:13px;
 	background-image:url(/images/like_flag.png);
 	min-height:16px;
@@ -704,7 +704,7 @@ div.calificacion_actions a.like {
 }
 
 
-div.calificacion_actions a.unlike {
+div.calificacion_actions .unlike {
 	min-width:13px;
 	background-image:url(/images/like_flag.png);
 	min-height:16px;
@@ -716,7 +716,7 @@ div.calificacion_actions a.unlike {
 }
 
 
-div.calificacion_actions a.flag {
+div.calificacion_actions .flag {
 	min-width:13px;
 	background-image:url(/images/flag.png);
 	min-height:18px;
@@ -726,7 +726,7 @@ div.calificacion_actions a.flag {
 	background-repeat:no-repeat;
 }
 
-div.calificacion_actions a.unflag {
+div.calificacion_actions .unflag {
 	min-width:13px;
 	background-image:url(/images/flag.png);
 	min-height:18px;
