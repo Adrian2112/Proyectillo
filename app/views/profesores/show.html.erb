@@ -5,7 +5,7 @@
 <div class="social-links">
 	<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
 <br />
-		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="<%= request.url %>" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
 </div>
 
 
@@ -16,7 +16,7 @@
 	<div class="on-2 columns">
 		<div class="fixed column" style="width:200px;">
 			<div id="profesor_image">
-				AQUI VA EL PROFE
+				<%= image_tag @profesor.avatar_url(:thumb).to_s, :size => "180x180" %>
 			</div>
 			<br />
 			<div id="promedio">
@@ -24,7 +24,7 @@
 				<h2><%= @profesor.promedio %></h2>
 			</div>
 		</div>
-		<div class="fixed column" style="width:470px">
+		<div class="fixed column" style="width:470px; ">
 			<h2><%= @profesor.nombre_completo %></h2>
 			<div class="profesor-universidad">
         <%= link_to @profesor.universidad.nombre, universidad_campus_index_path(@profesor.universidad) %> &gt; 
@@ -46,7 +46,6 @@
 		<ul>
 		<% @cursos.each do |curso| %>
 			<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
-			<!-- <li><%#= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
 		<% end %>
 		</ul>
 		<%= display_calificaciones %>
@@ -57,6 +56,4 @@
 <div id="loading" class="test" style="display:none">
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
-
-<!-- <div id="curso_profesor" style=""></div> -->
 

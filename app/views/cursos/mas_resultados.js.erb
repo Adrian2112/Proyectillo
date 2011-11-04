@@ -1,0 +1,8 @@
+$("#listado").append("<%= escape_javascript(render @cursos)%>");
+$("#page").val(<%= @cursos.current_page + 1 %>);
+
+<% if @cursos.current_page >= @cursos.num_pages %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>
