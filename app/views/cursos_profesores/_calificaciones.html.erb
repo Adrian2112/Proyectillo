@@ -1,4 +1,5 @@
 <% curso_profesor.calificaciones.each do |calificacion| %>
+<% unless calificacion.critica.empty? %>
 	<div class="unit">
 		<div class="critica">
 			<div class="on-2 columns">
@@ -46,6 +47,7 @@
 			</div>
 		</div>
 	<% end %>
+<% end %>
 
   <% if current_usuario == nil %>
     Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
