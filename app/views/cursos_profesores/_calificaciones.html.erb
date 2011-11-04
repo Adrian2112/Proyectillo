@@ -58,7 +58,7 @@
     </div>
   <% end %>
 
-  <% else %>
+  <% if current_usuario == nil %>
     Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
 	    <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
   		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
