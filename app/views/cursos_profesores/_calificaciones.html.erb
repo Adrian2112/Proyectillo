@@ -45,15 +45,17 @@
 			</div>
 		</div>
 	<% end %>
+
+  <% if !curso_profesor.calificaciones.find_by_usuario_id(current_usuario.id) %>
 	<div id="calificaciones_form">
 			<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
 																  	  :curso_profesor_id => curso_profesor.id} %>
 	</div>
-	
-	<script>
-	
-	
-	</script>
+  <% else %>
+    <div id="ha_comentado">
+      Ya has comentado aquí, ¡gracias!
+    </div>
+  <% end %>
 
 <% else %>
 	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
