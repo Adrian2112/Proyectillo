@@ -22,6 +22,7 @@ class CalificacionesController < ApplicationController
   def create
     @calificacion = Calificacion.new(params[:calificacion])
     @calificacion.usuario_id = current_usuario.id
+    debugger
     if @calificacion.save
       redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')
     else

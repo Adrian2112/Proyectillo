@@ -30,7 +30,7 @@ class Calificacion < ActiveRecord::Base
   
   before_save :calcula_promedio
 
-  CALIFAS = [0,1,2,3,4,5,6,7,8,9,10]
+  CALIFAS = (1..10)
 
   default_scope order('likes_count DESC')
   default_scope order('created_at DESC')

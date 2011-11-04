@@ -165,5 +165,7 @@ $(function(){
 //Cargar tabs de cursos en la vista del profesor
 $('#tabs').tabs();
 
+//Cargar funcion rate
+	$("input.star").rating();
 });
 
