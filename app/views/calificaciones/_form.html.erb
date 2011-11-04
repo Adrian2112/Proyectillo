@@ -5,7 +5,7 @@
 		<div class="on-2 columns">
 			<div class="column">
 				<%= f.label :puntualidad %><br />
-		    <%= f.text_field :puntualidad %>
+		    <%= f.select :puntualidad, options_for_select(Calificacion::CALIFAS) %>
 			</div>
 			<div class="column">
 				<%= f.label :amigable %><br />

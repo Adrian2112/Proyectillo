@@ -87,6 +87,14 @@ class Usuario < ActiveRecord::Base
   def has_no_password?
     self.encrypted_password.blank?
   end
+  
+  def already_liked?(calificacion_id)
+    self.likes.where(:calificacion_id => calificacion_id).first
+  end
+  
+  def already_flagged?(calificacion_id)
+    self.flags.where(:calificacion_id => calificacion_id).first
+  end
 
 
 end

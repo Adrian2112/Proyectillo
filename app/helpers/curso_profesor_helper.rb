@@ -1,27 +1,33 @@
 module CursoProfesorHelper
   
   def display_like_link(calificacion)
-    if current_usuario.likes.where(:calificacion_id => calificacion.id).first
-      link_to "", like_calificacion_path(calificacion), 
-                  :remote => true, :method => :post, 
-                  :id => "like_link_#{calificacion.id}", :class => "unlike tooltip", :title => "No me gusta"
+    if current_usuario
+      if current_usuario.already_liked?(calificacion.id)
+        link calificacion, :class => "unlike", :title => "No me gusta", :url => like_calificacion_path(calificacion)
+      else
+        link calificacion, :class => "like", :title => "Me gusta", :url => like_calificacion_path(calificacion)
+      end
     else
-			link_to "", like_calificacion_path(calificacion), 
-			            :remote => true, :method => :post, 
-			            :id => "like_link_#{calificacion.id}", :class => "like tooltip", :title => "Me gusta"
-		end 
+  		  content_tag(:p, "", :class => "like")
+    end
   end
   
   def display_flag_link(calificacion)
-    if current_usuario.flags.where(:calificacion_id => calificacion.id).first
-			link_to "", flag_calificacion_path(calificacion), 
-			            :remote => true, :method => :post, 
-			            :id => "flag_link_#{calificacion.id}", :class => "unflag tooltip", :title => "Marcar como inapropiado"
-		else
-			link_to "", flag_calificacion_path(calificacion), 
-			            :remote => true, :method => :post, 
-			            :id => "flag_link_#{calificacion.id}", :class => "flag tooltip", :title => "Desmarcar como inapropiado"
-		end
+    if current_usuario
+      if current_usuario.already_flagged?(calificacion.id)
+        link calificacion, :class => "unflag", :title => "Marcar como inapropiado", :url => flag_calificacion_path(calificacion)
+      else
+        link calificacion, :class => "flag", :title => "Desmarcar como inapropiado", :url => flag_calificacion_path(calificacion)
+      end
+    else
+      content_tag(:p, "", :class => "flag")
+    end
+  end
+  
+  def link(calificacion, params={})
+     link_to "", params[:url], 
+  		            :remote => true, :method => :post, 
+  		            :id => "flag_link_#{calificacion.id}", :class => "#{params[:class]} tooltip", :title => "#{params[:title]}"
   end
   
 end

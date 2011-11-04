@@ -1,4 +1,5 @@
 <% curso_profesor.calificaciones.each do |calificacion| %>
+<% unless calificacion.critica.empty? %>
 	<div class="unit">
 		<div class="critica">
 			<div class="on-2 columns">
@@ -8,9 +9,9 @@
 				</div>
 				<div class="column">
 					<div class="calificacion_actions">
-						<%= display_like_link(calificacion) if current_usuario %>
+						<%= display_like_link(calificacion) %>
 						<span class="califa_actions_counter" id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
-						<%= display_flag_link(calificacion) if current_usuario %>
+						<%= display_flag_link(calificacion) %>
 						<span class="califa_actions_counter" id="contador_flags_<%= calificacion.id %>"><%= calificacion.flags.size %></span>
 					</div>
 				</div>
@@ -22,11 +23,11 @@
 	</div>
 	<div class="unit comments_count_container">
 		<div class="on-2 columns">
-			<div class="fixed column comments_count_container" style="width:105px;">
+			<div class="fixed column comments_count_container" style="width:150px;">
 				<h5><span id="comentarios_count_<%= calificacion.id %>"><%= link_to pluralize(calificacion.comentarios.size, "comentario"), "javascript:display_comments(#{calificacion.id});" %></span></h5>
 				
 			</div>
-			<div class="fixed column" style="width:545px">
+			<div class="fixed column" style="width:500px;float;right;">
 				<hr style="margin-top:10px;background-color:#ccc;color:#ccc"/>
 			</div>
 		</div>
@@ -46,15 +47,21 @@
 			</div>
 		</div>
 	<% end %>
-	<br/>
-	<% if can? :create, Calificacion %>
-  	<div id="calificaciones_form">
-  			<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
-  																  	  :curso_profesor_id => curso_profesor.id} %>
-  	</div>
-  <% else %>
+<% end %>
+
+  <% if current_usuario == nil %>
     Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
 	    <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
   		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
     para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
+
+  <% elsif !curso_profesor.calificaciones.find_by_usuario_id(current_usuario.id) %>
+	<div id="calificaciones_form">
+			<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
+																  	  :curso_profesor_id => curso_profesor.id} %>
+	</div>
+  <% else %>
+    <div id="ha_comentado">
+      Ya has comentado aquí, ¡gracias!
+    </div>
   <% end %>
