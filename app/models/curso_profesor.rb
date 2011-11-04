@@ -16,8 +16,11 @@ class CursoProfesor < ActiveRecord::Base
   
   def method_missing(method_sym, *arguments, &block)  
     if method_sym.to_s =~ /^promedio_(.*)$/
-      promedio = self.calificaciones.average($1.to_sym)
-      promedio.nan? ? 0.0 : '%.1f' % promedio
+      begin
+        promedio = self.calificaciones.average($1.to_sym)
+      rescue
+        promedio.nan? ? 0.0 : '%.1f' % promedio
+      end
     else
       super
     end
