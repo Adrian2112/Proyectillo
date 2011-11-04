@@ -1,5 +1,4 @@
-<% if can? :create, Comentario %>
-	<% curso_profesor.calificaciones.each do |calificacion| %>
+<% curso_profesor.calificaciones.each do |calificacion| %>
 	<div class="unit">
 		<div class="critica">
 			<div class="on-2 columns">
@@ -9,9 +8,9 @@
 				</div>
 				<div class="column">
 					<div class="calificacion_actions">
-						<%= display_like_link(calificacion) %>
+						<%= display_like_link(calificacion) if current_usuario %>
 						<span class="califa_actions_counter" id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
-						<%= display_flag_link(calificacion) %>
+						<%= display_flag_link(calificacion) if current_usuario %>
 						<span class="califa_actions_counter" id="contador_flags_<%= calificacion.id %>"><%= calificacion.flags.size %></span>
 					</div>
 				</div>
@@ -40,8 +39,10 @@
 							<%= render calificacion.comentarios %>
 				<% end %>
 				</div>
-				<%= render :partial => 'comentarios/form', :locals => {:comentario => Comentario.new, 
-																	   :calificacion_id => calificacion.id } %>
+				<% if can? :create, Comentario %>
+  				<%= render :partial => 'comentarios/form', :locals => {:comentario => Comentario.new, 
+  																	   :calificacion_id => calificacion.id } %>
+        <% end %>
 			</div>
 		</div>
 	<% end %>
@@ -57,7 +58,9 @@
     </div>
   <% end %>
 
-<% else %>
-	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
-<% end %>
-
+  <% else %>
+    Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
+	    <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
+  		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
+    para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
+  <% end %>

@@ -69,7 +69,7 @@ li.token-input-selected-token-calmecac span {
 
 div.token-input-dropdown-calmecac {
     position: absolute;
-    width: 200px;
+    width: 150px;
     background-color: #fff;
     overflow: hidden;
     border-left: 1px solid #ccc;
@@ -99,11 +99,11 @@ div.token-input-dropdown-calmecac ul li {
     list-style-type: none;
 }
 
-div.token-input-dropdown-calmecac ul li.token-input-dropdown-item {
+div.token-input-dropdown-calmecac ul li.token-input-dropdown-item-calmecac {
     background-color: #fff
 }
 
-div.token-input-dropdown-calmecac ul li.token-input-dropdown-item2 {
+div.token-input-dropdown-calmecac ul li.token-input-dropdown-item2-calmecac {
     background-color: #fff
 }
 
@@ -112,7 +112,7 @@ div.token-input-dropdown-calmecac ul li em {
     font-style: normal;
 }
 
-div.token-input-dropdown-calmecac ul li.token-input-selected-dropdown-item {
-    background-color: #CCCCCC
+div.token-input-dropdown-calmecac ul li.token-input-selected-dropdown-item-calmecac {
+    background-color: #6E9B32;
 }
 
