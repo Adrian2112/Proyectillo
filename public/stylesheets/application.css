@@ -351,7 +351,7 @@ input
   position: relative;
   text-indent: -99em;
   width: 757px;
-  z-index: 99;
+  z-index: 1;
 }
 #footer ul
 {
