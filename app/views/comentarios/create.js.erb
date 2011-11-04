@@ -1,7 +1,9 @@
 $("div#comentarios_<%= @comentario.calificacion_id %>")
 					.append("<div id=\"<%=@comentario.id%>\" style=\"display:none\"><%= escape_javascript(render @comentario)%></div>");
 $("div#<%=@comentario.id%>").dropIn("slow");
-$("span#comentarios_count_<%= @comentario.calificacion_id %>").html("<%= escape_javascript(link_to pluralize(@comentario.calificacion.comentarios.count, 'comentario')) %>");
+<% link = escape_javascript(link_to pluralize(@comentario.calificacion.comentarios.count, 'comentario'),
+					"javascript:display_comments(#{@comentario.calificacion_id});") %>
+$("span#comentarios_count_<%= @comentario.calificacion_id %>").html("<%= link %>");
 $("form#forma_<%= @comentario.calificacion_id %>").each (function(){
   this.reset();
 });
