@@ -1,4 +1,5 @@
 <% curso_profesor.calificaciones.each do |calificacion| %>
+<% unless calificacion.critica.empty? %>
 	<div class="unit">
 		<div class="critica">
 			<div class="on-2 columns">
@@ -46,8 +47,15 @@
 			</div>
 		</div>
 	<% end %>
+<% end %>
 
-  <% if current_usuario and !curso_profesor.calificaciones.find_by_usuario_id(current_usuario.id) %>
+  <% if current_usuario == nil %>
+    Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
+	    <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
+  		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
+    para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
+
+  <% elsif !curso_profesor.calificaciones.find_by_usuario_id(current_usuario.id) %>
 	<div id="calificaciones_form">
 			<%= render :partial => 'calificaciones/form', :locals => {:calificacion => Calificacion.new, 
 																  	  :curso_profesor_id => curso_profesor.id} %>
@@ -56,11 +64,4 @@
     <div id="ha_comentado">
       Ya has comentado aquí, ¡gracias!
     </div>
-  <% end %>
-
-  <% if current_usuario == nil %>
-    Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
-	    <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
-  		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
-    para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
   <% end %>
