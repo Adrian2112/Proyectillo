@@ -5,33 +5,33 @@
 		<div class="on-2 columns">
 			<div class="column">
 				<%= f.label :puntualidad %><br />
-		    <%= f.select :puntualidad, options_for_select(Calificacion::CALIFAS) %>
+				<%= rating_stars f, :puntualidad %>
 			</div>
 			<div class="column">
 				<%= f.label :amigable %><br />
-		    <%= f.text_field :amigable %>
+		    <%= rating_stars f, :amigable %>
 			</div>
 		</div>
 		<br />
 		<div class="on-2 columns">
 			<div class="column">
 				<%= f.label :conocimiento %><br />
-		    <%= f.text_field :conocimiento %>
+		    <%= rating_stars f, :conocimiento %>
 			</div>
 			<div class="column">
 				<%= f.label :claridad %><br />
-		    <%= f.text_field :claridad %>
+		    <%= rating_stars f, :claridad %>
 			</div>
 		</div>
 		<br />
 		<div class="on-2 columns">
 			<div class="column">
 				<%= f.label :flexibilidad %><br />
-		    <%= f.text_field :flexibilidad %>
+		    <%= rating_stars f, :flexibilidad %>
 			</div>
 			<div class="column">
 				<%= f.label :facilidad %><br />
-		    <%= f.text_field :facilidad %>
+		    <%= rating_stars f, :facilidad %>
 			</div>
 		</div>
 		<br />
