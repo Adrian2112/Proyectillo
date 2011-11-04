@@ -800,3 +800,11 @@ div.social-links {
 .underline{
   text-decoration:underline;
 }
+
+span.login-buttons a{
+  margin:0px !important;
+}
+
+span.login-buttons{
+  margin-right:20px;
+}
