@@ -1,4 +1,4 @@
-<% if can? :create, Comentario %>
+<%# if can? :create, Comentario %>
 	<% curso_profesor.calificaciones.each do |calificacion| %>
 	<div class="unit">
 		<div class="critica">
@@ -9,7 +9,7 @@
 				</div>
 				<div class="column">
 					<div class="calificacion_actions">
-						<%= display_like_link(calificacion) %>
+						<%= display_like_link(calificacion)%>
 						<span class="califa_actions_counter" id="contador_likes_<%= calificacion.id %>"><%= calificacion.likes.size %></span>
 						<%= display_flag_link(calificacion) %>
 						<span class="califa_actions_counter" id="contador_flags_<%= calificacion.id %>"><%= calificacion.flags.size %></span>
@@ -55,7 +55,7 @@
 	
 	</script>
 
-<% else %>
+<%# else %>
 	Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %> para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
-<% end %>
+<%# end %>
 
