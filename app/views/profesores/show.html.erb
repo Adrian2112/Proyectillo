@@ -5,7 +5,7 @@
 <div class="social-links">
 	<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
 <br />
-		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="http://twitter.com/calmecac_me" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="<%= request.url %>" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
 </div>
 
 
@@ -46,7 +46,6 @@
 		<ul>
 		<% @cursos.each do |curso| %>
 			<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
-			<!-- <li><%#= link_to curso.nombre, "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li> -->
 		<% end %>
 		</ul>
 		<%= display_calificaciones %>
@@ -57,6 +56,4 @@
 <div id="loading" class="test" style="display:none">
 	<%= image_tag 'ajax-loader.gif' %>
 </div>
-
-<!-- <div id="curso_profesor" style=""></div> -->
 
