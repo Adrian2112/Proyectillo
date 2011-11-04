@@ -16,7 +16,7 @@
 	<div class="on-2 columns">
 		<div class="fixed column" style="width:200px;">
 			<div id="profesor_image">
-				AQUI VA EL PROFE
+				<%= image_tag @profesor.avatar_url(:thumb).to_s, :size => "180x180" %>
 			</div>
 			<br />
 			<div id="promedio">
@@ -24,7 +24,7 @@
 				<h2><%= @profesor.promedio %></h2>
 			</div>
 		</div>
-		<div class="fixed column" style="width:470px">
+		<div class="fixed column" style="width:470px; ">
 			<h2><%= @profesor.nombre_completo %></h2>
 			<div class="profesor-universidad">
         <%= link_to @profesor.universidad.nombre, universidad_campus_index_path(@profesor.universidad) %> &gt; 
