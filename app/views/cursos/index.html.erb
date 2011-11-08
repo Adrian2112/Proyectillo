@@ -14,9 +14,10 @@
     <h3 class="sign_up_header"><%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %></center></h3>
   </div>
 </div>
-    
 
-<h3>Mostrando <span id="resultados_cursos"><%= pluralize(@cursos.size, "curso") %></span></h3>
+<!--Forma de busqueda -->    
+
+<h3>Se encontraron <span id="resultados_cursos"><%= @cursos.size %> resultados</span></h3>
 <br />
 
 <div id="listado">
