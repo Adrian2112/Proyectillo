@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20111026031837) do
 
   create_table "cursos", :force => true do |t|
     t.string   "nombre"
-    t.integer  "campus_id"
+    t.integer  "campus_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

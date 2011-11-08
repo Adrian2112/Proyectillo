@@ -32,11 +32,11 @@ class CursosController < ApplicationController
   end
 
   def create
-    @campus = Campus.find(params[:campus_id])
+    @campus = current_usuario.campus
     @curso = @campus.cursos.build(params[:curso])
     
     if @curso.save
-      redirect_to(@curso, :notice => 'Curso was successfully created.')
+      redirect_to(@curso, :notice => 'El curso fue creado!')
     else
       render :action => "new"
     end
@@ -46,7 +46,7 @@ class CursosController < ApplicationController
     @curso = Curso.find(params[:id])
 
     if @curso.update_attributes(params[:curso])
-      redirect_to(@curso, :notice => 'Curso was successfully updated.')
+      redirect_to(@curso, :notice => 'El curso fue actualizado!')
     else
       render :action => "edit"
     end
