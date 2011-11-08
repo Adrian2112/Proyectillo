@@ -2,9 +2,19 @@
   <h1>Cursos en <%= @campus.nombre %></h1>
 <% end %>
 
-<h3><%= @campus.universidad.nombre %> - <%= @campus.nombre %></h3>
-<p><i>Estado: <%= @campus.estado %></i></p>
-<p><i>Ciudad: <%= @campus.ciudad %></p></i><br/>
+<div id="info-campus" class="columns on-2">
+  <div class = "column">
+    <h3><%= @campus.universidad.nombre %> - <%= @campus.nombre %></h3>
+    <p><i>Estado: <%= @campus.estado %></i></p>
+    <p><i>Ciudad: <%= @campus.ciudad %></p></i><br/>
+  </div>
+  <div class="column">
+    <br />
+    <p><center>¿No encontraste lo que buscabas?</p>  
+    <%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %></center>
+  </div>
+</div>
+    
 
 <h3>Mostrando <span id="resultados_cursos"><%= pluralize(@cursos.size, "curso") %></span></h3>
 <br />
@@ -13,8 +23,6 @@
 	<%= render @cursos %>
 </div>
 <br />
-
-<%= link_to 'Registra un curso', new_campus_curso_path(@campus) if can? :create, Curso %>
 
 <div id="next_link">
   <%= render :partial => 'shared/show_more', :object => @cursos,

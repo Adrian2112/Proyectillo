@@ -824,3 +824,10 @@ span.login-buttons a{
 span.login-buttons{
   margin-right:20px;
 }
+
+#info-campus a
+{
+    color: #666666;
+    padding: 7px 10px;
+    text-shadow: 1px 1px 0 #FFFFFF;
+}
