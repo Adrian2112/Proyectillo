@@ -1,9 +1,13 @@
 <% content_for :header do %>
-	<h3><%= @curso.nombre %> en <%= @curso.campus.nombre %></h3> 
+	<h1><%= @curso.nombre %> en <%= @curso.campus.nombre %></h1> 
 <% end %>
 
-
-<%= render @curso.profesores %>
+<% if !@curso.profesores.blank? %>
+  <%= render @curso.profesores %>
+<% else %>
+  	<h3>No hay profesores en este curso</h3>
+		<h3 class="sign_up_header"><%= link_to "Asignar un profesor" %></h3>
+<% end %>
 
 
 <%= link_to 'Edit', edit_curso_path(@curso) if can? :edit, @curso %>
