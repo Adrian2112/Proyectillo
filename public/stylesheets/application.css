@@ -209,12 +209,30 @@ input.token_field-calmecac {
 }
 
 div.actions {
+	float:left;
+	margin-top:8px;
+	margin-right:20px;
+}
+
+div.actions-busq {
 	float:right;
 	margin-top:8px;
 	margin-right:20px;
 }
 
 div.actions input[type=submit] {
+	background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
+	border: 1px solid #79A83A; /*medium none;*/
+  	border-radius: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 2px #999999 inset;
+	font-size: 13px;
+	padding: 5px 10px;
+	font-size: 13px;
+	font-weight: bold;
+	color:#333;
+}
+
+div.actions-busq input[type=submit] {
 	background: url("../images/header-bg.jpg") no-repeat scroll center top #364f18;
 	border: 1px solid #79A83A; /*medium none;*/
   	border-radius: 5px 5px 5px 5px;
@@ -257,6 +275,7 @@ a#forgot_password:hover {
 .sign_up_header {
 	display:inline;
 	margin:0px 5px;
+    text-shadow: 1px 1px 0 #FFFFFF;
 }
 
 .sign_up_header a {
@@ -823,11 +842,4 @@ span.login-buttons a{
 
 span.login-buttons{
   margin-right:20px;
-}
-
-#info-campus a
-{
-    color: #666666;
-    padding: 7px 10px;
-    text-shadow: 1px 1px 0 #FFFFFF;
 }

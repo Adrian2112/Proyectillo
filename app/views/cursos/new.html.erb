@@ -1,5 +1,6 @@
-<h1>New curso</h1>
+<% content_for :header do %>
+  <h1>Nuevo Curso</h1>
+<% end %>
 
+<h3 class="sign_up_header"><%= link_to '< Regresar a resultados', campus_cursos_path(@campus) %></h3>
 <%= render 'form' %>
-
-<%= link_to 'Back', campus_cursos_path(@campus) %>

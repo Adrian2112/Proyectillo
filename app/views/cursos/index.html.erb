@@ -11,7 +11,7 @@
   <div class="column">
     <br />
     <p><center>¿No encontraste lo que buscabas?</p>  
-    <%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %></center>
+    <h3 class="sign_up_header"><%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %></center></h3>
   </div>
 </div>
     
