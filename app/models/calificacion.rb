@@ -31,7 +31,7 @@ class Calificacion < ActiveRecord::Base
   before_save :calcula_promedio
 
   validates_inclusion_of :puntualidad, :amigable, :conocimiento, :claridad, :flexibilidad, :facilidad, :in => (0..10)
-  validates_inclusion_of :calificacion_obtenida, :in => (0..100)
+  validates_inclusion_of :calificacion_obtenida, :in => (0..100), :allow_blank => true
   
   default_scope order('likes_count DESC')
   default_scope order('created_at DESC')
