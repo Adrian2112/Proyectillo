@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :store_requested_url, :clear_requested_url
+  helper_method :store_requested_url, :clear_requested_url, :production?
 
   def current_user
     current_usuario
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
   
   def after_sign_up_path_for(resource_or_scope)
     session[:url] || root_path
+  end
+  
+  def production?
+      @is_production ||= (ENV['RAILS_ENV'] == 'production')
   end
 
 end
