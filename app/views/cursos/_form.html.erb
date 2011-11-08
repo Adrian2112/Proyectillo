@@ -12,15 +12,15 @@
   <% end %>
 
   <br />
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
+	<div>
+    <h3>Este curso será creado en <%=current_usuario.campus %> de <%=current_usuario.universidad.nombre %></h3>  
   <br/>
   <div class="field">
-    <%= f.label :campus_id, 'Campus o Facultad' %><br />
-    <%= f.text_field :campus_id %>
+    <%= f.label :nombre, 'Nombre del curso' %><br />
+    <%= f.text_field :nombre %>
   </div>
+
+	</div>
   <br/>
   <div class="actions">
     <%= f.submit %>
