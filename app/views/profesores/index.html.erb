@@ -12,7 +12,11 @@
   </div>
   <div class="column">
     <p><center>¿No encontraste lo que buscabas?</p>  
-    <h3 class="sign_up_header"><%= link_to 'Registra a un profesor', new_profesor_path if can? :create, Profesor  %></center></h3>
+    <% if !usuario_signed_in? %>
+      <h3 class="sign_up_header"><%= link_to 'Regístrate para agregar un profesor', new_usuario_session_path %></center></h3>
+    <% else %>
+      <h3 class="sign_up_header"><%= link_to 'Registra a un profesor', new_profesor_path if can? :create, Profesor  %></center></h3>
+    <% end %>
   </div>
 </div>
 <br />
