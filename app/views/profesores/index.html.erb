@@ -2,11 +2,19 @@
   <h1>Profesores</h1>
 <% end %>
 
-<% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
-	<%= text_field_tag :profesor_q %>
-	<%= submit_tag "Buscar Profesor", :name => nil %>
-	<%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
-<% end %>
+<div id="info-profesores" class="columns on-2">
+  <div class="column">
+    <% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
+	    <%= text_field_tag :profesor_q %>
+	    <%= submit_tag "Buscar Profesor", :name => nil %>
+	    <%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
+    <% end %>
+  </div>
+  <div class="column">
+    <p><center>¿No encontraste lo que buscabas?</p>  
+    <h3 class="sign_up_header"><%= link_to 'Registra a un profesor', new_profesor_path if can? :create, Profesor  %></center></h3>
+  </div>
+</div>
 <br />
 
 <h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
@@ -16,8 +24,6 @@
 	<%= render @profesores %>
 </div>
 <br />
-
-<%= link_to 'Dar de alta profesor', new_profesor_path if can? :create, Profesor  %>
 
 <div id="next_link">
   <%= render :partial => 'shared/show_more', :object => @profesores,
