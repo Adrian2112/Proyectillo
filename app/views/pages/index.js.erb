@@ -1,4 +1,8 @@
-$("#resultados_index").html("<%= escape_javascript(render @resultados)%>");
+<% if !@resultados.blank? %>
+  $("#resultados_index").html("<%= escape_javascript(render @resultados)%>");
+<% else %>
+  $("#resultados_index").html("No se encontró nada");
+<% end %>
 
 <%
 	show_more = escape_javascript(render(:partial => 'shared/show_more', :object => @resultados,
