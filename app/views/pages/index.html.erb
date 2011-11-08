@@ -36,8 +36,8 @@
 <% end %>
 <br />
 <div id="resultados_index">
-  <!-- Si el redireccionamiento a resultados es por una pagina diferente a index -->
-  <!-- o si es la primer pagina accesada en el sitio -->
+  <%#-- Si el redireccionamiento a resultados es por una pagina diferente a index %>
+  <%#-- o si es la primer pagina accesada en el sitio %>
   <% if !@resultados.blank? or request.referer == '/' %>
     <%= render @resultados %>
   <% else %>

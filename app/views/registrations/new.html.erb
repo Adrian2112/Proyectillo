@@ -35,7 +35,7 @@
 		  </p>
 		  <% end %>
 		  <br />
-		  <% if @usuario.email.blank?%>
+		  <% if @usuario.email.blank? or @usuario.autenticaciones.first.twitter? %>
 		    <p>
 		      <%= f.label :email, 'Correo Electrónico' %><br />
 		      <%= f.text_field :email %>
