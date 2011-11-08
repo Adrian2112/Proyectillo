@@ -14,7 +14,7 @@ gem 'devise'
 gem "mini_magick"
 gem 'carrierwave'
 gem 'kaminari'
-gem 'omniauth'
+gem 'omniauth', '~> 0.3.2'
 gem "cancan"
 #Gemas para invitaciones de contactos
 gem 'gdata', :git => 'git://github.com/agentrock/gdata.git'
