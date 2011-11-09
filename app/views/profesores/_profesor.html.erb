@@ -8,7 +8,7 @@
     <div class="column fixed info" style="width: 415px">
       <div class="container">
         <h3><%= link_to truncate(profesor.nombre_completo, :length => 23), profesor, :class => "tooltip", :title => profesor.nombre_completo if can? :read, profesor %></h3>
-        <%= link_to 'Editar', edit_profesor_path(profesor) %>
+        <span id="editar_profesor" class="edit_profesor"><%= link_to 'Editar', edit_profesor_path(profesor) %></span>
         <div class="universidades">
           <%= render 'shared/universidad_campus', :universidad => profesor.universidad,
                                                   :campus => profesor.campus %>
