@@ -7,9 +7,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-def utf8(string)
-  string.force_encoding('utf-8') unless string.nil?
-end
 
   CIUDADES = ["Aguascalientes", "Veracruz", "Chihuahua", "Ciudad de México", "Ciudad Juárez", 
             "Ciudad Obregón", "Cuernavaca", "Estado de México", "Guadalajara", "Hidalgo",
@@ -24,12 +21,12 @@ end
             "Sonora", "Tamaulipas", "Estado de México", " Zacatecas"]
             
 #Creacion de universidad
-u = Universidad.create!(:nombre => "ITESM")
+u = Universidad.create!(:nombre => "Instituto Tecnológico y de Estudios Superiores de Monterrey")
 
 CIUDADES.each_with_index do |ciudad, index|
   Campus.create!(:nombre => "Campus " + ciudad,
-                 :ciudad => utf8(ciudad),
-                 :estado => utf8(ESTADOS[index]),
+                 :ciudad => ciudad,
+                 :estado => ESTADOS[index],
                  :universidad => u)
 end
 

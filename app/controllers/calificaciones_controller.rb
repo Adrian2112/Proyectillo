@@ -6,6 +6,7 @@ class CalificacionesController < ApplicationController
     @calificacion = Calificacion.new(params[:calificacion])
     @calificacion.usuario_id = current_usuario.id
     @curso_profesor = @calificacion.curso_profesor
+    @profesor = @curso_profesor.profesor
     
     if @calificacion.save
       respond_to do |format|

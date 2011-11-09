@@ -848,7 +848,7 @@ table#profesor_averages {
 }
 
 tr.odd {
-	background-color:#327E04;
+	background-color:#79A834;
 	color:white;
 }
 
@@ -878,4 +878,19 @@ span.login-buttons{
 
 .center{
   text-align:center;
+}
+
+.edit_profesor {
+	font-size:10px; 
+	margin-left:8px;
+	color:#79A834;
+}
+
+.edit_profesor a {
+	text-decoration:none;
+	color:#000;
+}
+
+.edit_profesor a:hover { 
+	text-decoration:underline;
 }
