@@ -1,5 +1,12 @@
 # encoding: utf-8
 
+
+if ENV['RAILS_ENV'] == 'production'
+  ENV['HOME'] = "/home/calmecac"
+  ENV['GEM_HOME'] = "/home/calmecac/.gems"
+  ENV['GEM_PATH'] = "/home/calmecac/.gems:/usr/lib/ruby/gems/1.8"
+end
+
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
