@@ -3,8 +3,7 @@ $("#listado").html("<%= escape_javascript(render @profesores)%>");
 <%
 	show_more = escape_javascript(render(:partial => 'shared/show_more', :object => @profesores,
             														:locals => { :url => 'profesores/mas_resultados.js',
-																											:parametros => { :profesor_q => :profesor_q,
-																																				:page => :page }
+																											:parametros => { :profesor_q => :profesor_q }
 																																			}
 																				)
 																)
