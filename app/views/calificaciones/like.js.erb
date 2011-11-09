@@ -1,7 +1,11 @@
 <% if @like.nil? %>
-	$("a#like_link_<%= @calificacion.id %>").css("backgroundPosition", '0px -17px');
+	$("a#like_link_<%= @calificacion.id %>").removeClass("like");
+	$("a#like_link_<%= @calificacion.id %>").addClass("unlike");
+	$("a#like_link_<%= @calificacion.id %>").attr("title", 'Ya no me gusta');
 	$("span#contador_likes_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.likes.size + 1).to_s)%>");
 <% else %>
-	$("a#like_link_<%= @calificacion.id %>").css("backgroundPosition", '0px 0px');
+	$("a#like_link_<%= @calificacion.id %>").removeClass("unlike");
+	$("a#like_link_<%= @calificacion.id %>").addClass("like");
+	$("a#like_link_<%= @calificacion.id %>").attr("title", "Me gusta");
 	$("span#contador_likes_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.likes.size - 1).to_s)%>");
 <% end %>

@@ -1,7 +1,11 @@
 <% if @flag.nil? %>
-	$("a#flag_link_<%= @calificacion.id %>").css("backgroundPosition", '0px -16px');
+	$("a#flag_link_<%= @calificacion.id %>").removeClass("flag");
+	$("a#flag_link_<%= @calificacion.id %>").addClass("unflag");
+	$("a#flag_link_<%= @calificacion.id %>").attr("title", 'Desmarcar como inapropiado');
 	$("span#contador_flags_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.flags.size + 1).to_s)%>");
 <% else %>
-	$("a#flag_link_<%= @calificacion.id %>").css("backgroundPosition", '0px 2px');
+	$("a#flag_link_<%= @calificacion.id %>").removeClass("unflag");
+	$("a#flag_link_<%= @calificacion.id %>").addClass("flag");
+	$("a#flag_link_<%= @calificacion.id %>").attr("title", 'Marcar como inapropiado');
 	$("span#contador_flags_<%= @calificacion.id %>").html("<%= escape_javascript((@calificacion.flags.size - 1).to_s)%>");
 <% end %>
