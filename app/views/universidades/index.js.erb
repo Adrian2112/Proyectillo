@@ -1,7 +1,17 @@
 $("#listado").html("<%= escape_javascript(render @universidades)%>");
-$("#next_link").html("<%= escape_javascript(render :partial => 'shared/show_more',
-													:object => @universidades, :locals => { :url => mas_universidades_universidades_path(:js), :parametros => { :universidad_q => 'universidad_q' } } ) %>");
-$("#page").val(<%= @universidades.current_page + 1 %>);
+
+<%
+	show_more = escape_javascript(render(:partial => 'shared/show_more', :object => @universidades,
+            														:locals => { :url => mas_universidades_universidades_path(:js),
+																											:parametros => { :universidad_q => 'universidad_q' }
+																																			}
+																				)
+																)
+
+%>
+
+$("#next_link").html("<%= show_more %>");
+$("#resultados").html("<%= @universidades.total_count %>");
 
 <% if @universidades.current_page >= @universidades.num_pages %>
   $("#next_link").css("display", "none");

@@ -1,11 +1,20 @@
 $("#listado").html("<%= escape_javascript(render @campus) %>");
-$("#resultados").html("<%= @campus.total_count %>");
 
 <%
-	show_more = escape_javascript(render :partial => 'shared/show_more', :object => @campus,
-              :locals => { :url => mas_resultados_universidad_campus_index_path(@universidad),
-              :parametros => { :campus_q => :campus_q } })
+	show_more = escape_javascript(render(:partial => 'shared/show_more', :object => @campus,
+            														:locals => { :url => mas_resultados_universidad_campus_index_path(@universidad),
+																											:parametros => {  :campus_q => :campus_q}
+																																			}
+																				)
+																)
 
 %>
 
 $("#next_link").html("<%= show_more %>");
+$("#resultados").html("<%= @campus.total_count %>");
+
+<% if @campus.current_page >= @campus.num_pages %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>

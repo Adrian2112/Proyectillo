@@ -11,4 +11,10 @@ $("#listado").html("<%= escape_javascript(render @profesores)%>");
 %>
 
 $("#next_link").html("<%= show_more %>");
-$("#resultados_profesor").html("<%= @profesores.total_count %>");
+$("#resultados").html("<%= @profesores.total_count %>");
+
+<% if @profesores.current_page >= @profesores.num_pages %>
+  $("#next_link").css("display", "none");
+<% else %>
+   $("#next_link").css("display", "block");
+<% end %>
