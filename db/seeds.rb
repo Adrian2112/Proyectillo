@@ -25,8 +25,8 @@ u = Universidad.create!(:nombre => "Instituto Tecnológico y de Estudios Superio
 
 CIUDADES.each_with_index do |ciudad, index|
   Campus.create!(:nombre => "Campus " + ciudad,
-                 :ciudad => utf8(ciudad),
-                 :estado => utf8(ESTADOS[index]),
+                 :ciudad => ciudad,
+                 :estado => ESTADOS[index],
                  :universidad => u)
 end
 
