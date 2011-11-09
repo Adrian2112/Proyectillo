@@ -51,14 +51,13 @@
 		<% end %>
 		</ul>
 		<% @cursos.each do |curso| %>
-		  <%= content_tag(:div, "", :class => "curso_profesor", :id => "curso_profesor_#{curso.id}_#{@profesor.id}") %>
+		  <%= content_tag(:div, content_tag(:br)+content_tag(:br), :class => "curso_profesor", :id => "curso_profesor_#{curso.id}_#{@profesor.id}") %>
 		<% end %>
+		<div id="loading" class="absolute_center" style="display:none">
+    	<%= image_tag 'ajax-loader.gif' %>
+    </div>
 		<%# display_calificaciones %>
 	</div>
-
 	<% end %>
-</div>
-<div id="loading" class="test" style="display:none">
-	<%= image_tag 'ajax-loader.gif' %>
 </div>
 
