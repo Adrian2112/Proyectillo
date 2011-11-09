@@ -279,7 +279,7 @@ a#forgot_password:hover {
 }
 
 .sign_up_header a, a.beautiful_link {
-	color:#79A83A;
+	color:#000;
 	text-decoration: none;
 	font-weight:bold;
 }

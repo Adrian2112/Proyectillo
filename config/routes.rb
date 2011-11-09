@@ -13,6 +13,7 @@ Calmecac::Application.routes.draw do
   match 'terminos_de_uso' => 'pages#terms_of_use', :as => :terms_of_use
   match 'privacidad' => 'pages#privacy', :as => :privacy
   match 'aviso_legal' => 'pages#legal_advisor', :as => :legal_advisor
+  match 'faqs' => 'pages#faqs', :as => :faqs
   match 'registrate' => 'usuarios#sign_up', :as => :signup
   match 'inicia_sesion' => 'sessions#sign_in', :as => :login
 
