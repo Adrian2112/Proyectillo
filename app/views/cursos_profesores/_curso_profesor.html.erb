@@ -21,7 +21,9 @@
                       :anchor => "curso_profesor_#{curso_profesor.curso.id}_#{curso_profesor.profesor.id}"),
                       :title => curso_profesor.curso.nombre, :class => "tooltip" %>
         </h4>
-        <%= link_to 'Edit', edit_profesor_path(curso_profesor.profesor) if can? :edit, curso_profesor.profesor %>
+        <span id="editar_profesor" class="edit_profesor">
+          <%= link_to 'Editar', edit_profesor_path(curso_profesor.profesor) if can? :edit, curso_profesor.profesor %>
+        </span>
         <div class="universidades">
           <%= render 'shared/universidad_campus', :universidad => curso_profesor.curso.universidad,
                                                   :campus => curso_profesor.curso.campus %>
