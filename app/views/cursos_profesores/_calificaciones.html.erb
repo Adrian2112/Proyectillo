@@ -5,10 +5,11 @@
 <br/>
 
 <% if current_usuario == nil %>
-  Necesitas <%= link_to 'iniciar sesion', new_usuario_session_path %>
+  <%= link_to 'Iniciar Sesión', new_usuario_session_path %>
     <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
 		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
-  para comentar o <%= link_to 'registrate', new_usuario_registration_path %>
+  o
+  <%= link_to 'registrate', new_usuario_registration_path %> para comentar
 
 <% elsif !curso_profesor.calificaciones.find_by_usuario_id(current_usuario.id) %>
 <div id="calificaciones_form">
@@ -16,7 +17,5 @@
 															  	  :curso_profesor_id => curso_profesor.id} %>
 </div>
 <% else %>
-  <div id="ha_comentado">
-    Ya has comentado aquí, ¡gracias!
-  </div>
+  <%= render 'cursos_profesores/ya_comento' %>
 <% end %>

@@ -10,12 +10,22 @@
 	    <%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
     <% end %>
   </div>
-  <div class="column">
-    <p><center>¿No encontraste lo que buscabas?</p>  
+  <div class="column center">
+    <p>¿No encontraste lo que buscabas?</p>  
     <% if !usuario_signed_in? %>
-      <h3 class="sign_up_header"><%= link_to 'Regístrate para agregar un profesor', new_usuario_session_path %></center></h3>
+      <h3 class="sign_up_header">
+        <%= link_to 'Regístrate', new_usuario_session_path %>
+          <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
+      		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
+        o
+        <%= link_to 'Inicia Sesión', new_usuario_session_path %>
+        <br/>
+        para agregar un profesor
+      </h3>
     <% else %>
-      <h3 class="sign_up_header"><%= link_to 'Registra a un profesor', new_profesor_path if can? :create, Profesor  %></center></h3>
+      <h3 class="sign_up_header">
+        <%= link_to 'Registra a un profesor', new_profesor_path if can? :create, Profesor  %>
+      </h3>
     <% end %>
   </div>
 </div>

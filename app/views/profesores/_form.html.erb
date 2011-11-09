@@ -32,10 +32,10 @@
   </div>
 	<br />
  	Universidad: <br />
-	<%= current_usuario.universidad.nombre if current_usuario %>
+	<strong><%= current_usuario.universidad.nombre if current_usuario %></strong>
 	<br /><br />
   	Campus: <br />
-	<%= current_usuario.campus.nombre if current_usuario %>
+	<strong><%= current_usuario.campus.nombre if current_usuario %></strong>
 <br />	<br />
 	<div class="field">
 		<%= f.label :cursos_tokens, "Cursos:" %>
