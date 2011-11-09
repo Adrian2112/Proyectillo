@@ -67,6 +67,7 @@ URLS = ["http://www.itesm.edu/wps/wcm/connect/itesm/tecnologico+de+monterrey/car
 task :crear_cursos => :environment do
   ActiveRecord::Base.connection.execute("TRUNCATE cursos")
   cursos = []
+  puts "Estoy procesando..."
   URLS.each do |url|
     doc = Nokogiri::HTML(open(url))
     doc.css(".LinkMateria").each do |item|
@@ -81,5 +82,5 @@ task :crear_cursos => :environment do
     Curso.create!(:nombre => curso,
                   :campus_id => 15)
   end
-  
+  puts "Finalizacion correcta"
 end
