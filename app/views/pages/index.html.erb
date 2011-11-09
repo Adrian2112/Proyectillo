@@ -41,8 +41,7 @@
   <% if !@resultados.blank? %>
     <%= render @resultados %>
   <% elsif !@resultados.nil? %>
-    <br/>
-    <h3 style="text-align:center">No se encontró nada... </h3>
+    <%= render 'sin_coincidencias' %>
   <% end %>
 </div>
 

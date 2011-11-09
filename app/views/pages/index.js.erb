@@ -1,7 +1,7 @@
 <% if !@resultados.blank? %>
   $("#resultados_index").html("<%= escape_javascript(render @resultados)%>");
 <% elsif !@resultados.nil? %>
-  $("#resultados_index").html("<br/><h3 style='text-align:center;'>No se encontró nada...</h3>");
+  $("#resultados_index").html("<%= escape_javascript(render 'pages/sin_coincidencias')%>");
 <% end %>
 
 <%
