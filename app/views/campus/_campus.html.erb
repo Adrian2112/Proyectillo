@@ -8,7 +8,7 @@
       <div class="container">
         <h1 class="resource-link">
           <% if can? :read, campus %>
-            <%= link_to truncate(campus.nombre, :length => 23), campus_cursos_path(campus), :title => campus.nombre, :class => "tooltip beautiful_link" %>
+            <%= link_to truncate(campus.nombre, :length => 23), campus_cursos_path(campus), :title => campus.nombre, :class => "tooltip display_campus" %>
           <% end %>
         </h1>
 <br />
