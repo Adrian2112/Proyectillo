@@ -6,17 +6,29 @@
   <div class = "column">
     <h3><%= @campus.universidad.nombre %> - <%= @campus.nombre %></h3>
     <p><i>Estado: <%= @campus.estado %></i></p>
-    <p><i>Ciudad: <%= @campus.ciudad %></p></i><br/>
+    <p><i>Ciudad: <%= @campus.ciudad %></i></p><br/>
   </div>
-  <div class="column">
-    <br />
-    <p><center>¿No encontraste lo que buscabas?</p>  
-    <h3 class="sign_up_header"><%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %></center></h3>
+  <div class="column center">
+    <p>¿No encontraste lo que buscabas?</p>
+    <% if !usuario_signed_in? %>
+      <h3 class="sign_up_header">
+        <%= link_to 'Regístrate', new_usuario_session_path %>
+          <%= link_to (image_tag "twitter_16.png"), "/auth/twitter" %>
+      		<%= link_to (image_tag "facebook_16.png"), "/auth/facebook" %>
+        o
+        <%= link_to 'Inicia Sesión', new_usuario_session_path %>
+        <br/>
+        para agregar un curso
+      </h3>
+    <% else %>
+      <h3 class="sign_up_header">
+        <%= link_to 'Registra un curso', new_campus_curso_path(@campus), :name => nil if can? :create, Curso  %>
+      </h3>
+    <% end %>
   </div>
 </div>
-
-<!--Forma de busqueda -->    
-
+<br/>
+<br/>
 <h3>Se encontraron <span id="resultados_cursos"><%= @cursos.size %> resultados</span></h3>
 <br />
 

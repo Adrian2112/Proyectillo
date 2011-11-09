@@ -151,7 +151,7 @@ html {
 Estilo de forma generica
 */
 
-.generic-form input[type=text], textarea, input[type=password] {
+.generic-form input[type=text], textarea, input[type=password], input[type=file] {
 	background-color: #CCC;
   	border: medium none;
   	border-radius: 5px 5px 5px 5px;
@@ -165,7 +165,7 @@ Estilo de forma generica
 	
 }
 
-.generic-form input[type=text], input[type=password] {
+.generic-form input[type=text], input[type=password], input[type=file] {
 	width: 200px;
 }
 
@@ -870,4 +870,8 @@ span.login-buttons a{
 
 span.login-buttons{
   margin-right:20px;
+}
+
+.center{
+  text-align:center;
 }

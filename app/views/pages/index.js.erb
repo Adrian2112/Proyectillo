@@ -1,6 +1,6 @@
 <% if !@resultados.blank? %>
   $("#resultados_index").html("<%= escape_javascript(render @resultados)%>");
-<% else %>
+<% elsif !@resultados.nil? %>
   $("#resultados_index").html("No se encontró nada");
 <% end %>
 

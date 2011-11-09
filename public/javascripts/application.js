@@ -19,6 +19,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 		tokenLimit: 1,
         hintText: 'Teclea el nombre',
         searchingText: 'Buscando...',
+        noResultsText: 'No se encontraron resultados',
 		theme: tema,
 		preventDuplicates: true,
 		prePopulate: $(universidad_id).data("pre"),
@@ -29,6 +30,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 				tokenLimit: 1,
                 hintText: 'Teclea el nombre',
                 searchingText: 'Buscando...',
+                noResultsText: 'No se encontraron resultados',
 				theme: tema,
 				preventDuplicates: true,
 				onAdd: function(){
@@ -64,6 +66,7 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 					tokenLimit: 1,
                     hintText: 'Introduce una Uni',
                     searchingText: 'Introduce una Uni',
+                    noResultsText: 'No se encontraron resultados',
 					theme: tema,
 					preventDuplicates: true,
 					prePopulate: $("#"+campus_input_id).data("pre")
@@ -162,6 +165,9 @@ $(function(){
 	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
 		propertyToSearch: "nombre",
 		theme: '',
+  		hintText: 'Introduce un curso',
+      searchingText: 'Introduce un curso',
+      noResultsText: 'No se encontraron resultados',
 		preventDuplicates: true,
 		prePopulate: $("#profesor_cursos_tokens").data("pre")
 	});
