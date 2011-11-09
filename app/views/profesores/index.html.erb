@@ -5,7 +5,7 @@
 <div id="info-profesores" class="columns on-2">
   <div class="column">
     <% form_tag(profesores_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
-	    <%= text_field_tag :profesor_q %>
+	    <%= text_field_tag :profesor_q, params[:profesor_q], "data-observe" => "true" %>
 	    <%= submit_tag "Buscar Profesor", :name => nil %>
 	    <%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
     <% end %>
@@ -30,7 +30,7 @@
   </div>
 </div>
 <br />
-
+<br/>
 <h3>Se encontraron <span id="resultados_profesor"><%= @profesores.total_count %></span> resultados</h3>
 <br />
 

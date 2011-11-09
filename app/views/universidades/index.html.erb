@@ -1,5 +1,5 @@
 <% form_tag(universidades_path, :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
-	<%= text_field_tag :universidad_q %>
+	<%= text_field_tag :universidad_q, params[:universidad_q], "data-observe" => "true" %>
 	<%= submit_tag "Buscar Universidad", :name => nil %>
   <%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
 <% end %> <br />

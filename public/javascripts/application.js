@@ -141,32 +141,14 @@ $(function(){
 		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", 'calmecac');
 	}
 	
-	
-	$("#curso_nombre[data-ajax=true], #profesor_nombre[data-ajax=true]").observe_field(0.5, function(){
-		history.replaceState(null, document.title,
-										$("#busqueda_general").attr("action") + "?" + $("#busqueda_general").serialize());
-		$.get("/.js", {
-	                            curso_nombre: $("#curso_nombre").val(),
-	                            campus_id: $("#campus_id").val(),
-								profesor_nombre: $("#profesor_nombre").val()
-	  });
-	});
-
-
-//Filtro en tiempo real de profesores (http://localhost:3000/profesores)
-	$("#profesor_q").observe_field(0.5, function(){
-		$("#loading, .loading").show();
-		$.get("/profesores.js", { profesor_q: $("#profesor_q").val() }, function(){
-			$("#loading, .loading").hide();
-		});
-	});
-
+  // envia la forma de los inputs que tenga observe
   $("input[data-observe=true]").observe_field(0.5, function(){
     $("#loading, .loading").show();
-    var form = $(this).parent("form");
+    var form = $(this).closest("form");
 		var url = form.attr("action");
 		var method = form.attr("method");
 		var data = form.serialize();
+		history.replaceState(null, document.title, url + "?" + data);
 		$.ajax({
 		  url: url,
 		  data: data,
@@ -176,22 +158,6 @@ $(function(){
   			$("#loading, .loading").hide();
       }
 		});
-  });
-
-//Filtro en tiempo real de universidades (http://localhost:3000/universidades)  
-  $("#universidad_q").observe_field(0.5, function(){
-    $("#loading").show();
-    $.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
-      $("#loading").hide();
-    });
-  });
-
-//Filtro en tiempo real de universidades (http://localhost:3000/universidades)  
-  $("#curso_q").observe_field(0.5, function(){
-    $("#loading").show();
-    $.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
-      $("#loading").hide();
-    });
   });
 
 
