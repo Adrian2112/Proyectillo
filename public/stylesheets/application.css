@@ -245,8 +245,7 @@ div.actions-busq input[type=submit] {
 }
 
 a.social-login img {
-	width:70%;
-	height:70%;
+	width:213px;
 }
 
 a.social-login {
@@ -266,6 +265,7 @@ a#forgot_password {
 	text-decoration: none;
 	font-weight:bold;
 	font-size:12px;
+	text-shadow: 1px 1px 0 #FFFFFF;
 }
 
 a#forgot_password:hover {
@@ -278,13 +278,26 @@ a#forgot_password:hover {
     text-shadow: 1px 1px 0 #FFFFFF;
 }
 
-.sign_up_header a {
+.sign_up_header a, a.beautiful_link {
 	color:#79A83A;
 	text-decoration: none;
 	font-weight:bold;
 }
 
-.sign_up_header a:hover {
+a.beautiful_link {
+	text-shadow: 1px 1px 0 #FFFFFF;
+}
+
+.resource-link a.beautiful_link {
+	text-shadow: 1px 1px 0 #ccc;
+}
+
+div.date {
+	font-style:italic;
+	font-size:80%;
+}
+
+.sign_up_header a:hover, a.beautiful_link:hover {
 	text-decoration: underline;	
 }
 
@@ -812,9 +825,9 @@ table#profesor_averages {
 	border-spacing: 2px 2px;
 	margin-top:5px;
 	width:100%;
-	-moz-box-shadow: 7px 7px 2px #888;
-	-webkit-box-shadow: 7px 7px 2px #888;
-	box-shadow: 7px 7px 2px #888;
+	-moz-box-shadow: 4px 5px 5px #888;
+	-webkit-box-shadow: 4px 5px 5px #888;
+	box-shadow: 4px 5px 5px #888;
 }
 
 tr.odd {

@@ -28,19 +28,15 @@
 
 		  <%= f.error_messages %>
 
-		  <% if @usuario.username == nil %>
 		  <p>
 		    <%= f.label :username, 'Nombre de usuario' %><br />
 		    <%= f.text_field :username %>
 		  </p>
-		  <% end %>
 		  <br />
-		  <% if @usuario.email.blank?%>
-		    <p>
+         <p>
 		      <%= f.label :email, 'Correo Electrónico' %><br />
 		      <%= f.text_field :email %>
 		    </p>
-		  <% end %>
 			<br />
 			<%= render 'universidad_campus_fields', :f => f %>
 

@@ -6,11 +6,11 @@
     </div>
     <div class="column fixed info" style="width: 400px">
       <div class="container">
-        <h3>
+        <h1 class="resource-link">
           <% if can? :read, universidad %>
-            <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip" %>
+            <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip beautiful_link" %>
           <% end %>
-        </h3>
+        </h1>
 				<span><%= pluralize(universidad.campus.size, "Campus") %></span>
       </div>
     </div>

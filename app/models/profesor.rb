@@ -22,6 +22,7 @@ class Profesor < ActiveRecord::Base
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
   validates :apellido_materno, :presence => true
+  #validate :nombre_completo_unico
   
   has_many :curso_profesor, :dependent => :destroy
   has_many :calificaciones, :through => :curso_profesor
@@ -30,6 +31,13 @@ class Profesor < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   attr_reader :cursos_tokens
+
+  #private
+  #def nombre_completo_unico
+  #  self.find_by_nombre()
+  #  errors.add(:base, "Ya existe ese profesor")
+    #Self.scoped_by_code("params[:team_code]").exists?
+  #end
   
   def to_s
     self.nombre_completo
