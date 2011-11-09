@@ -7,9 +7,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-def utf8(string)
-  string.force_encoding('utf-8') unless string.nil?
-end
 
   CIUDADES = ["Aguascalientes", "Veracruz", "Chihuahua", "Ciudad de México", "Ciudad Juárez", 
             "Ciudad Obregón", "Cuernavaca", "Estado de México", "Guadalajara", "Hidalgo",
