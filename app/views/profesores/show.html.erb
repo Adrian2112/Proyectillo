@@ -1,16 +1,18 @@
 <% content_for :header do %>
 	<h2 class="sign_up_header"><%= link_to "< Regresar a resultados", profesores_path %></h2>
+	<div class="social-links">
+		<div class="on-2 columns">
+			<div class="fixed column" style="width:55px">
+				<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
+			</div>
+			<div class="fixed column" style="width:83px">
+				<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="<%= request.url %>" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
+			</div>
+		</div>
+	</div>
 <% end %>
 
-<div class="social-links">
-	<a href="http://twitter.com/home?status=Mira a este profesor en <%= request.url %>" title="Click to send this page to Twitter!" target="_blank"><%= image_tag "tweet_this.gif" %></a>
-<br />
-		<!--[if !IE 7]><!--><a name="fb_share" type="button_count" share_url="<%= request.url %>" href="http://www.facebook.com/sharer.php">Compartir</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script><!--<![endif]-->
-</div>
-
-
 <% store_requested_url unless current_usuario %>
-<br /><br />
 
 <div class="unit">
 	<div class="on-2 columns">
