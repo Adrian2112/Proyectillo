@@ -5,11 +5,22 @@ class CalificacionesController < ApplicationController
   def create
     @calificacion = Calificacion.new(params[:calificacion])
     @calificacion.usuario_id = current_usuario.id
-    debugger
+    @curso_profesor = @calificacion.curso_profesor
+    
     if @calificacion.save
-      redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')
+      respond_to do |format|
+        format.html {
+          redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')
+        }
+        format.js
+      end
     else
-      render :action => "new" 
+      respond_to do |format|
+        format.html {
+          render :action => "new" 
+        }
+        format.js
+      end
     end
   end
 

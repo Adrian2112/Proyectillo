@@ -1,0 +1,59 @@
+<% unless calificacion.critica.empty? %>
+<div id="calificacion_<%= calificacion.id %>">
+	<div class="unit">
+		<div class="critica">
+			<div class="on-2 columns">
+				<div class="column">
+					<span class="username">@<%= calificacion.usuario.username %></span>
+					<span class="crititca_created_at"><%= distance_of_time_in_words(Time.now, calificacion.created_at) %></span>
+				</div>
+				<div class="column">
+					<div class="calificacion_actions">
+						<%= display_like_link(calificacion) %>
+						<span class="califa_actions_counter" id="contador_likes_<%= calificacion.id %>">
+						  <%= calificacion.likes.size %>
+						</span>
+						<%= display_flag_link(calificacion) %>
+						<span class="califa_actions_counter" id="contador_flags_<%= calificacion.id %>">
+						  <%= calificacion.flags.size %>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="critica_text">
+				<%= calificacion.critica  %>
+			</div>
+		</div>
+	</div>
+	<div class="unit comments_count_container">
+		<div class="on-2 columns">
+			<div class="fixed column comments_count_container" style="width:150px;">
+				<h5>
+				  <span id="comentarios_count_<%= calificacion.id %>">
+				    <%= link_to pluralize(calificacion.comentarios.size, "comentario"),
+				                          "javascript:display_comments(#{calificacion.id});" %>
+				  </span>
+				</h5>
+				
+			</div>
+			<div class="fixed column" style="width:500px;float;right;">
+				<hr style="margin-top:10px;background-color:#ccc;color:#ccc"/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="calificaciones_comentarios_<%= calificacion.id %>" style="display:none">
+		<div class="comentarios_content">
+			<div class="comments" id="comentarios_<%= calificacion.id %>">
+			<% unless calificacion.comentarios.empty? %>
+						<%= render calificacion.comentarios %>
+			<% end %>
+			</div>
+			<% if can? :create, Comentario %>
+  			<%= render :partial => 'comentarios/form', :locals => {:comentario => Comentario.new, 
+  																   :calificacion_id => calificacion.id } %>
+      <% end %>
+		</div>
+	</div>
+</div>
+<% end %>
