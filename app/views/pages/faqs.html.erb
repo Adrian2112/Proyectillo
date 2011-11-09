@@ -14,18 +14,18 @@
   <br />
   <div style="margin-left:40px">
   <ol>
-    <li><%= link_to '¿Cómo puedo calificar y dar de alta profesores?', :anchor => '1', :class => 'vinculo' %></li>
-    <li><%= link_to '¿Cuántas veces puedo calificar a un profesor?', :anchor => '2', :class => 'vinculo' %></li>
-    <li><%= link_to '¿Hay un límite para dar de alta profesores?', :anchor => '3', :class => 'beautiful_link' %></li>
-    <li><%= link_to '¿Cómo se calcula el promedio de un profesor?', :anchor => '4', :class => 'beautiful_link' %></li>
-    <li><%= link_to '¿Por qué se escogieron esos parámetros para calificar a los profesores?', :anchor => '5' %></li>
-    <li><%= link_to '¿Por qué no aparece mi Universidad, Campus o Facultad?', :anchor => '6' %></li>
-    <li><%= link_to 'Soy alumno y comento, ¿me pasará algo en la escuela?', :anchor => '7' %></li>
-    <li><%= link_to 'Soy graduado pero quiero comentar, ¿es posible?', :anchor => '8' %></li>
-    <li><%= link_to 'Soy profesor, ¿por qué aparezco en el sitio?', :anchor => '9' %></li>
-    <li><%= link_to '¿Qué hacen con la información?', :anchor => '10' %></li>
-    <li><%= link_to 'Veo un comentario inapropiado, ¿qué se puede hacer al respecto?', :anchor => '11' %></li>
-    <li><%= link_to 'Tengo ideas para mejorar el sitio, ¿a quién le comento?', :anchor => '12' %></li>
+    <li><%= link_to '¿Cómo puedo calificar y dar de alta profesores?', {:anchor => '1'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Cuántas veces puedo calificar a un profesor?', {:anchor => '2'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Hay un límite para dar de alta profesores?', {:anchor => '3'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Cómo se calcula el promedio de un profesor?', {:anchor => '4'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Por qué se escogieron esos parámetros para calificar a los profesores?', {:anchor => '5'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Por qué no aparece mi Universidad, Campus o Facultad?', {:anchor => '6'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to 'Soy alumno y comento, ¿me pasará algo en la escuela?', {:anchor => '7'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to 'Soy graduado pero quiero comentar, ¿es posible?', {:anchor => '8'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to 'Soy profesor, ¿por qué aparezco en el sitio?', {:anchor => '9'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to '¿Qué hacen con la información?', {:anchor => '10'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to 'Veo un comentario inapropiado, ¿qué se puede hacer al respecto?', {:anchor => '11'}, {:class => 'vinculo'} %></li>
+    <li><%= link_to 'Tengo ideas para mejorar el sitio, ¿a quién le comento?', {:anchor => '12'}, {:class => 'vinculo'} %></li>
   </ol><br id="1"/><br />
   </div>
 
@@ -34,71 +34,63 @@
   <p>
   Para calificar y dar de alta profesores debes ingresar al sitio previamente. Puedes ingresar con tu cuenta de twitter o facebook, o directamente ingresando tus datos al sitio. 
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="2"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="2"/><br />
 
   <h3><i>2. ¿Cuántas veces puedo calificar a un profesor?</i></h3>
   <br />
   <p>
   Puedes calificar a un profesor sólo una vez por cada curso que imparte el profesor, de tal manera que puedes calificar a un profesor varias veces, siempre y cuando sea en los diferentes cursos que imparte. 
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="3"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="3"/><br />
 
   <h3><i>3. ¿Hay un límite para dar de alta profesores?</i></h3>
   <br />
   <p>
   No hay un límite, dependemos de nuestros usuarios para generar contenido en el sitio. No obstante, si ya existe el profesor, se te impedirá de agregarlo nuevamente. 
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="4"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="4"/><br />
 
   <h3><i>4. ¿Cómo se calcula el promedio de un profesor?</i></h3>
   <br />
   <p>
   El promedio general para un profesor es obtenido de los promedios de cada curso que imparte. El promedio que se despliega para curso se calcula sumando todos los promedios de las calificaciones que han otorgado los usuarios para ese curso, y se divide entre el total.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="5"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="5"/><br />
 
   <h3><i>5. ¿Por qué se escogieron esos parámetros para calificar a los profesores?</i></h3>
   <br />
   <p>
   Investigamos previamente sobre estudios que se habían hecho respecto al desempeño de docentes, además de artículos en revistas, periódicos y publicaciones de doctorado, las cuales al final consideramos como básicas y de gran valor para calificar a los profesores.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="6"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="6"/><br />
 
   <h3><i>6. ¿Por qué no aparece mi Universidad, Campus o Facultad?</i></h3>
   <br />
   <p>
   Actualmente el sitio está en su versión beta, y estamos considerando la posibilidad de extender rápidamente la red a más universidades. Por lo pronto te pediríamos que nos contactaras para considerar tu Universidad, Campus o Facultad en la siguiente liberación del sistema.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="7"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="7"/><br />
 
   <h3><i>7. Soy alumno y comento, ¿me pasará algo en la escuela?</i></h3>
   <br />
   <p>
   No pasará nada. Sólo pedimos que los comentarios que publiques no tengan palabras altisonantes u ofensas directas hacia el maestro. 
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="8"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="8"/><br />
 
   <h3><i>8. Soy graduado pero quiero comentar, ¿es posible?</i></h3>
   <br />
   <p>
   Por supuesto que puedes comentar. Sólo comenta en los cursos que tomaste en tu época de estudiante con sus profesores correspondientes.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-<br id="9"/><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /><br id="9"/><br />
 
   <h3><i>9. Soy profesor, ¿por qué aparezco en el sitio?</i></h3>
   <br />
   <p>
   Los estudiantes te han seleccionado para evaluar tu desempeño como profesor. Esto no es malo, no seas tímido, es una forma de retroalimentar tu desempeño de manera abierta y conjunta con más estudiantes. De tal manera podrás mejorar áreas de oportunidad conforme a lo que evalue la gente, así como mantener el mismo nivel en lo que consideran excelente ejerciendo tu profesión. 
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br />
 <br id="10"/><br />
 
   <h3><i>10. ¿Qué hacen con la información?</i></h3>
@@ -106,7 +98,7 @@
   <p>
   La información queda almacenada en la base de datos, por ende es publicada a lo largo del sitio. El contenido queda disponible para quien quiera utilizarlo de la manera que mejor considere.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br />
 <br id="11"/><br />
 
   <h3><i>11. Veo un comentario inapropiado, ¿qué se puede hacer al respecto?</i></h3>
@@ -114,7 +106,7 @@
   <p>
 Puedes marcar el comentario como inapropiado. Cada comentario puede ser marcado como inapropiado seleccionando la bandera ubicada del lado derecho del mismo. Al seleccionar esa bandera 3 usuarios diferentes por uso de palabras altisonantes, un comentario poco objetivo, o algo que no genera valor, el comentario es eliminado con todas las contestaciones que tuvo.  
   </p>
-<br /><%= link_to 'Regresar a preguntas', :html => {:class => 'vinculo'}, :anchor => 'preg_frecuentes' %><br />
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br />
 <br id="12"/><br />
 
   <h3><i>12. Tengo ideas para mejorar el sitio, ¿a quién le comento?</i></h3>
@@ -122,5 +114,4 @@ Puedes marcar el comentario como inapropiado. Cada comentario puede ser marcado 
   <p>
   Estamos abiertos a nuevas ideas, comentarios, o que nos apoyes a ubicar errores en el sitio. Puedes mandarnos tu retroalimentación en la sección de <%= link_to "Contáctanos", contact_path, :class => 'vinculo' %>.
   </p>
-<br /><%= link_to 'Regresar a preguntas', :anchor => 'preg_frecuentes' %><br />
-</div>
+<br /><%= link_to 'Regresar a preguntas', {:anchor => 'preg_frecuentes'}, {:class => 'vinculo'} %><br /></div>

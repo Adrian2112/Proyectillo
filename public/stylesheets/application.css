@@ -284,6 +284,10 @@ a#forgot_password:hover {
 	font-weight:bold;
 }
 
+.vinculo:hover {
+	text-decoration:underline;
+}
+
 .vinculo {
 	color:#79A834;
 	text-decoration: none;
