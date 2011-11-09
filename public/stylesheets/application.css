@@ -858,3 +858,7 @@ span.login-buttons a{
 span.login-buttons{
   margin-right:20px;
 }
+
+.center{
+  text-align:center;
+}
