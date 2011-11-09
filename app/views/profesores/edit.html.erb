@@ -1,6 +1,6 @@
-<h1>Editing profesor</h1>
+<% content_for :header do  %>
+	<h1>Editando profesor</h1>
+<% end %>
 
-<%= render 'asignar_a_curso' %>
 
-<%= link_to 'Show', @profesor if can? :read, @profesor  %>
-<%= link_to 'Back', profesores_path %>
+<%= render 'form' %>

@@ -83,10 +83,3 @@ task :crear_cursos => :environment do
   end
   
 end
-
-
-
-
-
-
-#puts h.size

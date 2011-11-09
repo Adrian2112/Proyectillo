@@ -4,6 +4,11 @@
 	<p>
 		<%= image_tag @profesor.avatar_url(:thumb).to_s unless @profesor.avatar_url.nil? %>
 	</p>
+	<div class="field">
+    <%= f.label :avatar, "Imagen" %><br />
+	  <%= f.file_field :avatar %>
+  </div>
+	
   <h5><%= @profesor.nombre_completo %></h5>
 
 	<br />

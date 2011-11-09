@@ -24,7 +24,7 @@ end
             "Sonora", "Tamaulipas", "Estado de México", " Zacatecas"]
             
 #Creacion de universidad
-u = Universidad.create!(:nombre => "ITESM")
+u = Universidad.create!(:nombre => "Instituto Tecnológico y de Estudios Superiores de Monterrey")
 
 CIUDADES.each_with_index do |ciudad, index|
   Campus.create!(:nombre => "Campus " + ciudad,
