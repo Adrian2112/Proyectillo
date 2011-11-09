@@ -50,7 +50,10 @@
 			<li><%= link_to_function curso.nombre, "cargar_curso_profesor(#{@profesor.id}, #{curso.id})", :class => "link-tab", :href => "#curso_profesor_#{curso.id}_#{@profesor.id}" %></li>
 		<% end %>
 		</ul>
-		<%= display_calificaciones %>
+		<% @cursos.each do |curso| %>
+		  <%= content_tag(:div, "", :class => "curso_profesor", :id => "curso_profesor_#{curso.id}_#{@profesor.id}") %>
+		<% end %>
+		<%# display_calificaciones %>
 	</div>
 
 	<% end %>

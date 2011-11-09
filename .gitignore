@@ -8,3 +8,4 @@ public/system
 public/uploaders
 db/schema.rb
 .*
+*.sh

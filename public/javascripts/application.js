@@ -183,7 +183,11 @@ $(function(){
 	
 
   //Cargar tabs de cursos en la vista del profesor
-  $('#tabs').tabs();
+  $('#tabs').tabs({
+    create : function(){
+      $('#tabs').tabs('select', location.hash);
+    }
+  });
 
   //Cargar funcion rate
 	$("input.star").rating();
