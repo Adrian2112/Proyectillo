@@ -1,8 +1,8 @@
-<p>Reseñas del profesor: <%= profesor.calificaciones.size %></p>
+<p>Reseñas del profesor: <span id="amount_profesor"><%= profesor.calificaciones.size %></span></p>
 <br />
 <br />
 
-<h2><%= curso_profesor.calificaciones.size %> Reseñas del curso <%= curso_profesor.curso.nombre %></h2>
+<h2><span id="amount_curso_profesor"><%= curso_profesor.calificaciones.size %></span> Reseñas del curso <%= curso_profesor.curso.nombre %></h2>
 <table id="profesor_averages">
 	<tr class="odd">
 		<th>Puntualidad</th>
