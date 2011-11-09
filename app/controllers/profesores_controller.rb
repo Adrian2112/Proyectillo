@@ -36,7 +36,7 @@ class ProfesoresController < ApplicationController
     #@curso = Curso.find(params[:profesor_curso_id])
     #@profesor.cursos << @curso
     if @profesor.save
-      redirect_to(@profesor, :notice => 'Profesor was successfully created.') 
+      redirect_to(@profesor, :notice => 'El profesor se dio de alta correctamente') 
     else
        render :action => "new" 
     end
@@ -46,7 +46,7 @@ class ProfesoresController < ApplicationController
     @profesor = Profesor.find(params[:id])
 
     if @profesor.update_attributes(params[:profesor])
-      redirect_to(@profesor, :notice => 'Profesor was successfully updated.')
+      redirect_to(@profesor, :notice => 'El profesor se actualizo correctamente')
     else
       render :action => "edit"
     end

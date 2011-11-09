@@ -9,7 +9,7 @@
       <div class="container">
         <h3>
           <% if can? :read, curso %>
-            <%= link_to truncate(curso.nombre, :length => 23), curso, :title => curso.nombre, :class => "tooltip" %>
+            <%= link_to truncate(curso.nombre, :length => 35), curso, :title => curso.nombre, :class => "tooltip" %>
           <% end %>
         </h3>
         <div class="universidades">

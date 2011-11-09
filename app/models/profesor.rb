@@ -21,7 +21,6 @@ class Profesor < ActiveRecord::Base
   
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
-  validates :apellido_materno, :presence => true
   #validate :nombre_completo_unico
   
   has_many :curso_profesor, :dependent => :destroy
