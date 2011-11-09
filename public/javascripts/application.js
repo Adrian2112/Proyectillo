@@ -28,9 +28,7 @@ $(document).ready(function(){
 
 
 $(function(){
-    $(".tooltip").live("mouseover", function(){
-        $(".tooltip").tipTip();
-    });
+
 });
 
 function campus_universidades_autocomplete(universidad_id, campus_input_name, campus_input_id, tema){
@@ -133,7 +131,7 @@ function display_comments(id){
 	$(".calificaciones_comentarios_" + id).slideToggle("slow");
 }
 
-//Filtro en tiempo real de la pagina root (http://localhost:3000/)
+
 $(function(){
 	if(window.location.pathname == "/"){
 		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", '');
@@ -161,18 +159,18 @@ $(function(){
   });
 
 
-//Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)
+  //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)
 	campus_universidades_autocomplete("#usuario_universidad_id","usuario[campus_id]", "usuario_campus_id", '');
 	
 	
 
 
-//Hide flash messages
+  //Hide flash messages
 	if($("div#flash_notice") || $("div#flash_error") || $("div#flash_alert")) {
 		setTimeout(hide_flash_messages, 3000); 
 	}
 
-//Autcomplete para cursos
+  //Autcomplete para cursos
 	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
 		propertyToSearch: "nombre",
 		theme: '',
@@ -184,10 +182,16 @@ $(function(){
 	});
 	
 
-//Cargar tabs de cursos en la vista del profesor
-$('#tabs').tabs();
+  //Cargar tabs de cursos en la vista del profesor
+  $('#tabs').tabs();
 
-//Cargar funcion rate
+  //Cargar funcion rate
 	$("input.star").rating();
+	
+  // genera los tooltips
+	$(".tooltip").live("mouseover", function(){
+      $(".tooltip").tipTip();
+  });
+
 });
 
