@@ -880,17 +880,17 @@ span.login-buttons{
   text-align:center;
 }
 
-#edit_profesor {
+.edit_profesor {
 	font-size:10px; 
 	margin-left:8px;
 	color:#79A834;
 }
 
-#edit_profesor a {
+.edit_profesor a {
 	text-decoration:none;
 	color:#000;
 }
 
-#edit_profesor a:hover { 
+.edit_profesor a:hover { 
 	text-decoration:underline;
 }
