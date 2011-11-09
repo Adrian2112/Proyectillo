@@ -8,7 +8,7 @@
       <div class="container">
         <h1 class="resource-link">
           <% if can? :read, universidad %>
-            <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip beautiful_link" %>
+            <%= link_to truncate(universidad.nombre, :length => 60), universidad_campus_index_path(universidad), :title => universidad.nombre, :class => "tooltip display_uni" %>
           <% end %>
         </h1>
 				<span><%= pluralize(universidad.campus.size, "Campus") %></span>
