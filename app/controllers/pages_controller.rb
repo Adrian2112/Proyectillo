@@ -37,6 +37,11 @@ class PagesController < ApplicationController
   def faqs
   end
   
+  def share_buttons
+    @param = params[:url]
+    render :layout => false
+  end
+  
   private
   
   def resultados

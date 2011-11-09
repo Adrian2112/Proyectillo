@@ -131,7 +131,6 @@ function display_comments(id){
 	$(".calificaciones_comentarios_" + id).slideToggle("slow");
 }
 
-
 $(function(){
 	if(window.location.pathname == "/"){
 		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", '');
@@ -196,6 +195,8 @@ $(function(){
 	$(".tooltip").live("mouseover", function(){
       $(".tooltip").tipTip();
   });
+  
+  $("div.social-links").load("/share_buttons?url="+encodeURIComponent(location));
 
 });
 

@@ -20,6 +20,8 @@ Calmecac::Application.routes.draw do
   match 'contacto' => 'contact#new', :as => 'contact', :via => :get
   match 'contacto' => 'contact#create', :as => 'contact', :via => :post
   
+  match 'share_buttons' => 'pages#share_buttons', :as => :share_buttons
+  
   # Para invitacion masiva de contactos. Implementacion no habilitada a los usuarios. 
   #match 'invitar' => 'invitation#new', :as => 'invitation', :via => :get
   #match 'invitar' => 'invitation#create', :as => 'invitation', :via => :post
