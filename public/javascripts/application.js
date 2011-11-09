@@ -161,14 +161,38 @@ $(function(){
 		});
 	});
 
-
-//Filtro en tiempo real de universidades e implementacion "endless page" (http://localhost:3000/universidades)	
-	$("#universidad_q").observe_field(0.5, function(){
-		$("#loading").show();
-		$.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
-			$("#loading").hide();
+  $("input[data-observe=true]").observe_field(0.5, function(){
+    $("#loading, .loading").show();
+    var form = $(this).parent("form");
+		var url = form.attr("action");
+		var method = form.attr("method");
+		var data = form.serialize();
+		$.ajax({
+		  url: url,
+		  data: data,
+		  contentType : 'application/x-www-form-urlencoded',
+		  dataType : "script",
+      success: function(){
+  			$("#loading, .loading").hide();
+      }
 		});
-	});
+  });
+
+//Filtro en tiempo real de universidades (http://localhost:3000/universidades)  
+  $("#universidad_q").observe_field(0.5, function(){
+    $("#loading").show();
+    $.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
+      $("#loading").hide();
+    });
+  });
+
+//Filtro en tiempo real de universidades (http://localhost:3000/universidades)  
+  $("#curso_q").observe_field(0.5, function(){
+    $("#loading").show();
+    $.get("/universidades.js", { universidad_q: $("#universidad_q").val() }, function(){
+      $("#loading").hide();
+    });
+  });
 
 
 //Autocomplete para universidades y campus en registro de usuario (http://localhost:3000/usuarios/sign_up)

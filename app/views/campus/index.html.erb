@@ -1,7 +1,22 @@
 <% content_for :header do %>
-  <h1>Campus en <%=@campus.first.universidad.nombre %> (<%= @campus.size %>)</h1>
+  <h1>Campus en <%= @universidad %></h1>
 <% end %>
 
+<div id="info-profesores" class="columns on-2">
+  <div class="column">
+    <%= form_tag(universidad_campus_index_path(@universidad), :method => :get, :autocomplete => "off", :class => "generic-form") do  %>
+	    <%= text_field_tag :campus_q, params[:campus_q], "data-observe" => "true" %>
+	    <%= submit_tag "Buscar Campus", :name => nil %>
+	    <%= image_tag 'ajax-loader.gif', :class => "loading", :style => "display:none;" %>
+    <% end %>
+  </div>
+  <div class="column">
+  </div>
+</div>
+
+<br/>
+<h3>Se encontraron <span id="resultados"><%= @campus.total_count %></span> resultados</h3>
+<br />
 
 <div id="listado">
 	<%= render @campus %>
@@ -11,6 +26,8 @@
 <%= link_to "Nuevo Campus", new_campus_path if can? :create, Campus %>
 
 <div id="next_link">
+  <%= render :partial => 'shared/show_more', :object => @campus,
+              :locals => { :url => mas_resultados_universidad_campus_index_path(@universidad),
+              :parametros => { :campus_q => :campus_q } } %>
 </div>
-
 

@@ -1,16 +1,22 @@
 class CampusController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => :mas_resultados
 
   def index
-    @universidad = Universidad.find(params[:universidad_id])
-    @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:q]}%")
+    load_campus
 
     respond_to do |format|
       format.html
       format.json { render :json => @campus.map(&:attributes) }
+      format.js
     end
   end
-
+  
+  def mas_resultados
+    authorize! :read, Campus
+    load_campus
+  end
+  
   def show
     @campus = Campus.find(params[:id])
   end
@@ -49,6 +55,12 @@ class CampusController < ApplicationController
     @campus = Campus.find(params[:id])
     @campus.destroy
     redirect_to(universidad_campus_index_url(@campus.universidad))
+  end
+  
+  def load_campus
+    @universidad = Universidad.find(params[:universidad_id])
+    @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:campus_q]}%").page(params[:page]).per(10) 
+    @campus = @campus.scoped(:include => [:cursos, :profesores])
   end
   
 end

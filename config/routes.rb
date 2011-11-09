@@ -34,6 +34,10 @@ Calmecac::Application.routes.draw do
     end
     
     resources :campus, :shallow => true do
+      collection do
+        get "mas_resultados"
+      end      
+      
       resources :cursos do
         collection do
           get "mas_resultados"

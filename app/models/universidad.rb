@@ -15,5 +15,8 @@ class Universidad < ActiveRecord::Base
   has_many :profesores, :through => :campus
 
   validates :nombre, :uniqueness => true
-
+  
+  def to_s
+    nombre
+  end
 end
