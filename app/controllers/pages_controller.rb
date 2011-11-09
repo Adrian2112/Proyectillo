@@ -33,6 +33,9 @@ class PagesController < ApplicationController
 
   def legal_advisor
   end
+
+  def faqs
+  end
   
   private
   

@@ -1,0 +1,10 @@
+<% if @calificacion.valid? %>
+  $("#calificaciones_curso_profesor_<%= @curso_profesor.curso_id %>_<%= @curso_profesor.profesor_id %>")
+      .prepend("<%= escape_javascript(render @calificacion)%>");
+  $("#forma_calificacion_<%= @curso_profesor.id %>").html("Gracias por tu comentario");
+<% else %>  
+  $("#forma_calificacion_<%= @curso_profesor.id %>").replaceWith("<%= escape_javascript(render :partial => 'calificaciones/form',
+              :locals => {:calificacion => @calificacion, 
+												  	  :curso_profesor_id => @curso_profesor.id}) %>");
+	$("input.star").rating();
+<% end %>

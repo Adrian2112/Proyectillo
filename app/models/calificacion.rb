@@ -30,8 +30,12 @@ class Calificacion < ActiveRecord::Base
   
   before_save :calcula_promedio
 
-  validates_inclusion_of :puntualidad, :amigable, :conocimiento, :claridad, :flexibilidad, :facilidad, :in => (0..10)
-  validates_inclusion_of :calificacion_obtenida, :in => (0..100)
+  validates_numericality_of :puntualidad, :amigable, :conocimiento, :claridad,
+                            :flexibilidad, :facilidad
+  validates_numericality_of :calificacion_obtenida, :allow_nil => true
+  validates_inclusion_of :puntualidad, :amigable, :conocimiento,
+                          :claridad, :flexibilidad, :facilidad, :in => (0..10)
+  validates_inclusion_of :calificacion_obtenida, :in => (0..100), :allow_nil => true, :message => "xx"
   
   default_scope order('likes_count DESC')
   default_scope order('created_at DESC')

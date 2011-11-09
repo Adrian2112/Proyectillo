@@ -1,5 +1,5 @@
-<br />
-<%= form_for(calificacion, :html => {:class => "generic-form"}) do |f| %>
+<%= form_for(calificacion, :remote => true, :html => {:class => "generic-form", :id => "forma_calificacion_#{curso_profesor_id}"}) do |f| %>
+  <%= f.error_messages %>
 
 	<div class="unit">
 		<div class="on-2 columns">

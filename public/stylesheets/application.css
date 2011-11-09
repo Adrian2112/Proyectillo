@@ -279,7 +279,7 @@ a#forgot_password:hover {
 }
 
 .sign_up_header a, a.beautiful_link {
-	color:#79A83A;
+	color:#000;
 	text-decoration: none;
 	font-weight:bold;
 }
@@ -533,12 +533,12 @@ margin: 10px 0;
 }
 
 .error_messages {
-  width: 400px;
-  border: 2px solid #CF0000;
+  background-color:#FCC;
+	border:solid 3px #C66;
+	border-radius: 10px 10px 10px 10px;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
   font-size: 12px;
 }
 
@@ -554,10 +554,12 @@ margin: 10px 0;
 
 .error_messages p {
   margin: 8px 10px;
+  font-size:120%;
+  font-weight:bold;
 }
 
 .error_messages ul {
-  margin: 0;
+  margin: 0 35px;
 }
 
 
