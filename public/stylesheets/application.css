@@ -294,7 +294,7 @@ a#forgot_password:hover {
 	font-weight:bold;
 }
 
-.display_uni {
+.display_uni, .display_campus {
     color: #2A2A2A;
     font-size: 32px;
     line-height: 32px;
