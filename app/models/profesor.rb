@@ -30,39 +30,26 @@ class Profesor < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   attr_reader :cursos_tokens
-
-  #private
-  #def nombre_completo_unico
-  #  self.find_by_nombre()
-  #  errors.add(:base, "Ya existe ese profesor")
-    #Self.scoped_by_code("params[:team_code]").exists?
-  #end
   
   def to_s
     self.nombre_completo
   end
   
   def nombre_completo
-    "#{nombre} #{apellido_paterno} #{apellido_materno}"
+    "#{self.nombre} #{self.apellido_paterno} #{self.apellido_materno}".titleize
   end
   
   def promedio
     if calificaciones.size <= 0
       0.0
     else
-      prom = calificaciones.map{|califa| califa.promedio}.inject(:+) / calificaciones.size
+      prom = calificaciones.average(:promedio)
       prom.nan? ? 0.0 : '%.1f' % prom
     end
   end
   
   def cursos_tokens=(ids)
     self.curso_ids = ids.split(",")
-  end
-  
-  def nombre_completo
-    "#{self.nombre} #{self.apellido_paterno} #{self.apellido_materno}".titleize
-  end
-  
-  
+  end  
   
 end
