@@ -11,7 +11,7 @@ class Ability
       can :manage, :all
     elsif usuario.usuario?
       # profesores
-      can [:read, :create, :edit], Profesor
+      can [:read, :create, :edit, :update], Profesor
       
       # universidades
       can :read, Universidad

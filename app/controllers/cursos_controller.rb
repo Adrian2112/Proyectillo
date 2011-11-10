@@ -62,7 +62,7 @@ class CursosController < ApplicationController
   
   def load_cursos    
     @campus = Campus.find(params[:campus_id])
-    @cursos = @campus.cursos.where("nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10) 
+    @cursos = @campus.cursos.where("cursos.nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10) 
   end
   
 end
