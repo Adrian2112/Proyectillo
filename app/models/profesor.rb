@@ -41,7 +41,7 @@ class Profesor < ActiveRecord::Base
   
   def promedio
     if calificaciones.size <= 0
-      0.0
+      '-'
     else
       prom = calificaciones.average(:promedio)
       prom.nan? ? 0.0 : '%.1f' % prom
