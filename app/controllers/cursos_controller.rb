@@ -8,7 +8,7 @@ class CursosController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      format.json {render :json => @cursos.map(&:attributes)}
+      format.json {render :json => @cursos.map{ |c| {:id => c.id, :nombre => c.nombre} }}
     end
   end
   

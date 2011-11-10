@@ -34,6 +34,8 @@ class ProfesoresController < ApplicationController
   def create
     @profesor = current_usuario.campus.profesores.build(params[:profesor])
 
+    nuevos_cursos
+
     if @profesor.save
       redirect_to(@profesor, :notice => 'El profesor se dio de alta correctamente') 
     else
@@ -43,8 +45,13 @@ class ProfesoresController < ApplicationController
 
   def update
     @profesor = Profesor.find(params[:id])
+    cursos_attributes = params[:profesor].delete(:cursos_attributes)
+    @profesor.attributes = params[:profesor]
+    @profesor.cursos.build(cursos_attributes.to_a.map(&:last)) unless cursos_attributes.blank?
+    
+    nuevos_cursos
 
-    if @profesor.update_attributes(params[:profesor])
+    if @profesor.save
       redirect_to(@profesor, :notice => 'El profesor se actualizo correctamente')
     else
       render :action => "edit"
@@ -65,6 +72,13 @@ class ProfesoresController < ApplicationController
                                   apellido_paterno LIKE :profesor", 
                                   {:profesor => "%#{params[:profesor_q]}%"} ).page(params[:page]).per(10) 
     @profesores = @profesores.scoped(:include => [:cursos, { :campus => :universidad }])   
+  end
+  
+  def nuevos_cursos
+    @new_cursos = @profesor.cursos.reject{ |c| !c.new_record? }
+    @new_cursos.each do |c|
+      c.campus = current_usuario.campus
+    end
   end
   
 end

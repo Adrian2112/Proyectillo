@@ -14,7 +14,7 @@
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :add_cursos_tokens
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :cursos_tokens, :cursos_attributes
   
   belongs_to :campus
   delegate :universidad, :to => :campus
@@ -27,7 +27,7 @@ class Profesor < ActiveRecord::Base
   has_many :cursos, :through => :curso_profesor
   
   mount_uploader :avatar, AvatarUploader
-  
+  accepts_nested_attributes_for :cursos
   attr_reader :cursos_tokens
   attr_reader :add_cursos_tokens
   
@@ -47,12 +47,7 @@ class Profesor < ActiveRecord::Base
       prom.nan? ? 0.0 : ('%.1f' % prom).to_f
     end
   end
-  
-  def add_cursos_tokens=(ids)
-    nuevos = Curso.find(ids.split(","))
-    self.cursos << nuevos
-  end
-  
+    
   def minimo_un_curso
     errors.add(:base, "El profesor debe tener al menos un curso asignado") if cursos.size <= 0
   end
@@ -60,5 +55,11 @@ class Profesor < ActiveRecord::Base
   def nombres_cursos
     self.cursos.map(&:nombre).join(",")
   end
+
+  def cursos_tokens=(ids)
+    ids = ids.split(",")
+    ids.delete_if{ |i| i.include?("new") }
+    self.curso_ids = ids
+  end  
   
 end
