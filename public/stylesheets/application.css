@@ -892,3 +892,12 @@ span.login-buttons{
 .edit_profesor a:hover { 
 	text-decoration:underline;
 }
+
+.report-error{
+  float:right;
+  margin:10px 0;
+}
+
+.report-error a{
+  font-size:80% !important;
+}

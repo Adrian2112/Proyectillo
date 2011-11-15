@@ -15,7 +15,7 @@
 			</div>
 			<div class="column">
 				<%= form.label :subject, 'Tipo de comentario' %> <br/>
-	      <%= form.select :subject, options_for_select(['Idea', 'Duda', 'Error']) %>
+	      <%= form.select :subject, options_for_select(['Idea', 'Duda', 'Error'], params[:message].try("[]",:subject)) %>
 			</div>
 		</div>
      <br />
