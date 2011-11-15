@@ -4,7 +4,7 @@ class Notifications < ActionMailer::Base
 
   def new_message(message)
     @message = message
-    mail(:to => "aktestcontact@gmail.com", #Admin.all.map(&:email),
+    mail(:to => "contacto@calmecac.me", #Admin.all.map(&:email),
          :subject => "Calmecac: Alguien contacto por #{message.subject}")
   end
 
