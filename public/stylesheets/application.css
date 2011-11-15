@@ -860,6 +860,7 @@ tr.odd td ,tr.even td, th {
 
 div.social-links {
 	float:right;
+	margin-right:25px;
 }
 
 .underline{
