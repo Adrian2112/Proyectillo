@@ -59,7 +59,7 @@ class CampusController < ApplicationController
   
   def load_campus
     @universidad = Universidad.find(params[:universidad_id])
-    @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:campus_q]}%").page(params[:page]).per(10) 
+    @campus = @universidad.campus.where("nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10) 
     @campus = @campus.scoped(:include => [:cursos, :profesores])
   end
   

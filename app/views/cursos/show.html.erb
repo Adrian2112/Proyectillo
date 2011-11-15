@@ -1,12 +1,18 @@
 <% content_for :header do %>
 	<h1><%= @curso.nombre %> en <%= @curso.campus.nombre %></h1> 
 <% end %>
-
+<% store_requested_url unless current_usuario %>
 <% if !@curso.profesores.blank? %>
   <%= render @curso.profesores %>
 <% else %>
-  	<h3>No hay profesores en este curso</h3>
-		<h3 class="sign_up_header"><%= link_to "Asignar un profesor" %></h3>
+  	<h3>Woops! no hay profesores en este curso</h3>
+		<h3 class="sign_up_header">
+			<%= link_to "Dar de alta profesor", new_profesor_path if can? :create, Profesor %>
+			<% unless current_usuario %>
+			<br />
+			<%= link_to "Registrate", new_usuario_registration_path %> para darlo de alta
+			<% end %>
+		</h3>
 <% end %>
 
 

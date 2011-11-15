@@ -9,7 +9,7 @@
 	<div class="on-2 columns">
 		<div class="fixed column" style="width:200px;">
 			<div id="profesor_image">
-				<%= image_tag @profesor.avatar_url(:thumb).to_s, :size => "180x180" %>
+				<%= image_tag @profesor.avatar_url(:profile).to_s %>
 			</div>
 			<br />
 			<div id="promedio">
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="fixed column" style="width:450px;margin-left:20px">
-			<h2><%= @profesor.nombre_completo %><span id="edit_profesor" class="edit_profesor"><%= link_to 'Editar', edit_profesor_path(@profesor) %></span></h2>
+			<h2><%= @profesor.nombre_completo %><span id="edit_profesor" class="edit_profesor"><%= link_to 'Editar', edit_profesor_path(@profesor) if current_usuario %></span></h2>
 			<div class="profesor-universidad">
         <%= link_to @profesor.universidad.nombre, universidad_campus_index_path(@profesor.universidad) %> &gt; 
         <%= link_to @profesor.campus.nombre, campus_cursos_path(@profesor.campus) %>
