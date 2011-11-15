@@ -2,11 +2,19 @@
   $("#calificaciones_curso_profesor_<%= @curso_profesor.curso_id %>_<%= @curso_profesor.profesor_id %>")
       .prepend("<%= escape_javascript(render @calificacion)%>");
   $("#forma_calificacion_<%= @curso_profesor.id %>").replaceWith("<%= escape_javascript(render 'cursos_profesores/ya_comento')%>");
-  $("#amount_profesor").html("<%= @profesor.calificaciones.size %>")
-  $("#amount_curso_profesor").html("<%= @curso_profesor.profesor.calificaciones.size %>")
+  $("#amount_profesor").html("<%= @profesor.calificaciones.size %>");
+  $("#amount_curso_profesor").html("<%= @curso_profesor.profesor.calificaciones.size %>");
+  $("#desplegar_promedio").html("<%= @profesor.promedio %>");
+  
+ 
+  $("#profesor_averages").html("<%= escape_javascript(render :partial => 'calificaciones/tabla_promedios',
+            :locals => {:curso_profesor => CursoProfesor.find(@curso_profesor.id)})%>");
+
 <% else %>  
   $("#forma_calificacion_<%= @curso_profesor.id %>").replaceWith("<%= escape_javascript(render :partial => 'calificaciones/form',
               :locals => {:calificacion => @calificacion, 
 												  	  :curso_profesor_id => @curso_profesor.id}) %>");
 	$("input.star").rating();
 <% end %>
+
+
