@@ -23,12 +23,11 @@
 #Creacion de universidad
 u = Universidad.create!(:nombre => "Instituto Tecnológico y de Estudios Superiores de Monterrey")
 
-CIUDADES.each_with_index do |ciudad, index|
-  Campus.create!(:nombre => "Campus " + ciudad,
-                 :ciudad => ciudad,
-                 :estado => ESTADOS[index],
-                 :universidad => u)
-end
+
+Campus.create!(:nombre => "Campus Monterrey",
+               :ciudad => "Monterrey",
+               :estado => "Nuevo León",
+               :universidad => u)
 
 
 #Creacion de usuarios base

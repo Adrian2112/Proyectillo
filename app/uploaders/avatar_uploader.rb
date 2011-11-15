@@ -33,6 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
    version :thumb do
      process :resize_to_limit => [108, 108]
    end
+   
+   version :profile do
+    process :resize_to_limit => [180, 180]
+   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

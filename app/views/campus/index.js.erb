@@ -3,7 +3,7 @@ $("#listado").html("<%= escape_javascript(render @campus) %>");
 <%
 	show_more = escape_javascript(render(:partial => 'shared/show_more', :object => @campus,
             														:locals => { :url => mas_resultados_universidad_campus_index_path(@universidad),
-																											:parametros => {  :campus_q => :campus_q}
+																											:parametros => {  :q => :q}
 																																			}
 																				)
 																)
