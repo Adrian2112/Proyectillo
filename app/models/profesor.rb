@@ -22,6 +22,7 @@ class Profesor < ActiveRecord::Base
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
   #validate :nombre_completo_unico
+  validate :minimo_un_curso
   
   has_many :curso_profesor, :dependent => :destroy
   has_many :calificaciones, :through => :curso_profesor
@@ -51,5 +52,9 @@ class Profesor < ActiveRecord::Base
   def cursos_tokens=(ids)
     self.curso_ids = ids.split(",")
   end  
+  
+  def minimo_un_curso
+    errors.add_to_base "El profesor debe tener al menos un curso asignado" if cursos.size <= 0
+  end
   
 end

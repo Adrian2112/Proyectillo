@@ -24,7 +24,9 @@
         <%= link_to @profesor.campus.nombre, campus_cursos_path(@profesor.campus) %>
       </div>
 			<div id="caracteristicas_profesor">
-				<%= render :partial => 'cursos_profesores/profesor_detalles', :locals => {:profesor => @profesor, :curso_profesor => @curso_profesor} %>
+			  <% if @curso_profesor %>
+  				<%= render :partial => 'cursos_profesores/profesor_detalles', :locals => {:profesor => @profesor, :curso_profesor => @curso_profesor} %>
+  			<% end %>
 			</div>
 		</div>
 	</div>

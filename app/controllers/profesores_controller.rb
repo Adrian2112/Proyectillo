@@ -19,7 +19,7 @@ class ProfesoresController < ApplicationController
   def show
     @profesor = Profesor.find(params[:id])
     @cursos = @profesor.cursos
-    @curso_profesor = @profesor.curso_profesor.find_by_curso_id(@cursos.first.id,
+    @curso_profesor = @profesor.curso_profesor.find_by_curso_id(@cursos.first.try(:id),
                       :include => { :calificaciones => [ {:comentarios => :usuario}, :likes, :usuario]})
   end
 
