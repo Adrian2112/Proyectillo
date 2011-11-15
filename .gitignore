@@ -2,10 +2,10 @@
 *.lock
 db/*.sqlite3
 log/*.log
-tmp/**/*
+tmp/
 config/database.yml
 public/system
-public/uploaders
+public/uploads
 db/schema.rb
 .*
 *.sh
