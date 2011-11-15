@@ -8,7 +8,7 @@
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults, "jquery-ui.js", "elastic", "jquery.bgiframe-2.1.2", "jquery.color.min", "jquery.MetaData", "jquery.observe_field", "jquery.rating", "jquery.rating.pack", "jquery.textchange.min", "jquery.tipTip.minified", "jquery.tokeninput",
+  <%= javascript_include_tag "jquery", "jrails", "jquery_ujs", "application", "jquery-ui.js", "elastic", "jquery.bgiframe-2.1.2", "jquery.color.min", "jquery.MetaData", "jquery.observe_field", "jquery.rating", "jquery.rating.pack", "jquery.textchange.min", "jquery.tipTip.minified", "jquery.tokeninput",
 	"jrails" %>
 	<% if production? %>
 		<script type="text/javascript">
