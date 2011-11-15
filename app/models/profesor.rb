@@ -14,7 +14,7 @@
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :cursos_tokens
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :add_cursos_tokens
   
   belongs_to :campus
   delegate :universidad, :to => :campus
@@ -31,6 +31,7 @@ class Profesor < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   attr_reader :cursos_tokens
+  attr_reader :add_cursos_tokens
   
   def to_s
     self.nombre_completo
@@ -49,9 +50,10 @@ class Profesor < ActiveRecord::Base
     end
   end
   
-  def cursos_tokens=(ids)
-    self.curso_ids = ids.split(",")
-  end  
+  def add_cursos_tokens=(ids)
+    nuevos = Curso.find(ids.split(","))
+    self.cursos << nuevos
+  end
   
   def minimo_un_curso
     errors.add_to_base "El profesor debe tener al menos un curso asignado" if cursos.size <= 0

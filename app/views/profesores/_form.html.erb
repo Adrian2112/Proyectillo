@@ -21,15 +21,29 @@
 	  <%= f.file_field :avatar %>
   </div>
 	<br />
- 	Universidad: <br />
-	<strong><%= current_usuario.universidad.nombre if current_usuario %></strong>
-	<br /><br />
-  	Campus: <br />
-	<strong><%= current_usuario.campus.nombre if current_usuario %></strong>
-<br />	<br />
 	<div class="field">
-		<%= f.label :cursos_tokens, "Cursos:" %>
-		<%= f.text_field :cursos_tokens, "data-pre" => @profesor.cursos.map(&:attributes).to_json %>
+    Universidad:<br />
+      <strong><%= current_usuario.universidad.nombre if current_usuario %></strong>
+  </div>
+  <br />
+  <div class="field">
+        Campus: <br />
+      <strong><%= current_usuario.campus.nombre if current_usuario %></strong>
+  </div>
+  <br/>
+	<div class="field">
+		<%= f.label :add_cursos_tokens, "Cursos:" %>
+		<br/>
+
+  <% if !@profesor.new_record? %>
+  	<% @profesor.curso_profesor.reject { |c| c.new_record? }.map(&:curso).each do |curso| %>
+      <strong><%= curso %></strong><br/>
+  	<% end %>
+  	<%= f.text_field :add_cursos_tokens, "data-pre" => @profesor.curso_profesor.reject { |c| !c.new_record? }.map(&:curso).map(&:attributes).to_json %>
+  <% else %>
+  		<%= f.text_field :add_cursos_tokens, "data-pre" => @profesor.cursos.map(&:attributes).to_json %>
+	<% end %>
+
 	</div>
 	<%= hidden_field_tag :profesor_campus_id, current_usuario.campus.id  %>
   <div class="actions">

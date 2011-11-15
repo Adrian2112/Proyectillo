@@ -170,7 +170,7 @@ $(function(){
 	}
 
   //Autcomplete para cursos
-	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
+	$("#profesor_add_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
 		propertyToSearch: "nombre",
 		theme: '',
   		hintText: 'Introduce un curso',
