@@ -1,12 +1,5 @@
 # encoding: utf-8
 
-
-if ENV['RAILS_ENV'] == 'production'
-  ENV['HOME'] = "/home/calmecac"
-  ENV['GEM_HOME'] = "/home/calmecac/.gems"
-  ENV['GEM_PATH'] = "/home/calmecac/.gems:/usr/lib/ruby/gems/1.8"
-end
-
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
@@ -78,6 +71,7 @@ task :crear_cursos => :environment do
   URLS.each do |url|
     doc = Nokogiri::HTML(open(url))
     doc.css(".LinkMateria").each do |item|
+      puts item.text
       cursos << item.text
     end
   end
@@ -87,7 +81,7 @@ task :crear_cursos => :environment do
   
   cursos.each do |curso|
     Curso.create!(:nombre => curso,
-                  :campus_id => 15)
+                  :campus_id => 1)
   end
   puts "Finalizacion correcta"
 end

@@ -47,7 +47,7 @@ module Calmecac
       :authentication  => :plain,                    
       :user_name       => 'contacto@calmecac.me', 
       :password        => 'Calmecac2011',            
-      :enable_starttls_auto => true
+      :enable_starttls_auto => false
     }
   else
     config.action_mailer.smtp_settings = {
