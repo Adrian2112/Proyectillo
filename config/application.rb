@@ -39,15 +39,28 @@ module Calmecac
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
   
-  config.action_mailer.smtp_settings = {
-    :domain          => "aktestcontact@gmail.com", 
-    :address         => 'smtp.gmail.com',          
-    :port            => 587,                                           
-    :authentication  => :plain,                    
-    :user_name       => 'aktestcontact@gmail.com', 
-    :password        => 'cwiolcpd',            
-    :enable_starttls_auto => true
-  }
+  if ENV['RAILS_ENV'] == "production"
+    config.action_mailer.smtp_settings = {
+      :domain          => "contacto@calmecac.me", 
+      :address         => 'localhost',          
+      :port            => 25,                                           
+      :authentication  => :plain,                    
+      :user_name       => 'contacto@calmecac.me', 
+      :password        => 'Calmecac2011',            
+      :enable_starttls_auto => true
+    }
+  else
+    config.action_mailer.smtp_settings = {
+      :domain          => "aktestcontact@gmail.com", 
+      :address         => 'smtp.gmail.com',          
+      :port            => 587,                                           
+      :authentication  => :plain,                    
+      :user_name       => 'aktestcontact@gmail.com', 
+      :password        => 'cwiolcpd',            
+      :enable_starttls_auto => true
+    }
+  end
+  
 
     #monkey patch devise to work with cancan
     config.to_prepare do
