@@ -10,6 +10,8 @@
         <h3><%= link_to truncate(profesor.nombre_completo, :length => 23), profesor, :class => "tooltip", :title => profesor.nombre_completo if can? :read, profesor %></h3>
         <span id="editar_profesor" class="edit_profesor">
           <%= link_to 'Editar', edit_profesor_path(profesor) if can? :edit, profesor %>
+          <%= link_to('Borrar', profesor_path(profesor), :confirm => '¿Seguro que quieres borrar este registro?',
+                                                         :method => :delete ) if can? :delete, profesor %>
         </span>
         <div class="universidades">
           <%= render 'shared/universidad_campus', :universidad => profesor.universidad,
