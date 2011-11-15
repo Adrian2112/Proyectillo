@@ -184,7 +184,11 @@ $(function(){
   //Cargar tabs de cursos en la vista del profesor
   $('#tabs').tabs({
     create : function(){
-      $('#tabs').tabs('select', location.hash);
+      if(location.hash == "" || !document.getElementById(location.hash)){
+        $('#tabs').tabs('select', 0);        
+      }else{
+        $('#tabs').tabs('select', location.hash);        
+      }
     }
   });
 
