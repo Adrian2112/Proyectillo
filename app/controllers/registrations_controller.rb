@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     # Manda mail con cualquier usuario que se genera en nuestra BD
-    Notifications.welcome_message(@usuario).deliver
+    Notifications.welcome_message(@usuario).deliver unless @usuario.new_record?
   end
   
   def edit
