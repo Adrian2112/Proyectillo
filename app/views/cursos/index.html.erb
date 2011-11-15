@@ -9,7 +9,8 @@
     <p><i>Ciudad: <%= @campus.ciudad %></i></p><br/>
   </div>
   <div class="column center">
-    <p>¿No encontraste lo que buscabas?</p>
+    <%# comentado porque no existe el link de crear curso acualmente %>
+    <%# <p>¿No encontraste lo que buscabas?</p> %>
     <% if !usuario_signed_in? %>
       <h3 class="sign_up_header">
         <%= link_to 'Regístrate', new_usuario_session_path %>

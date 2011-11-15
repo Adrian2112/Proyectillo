@@ -32,11 +32,12 @@
   <!-- Navigation -->
   <div id="navigation">
     <div class="wrapper">
-      
+      <div class="report-error">
+        <%= link_to "Reporta un error", contact_path("message[subject]" => "Error") %>
+      </div>
       <div class="main-container">
         <%= render 'layouts/header' %>
       </div>
-      
     </div>
   </div>
   <!-- END: Navigation -->
