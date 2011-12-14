@@ -33,9 +33,9 @@ module LayoutHelper
   
   def keywords
     string = " "
-    if @profesor
+    if @profesor and !@profesor.new_record?
       string = ",#{@profesor.nombre_completo} #{@profesor.nombres_cursos}, #{@profesor.universidad.nombre}, #{@profesor.campus.nombre}"
-    elsif @universidad
+    elsif @universidad and @universidad.new_record?
         string = ",#{@universidad.nombre}, #{@universidad.nombres}"
     end
 
