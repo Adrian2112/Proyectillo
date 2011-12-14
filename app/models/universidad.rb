@@ -19,4 +19,12 @@ class Universidad < ActiveRecord::Base
   def to_s
     nombre
   end
+  
+  def nombres
+    string = ""
+    self.campus.each do |campus|
+      string = string + "," + campus.nombre
+    end
+    string
+  end
 end

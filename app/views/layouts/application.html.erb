@@ -4,7 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title><%= content_for?(:title) ? yield(:title) : "Calmecac" %></title>
-	<link href="/favicon.png" rel="SHORTCUT ICON" />
+  <link href="/favicon.png" rel="SHORTCUT ICON" />
+  <meta name="keywords" content="Calmecac, Profesor, Profesores, Universidad, Universidades, Red social academica, Calificacion, Alumno, Evalua, Califica, Mexico, Horario<%= keywords %>" />
+  <meta name="description" content="Red social Calmecac para estudiantes, Red social de universidades, Califica a los profesores de las universidades, Evalua profesores">
   <%= csrf_meta_tag %>
   <%= yield(:head) %>
   <%= stylesheet_link_tag :all %>
@@ -48,7 +50,7 @@
       
       <div class="main-container">
         <a id="logo-image" href="/"><%= image_tag 'logo.png' %></a>
-        <h1><a id="logo" href="/">Calmecac</a></h1>
+        <h1><a id="logo" href="/" title="Calmecac">Calmecac</a></h1>
       </div>
       
     </div>
