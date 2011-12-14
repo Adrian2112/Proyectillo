@@ -91,7 +91,7 @@ es:
       words_connector: ", "  
       two_words_connector: " y "
       last_word_connector: ", y "  
- 
+      
   activerecord:
     errors:
       template:
@@ -102,6 +102,7 @@ es:
       messages:
         inclusion: "no está incluído en la lista"
         exclusion: "está reservado"
+        record_invalid: "Record invalido:"
         invalid: "es inválido"
         invalid_date: "es una fecha inválida"
         confirmation: "no coincide con la confirmación"
