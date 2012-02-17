@@ -24,7 +24,7 @@ gem 'contacts', :git => 'git://github.com/agentrock/contacts.git'
 gem 'hpricot'
 #Gemas para hacer trabajos despues
 gem 'delayed_job'
-
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 
 group :development, :test do

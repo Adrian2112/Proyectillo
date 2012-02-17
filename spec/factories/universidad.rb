@@ -1,3 +1,5 @@
-Factory.define :universidad do |f|
-  f.nombre  "ITESM"
+FactoryGirl.define do 
+  factory :universidad do
+    sequence(:nombre){|i| "Universidad #{i}"}
+  end
 end

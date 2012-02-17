@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource_or_scope)
+    flash[:notice] ="Bienvenido de nuevo #{current_usuario.username}"
     session[:url] || root_path
   end
   
