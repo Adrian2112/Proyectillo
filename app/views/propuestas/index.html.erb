@@ -2,29 +2,13 @@
   <h1>Propuestas en <%= @campus.nombre %></h1>
 <% end %>
 
-<table>
-  <tr>
-    <th>Votos</th> 
-    <th>Titulo</th>
-    <th>Descripcion</th>
-    <th>Categoria</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'Populares', campus_propuestas_path(@campus, :orden => "votes_count desc"), :remote => true %>
+<%= link_to 'Recientes', campus_propuestas_path(@campus, :orden => "created_at desc"), :remote => true %>
 
-<% @propuestas.each do |propuesta| %>
-  <tr>
-    <td><%= propuesta.votos %></td>
-    <td><%= propuesta.titulo %></td>
-    <td><%= propuesta.descripcion %></td>
-    <td><%= propuesta.categoria %></td>
-    <td><%= link_to 'Show', campus_propuesta_path(@campus, propuesta) %></td>
-    <td><%= link_to 'Edit', edit_campus_propuesta_path(@campus, propuesta) %></td>
-    <td><%= link_to 'Destroy', campus_propuesta_path(@campus, propuesta), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="listado_propuestas">
+  <%= render 'propuestas' %>
+</div>
+
 
 <br />
 

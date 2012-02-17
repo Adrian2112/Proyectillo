@@ -3,11 +3,12 @@ class PropuestasController < ApplicationController
   # GET /propuestas.xml
   def index
     @campus = Campus.find(params[:campus_id])
-    @propuestas = @campus.propuestas  #.order(params[:orden])
+    @propuestas = @campus.propuestas.order(params[:orden])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @propuestas }
+      format.js
     end
   end
 
