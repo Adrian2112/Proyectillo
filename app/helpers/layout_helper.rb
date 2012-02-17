@@ -30,5 +30,15 @@ module LayoutHelper
     params[:controller] == 'sessions' or
     params[:controller] == 'contact'
   end
+  
+  def keywords
+    string = " "
+    if @profesor and !@profesor.new_record?
+      string = ",#{@profesor.nombre_completo} #{@profesor.nombres_cursos}, #{@profesor.universidad.nombre}, #{@profesor.campus.nombre}"
+    elsif @universidad and @universidad.new_record?
+        string = ",#{@universidad.nombre}, #{@universidad.nombres}"
+    end
+
+  end
 
 end

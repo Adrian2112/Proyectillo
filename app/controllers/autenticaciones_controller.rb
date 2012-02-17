@@ -19,7 +19,7 @@ class AutenticacionesController < ApplicationController
     else
       usuario = Usuario.new
       usuario.apply_omniauth(omniauth)
-
+      debugger
       session[:omniauth] = omniauth.except('extra')
       redirect_to new_usuario_registration_url
     end

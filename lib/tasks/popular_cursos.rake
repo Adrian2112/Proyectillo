@@ -71,7 +71,7 @@ task :crear_cursos => :environment do
   URLS.each do |url|
     doc = Nokogiri::HTML(open(url))
     doc.css(".LinkMateria").each do |item|
-      puts item.text
+      #puts item.text
       cursos << item.text
     end
   end

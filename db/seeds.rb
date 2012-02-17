@@ -36,7 +36,7 @@ u = Usuario.create(:username => "kurenn",
                     :password => "frxhgroi",
                     :password_confirmation => "frxhgroi",
                     :universidad_id => 1,
-                    :campus_id => 15)
+                    :campus_id => 1)
 u.rol = "Administrador"
 u.save
                 
@@ -45,7 +45,7 @@ u = Usuario.create(:username => "adrian",
                 :password => "borrego",
                 :password_confirmation => "borrego",
                 :universidad_id => 1,
-                :campus_id => 15)
+                :campus_id => 1)
 u.rol = "Administrador"
 u.save
 
@@ -54,6 +54,6 @@ u = Usuario.create(:username => "edo",
                 :password => "double2",
                 :password_confirmation => "double2",
                 :universidad_id => 1,
-                :campus_id => 15)
+                :campus_id => 1)
 u.rol = "Administrador"
 u.save

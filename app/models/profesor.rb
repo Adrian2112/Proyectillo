@@ -58,5 +58,13 @@ class Profesor < ActiveRecord::Base
   def minimo_un_curso
     errors.add_to_base "El profesor debe tener al menos un curso asignado" if cursos.size <= 0
   end
+
+  def nombres_cursos
+    cursos = ""
+    self.cursos.each do |curso|
+      cursos = cursos + "," + curso.nombre
+    end
+    cursos
+  end
   
 end

@@ -1,8 +1,9 @@
 <div class='on-2 columns'>
   <div class='fixed column' style='width:55px'>
-    <a href='http://twitter.com/home?status=Mira a este profesor en <%= @param %>' title='Click to send this page to Twitter!' target='_blank'><%= image_tag 'tweet_this.gif' %></a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= @param %>" data-count="horizontal" data-via="calmecac_me">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
   </div>
+<br />
   <div class='fixed column' style='width:83px'>
-    <!--[if !IE 7]><!--><a name='fb_share' type='button_count' share_url='<%= @param %>' href='http://www.facebook.com/sharer.php'>Compartir</a><script src='http://static.ak.fbcdn.net/connect.php/js/FB.Share' type='text/javascript'></script><!--<![endif]-->
+    <iframe src="//www.facebook.com/plugins/like.php?href=<%= @param %>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
   </div>
 </div>
