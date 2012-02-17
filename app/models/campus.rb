@@ -16,6 +16,7 @@ class Campus < ActiveRecord::Base
   has_many :cursos, :dependent => :destroy
   has_many :profesores, :dependent => :destroy
   has_many :usuarios
+  has_many :propuestas
 
   validates :nombre, :uniqueness => {:scope => :universidad_id}
 

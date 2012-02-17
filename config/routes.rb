@@ -1,5 +1,5 @@
 Calmecac::Application.routes.draw do
-  
+
   get 'curso_profesor/:profesor_id/:curso_id', :controller => :cursos_profesores, :action => 'curso_profesor'
 
   resources :autenticaciones
@@ -38,7 +38,7 @@ Calmecac::Application.routes.draw do
     resources :campus, :shallow => true do
       collection do
         get "mas_resultados"
-      end      
+      end  
       
       resources :cursos do
         collection do
@@ -46,6 +46,14 @@ Calmecac::Application.routes.draw do
         end        
       end
     end
+  end
+  
+  resources :campus, :path => "campus" do
+    resources :propuestas do
+      member do
+        post :vote_up
+      end
+    end 
   end
 
   resources :calificaciones, :only => [:create] do

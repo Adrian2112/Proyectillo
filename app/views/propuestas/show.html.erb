@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Votos:</b>
+  <%= @propuesta.votos %>
+</p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @propuesta.titulo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @propuesta.descripcion %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @propuesta.categoria %>
+</p>
+
+<p>
+  <b>Sugerida por:</b>
+  <%= @propuesta.usuario.username %>, <%= @propuesta.created_at.time.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @propuesta.categoria %>
+</p>
+
+<br />
+<% if current_usuario.voted_on?(@propuesta) %>
+  <div>VOTADO</div>
+<% elsif current_usuario.id == @propuesta.usuario_id %>
+  <div>Yo la cree</div>
+<% else %>
+  <%= link_to 'vote up', vote_up_campus_propuesta_path(@campus, @propuesta), :method => :post %>
+<% end %>
+
+<% if current_usuario.id == @propuesta.usuario_id %>
+  <%= link_to 'Edit', edit_campus_propuesta_path(@campus, @propuesta) %> |
+<% end %>
+<%= link_to 'Back', campus_propuestas_path(@campus) %>

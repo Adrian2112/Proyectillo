@@ -26,6 +26,8 @@ class Usuario < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  acts_as_voter
 
   # Setup accessible (or protected) attributes for your model
   # Atributos de devise con los que habian sido generados anteriormente
@@ -39,6 +41,7 @@ class Usuario < ActiveRecord::Base
   has_many :likes, :dependent => :destroy
   has_many :flags, :dependent => :destroy
   has_many :calificaciones, :dependent => :nullify
+  has_many :propuestas
   belongs_to :universidad
   belongs_to :campus
   

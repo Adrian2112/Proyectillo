@@ -24,6 +24,7 @@ gem 'contacts', :git => 'git://github.com/agentrock/contacts.git'
 gem 'hpricot'
 #Gemas para hacer trabajos despues
 gem 'delayed_job'
+gem 'thumbs_up'
 
 
 
