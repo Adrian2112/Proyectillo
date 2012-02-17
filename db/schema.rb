@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216222323) do
+ActiveRecord::Schema.define(:version => 20120217190540) do
 
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(:version => 20120216222323) do
   end
 
   create_table "calificaciones", :force => true do |t|
-    t.integer  "puntualidad",           :default => 0
-    t.integer  "amigable",              :default => 0
-    t.integer  "conocimiento",          :default => 0
-    t.integer  "claridad",              :default => 0
-    t.integer  "flexibilidad",          :default => 0
+    t.float    "puntualidad",           :default => 0.0
+    t.float    "amigable",              :default => 0.0
+    t.float    "conocimiento",          :default => 0.0
+    t.float    "claridad",              :default => 0.0
+    t.float    "flexibilidad",          :default => 0.0
     t.float    "promedio"
     t.text     "critica"
-    t.integer  "facilidad",             :default => 0
+    t.float    "facilidad",             :default => 0.0
     t.float    "calificacion_obtenida"
     t.integer  "usuario_id"
     t.integer  "curso_profesor_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20120216222323) do
 
   create_table "cursos", :force => true do |t|
     t.string   "nombre"
-    t.integer  "campus_id",  :null => false
+    t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20120216222323) do
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "votes_count", :default => 0
   end
 
   create_table "universidades", :force => true do |t|

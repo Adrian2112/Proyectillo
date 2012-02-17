@@ -7,8 +7,6 @@ class Propuesta < ActiveRecord::Base
   
   validates :titulo, :descripcion, :categoria, presence: true
   
-  def votos
-    Vote.find_all_by_voteable_id(id).size
-  end
+  alias_method :votos, :votes_count
   
 end
