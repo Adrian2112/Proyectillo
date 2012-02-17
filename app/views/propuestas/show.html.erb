@@ -36,10 +36,10 @@
 <% elsif current_usuario.id == @propuesta.usuario_id %>
   <div>Yo la cree</div>
 <% else %>
-  <%= link_to 'vote up', vote_up_campus_propuesta_path(@campus, @propuesta), :method => :post %>
+  <div id="votos">
+  <%= link_to 'vote up', vote_up_campus_propuesta_path(@campus, @propuesta), :remote => true, :method => :post, :id => "voto_favor" %>
+  </div>
 <% end %>
 
-<% if current_usuario.id == @propuesta.usuario_id %>
-  <%= link_to 'Edit', edit_campus_propuesta_path(@campus, @propuesta) %> |
-<% end %>
+<%= link_to 'Edit', edit_campus_propuesta_path(@campus, @propuesta) %> |
 <%= link_to 'Back', campus_propuestas_path(@campus) %>

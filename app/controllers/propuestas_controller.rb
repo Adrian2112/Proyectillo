@@ -3,7 +3,7 @@ class PropuestasController < ApplicationController
   # GET /propuestas.xml
   def index
     @campus = Campus.find(params[:campus_id])
-    @propuestas = @campus.propuestas
+    @propuestas = @campus.propuestas  #.order(params[:orden])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -94,7 +94,7 @@ class PropuestasController < ApplicationController
       #TODO verificar si usuario no esta loggeado
       @campus = Campus.find(params[:campus_id])
       current_usuario.vote_for(@propuesta = Propuesta.find(params[:id]))
-      redirect_to campus_propuesta_path(@campus, @propuesta)
+      #redirect_to campus_propuesta_path(@campus, @propuesta)
     rescue ActiveRecord::RecordInvalid
       render :nothing => true, :status => 404
     end

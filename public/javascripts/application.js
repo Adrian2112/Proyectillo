@@ -24,6 +24,7 @@ $(document).ready(function(){
 		    $('html, body').animate({scrollTop:target_top}, 500);
 	    });
     }
+
 });
 
 
