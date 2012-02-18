@@ -25,6 +25,7 @@ gem 'hpricot'
 #Gemas para hacer trabajos despues
 gem 'delayed_job'
 gem 'thumbs_up'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 
 
