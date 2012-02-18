@@ -31,14 +31,18 @@
 </p>
 
 <br />
-<% if current_usuario.voted_on?(@propuesta) %>
-  <div>VOTADO</div>
-<% elsif current_usuario.id == @propuesta.usuario_id %>
-  <div>Yo la cree</div>
+<% if usuario_signed_in? %>
+  <% if current_usuario.voted_on?(@propuesta) %>
+    <div>VOTADO</div>
+  <% elsif current_usuario.id == @propuesta.usuario_id %>
+    <div>Yo la cree</div>
+  <% else %>
+    <div id="votos">
+    <%= link_to 'vote up', vote_up_campus_propuesta_path(@campus, @propuesta), :remote => true, :method => :post, :id => "voto_favor" %>
+    </div>
+  <% end %>
 <% else %>
-  <div id="votos">
-  <%= link_to 'vote up', vote_up_campus_propuesta_path(@campus, @propuesta), :remote => true, :method => :post, :id => "voto_favor" %>
-  </div>
+  <div>Regístrate para apoyar la iniciativa</div>
 <% end %>
 
 <%= link_to 'Edit', edit_campus_propuesta_path(@campus, @propuesta) %> |
