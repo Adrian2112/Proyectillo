@@ -29,7 +29,6 @@ class Profesor < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :cursos
   attr_reader :cursos_tokens
-  attr_reader :add_cursos_tokens
   
   def to_s
     self.nombre_completo

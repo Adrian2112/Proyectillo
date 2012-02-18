@@ -133,7 +133,7 @@ function display_comments(id){
 
 function crea_curso(nombre){  
   // $("#profesor_cursos_tokens").tokenInput("add", {id: "new_"+(new Date().getTime()), nombre: nombre} );
-  nombre = nombre.replace(" (crear curso)", "");
+  nombre = nombre.replace(" (Crear este curso)", "");
   var input = document.createElement("input");
   $(input).hide();
   $(input).attr("value",nombre);
@@ -201,28 +201,8 @@ $(function(){
 		prePopulate: $("#profesor_cursos_tokens").data("pre"),
 		onResult : function(results){
 		  
-		  results.unshift({'id':'new','nombre':$("#token-input-profesor_cursos_tokens").val() + " (crear curso)"})
+		  results.unshift({'id':'new','nombre':$("#token-input-profesor_cursos_tokens").val() + " (Crear este curso)"})
       return results;
-/*      if(results.length <= 0){
-        $("#token-input-profesor_cursos_tokens").bind("keypress",function(e){
-          if(e.keyCode == 13) {
-            var nombre = $("#token-input-profesor_cursos_tokens").val();
-            if(curso_existe_en_lista(nombre)){
-              $("#token-input-profesor_cursos_tokens").val("");
-            }else{              
-              crea_curso(nombre);
-            }
-            $("#token-input-profesor_cursos_tokens").unbind("keypress");                        
-          }else{
-            $("#token-input-profesor_cursos_tokens").unbind("keypress");            
-            return e;
-          }
-        });
-      }else{
-        results.unshift({'id':'new','nombre':$("#token-input-profesor_cursos_tokens").val()})
-        return results;
-      }
-*/
 		},
 		
 		onAdd : function(item){
