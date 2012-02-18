@@ -1,5 +1,7 @@
-Factory.define :comentario do |f|
-  f.comentario "Esto es un buen comentario"
-  f.usuario {|a| a.association(:usuario)}
-  f.calificacion {|a| a.association(:calificacion)}
+FactoryGirl.define do
+  factory :comentario do
+    comentario "Esto es un buen comentario"
+    association :usuario, :factory => :usuario
+    association :calificacion, :factory => :calificacion
+  end
 end

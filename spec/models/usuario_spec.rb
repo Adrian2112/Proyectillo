@@ -182,4 +182,107 @@ describe Usuario do
       end
     end
   end
+  describe 'Associations' do
+    context 'autenticaciones' do
+      before(:each) do
+        2.times{usuario.autenticaciones << Factory(:autenticacion)}
+      end
+      it 'return an empty array when no autentications related' do
+        usuario.autenticaciones = []
+        usuario.autenticaciones.should == []
+      end
+
+      it 'returns two autentications when has two autenticaciones' do
+        usuario.autenticaciones.size.should == 2
+      end
+      it 'should delete autenticaciones when user is deleted' do
+        usuario.destroy
+        Autenticacion.find_all_by_usuario_id(usuario.id).should == []
+      end
+    end
+    context 'comentarios' do
+      before(:each) do
+        3.times{Factory(:comentario, :usuario_id => usuario.id)}
+      end
+      it 'return an empty array of comments when no related' do
+        usuario.comentarios = []
+        usuario.comentarios.should == []
+      end
+      it 'returns a size of 3 when user made 3 comments' do
+        usuario.comentarios.size.should == 3
+      end
+
+      it 'should delete comentarios when user is deleted' do
+        usuario.destroy
+        Comentario.find_all_by_usuario_id(usuario.id).should == []
+      end
+    end
+    context 'likes' do
+      before(:each) do
+        3.times {Factory(:like, :usuario_id => usuario.id)}
+      end
+      it 'return an empty array of comments when no related' do
+        usuario.likes = []
+        usuario.likes.should == []
+      end
+      it 'returns a size of 3 when user made 3 comments' do
+        usuario.likes.size.should == 3
+      end
+
+      it 'should delete comentarios when user is deleted' do
+        usuario.destroy
+        Like.find_all_by_usuario_id(usuario.id).should == []
+      end
+    end
+    context 'flags' do
+       before(:each) do
+          3.times {Factory(:flag, :usuario_id => usuario.id)}
+        end
+        it 'return an empty array of comments when no related' do
+          usuario.flags = []
+          usuario.flags.should == []
+        end
+        it 'returns a size of 3 when user made 3 comments' do
+          usuario.flags.size.should == 3
+        end
+        it 'should delete comentarios when user is deleted' do
+          usuario.destroy
+          Flag.find_all_by_usuario_id(usuario.id).should == []
+        end
+    end
+    context 'calificaciones' do
+      before(:each) do
+        3.times{Factory(:calificacion, :usuario_id => usuario.id)}
+      end
+      it 'return an empty array of comments when no related' do
+        usuario.calificaciones = []
+        usuario.calificaciones.should == []
+      end
+      it 'returns a size of 3 when user made 3 comments' do
+        usuario.calificaciones.size.should == 3
+      end
+      it 'should delete comentarios when user is deleted' do
+        usuario.destroy
+        Calificacion.find_all_by_usuario_id(usuario.id).should == []
+      end
+    end
+    context 'universidad' do
+      it 'should have a university asigned' do
+        usuario.universidad.should_not be_nil
+      end
+      it 'is not valid when no university asigned' do
+        usuario.universidad = nil
+        usuario.should_not be_valid
+      end
+    end
+    context 'campus' do
+      it 'should have a campus asigned' do
+        usuario.campus.should_not  be_nil
+      end
+      it 'is not valid when no campus asigned' do
+        usuario.campus = nil
+        usuario.should_not be_valid
+      end
+    end
+  end
 end
