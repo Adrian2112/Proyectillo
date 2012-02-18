@@ -142,3 +142,11 @@ es:
   
   false_value: "No"
   true_value: "Si"
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Sig &rsaquo;"
+      truncate: "..."
