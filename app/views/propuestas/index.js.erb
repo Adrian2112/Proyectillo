@@ -1,1 +1,13 @@
+
 $('#listado_propuestas').html("<%= escape_javascript(render 'propuestas') %>");
+
+var url_actual = $(location).attr('href').split('?')[0];
+var params = [];
+<% if params[:page].present? %>
+  params.push("page=" + <%= params[:page] %>);
+<% end %>
+<% if params[:orden].present? %>
+  params.push("orden=" + "<%= params[:orden].gsub(' ', '+') %>");
+<% end %>
+params = (params.length == 0 ? "" : "?") + params.join('&');
+history.replaceState(null, document.title, url_actual + params);
