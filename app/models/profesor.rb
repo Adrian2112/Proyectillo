@@ -21,6 +21,7 @@ class Profesor < ActiveRecord::Base
   
   validates :nombre, :presence => true
   validates :apellido_paterno, :presence => true
+  validates :campus_id, :presence => true
   #validate :nombre_completo_unico
   validate :minimo_un_curso
   
@@ -46,7 +47,7 @@ class Profesor < ActiveRecord::Base
       '-'
     else
       prom = calificaciones.average(:promedio)
-      prom.nan? ? 0.0 : '%.1f' % prom
+      prom.nan? ? 0.0 : ('%.1f' % prom).to_f
     end
   end
   
@@ -56,15 +57,11 @@ class Profesor < ActiveRecord::Base
   end
   
   def minimo_un_curso
-    errors.add_to_base "El profesor debe tener al menos un curso asignado" if cursos.size <= 0
+    errors.add(:base, "El profesor debe tener al menos un curso asignado") if cursos.size <= 0
   end
 
   def nombres_cursos
-    cursos = ""
-    self.cursos.each do |curso|
-      cursos = cursos + "," + curso.nombre
-    end
-    cursos
+    self.cursos.map(&:nombre).join(",")
   end
   
 end
