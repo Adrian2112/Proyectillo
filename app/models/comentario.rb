@@ -16,6 +16,8 @@ class Comentario < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :calificacion
   
+  validates :calificacion_id, :usuario, :presence => true
+
   default_scope order('created_at ASC')
   
 end
