@@ -19,10 +19,7 @@ class Profesor < ActiveRecord::Base
   belongs_to :campus
   delegate :universidad, :to => :campus
   
-  validates :nombre, :presence => true
-  validates :apellido_paterno, :presence => true
-  validates :campus_id, :presence => true
-  #validate :nombre_completo_unico
+  validates :nombre, :apellido_paterno, :campus_id, :presence => true
   validate :minimo_un_curso
   
   has_many :curso_profesor, :dependent => :destroy
