@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     # variables para mostrar la universidad y el campus seleccionados en la forma de registro
-    universidad = Universidad.find(params[:usuario][:universidad_id])
+    universidad = Universidad.find(params[:usuario][:universidad_id]) if params[:usuario][:universidad_id].present?
     campus = universidad.campus.find(params[:usuario][:campus_id]) if universidad and params[:usuario][:campus_id].present?
     @universidad_data = universidad.nil? ? "" : [{:id => universidad.id, :nombre => universidad.nombre}].to_json
     @campus_data = campus.nil? ? "" : [{:id => campus.id, :nombre => campus.nombre }].to_json
