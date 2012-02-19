@@ -42,6 +42,7 @@ class Usuario < ActiveRecord::Base
   has_many :flags, :dependent => :destroy
   has_many :calificaciones, :dependent => :nullify
   has_many :propuestas
+  has_many :votes, :as => :voter
   belongs_to :universidad
   belongs_to :campus
   

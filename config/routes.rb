@@ -50,6 +50,10 @@ Calmecac::Application.routes.draw do
   
   resources :campus, :path => "campus" do
     resources :propuestas do
+      collection do
+        get :mis_votos
+        get :mis_propuestas, :controller => "propuestas", :action => "mis_propuestas"
+      end
       member do
         post :vote_up
       end
