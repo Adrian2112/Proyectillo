@@ -16,6 +16,9 @@ class Universidad < ActiveRecord::Base
 
   validates :nombre, :uniqueness => true, 
                      :presence => true
+                     
+  extend FriendlyId
+  friendly_id :nombre, use: :slugged
   
   def to_s
     nombre

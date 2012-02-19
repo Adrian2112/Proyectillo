@@ -19,6 +19,9 @@ class Campus < ActiveRecord::Base
   has_many :propuestas
 
   validates :nombre, :uniqueness => {:scope => :universidad_id}
+  
+  extend FriendlyId
+  friendly_id :nombre, use: :slugged  #=> In production: Campus.find_each(&:save)
 
   def to_s
     nombre

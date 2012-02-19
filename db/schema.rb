@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217190540) do
+ActiveRecord::Schema.define(:version => 20120219000815) do
 
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"
@@ -46,7 +46,10 @@ ActiveRecord::Schema.define(:version => 20120217190540) do
     t.integer  "universidad_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "campus", ["slug"], :name => "index_campus_on_slug"
 
   create_table "comentarios", :force => true do |t|
     t.text     "comentario"
@@ -107,7 +110,10 @@ ActiveRecord::Schema.define(:version => 20120217190540) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "slug"
   end
+
+  add_index "profesores", ["slug"], :name => "index_profesores_on_slug"
 
   create_table "propuestas", :force => true do |t|
     t.string   "titulo"
@@ -124,7 +130,10 @@ ActiveRecord::Schema.define(:version => 20120217190540) do
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "universidades", ["slug"], :name => "index_universidades_on_slug"
 
   create_table "usuarios", :force => true do |t|
     t.string   "username"

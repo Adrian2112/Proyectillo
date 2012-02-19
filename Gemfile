@@ -26,6 +26,7 @@ gem 'hpricot'
 gem 'delayed_job'
 gem 'thumbs_up'
 gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'friendly_id'
 
 
 

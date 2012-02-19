@@ -14,7 +14,7 @@
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :add_cursos_tokens
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :add_cursos_tokens, :url_profesor
   
   belongs_to :campus
   delegate :universidad, :to => :campus
@@ -29,6 +29,9 @@ class Profesor < ActiveRecord::Base
   has_many :cursos, :through => :curso_profesor
   
   mount_uploader :avatar, AvatarUploader
+  
+  extend FriendlyId
+  friendly_id :url_profesor, use: :slugged
   
   attr_reader :cursos_tokens
   attr_reader :add_cursos_tokens
@@ -65,6 +68,11 @@ class Profesor < ActiveRecord::Base
       cursos = cursos + "," + curso.nombre
     end
     cursos
+  end
+  
+  protected
+  def url_profesor
+    nombre_completo.gsub(' ','-')
   end
   
 end
