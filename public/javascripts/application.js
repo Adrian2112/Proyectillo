@@ -83,8 +83,8 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 				$("#"+campus_input_id).tokenInput($("#"+campus_input_id).data("url"), {
 					propertyToSearch: "nombre",
 					tokenLimit: 1,
-                    hintText: 'Introduce una Uni',
-                    searchingText: 'Introduce una Uni',
+                    hintText: 'Teclea el nombre',
+                    searchingText: 'Teclea el nombre',
                     noResultsText: 'No se encontraron resultados',
 					theme: tema,
 					preventDuplicates: true,
