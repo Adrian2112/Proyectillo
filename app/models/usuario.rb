@@ -44,7 +44,7 @@ class Usuario < ActiveRecord::Base
   
   ROLES = ["Usuario", "Administrador"]
   
-  validates_inclusion_of :rol, :in => ROLES
+  validates :rol, :inclusion => {:in => ROLES}
   validates :campus_id, :presence => true
   validates :universidad_id, :presence => true
   validates :username, :presence => true,

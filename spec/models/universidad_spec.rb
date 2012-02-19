@@ -42,13 +42,13 @@ describe Universidad do
     end
     
     describe '#nombres' do
-     it 'should return the campus name with a comma as first character' do
+     it 'should return the campus name ' do
        universidad.campus << Factory(:campus)
-       universidad.nombres.should == ",Campus Monterrey 1"
+       universidad.nombres.should == universidad.campus.map(&:nombre).join(",")
      end
      it 'should return the campus nombres with a comma separated' do
        3.times { universidad.campus.push Factory(:campus) }
-       universidad.nombres.should == ",Campus Monterrey 2,Campus Monterrey 3,Campus Monterrey 4"
+       universidad.nombres.should == universidad.campus.map(&:nombre).join(",")
      end
      it 'should return an empty string if no campus related' do
        universidad.campus = []
@@ -63,7 +63,7 @@ describe Universidad do
         universidad.campus.should == []
       end
       it 'should return an array of 3 campus when related to 3 campus' do
-        3.times { universidad.campus.push Factory(:campus) }
+        3.times { Factory(:campus, :universidad_id => universidad.id) }
         universidad.campus.count.should eql 3 
       end
     end
@@ -84,7 +84,7 @@ describe Universidad do
         universidad.usuarios.should == []
       end
       it 'should return an array of 3 usuarios when related to 3 usuarios' do
-        3.times {universidad.usuarios << Factory(:usuario)}
+        3.times {Factory(:usuario, :universidad_id => universidad.id)}
         universidad.usuarios.count.should eql 3
       end
     end
