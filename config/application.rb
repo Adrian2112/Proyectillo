@@ -14,6 +14,7 @@ module Calmecac
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths << "#{config.root}/lib"    # Settings in config/environments/* take precedence over those specified here.
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -38,30 +39,7 @@ module Calmecac
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
-  
-  if ENV['RAILS_ENV'] == "production"
-    config.action_mailer.smtp_settings = {
-      :domain          => "contacto@calmecac.me", 
-      :address         => 'localhost',          
-      :port            => 25,                                           
-      :authentication  => :plain,                    
-      :user_name       => 'contacto@calmecac.me', 
-      :password        => 'Calmecac2011',            
-      :enable_starttls_auto => false
-    }
-  else
-    config.action_mailer.smtp_settings = {
-      :domain          => "aktestcontact@gmail.com", 
-      :address         => 'smtp.gmail.com',          
-      :port            => 587,                                           
-      :authentication  => :plain,                    
-      :user_name       => 'aktestcontact@gmail.com', 
-      :password        => 'cwiolcpd',            
-      :enable_starttls_auto => true
-    }
-  end
-  
+    config.filter_parameters += [:password]  
 
     #monkey patch devise to work with cancan
     config.to_prepare do
