@@ -40,6 +40,7 @@ class Calificacion < ActiveRecord::Base
                                     :inclusion => {:in => (0..100), :allow_nil => true, :message => "xx"}
   
   validates :usuario_id, :uniqueness => {:scope => [:curso_profesor_id], :message => "ya has comentado aqui"}
+  validates :promedio, :presence => true
   
   default_scope order('likes_count DESC, created_at DESC')
   
