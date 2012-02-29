@@ -30,7 +30,7 @@ class Calificacion < ActiveRecord::Base
   belongs_to :curso_profesor
   delegate :profesor, :curso, :to => :curso_profesor
   
-  before_save :calcula_promedio
+  before_validation :calcula_promedio
 
   validates :puntualidad, :amigable, :conocimiento, 
             :claridad, :flexibilidad, :facilidad, :numericality => true,
