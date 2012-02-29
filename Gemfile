@@ -24,6 +24,8 @@ gem 'contacts', :git => 'git://github.com/agentrock/contacts.git'
 gem 'hpricot'
 #Gemas para hacer trabajos despues
 gem 'delayed_job'
+gem 'exception_notification'
+gem 'letter_opener', :group => :development
 
 
 group :development, :test do

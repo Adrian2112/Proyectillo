@@ -44,6 +44,11 @@ Calmecac::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
+  
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'no-reply@calmecac.me',
+    exception_recipients: ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
+  
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify

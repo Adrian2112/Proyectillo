@@ -26,7 +26,11 @@ Calmecac::Application.configure do
   # For devise usage - Change the url for the host on deploy
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.middleware.use ExceptionNotifier,
+    sender_address: 'no-reply@calmecac.me',
+    exception_recipients: ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
+
   # Sending email
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener
 end
 
