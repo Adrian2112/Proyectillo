@@ -46,8 +46,8 @@ Calmecac::Application.configure do
   config.i18n.fallbacks = true
   
   config.middleware.use ExceptionNotifier,
-    sender_address: 'no-reply@calmecac.me',
-    exception_recipients: ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
+    :sender_address => 'no-reply@calmecac.me',
+    :exception_recipients => ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
   
 
   # Send deprecation notices to registered listeners

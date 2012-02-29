@@ -27,8 +27,8 @@ Calmecac::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.middleware.use ExceptionNotifier,
-    sender_address: 'no-reply@calmecac.me',
-    exception_recipients: ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
+    :sender_address => 'no-reply@calmecac.me',
+    :exception_recipients => ['kurenn@calmecac.me', 'adrian@calmecac.me', 'edo@calmecac.me']
 
   # Sending email
   config.action_mailer.delivery_method = :letter_opener
