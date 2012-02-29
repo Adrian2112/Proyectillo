@@ -45,7 +45,7 @@ class Calificacion < ActiveRecord::Base
   default_scope order('likes_count DESC, created_at DESC')
   
   def calcula_promedio
-    promedio = (puntualidad + amigable + conocimiento + claridad + flexibilidad) / 5
+    self.promedio = (self.puntualidad + self.amigable + self.conocimiento + self.claridad + self.flexibilidad) / 5
   end
 
 end
