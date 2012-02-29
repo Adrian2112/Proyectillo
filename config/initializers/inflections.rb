@@ -12,5 +12,6 @@ inflect.irregular 'account', 'accounts'
 inflect.irregular 'password', 'passwords'
 inflect.irregular 'session', 'sessions'
 inflect.irregular 'campus', 'campus'
+inflect.irregular 'propuesta_tag', 'propuestas_tags'
 
 end

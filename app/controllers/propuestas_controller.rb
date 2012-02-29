@@ -14,21 +14,20 @@ class PropuestasController < ApplicationController
   
   def mis_votos
     @campus = Campus.find(params[:campus_id])
-    current_usuario.votes.map {|voto| @propuestas << voto.voteable}
-    @propuestas.page(params[:page]).per(10)
-    redirect_to campus_propuestas_path(@campus)
+    @propuestas = []
+    current_usuario.votes.each {|voto| @propuestas.push voto.voteable}
+    Kaminari.paginate_array(@propuestas).page(params[:page]).per(10)
   
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @propuestas }
-      format.js
+      format.js { render 'index.js' }
     end
   end
   
   def mis_propuestas
     @campus = Campus.find(params[:campus_id])
     @propuestas = current_usuario.propuestas.page(params[:page]).per(10)
-    
 
     respond_to do |format|
       format.html 

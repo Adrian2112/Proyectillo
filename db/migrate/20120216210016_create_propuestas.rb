@@ -3,7 +3,6 @@ class CreatePropuestas < ActiveRecord::Migration
     create_table :propuestas do |t|
       t.string :titulo
       t.text :descripcion
-      t.string :categoria
       t.integer :usuario_id
       t.integer :campus_id
 

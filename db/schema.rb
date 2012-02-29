@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219000815) do
+ActiveRecord::Schema.define(:version => 20120229045341) do
 
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"
@@ -118,12 +118,24 @@ ActiveRecord::Schema.define(:version => 20120219000815) do
   create_table "propuestas", :force => true do |t|
     t.string   "titulo"
     t.text     "descripcion"
-    t.string   "categoria"
     t.integer  "usuario_id"
     t.integer  "campus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "votes_count", :default => 0
+  end
+
+  create_table "propuestas_tags", :force => true do |t|
+    t.integer  "propuesta_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "universidades", :force => true do |t|
