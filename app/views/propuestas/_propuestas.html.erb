@@ -3,7 +3,7 @@
     <th>Votos</th> 
     <th>Titulo</th>
     <th>Descripcion</th>
-    <th>Categoria</th>
+    <th>Tags</th>
     <th>Creador</th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
     <td><%= propuesta.votos %></td>
     <td><%= propuesta.titulo %></td>
     <td><%= propuesta.descripcion %></td>
-    <td><%= propuesta.categoria %></td>
+    <td><%= propuesta.tags %></td>
     <td><%= propuesta.usuario.username  %></td>
     <td><%= link_to 'Show', campus_propuesta_path(@campus, propuesta) %></td>
     <td><%= link_to 'Edit', edit_campus_propuesta_path(@campus, propuesta) %></td>

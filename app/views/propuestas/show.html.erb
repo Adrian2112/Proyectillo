@@ -16,18 +16,13 @@
 </p>
 
 <p>
-  <b>Categoria:</b>
-  <%= @propuesta.categoria %>
+  <b>Tags:</b>
+  <%= @propuesta.tags.join(', ') %>
 </p>
 
 <p>
   <b>Sugerida por:</b>
   <%= @propuesta.usuario.username %>, <%= @propuesta.created_at.time.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Categoria:</b>
-  <%= @propuesta.categoria %>
 </p>
 
 <br />

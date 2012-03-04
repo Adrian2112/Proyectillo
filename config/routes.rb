@@ -29,6 +29,8 @@ Calmecac::Application.routes.draw do
 
   get 'pages/mas_resultados'
   
+  get 'tags/index'
+  
   resources :universidades, :shallow => true do
     
     collection do

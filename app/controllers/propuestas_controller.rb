@@ -72,6 +72,8 @@ class PropuestasController < ApplicationController
     @campus = Campus.find(params[:campus_id])
     @propuesta = @campus.propuestas.build(params[:propuesta])
     @propuesta.usuario_id = current_usuario.id    #TODO verificar que usuarios no loggeados
+    
+    @profesor = current_usuario.campus.profesores.build(params[:profesor])
 
     respond_to do |format|
       if @propuesta.save

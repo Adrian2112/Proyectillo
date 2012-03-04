@@ -19,10 +19,10 @@
     <%= f.label :descripcion %><br />
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
-    <%= f.label :categoria %><br />
-    <%= f.text_field :categoria %>
-  </div>
+  <%= f.fields_for :tag do |t| %>
+    <%= t.label :tags_tokens %><br />
+    <%= t.text_field :tags_tokens, "data-pre" => @propuesta.tags.map(&:attributes).to_json, :id => 'tags_propuestas' %>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

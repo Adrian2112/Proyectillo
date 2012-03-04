@@ -201,6 +201,52 @@ $(function(){
       $(".tooltip").tipTip();
   });
   
+  $('#tags_propuestas').tokenInput("/tags/index.json", {
+        propertyToSearch: "nombre",
+	    theme: '',
+	    hintText: 'Introduce un tag',
+        searchingText: 'Introduce un tag',
+        noResultsText: 'No se encontraron resultados',
+	    preventDuplicates: true,
+	    prePopulate: $("#tags_propuestas").data("pre"),
+	
+	    onResult : function(results) {
+
+        results.unshift({'id':'new','nombre':$("#token-input-tags_propuestas").val() + " (Crear este tag)"})
+              return results;
+        },
+
+        onAdd : function(item){
+            if(item.id == 'new'){
+                item.id = "new_"+(new Date().getTime());
+                crea_tag(item.nombre);
+            }
+        },
+        
+        onDelete : function(item){
+            $.each($(this).siblings("input"), function(i, e){
+                if($(e).val() == item.nombre){
+                    $(e).remove();
+                }
+            });
+        },
+
+        onReady : function(){
+            $(this).keypress(function(e){
+                return e.keyCode != 13;
+            });
+        }
+  });
+  
+  function crea_tag(nombre){
+      nombre = nombre.replace(" (Crear este tag)", "");
+      var input = document.createElement("input");
+      $(input).hide();
+      $(input).attr("value",nombre);
+      $(input).attr("name","propuesta[tags]["+new Date().getTime()+"][nombre]");
+      $("#tags_propuestas").after(input);
+    }
+  
   $("div.social-links").load("/share_buttons?url="+encodeURIComponent(location));
 
 });
