@@ -35,7 +35,6 @@ class UniversidadesController < ApplicationController
 
   def create
     @universidad = Universidad.new(params[:universidad])
-
     if @universidad.save
       redirect_to(@universidad, :notice => 'Universidad was successfully created.') 
     else

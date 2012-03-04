@@ -202,5 +202,14 @@ $(function(){
   
   $("div.social-links").load("/share_buttons?url="+encodeURIComponent(location));
 
+  $('#abreviaciones').tagsInput({
+		'defaultText':'Etiqueta',
+		 onAddTag: function(tag){
+			if($(this).tagExist(tag)){
+				$(this).removeTag(tag);
+			} 
+		 }
+  });
+
 });
 

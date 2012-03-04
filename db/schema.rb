@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026031837) do
+ActiveRecord::Schema.define(:version => 20120304060507) do
+
+  create_table "abreviaciones", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "universidad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "autenticaciones", :force => true do |t|
     t.integer  "usuario_id"

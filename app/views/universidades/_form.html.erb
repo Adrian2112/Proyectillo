@@ -5,6 +5,10 @@
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
   </div>
+  <div class="field">
+    <%= f.label :abreviaciones_tokens, "Etiquetas" %><br />
+    <%= f.text_field :abreviaciones_tokens, :id => "abreviaciones" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

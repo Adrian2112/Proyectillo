@@ -1,0 +1,459 @@
+Aragón,Mladosich,Edgar Raymundo
+Garza,Cantú,Vidal
+López,Villafañe,Víctor Manuel
+Mariñez,Navarro,Freddy Ramón
+Tello,Peón,Jorge Enrique
+Niedrist,,Gerhard
+Ruiz,,José Fabián
+Torres,Estrada,Pedro Rubén
+Cabral,Torres,René
+García,Olvera,Lester Benito
+Gándara,Fierro,Guillermo
+Morales,Elcoro,Rodrigo
+Ortega,Díaz,Araceli
+Villarreal,Díaz,Mario
+Villarreal,González,Amado
+Villarreal,Paez,Héctor Juan
+Aguilar,Jiménez,Oscar Alejandro
+Alvarez,,Mario Moisés
+Benavides,Lozano,Jorge Alejandro
+Guajardo,Flores,Sara
+Gutiérrez,Uribe,Janet Alejandra
+Hernández,Brenes,Carmen
+Jacobo,Velázquez,Daniel Alberto
+Mújica,Paz,Hugo
+Rito,Palomares,Marco Antonio
+Rojas,de Gante,Cecilia
+Trujillo,Creado,Deyanira Gloria
+Valdez,Fragoso,Aurora
+Welti,Chanes,Jorge Santos
+Bremer,Bremer,Martín Hermann
+Correa,Sandoval,Adriana Nelly
+Lozano,García,Diego Fabián
+Manzano,Camarillo,Mario Guadalupe Francisco
+Azarang,Esfandiari,Mohammad Reza
+Chee,González,Carlos Arnoldo
+González,Velarde,José Luis
+Guemes,Castorena,David
+Hernández,Luna,Alberto Abelardo
+Quintanilla,Flores,Felipe
+Rivas,Vázquez,José Celso
+Rodriguez,Salvador,Marisela
+Smith,Cornejo,Neale Ricardo
+Sánchez,García,José Manuel
+Tijerina,Aguilera,Jacobo
+Velez,Chong,Angel Manuel
+Cortés,Ramírez,Jorge Armando
+Cruz,Matus,Lorena Amelia
+Guedea,Elizalde,Federico
+Jiménez,González,Ricardo
+Vázquez,Muñoz,Zoraida
+Martínez,Sánchez,América
+Ramírez,Flores,Pablo Guillermo
+Treviño,González,Ana Catalina
+Valerio,Ureña,Gabriel
+Garza,Treviño,Juan Gerardo
+Cornaton,Robert,Fabien Joel
+Corzo,Pérez,Gerald Augusto
+Lopez,Zavala,Miguel Angel
+Parra,Saldivar,Roberto
+Phumpiu,Chang,Silvia Patricia
+Ramírez,Orozco,Aldo Iván
+Chávez,Peñaloza,Iván
+González,Saucedo,Marco Antonio
+Gómez,López,María Soledad
+Maldonado,de Lozada,Verónica del Carmen
+Ocañas,Cárdenas,Américo
+Saravia,Sánchez,Felipe
+Sánchez,González,Armando
+Treviño,Rodríguez,Rosa Nelly
+Buendía,Espinosa,Agustín
+Cobas,Flores,Eustolia Elisa
+Corrales,Estrada,Martha
+Dávila,Martínez,Anabella del Rosario
+Díaz,Sáenz,Héctor René
+García,Calderón Díaz,Luis
+Hernández,Pozas,Olivia del Roble
+Husted,Corregan,Bryan William
+Ramos,Garza,Claudia
+Reynoso,Javier,Javier Francisco
+Rodríguez,Rodríguez,Benito Alberto
+Trigos,Salazar,Federico
+Villalba,Moreno,Olivia Yolanda
+Zapata,Cantú,Laura Esther
+Lara,Tenorio,Arturo Gustavo
+Rivera,Orozco,Ernesto
+Fonseca,Ramírez,Alejandro
+Gómez,Tagle Rangel,Rocío
+Hernandez,Perales,Norma Alicia
+Ibarra,Yunez,Alejandro
+Lozano,Martínez,Ernesto
+Ochoa,Setzer,Guadalupe Angélica
+Santillán,Salgado,Roberto Joaquin
+Serrano,Salazar,Carlos
+Cardineau,,Guy Albert
+Diaz,de la Garza,Rocio Isabel
+García,Lara,Silverio
+Hernández,Narváez,Dora Elia
+Molina,Solís,Elsy Genny
+Moreno,Murrieta,Ignacio
+Pacheco,Moscoa,Adriana
+Reyes,Barraza,Eleazar
+Valiente,Banuet,Juan Ignacio
+Arredondo,Zambrano,Celia Esther
+Arámbula,Mercado,Anette
+Cantú,Delgado,Julieta de Jesús
+de la Garza,Rodriguez,Teresa Maria
+Gutiérrez,González,Elsa Virginia
+Iracheta,Almaguer,José Angel Nicolás
+Kiyama,Larrañaga,Claudia Cecilia
+López,Amador,Juan Carlos
+Pacheco,Vázquez,Pedro Damián
+Porsen,Overgaard,Rena
+Sierra,Velasco,Silverio
+Valencia,de los Ríos,Joel
+Villarreal,Ugarte,Luis Fernando
+Fernández,Larralde,Margarita María
+Martínez,Blancarte,Hernán
+Sada,González,Marcela
+Villarreal,Guevara,María Guadalupe
+Arcos,Camargo,Demetrio
+Avalos,Flores,Jorge Alberto
+Balli,Marroquín,María Luisa
+Carrillo,Arriaga,José Gerardo
+Hernández,Cárdenas,Lizette Susana
+Martínez,Gómez,Enrique Francisco José
+Robles,García,Lucia Aidee
+Rodríguez,Fernández,Jesús Javier
+Ruíz,Herrera,Miguel Angel
+Sáenz,Romero,Francisco del Carmen
+Valle,de la O,Adrian
+Carrillo,Martínez,Miguel Angel
+Hernández,Escobar,Claudia Eugenia
+Rangel,Rodriguez,Ignacio
+Torres,Gómez,Jaime
+Velasco,de la Garza,José Humberto
+Brena,Pinero,Ramón Felipe
+Conant,Pablos,Santiago Enrique
+Díaz,López,Pablo Daniel
+Esparza,Martínez,Juan Raúl
+Garrido,Luna,Leonardo
+González,Guerra,Luis Humberto
+Gordillo,Moscoso,José Luis
+Gómez,Martínez,Lorena Guadalupe
+Jiménez,Pérez,Guillermo
+Lavariega,Jarquín,Juan Carlos
+Leal,Flores,Armandina Juana
+Marcos,Abed,Jakeline
+Martínez,Treviño,Yolanda
+Mejorado,Cavazos,Antonio Javier
+Parra,Briones,Alejandro
+Pérez,Cázares,José Raúl
+Ramírez,Velarde,Raúl Valente
+Díaz,de León,Ma. Guadalupe Roque 
+Salazar,Chávez,Rafael
+Salgado,Garza,Luis Ricardo
+Treviño,Alvarado,Víctor Manuel
+Valenzuela,Rendón,Manuel
+Arreola,Risa,Carlos
+Barbosa,Quintana,Alvaro
+Cantú,Reyna,Consuelo
+Cid,García,Angel Neftalí
+Cuervo,Pérez,Luis Eduardo
+Elizondo,Omaña,Carlos Alberto
+Eraña,Rojas,Irma Elisa
+Hambleton,Fuentes,Araceli
+Hernández,Hernández,José Ascención
+Piña,Navarro,María Guadalupe
+Santos,Guzmán,Jesús
+Segura,Azuara,Nancy de los Angeles
+Treviño,Welsh,Jorge
+Villarreal,González,Sergio Alejandro
+Alvarez,Arreola,Jorge
+Ayala,Palomino,Manuel Humberto
+Cervantes,Sandoval,Cristina María
+Elizondo,Torres,Magdalena
+Flores,Garza,Jorge Lorenzo
+Flores,Palacios,María Leticia
+González,Alafita,Ma. Eugenia
+Hernández,Sotillo,Omar Danilo
+Herrera,Zamudio,María del Carmen
+Lerma,Noriega,Claudia Alicia
+Martínez,Garza,Francisco Javier
+Maza,Pérez,Maximiliano
+Mendiola,Delgado,María del Roble
+Ochoa,González,Oscar
+Pérez,Chavarría,Mariela
+Aguayo,Guajardo,Iván
+Andrade,Rosado,Nora Elena
+Betancourt,Guerra,Margarita del Pilar
+del Alto,Hernández,María Concepción
+Dieck,Assad,Flory Anette
+Elizondo,Montemayor,Teresa de Jesus
+Farías,Martínez,Gabriela María
+García,Fabregat Esquivel,Germán
+García,Montoya,Maricela
+González,de la Garza,Mireya Guadalupe
+Lozano,Fernández,Julio César
+Prott,Maldonado,Luis Enrique
+Rodríguez,Morales,Leopoldo
+Simons,,Harmen
+Zambrano,Mañueco,Homero
+Zavaleta,Vázquez,Osmar Hazael
+Aguirre,Villarreal,Luis Ernesto
+Alanís,Sierra,Rosa Gloria
+Alvarado,Larios,Ana María de Guadalupe
+Cruz,Chavira,Julio César
+Cárdenas,Durán,Donato
+Farah,Piñón,Gabriel Gerardo
+Fernandez,Rangel,Eloisa María
+Garza,Barbosa,Roberto
+González,Hernández,Héctor Alejandro
+López,Zapata,Marlon Omar
+Salazar,Tamez,Jorge Iván
+Anderson,Hunter,Susan Lydia
+Gutiérrez,Ménez,Angel Mario
+Martínez,Baca,Alejandro
+Mendoza,Enríquez,Nayra
+Villarreal,Erhard,María del Carmen
+Aguilar,Barajas,Ismael
+Ayala,Gaytán,Edgardo Arturo
+García,Díaz,Rocío
+Ibarra,Salazar,Jorge Aurelio
+Palifka,,Bonnie Jo
+Rodríguez,Guajardo,Raymundo Cruz
+Salazar,Cantú,José de Jesús
+Siller,Pagaza,María Gabriela
+Sisto,,Nicholas Philip
+de Alva,Levy,María
+González,Lara,Gerardo Salvador
+Mendoza,Bolio,Edith
+Montes,Espino Barros,Felipe de Jesús
+Parrilla,Sotomayor,Eduardo Enrique
+Popovic,Karic,Pol
+Reyes,Trigos,Claudia
+Sol,Mora,Pablo Antonio
+Sáenz,Jiménez,María Dolores
+Alvarez,Arreola,Leticia Guadalupe
+Arredondo,Trapero,Florina Guadalupe
+de Gasperín,Gasperín,Rafael Modesto
+de Vales,Oliveros,María Victoria
+Jiménez,Salinas,Belinda
+Molinar,Varela,Miriam del Consuelo
+Sañudo,Velázquez,Martha Eugenia
+Serrano,Bosquet,Francisco Javier
+Sierra,Cavazos,Olga Graciela
+Velázquez,Sánchez,Luz María
+Hernández,Aranda,Raúl Ignacio
+Hinojosa,Espinosa,Carlos Manuel
+Lomas,Treviño,Jorge Alberto
+Probst,Oleszewski,Oliver Matthias
+Rodríguez,Abrego,Francisco
+Rodríguez,Y Masegosa,Rodolfo
+Adriaenséns,Rodríguez,Marianela
+Asín,Lares,Enrique
+Cárdenas,Hinojosa,Bertha Elizabeth
+Flores,Cárdenas,Miguel Angel
+Francke,Ramm,María de Lourdes
+Madero,Gómez,Sergio Manuel
+Maraboto,Quepons,José Manuel
+Quiroga,Treviño,Ana Mariela
+Ramos,Garza,Leticia
+Silva,Leal,Roberto
+Almada,Navarro,Delma Very
+Castañares,Márquez,Eduardo
+Cordero,Cuevas,Raymundo Antonio
+Cázares,Rivera,Enrique
+Fonseca,Rodríguez,Carlos Humberto Francisco de Asis
+Gallegos,Cázares,Sergio
+Gómez,Domínguez,Jorge
+Luna,Villarreal,Kevin
+Matienzo,Cruz,Francisco Carlos
+Nungaray,Pérez,Carlos Enrique
+Pérez,Córdoba,Xavier Alejandro
+Yeomans,Galli,Laura María
+Yeomans,Reyna,Francisco Santiago
+Alfaro,Pérez,José Fernando
+Avila,Ortega,Alfonso
+Baez,Moreno,Jesús Antonio
+Campuzano,Treviño,Gabriel
+Castañón,Avila,Gerardo Antonio
+Contreras,Hinojosa,Cornelio
+Dieck,Assad,Graciano
+Guzmán,Díaz,Ricardo
+Hinojosa,Olivares,Juan M.
+Macías,García,Manuel Eduardo
+Mex,Perera,Jorge Carlos
+Micheloud,,Osvaldo Miguel
+Rodríguez,Dagnino,Ramón Martín
+Vargas,Rosales,César
+Aceves,Campos,Nancy
+Bello,Acosta,Francisco Román Angel
+Bourguet,Díaz,Rafael Ernesto
+Caballero,Gómez,Alberto Adan
+Caffarel,Rodríguez,Graciela
+Cárdenas,Barrón,Leopoldo Eduardo
+Escalante,Vázquez,Edgardo Jorge
+García,Dunna,Eduardo
+García,Meza,Carlos Jesús
+Hinojosa,Cavazos,Juan José
+Kalashnikov,,Viacheslav
+Leal,Garza,Magda Alicia
+Loera,Hernández,Imelda de Jesús
+Pérez,Salazar,Gloria
+Rincón,Arredondo,Héctor
+Ruiz,Cantisani,María Ileana
+Temblador,Pérez,María del Carmen
+Vargas,Treviño,María del Roble
+Cárdenas,Alemán,Eduardo
+Elías,Zúñiga,Alex
+Flores,Valentín,Abiud
+González,Mendívil,Eduardo
+Hendrichs,Troeglen,Nicolás Jorge
+Mancera,Gutiérrez,Alfredo German
+Martínez,Romero,Oscar
+Molina,Solis,Juan Oscar
+Orta,Castañón,Pedro
+Rivera,Solorio,Carlos Iván
+Blanco,Perez,Ricardo
+Garza,Ramírez,Vicente José Julio Clemente
+Lozano,García,Francisco José
+Mendoza,Domínguez,Alberto
+Montesinos,Castellanos,Alejandro
+Ramírez,Hernández,Darinka del Carmen
+Soriano,Gutiérrez,Ricardo Antonio Efrén
+Webb,Balderas,Carlos Guillermo
+Angel,Torres,Ruth Esther
+Arellano,Luevano,Maria Antonieta
+Arroyo,Buruato,María de la Luz
+Barranco,Ortega,Patricia Imelda
+Bautista,Alférez,Alma Edith
+del Angel,Castillo,Martha Catalina
+DeMaría,,Thomas Michael
+Flores,Guajardo,Martha Feliz
+Hernández,Cantú,Raquel
+Jiménez,Martín,Elena
+Leal,Isida,María Robertha
+Marroquín,Garza,Ma. Dolores del Carmen
+Martínez,Cantú,Irma Graciela
+Nava,Bermea,Rosa Nelly
+Rosales,Arellano,Leonor
+Salazar,Ortiz,Juan Francisco
+Torres,Garza,María Guadalupe
+Ulloa,Ortega,Gabriela Herminia
+Valdraf,,Helga Lucia
+Villanueva,Benavides,Idalia Hermelinda
+Alanís,Rodríguez,Juan Antonio
+Albert,Huerta,Jose Armando
+Carrillo,Gamboa,Olivia
+Cienfuegos,Zurita,Dora Elia
+Domínguez,Cuenca,María de los Angeles
+Fabela,Rodriguez,Maria de la Luz
+Galván,Sánchez,Delia Aurora
+García,Lumbreras,Salvador
+Garza,García,José Luis
+Guerrero,Elizondo,Andrés
+Olivo,Suárez,Eusebio
+Pulido,Ríos,Ricardo
+Rodríguez,Gallegos,Ruth
+Ríos,Alejandro,José Guadalupe
+Salinas,Martínez,Norma Patricia
+Salinas,Obregón,Sofía
+Salmerón,Rubio,María Guadalupe
+Santos,Leal,Francisco Xavier
+Sierra,Cavazos,Jorge Homero
+Treviño,Garza,María Graciela
+Uresti,Charre,Eduardo
+Favela,Contreras,Antonio Ramón Xicotencatl
+Garza,Castañón,Luis Eduardo
+Rodríguez,Leal,Ernesto
+Rosas,Cobos,Luis
+Sedas,Gersey,Sergio William
+Sánchez,Chávez,Irma Yolanda
+Castaño,González,Raquel Minerva
+García,De la Torre,Consuelo Adelaida
+Lozano,Fernández,Gerardo
+Pérez,Lozano,María Eugenia
+Rocha,González,Jorge Miguel
+Rodríguez,Garza,Juan Manuel
+de la Garza,García,Jorge
+Farías,Martínez,Manuel
+Garza,Dominguez,Rogelio Isaac
+González,García,Silvia del Socorro
+Hartmann,,Andreas Michael
+Merrem,Alonso,Adriana Corina
+Michalska,Haduch,Agata
+Monforte,García,Gabriela
+Pineda,Garelli,José Luis
+Quevedo,Garza,José Guadalupe
+Quijano,Domínguez,Elena Isabel Victoria
+Ruíz,Cabrera,Raúl Jaime
+Sepúlveda,Martínez,César Javier
+Treviño,Garza,Gerardo
+de la Garza,Martínez,Pablo Rubén
+Díaz,de la Garza,Guillermo
+Martínez,González,Roberto
+Mendoza,Lozano,Adolfo
+Sánchez,Cantú,Rosa María
+Wise,Lozano,Jorge Alberto
+Arriaga,Muzquiz,Juan
+Barraza,Enríquez,Gabriel Arturo
+Cárdenas,Nolazco,Maria Josefina
+Garza,Garza,Oscar
+González,Lozano,Sandra Patricia
+Scheel,Mayenberger,Carlos
+Mariño,Ochoa,Ernesto
+Martínez,Calderón,Luz María
+Rodríguez,Esparza,Blanca Esthela
+Romero,Robles,Laura Eugenia
+Tamez,Ramírez,María del Socorro
+Valencia,Gallegos,Jesús Angel
+Andrianopoulos,Karafotias,Gerry Argyris
+Cobián,González,Juan Carlos
+Collado,Torres,Aurelio
+de León,Rincón,Abril Joana Margarita
+Gabarrot,Arenas,Mariana
+González,Uresti,Luz Araceli
+Gutiérrez,Ahumada,Hugo
+Heredia,Escorza,Eloisa Olivia
+Perni,Spaccini,Orietta
+Smith,,Cintia
+Zeraoui,el Awad,Zidane
+Alanís,González,Macedonio
+Almaguer,Flores,Adriana
+Dieck,Assad,María Elena
+Garza,Rojas,Cleopatra
+Lankenau,Caballero,Dolores Guadalupe
+Pérez,Guardado,Miguel Angel
+Torres,Arcadia,Carmen Celina
+García,Sosa,Edgar Williams
+Gutierrez,Duran,Hector
+Silva,Alanis,María de Jesús
+Altamirano,Barrera,Julio
+García,Rivas,Gerardo de Jesús
+Lara,Díaz,Víctor Javier
+Moreno,Cuevas,Jorge Eugenio
+Scott,Sartini,Sean Patrick
+Tamez,Peña,José Gerardo
+Villela,Martinez,Luis Mario
+Cordero,Diaz,Mary Ana
+Félix,Arce,Carlos
+González,Ruvalcaba,Román
+Guzmán,Huerta,Eduardo Alberto
+Lozano,Lee,Francisco Gerardo
+Morales,Garza,Luis Alonso
+Moreno,Guerrero,Juan Mauro
+Paez,Garza,Juan Homar
+Quintanilla,Gutiérrez,Juan Alberto
+Ramírez,Sánchez,Manuel de Jesús
+Siller,Rodríguez,Jesús
+Treviño,Pérez,Rodolfo Jesús
+Valero,Gómez,Javier
+Vargas,Duárte,Gabriel Martin
+Villegas,Cabello,Oscar
+Domínguez,Cherit,José Guillermo
+de Gárate,Pérez,Luis Eugenio
+Cantú,de la Garza,Juan Gerardo
+Nevero,Muñoz,Juan Antonio
+Peña,Ortega,Luis Omar
+Videa,Vargas,Marcelo Fernando
