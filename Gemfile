@@ -24,6 +24,8 @@ gem 'contacts', :git => 'git://github.com/agentrock/contacts.git'
 gem 'hpricot'
 #Gemas para hacer trabajos despues
 gem 'delayed_job'
+gem 'sunspot_rails'
+gem 'sunspot_solr', :group => :development
 
 
 group :development, :test do

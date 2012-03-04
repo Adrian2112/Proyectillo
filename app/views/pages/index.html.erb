@@ -3,6 +3,13 @@
   <h3>Busca, encuentra y califica a tus profesores</h3>
 <% end %>
 
+<%= form_tag root_path, :method => :get do |f| %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Buscar", :name => nil %>
+	</p>
+<% end %>
+
 <h3>Empieza por aquí</h3> <br/>
 <%= form_tag root_path, :method => :get, :id => "busqueda_general", :class => "generic-form" do |f| %>
 	<div>

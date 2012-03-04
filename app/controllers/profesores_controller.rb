@@ -63,7 +63,7 @@ class ProfesoresController < ApplicationController
     @profesores = Profesor.where("nombre LIKE :profesor OR 
                                   apellido_materno LIKE :profesor OR 
                                   apellido_paterno LIKE :profesor", 
-                                  {:profesor => "%#{params[:profesor_q]}%"} ).page(params[:page]).per(10) 
+                                  {:profesor => "%#{params[:profesor_q]}%"} ).page(params[:page]).order(:nombre).per(10) 
     @profesores = @profesores.scoped(:include => [:cursos, { :campus => :universidad }])   
   end
   

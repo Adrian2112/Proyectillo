@@ -13,9 +13,14 @@ class Universidad < ActiveRecord::Base
   has_many :campus, :dependent => :destroy
   has_many :usuarios
   has_many :profesores, :through => :campus
+  has_many :abreviaciones
 
   validates :nombre, :uniqueness => true, 
                      :presence => true
+  
+  searchable do
+    text :nombre
+  end
   
   def to_s
     nombre
@@ -23,5 +28,9 @@ class Universidad < ActiveRecord::Base
   
   def nombres
     self.campus.map(&:nombre).join(",")
+  end
+  
+  def find_by_universidad_like_name(nombre)
+    where("nombre LIKE ?", "%#{nombre}%")
   end
 end
