@@ -40,6 +40,9 @@ class Profesor < ActiveRecord::Base
     text :universidad do
       universidad.nombre
     end
+    text :abreviaciones, :boost => 5 do
+      universidad.abreviaciones.map(&:nombre)
+    end
   end  
 
   attr_reader :cursos_tokens

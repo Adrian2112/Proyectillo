@@ -22,6 +22,9 @@ class Universidad < ActiveRecord::Base
 
   searchable do
     text :nombre
+    text :abreviaciones, :boost => 20 do
+      abreviaciones.map(&:nombre)
+    end
   end
   
   def to_s
