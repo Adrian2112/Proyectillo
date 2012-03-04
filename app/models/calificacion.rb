@@ -3,17 +3,19 @@
 # Table name: calificaciones
 #
 #  id                    :integer(4)      not null, primary key
-#  puntualidad           :integer(4)
-#  amigable              :integer(4)
-#  conocimiento          :integer(4)
-#  claridad              :integer(4)
-#  flexibilidad          :integer(4)
+#  puntualidad           :float           default(0.0)
+#  amigable              :float           default(0.0)
+#  conocimiento          :float           default(0.0)
+#  claridad              :float           default(0.0)
+#  flexibilidad          :float           default(0.0)
 #  promedio              :float
-#  comentarios           :string(255)
-#  facilidad             :integer(4)
+#  critica               :text
+#  facilidad             :float           default(0.0)
 #  calificacion_obtenida :float
 #  usuario_id            :integer(4)
 #  curso_profesor_id     :integer(4)
+#  likes_count           :integer(4)      default(0)
+#  flags_count           :integer(4)      default(0)
 #  created_at            :datetime
 #  updated_at            :datetime
 #
@@ -30,19 +32,19 @@ class Calificacion < ActiveRecord::Base
   
   before_save :calcula_promedio
 
-  validates_numericality_of :puntualidad, :amigable, :conocimiento, :claridad,
-                            :flexibilidad, :facilidad
-  validates_numericality_of :calificacion_obtenida, :allow_nil => true
-  validates_inclusion_of :puntualidad, :amigable, :conocimiento,
-                          :claridad, :flexibilidad, :facilidad, :in => (0..10)
-  validates_inclusion_of :calificacion_obtenida, :in => (0..100), :allow_nil => true, :message => "xx"
-  validates_uniqueness_of :usuario_id, :scope => [:curso_profesor_id], :message => "ya has comentado aqui"
+  validates :puntualidad, :amigable, :conocimiento, 
+            :claridad, :flexibilidad, :facilidad, :numericality => true,
+                                                  :inclusion => {:in => (0..10)}
+                            
+  validates :calificacion_obtenida, :numericality => {:allow_nil => true},
+                                    :inclusion => {:in => (0..100), :allow_nil => true, :message => "xx"}
   
-  default_scope order('likes_count DESC')
-  default_scope order('created_at DESC')
+  validates :usuario_id, :uniqueness => {:scope => [:curso_profesor_id], :message => "ya has comentado aqui"}
+  
+  default_scope order('likes_count DESC, created_at DESC')
   
   def calcula_promedio
-    self.promedio = (self.puntualidad + self.amigable + self.conocimiento + self.claridad + self.flexibilidad) / 5
+    promedio = (puntualidad + amigable + conocimiento + claridad + flexibilidad) / 5
   end
 
 end

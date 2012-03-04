@@ -29,7 +29,6 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'friendly_id'
 
 
-
 group :development, :test do
   gem "nifty-generators"
   gem "faker"
@@ -37,4 +36,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'ruby-debug19', :require => 'ruby-debug' if RUBY_VERSION =~ /1.9/
 end

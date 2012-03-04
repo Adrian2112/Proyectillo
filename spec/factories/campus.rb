@@ -1,6 +1,8 @@
-Factory.define :campus do |f|
-  f.sequence(:nombre) {|i| "Campus Monterrey #{i}"}
-  f.ciudad  "Monterrey"
-  f.estado  "Nuevo Leon"
-  f.universidad {|a| a.association(:universidad)}
+FactoryGirl.define do
+  factory :campus do
+    sequence(:nombre) {|i| "Campus Monterrey #{i}"}
+    ciudad  "Monterrey"
+    estado  "Nuevo Leon"
+    association :universidad, :factory => :universidad
+  end
 end

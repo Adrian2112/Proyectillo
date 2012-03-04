@@ -25,10 +25,6 @@ class Universidad < ActiveRecord::Base
   end
   
   def nombres
-    string = ""
-    self.campus.each do |campus|
-      string = string + "," + campus.nombre
-    end
-    string
+    self.campus.map(&:nombre).join(",")
   end
 end

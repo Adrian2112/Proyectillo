@@ -84,8 +84,8 @@ function campus_universidades_autocomplete(universidad_id, campus_input_name, ca
 				$("#"+campus_input_id).tokenInput($("#"+campus_input_id).data("url"), {
 					propertyToSearch: "nombre",
 					tokenLimit: 1,
-                    hintText: 'Introduce una Uni',
-                    searchingText: 'Introduce una Uni',
+                    hintText: 'Teclea el nombre',
+                    searchingText: 'Teclea el nombre',
                     noResultsText: 'No se encontraron resultados',
 					theme: tema,
 					preventDuplicates: true,
@@ -132,6 +132,27 @@ function display_comments(id){
 	$(".calificaciones_comentarios_" + id).slideToggle("slow");
 }
 
+function crea_curso(nombre){  
+  // $("#profesor_cursos_tokens").tokenInput("add", {id: "new_"+(new Date().getTime()), nombre: nombre} );
+  nombre = nombre.replace(" (Crear este curso)", "");
+  var input = document.createElement("input");
+  $(input).hide();
+  $(input).attr("value",nombre);
+  $(input).attr("name","profesor[cursos_attributes]["+new Date().getTime()+"][nombre]");
+  $("#profesor_cursos_tokens").after(input);
+}
+
+function curso_existe_en_lista(nombre){
+  var existe = false;
+  $.each($("#profesor_cursos_tokens").tokenInput("get"), function(i, e){
+    if(e.nombre == nombre){
+      existe = true;
+    }
+  });
+  return existe; 
+}
+
+
 $(function(){
 	if(window.location.pathname == "/"){
 		campus_universidades_autocomplete("#universidad_id","campus_id", "campus_id", '');
@@ -171,17 +192,41 @@ $(function(){
 	}
 
   //Autcomplete para cursos
-	$("#profesor_add_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
+	$("#profesor_cursos_tokens").tokenInput("/campus/" + $("#profesor_campus_id").val() + "/cursos.json", {
 		propertyToSearch: "nombre",
 		theme: '',
   		hintText: 'Introduce un curso',
       searchingText: 'Introduce un curso',
-      noResultsText: 'No se encontraron resultados',
-		preventDuplicates: true,
-		prePopulate: $("#profesor_cursos_tokens").data("pre")
+      noResultsText: "No se encontro el curso<br/>Presiona enter si quieres crear el curso",
+    preventDuplicates: true,
+		prePopulate: $("#profesor_cursos_tokens").data("pre"),
+		onResult : function(results){
+		  
+		  results.unshift({'id':'new','nombre':$("#token-input-profesor_cursos_tokens").val() + " (Crear este curso)"})
+      return results;
+		},
+		
+		onAdd : function(item){
+		  if(item.id == 'new'){
+		    item.id = "new_"+(new Date().getTime());
+		    crea_curso(item.nombre);
+		  }
+		},		
+		onDelete : function(item){
+		  $.each($(this).siblings("input"), function(i, e){
+		    if($(e).val() == item.nombre){
+		      $(e).remove();
+		    }
+		  });
+		},
+		
+		onReady : function(){
+		  $(this).keypress(function(e){
+        return e.keyCode != 13;
+      });
+		}
 	});
-	
-
+  
   //Cargar tabs de cursos en la vista del profesor
   $('#tabs').tabs({
     create : function(){

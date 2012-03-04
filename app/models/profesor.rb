@@ -14,14 +14,12 @@
 
 class Profesor < ActiveRecord::Base
   
-  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :campus, :add_cursos_tokens, :url_profesor
+  attr_accessible :nombre, :apellido_paterno, :apellido_materno, :avatar, :cursos_tokens, :cursos_attributes, :url_profesor
   
   belongs_to :campus
   delegate :universidad, :to => :campus
   
-  validates :nombre, :presence => true
-  validates :apellido_paterno, :presence => true
-  #validate :nombre_completo_unico
+  validates :nombre, :apellido_paterno, :campus_id, :presence => true
   validate :minimo_un_curso
   
   has_many :curso_profesor, :dependent => :destroy
@@ -33,8 +31,9 @@ class Profesor < ActiveRecord::Base
   extend FriendlyId
   friendly_id :url_profesor, use: :slugged
   
+  accepts_nested_attributes_for :cursos
+
   attr_reader :cursos_tokens
-  attr_reader :add_cursos_tokens
   
   def to_s
     self.nombre_completo
@@ -49,26 +48,23 @@ class Profesor < ActiveRecord::Base
       '-'
     else
       prom = calificaciones.average(:promedio)
-      prom.nan? ? 0.0 : '%.1f' % prom
+      prom.nan? ? 0.0 : ('%.1f' % prom).to_f
     end
   end
-  
-  def add_cursos_tokens=(ids)
-    nuevos = Curso.find(ids.split(","))
-    self.cursos << nuevos
-  end
-  
+    
   def minimo_un_curso
-    errors.add_to_base "El profesor debe tener al menos un curso asignado" if cursos.size <= 0
+    errors.add(:base, "El profesor debe tener al menos un curso asignado") if cursos.size <= 0
   end
 
   def nombres_cursos
-    cursos = ""
-    self.cursos.each do |curso|
-      cursos = cursos + "," + curso.nombre
-    end
-    cursos
+    self.cursos.map(&:nombre).join(",")
   end
+
+  def cursos_tokens=(ids)
+    ids = ids.split(",")
+    ids.delete_if{ |i| i.include?("new") }
+    self.curso_ids = ids
+  end  
   
   protected
   def url_profesor

@@ -10,16 +10,12 @@ class CalificacionesController < ApplicationController
     
     if @calificacion.save
       respond_to do |format|
-        format.html {
-          redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')
-        }
+        format.html {redirect_to(:back, :notice => 'Tu calificacion ha sido asignada')}
         format.js
       end
     else
       respond_to do |format|
-        format.html {
-          render :action => "new" 
-        }
+        format.html {render :action => "new" }
         format.js
       end
     end

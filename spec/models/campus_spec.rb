@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: campus
+#
+#  id             :integer(4)      not null, primary key
+#  nombre         :string(255)
+#  ciudad         :string(255)
+#  estado         :string(255)
+#  universidad_id :integer(4)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
 require 'spec_helper'
 
 describe Campus do
@@ -23,6 +36,10 @@ describe Campus do
         campus_2 = Factory.build(:campus, :nombre => campus.nombre, :universidad_id => campus.universidad_id)
         campus_2.should_not be_valid
       end
+      it 'without nombre' do
+        campus.nombre = nil
+        campus.should_not be_valid
+      end
     end
   end
   
@@ -34,7 +51,7 @@ describe Campus do
     end
   end
   
-  describe 'relations' do
+  describe 'associations' do
     context 'universidad' do
       it 'should be related to one universidad' do
         campus.universidad.should_not be_nil

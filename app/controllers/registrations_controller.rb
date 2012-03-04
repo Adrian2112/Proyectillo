@@ -7,7 +7,15 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    # variables para mostrar la universidad y el campus seleccionados en la forma de registro
+    universidad = Universidad.find(params[:usuario][:universidad_id])
+    campus = universidad.campus.find(params[:usuario][:campus_id]) if universidad and params[:usuario][:campus_id].present?
+    @universidad_data = universidad.nil? ? "" : [{:id => universidad.id, :nombre => universidad.nombre}].to_json
+    @campus_data = campus.nil? ? "" : [{:id => campus.id, :nombre => campus.nombre }].to_json
+    @campus_url = universidad ? "/universidades/#{universidad.id}/campus" : ""
+
     super
+    
     # Manda mail con cualquier usuario que se genera en nuestra BD
     Notifications.welcome_message(@usuario).deliver unless @usuario.new_record?
   end

@@ -23,7 +23,7 @@
 </div>
 <br />
 
-<%= link_to "Nuevo Campus", new_universidad_campus_path if can? :create, Campus %>
+<%= link_to "Nuevo Campus", new_universidad_campus_path(@universidad) if can? :create, Campus %>
 
 <div id="next_link">
   <%= render :partial => 'shared/show_more', :object => @campus,

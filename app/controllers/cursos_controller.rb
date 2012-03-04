@@ -3,12 +3,13 @@ class CursosController < ApplicationController
   skip_authorize_resource :only => :mas_resultados
 
   def index
+    
     load_cursos
 
     respond_to do |format|
       format.html
       format.js
-      format.json {render :json => @cursos.map(&:attributes)}
+      format.json {render :json => @cursos.map{ |c| {:id => c.id, :nombre => c.nombre} }}
     end
   end
   
@@ -62,7 +63,16 @@ class CursosController < ApplicationController
   
   def load_cursos    
     @campus = Campus.find(params[:campus_id])
-    @cursos = @campus.cursos.where("cursos.nombre LIKE ?", "%#{params[:q]}%").page(params[:page]).per(10) 
+
+    valores = params[:q].present? ? params[:q].split.map{ |v| "%#{v}%" } : []
+    @cursos = @campus.cursos
+    query = "cursos.nombre LIKE ?"
+    
+    valores.each do |v|
+      @cursos = @cursos.where(query, v)
+    end
+    
+    @cursos = @cursos.page(params[:page]).per(10)
   end
   
 end

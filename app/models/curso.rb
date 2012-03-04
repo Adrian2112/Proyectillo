@@ -17,8 +17,9 @@ class Curso < ActiveRecord::Base
   has_many :profesores, :through => :curso_profesor
   
   # nombres iguales no permitidos en mismo campus
-  validates :nombre, :uniqueness => {:scope => :campus_id}
-  validates :campus_id, :nombre, :presence => true
+  validates :nombre, :uniqueness => {:scope => :campus_id},
+                     :presence => true
+  validates :campus_id, :presence => true
   
   def to_s
     nombre

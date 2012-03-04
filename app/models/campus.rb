@@ -12,16 +12,18 @@
 #
 
 class Campus < ActiveRecord::Base
+
   belongs_to :universidad
   has_many :cursos, :dependent => :destroy
   has_many :profesores, :dependent => :destroy
   has_many :usuarios
   has_many :propuestas
-
-  validates :nombre, :uniqueness => {:scope => :universidad_id}
   
   extend FriendlyId
   friendly_id :nombre, use: :slugged  #=> In production: Campus.find_each(&:save)
+
+  validates :nombre, :uniqueness => {:scope => :universidad_id},
+                     :presence => true
 
   def to_s
     nombre

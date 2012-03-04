@@ -1,9 +1,11 @@
-Factory.define :usuario do |f|
-  f.sequence(:email) {|n| "user#{n}@calmecac.me" }
-  f.sequence(:username) {|n| "user#{n}"}
-  f.rol "Usuario"
-  f.campus_id 1
-  f.universidad_id 1
-  f.password "calmecac"
-  f.password_confirmation "calmecac"
+FactoryGirl.define do
+  factory :usuario do 
+    sequence(:email) {|n| "user#{n}@calmecac.me" }
+    sequence(:username) {|n| "user#{n}"}
+    rol "Usuario"
+    association :campus, :factory => :campus
+    association :universidad, :factory => :universidad
+    password "calmecac"
+    password_confirmation "calmecac"
+  end
 end

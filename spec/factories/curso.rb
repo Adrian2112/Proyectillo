@@ -1,4 +1,6 @@
-Factory.define :curso do |f|
-  f.sequence(:nombre) {|i| "Matematicas #{i}"}
-  f.sequence(:campus_id) {|i| i}
+FactoryGirl.define do 
+    factory :curso do
+      sequence(:nombre) {|i| "Curso #{i}"}
+      association :campus, :factory => :campus
+    end
 end
