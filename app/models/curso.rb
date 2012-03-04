@@ -24,4 +24,8 @@ class Curso < ActiveRecord::Base
   def to_s
     nombre
   end
+  
+  searchable do
+    text :nombre
+  end
 end

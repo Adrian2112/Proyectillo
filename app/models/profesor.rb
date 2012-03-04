@@ -28,6 +28,20 @@ class Profesor < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
+  
+  searchable do
+    text :nombre, :apellido_paterno, :apellido_materno
+    text :cursos do
+      cursos.map(&:nombre)
+    end
+    text :campus do
+      campus.nombre
+    end
+    text :universidad do
+      universidad.nombre
+    end
+  end  
+
   attr_reader :cursos_tokens
   attr_reader :add_cursos_tokens
   

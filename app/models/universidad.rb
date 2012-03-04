@@ -18,8 +18,11 @@ class Universidad < ActiveRecord::Base
   validates :nombre, :uniqueness => true, 
                      :presence => true
   
-  #attr_reader :abreviaciones_tokens
   attr_accessible :nombre, :abreviaciones_tokens
+
+  searchable do
+    text :nombre
+  end
   
   def to_s
     nombre
@@ -28,7 +31,7 @@ class Universidad < ActiveRecord::Base
   def nombres
     self.campus.map(&:nombre).join(",")
   end
-  
+
   def abreviaciones_tokens
     self.abreviaciones.map(&:nombre).join(",")
   end
@@ -43,8 +46,5 @@ class Universidad < ActiveRecord::Base
     end
     tags.each {|tag| self.abreviaciones.find_or_create_by_nombre(tag)}
   end
-  
-  def abreviacion_nombres
-    self.abreviaciones.map(&:nombre)
-  end
+
 end

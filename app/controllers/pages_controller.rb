@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
   
   def index
-    
-    resultados
+    @search = Sunspot.search Profesor, Universidad, Curso do |query|
+      query.fulltext params[:search]
+    end
+    @resultados = @search.results
+    #resultados
         
     respond_to do |format|
       format.html
