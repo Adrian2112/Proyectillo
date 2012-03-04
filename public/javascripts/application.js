@@ -288,7 +288,7 @@ $(function(){
       var input = document.createElement("input");
       $(input).hide();
       $(input).attr("value",nombre);
-      $(input).attr("name","propuesta[tags]["+new Date().getTime()+"][nombre]");
+      $(input).attr("name","propuesta[tags_attributes]["+new Date().getTime()+"][nombre]");
       $("#tags_propuestas").after(input);
     }
   

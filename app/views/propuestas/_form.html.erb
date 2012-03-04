@@ -1,15 +1,5 @@
 <%= form_for([@campus, @propuesta], :url => {:controller => :propuestas, :action => (@propuesta.new_record? ? :create : :update) }) do |f| %>
-  <% if @propuesta.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@propuesta.errors.count, "error") %> prohibited this propuesta from being saved:</h2>
-
-      <ul>
-      <% @propuesta.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <div class="field">
     <%= f.label :titulo %><br />
@@ -19,10 +9,16 @@
     <%= f.label :descripcion %><br />
     <%= f.text_area :descripcion %>
   </div>
-  <%= f.fields_for :tag do |t| %>
-    <%= t.label :tags_tokens %><br />
-    <%= t.text_field :tags_tokens, "data-pre" => @propuesta.tags.map(&:attributes).to_json, :id => 'tags_propuestas' %>
-  <% end %>
+  
+  <div class="field">
+		<%= f.label :tags_tokens, "Tags:" %>
+		<%= f.text_field :tags_tokens, "data-pre" => @propuesta.tags.map(&:attributes).to_json, :id => 'tags_propuestas' %>
+
+  	<% @new_tags.try :each_with_index, do |curso, i| %>
+  	  <%= hidden_field_tag "propuesta[tags_attributes][#{Time.now.to_i + i}][nombre]", curso %>
+  	<% end %>
+	</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

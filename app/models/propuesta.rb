@@ -8,17 +8,17 @@ class Propuesta < ActiveRecord::Base
   
   accepts_nested_attributes_for :tags
   
-  attr_accessible :titulo, :descripcion, :categoria, :votos, :usuario_id, :tags_tokens
+  attr_accessible :titulo, :descripcion, :categoria, :votos, :usuario_id, :tags_tokens, :tags_attributes
   
   validates :titulo, :descripcion, presence: true
   
-  def tags_tokends
-    self.tags.map(&:nombre).split(',')
-  end
+  attr_reader :tags_tokens
   
+  accepts_nested_attributes_for :tags
+    
   def tags_tokens=(ids)
     ids = ids.split(",")
-    ids.delete_if {|i| i.include?("new")}
+    ids.delete_if{ |i| i.include?("new") }
     self.tag_ids = ids
   end
   
