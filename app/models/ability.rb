@@ -30,11 +30,13 @@ class Ability
       
       can [:edit_current_usuario], Usuario
       
+      can [:read, :create, :mis_votos, :mis_propuestas, :vote_up], Propuesta
+      
     else
       # usuarios
       can :create, Usuario
       
-      can :read, [Profesor, Universidad, Campus, Curso, Comentario, Calificacion]
+      can :read, [Profesor, Universidad, Campus, Curso, Comentario, Calificacion, Propuesta]
       
     end
     

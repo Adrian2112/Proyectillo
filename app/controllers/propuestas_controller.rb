@@ -1,4 +1,5 @@
 class PropuestasController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @campus = Campus.find(params[:campus_id])

@@ -4,8 +4,8 @@
 
 <%= link_to 'Populares', campus_propuestas_path(@campus, :orden => "votes_count desc"), :remote => true %>
 <%= link_to 'Recientes', campus_propuestas_path(@campus, :orden => "created_at desc"), :remote => true %>
-<%= link_to 'Mis Propuestas', mis_propuestas_campus_propuestas_path(@campus), :remote => true %>
-<%= link_to 'Mis Votos', mis_votos_campus_propuestas_path(@campus), :remote => true %>
+<%= link_to 'Mis Propuestas', mis_propuestas_campus_propuestas_path(@campus), :remote => true if can? :mis_propuestas, Propuesta %>
+<%= link_to 'Mis Votos', mis_votos_campus_propuestas_path(@campus), :remote => true if can? :mis_votos, Propuesta %>
 
 <div id="listado_propuestas">
   <%= render 'propuestas' %>
