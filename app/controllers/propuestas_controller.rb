@@ -14,9 +14,7 @@ class PropuestasController < ApplicationController
   
   def mis_votos
     @campus = Campus.find(params[:campus_id])
-    @propuestas = []
-    current_usuario.votes.each {|voto| @propuestas.push voto.voteable}
-    Kaminari.paginate_array(@propuestas).page(params[:page]).per(10)
+    @propuestas = Propuesta.joins(:votes).where("votes.voter_id" => current_usuario).page(params[:page]).per(10)
   
     respond_to do |format|
       format.html 
