@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  
   helper_method :store_requested_url, :clear_requested_url, :production?
+
+  rescue_from CanCan::AccessDenied do |exception|
+      redirect_to root_url, :alert => "Acceso denegado"
+  end
 
   def current_user
     current_usuario
