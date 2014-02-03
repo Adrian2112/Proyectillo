@@ -10,7 +10,7 @@ gem 'jquery-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '0.2.6'
+gem 'pg'
 gem "annotate", '2.4.0'
 gem 'devise'
 gem "mini_magick"

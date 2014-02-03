@@ -1,7 +1,9 @@
-Factory.define :profesor do |f|
-  f.nombre "Antonio"
-  f.apellido_paterno "Mejorado"
-  f.apellido_materno "Gonzalez"
-  f.association :campus, :factory => :campus
-  f.cursos {|a| [a.association(:curso)]}
+FactoryGirl.define do
+	factory :profesor do
+		nombre "Antonio"
+		apellido_paterno "Mejorado"
+		apellido_materno "Gonzalez"
+		association :campus, :factory => :campus
+		cursos {|a| [a.association(:curso)]}
+	end
 end
