@@ -63,6 +63,6 @@ Calmecac::Application.routes.draw do
   
   resources :comentarios, :only => [:create]
 
-  root :to => "pages#index"
+  root :to => redirect("/usuarios/sign_in")
 
 end
